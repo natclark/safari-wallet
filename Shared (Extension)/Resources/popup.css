@@ -5,61 +5,110 @@
     }
 }
 
+@font-face {
+    font-display: swap;
+    font-family: Graphik;
+    src: local("Graphik"), url("Graphik.otf") format("opentype");
+}
+
 :root {
-    --fg-primary: #ffffff;
-    --fg-secondary: rgba(255, 255, 255, .8);
-    --bg: #262626;
+    --font-1: Graphik, system-ui;
+    --font-2: "SF Mono", system-ui;
+
+    --fg-1: #fff;
+    --fg-2: rgba(255, 255, 255, .8);
+    --fg-3: rgba(219, 219, 219, .8);
+
+    --bg-1: #262626;
 
     color-scheme: light dark;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: var(--bg);
-    font-family: system-ui;
+    background-color: var(--bg-1);
+    font-family: var(--font-1);
     margin: 0;
-    padding: 10px;
+    padding: 0 7px;
     text-align: center;
 }
 
 h1 {
-    color: var(--fg-primary);
+    color: var(--fg-1);
     font-size: 20px;
     font-weight: 600;
+    line-height: 22px;
+    margin: 28px 0 8px;
 }
 
 p {
-    color: var(--fg-secondary);
+    color: var(--fg-2);
+    font-size: 18px;
+    line-height: 20px;
+    margin: 0 0 22px;
+}
+
+.subtitle {
     font-size: 17px;
+    line-height: 19px;
+    margin-bottom: 27px;
+    text-align: center;
 }
 
 .field {
-
+    display: flex;
+    flex-direction: column;
 }
 
 .field__label {
-
+    color: var(--fg-3);
+    font-size: 14px;
+    line-height: 15px;
+    margin-left: 12px;
+    text-align: left;
 }
 
 .field__input {
-
+    background-color: transparent;
+    border: 1px solid #404040;
+    border-radius: 7px;
+    color: var(--fg-1);
+    font-family: var(--font-2);
+    font-size: 15px;
+    height: 38px;
+    line-height: 18px;
+    margin: 4px 0 8px;
 }
 
 .flex {
     align-items: center;
     display: flex;
+    column-gap: 14px;
     justify-content: center;
 }
 
 .button {
-
+    border-radius: 7px;
+    font-size: 20px;
+    line-height: 22px;
+    height: 53px;
+    max-width: 200px;
+    width: 100%;
 }
 
 .button--secondary {
-
+    background-color: #313131;
+    border: 1px solid #414141;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .button--primary {
-
+    background-color: #306ee3;
+    border: 1px solid #437deb;
+    color: var(--fg-1);
 }
 
 @media (prefers-color-scheme: dark) {
