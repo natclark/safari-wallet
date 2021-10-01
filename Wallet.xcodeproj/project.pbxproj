@@ -120,6 +120,7 @@
 		0A0E1EC4270687AE00061EA6 /* Wallet Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Wallet Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A0E1EC9270687AE00061EA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A0E1ECA270687AE00061EA6 /* Wallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wallet.entitlements; sourceTree = "<group>"; };
+		0AE54717270694EB00C4A81F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +164,7 @@
 				0A0E1EAF270687AE00061EA6 /* macOS (App) */,
 				0A0E1EBE270687AE00061EA6 /* iOS (Extension) */,
 				0A0E1EC8270687AE00061EA6 /* macOS (Extension) */,
+				0AE54717270694EB00C4A81F /* README.md */,
 				0A0E1E9D270687AE00061EA6 /* Products */,
 			);
 			sourceTree = "<group>";

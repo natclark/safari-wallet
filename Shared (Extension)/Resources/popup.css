@@ -1,13 +1,65 @@
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition-duration: 0s !important;
+    }
+}
+
 :root {
+    --fg-primary: #ffffff;
+    --fg-secondary: rgba(255, 255, 255, .8);
+    --bg: #262626;
+
     color-scheme: light dark;
 }
 
 body {
-    width: 100px;
-    padding: 10px;
-
+    background-color: var(--bg);
     font-family: system-ui;
+    margin: 0;
+    padding: 10px;
     text-align: center;
+}
+
+h1 {
+    color: var(--fg-primary);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+p {
+    color: var(--fg-secondary);
+    font-size: 17px;
+}
+
+.field {
+
+}
+
+.field__label {
+
+}
+
+.field__input {
+
+}
+
+.flex {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+
+}
+
+.button--secondary {
+
+}
+
+.button--primary {
+
 }
 
 @media (prefers-color-scheme: dark) {
