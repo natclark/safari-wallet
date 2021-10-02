@@ -1,0 +1,116 @@
+@charset 'UTF-8';
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition-duration: 0s !important;
+    }
+}
+
+@font-face {
+    font-display: swap;
+    font-family: Graphik;
+    src: local("Graphik"), url("Graphik.otf") format("opentype");
+}
+
+$font-1: Graphik, system-ui;
+$font-2: "SF Mono", system-ui;
+
+$fg-1: #fff;
+$fg-2: rgba(255, 255, 255, .8);
+$fg-3: rgba(219, 219, 219, .8);
+
+$bg-1: #262626;
+
+* {
+    box-sizing: border-box;
+}
+
+.popover {
+    background-color: $bg-1;
+    bottom: 0;
+    font-family: $font-1;
+    margin: 0;
+    padding: 0 7px;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    z-index: 10000000000;
+
+    h1 {
+        color: $fg-1;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 22px;
+        margin: 28px 0 8px;
+    }
+
+    p {
+        color: $fg-2;
+        font-size: 18px;
+        line-height: 20px;
+        margin: 0 0 22px;
+    }
+
+    .subtitle {
+        font-size: 17px;
+        line-height: 19px;
+        margin-bottom: 27px;
+        text-align: center;
+	}
+
+	.field {
+    	display: flex;
+    	flex-direction: column;
+	}
+
+	.field__label {
+    	color: $fg-3;
+    	font-size: 14px;
+    	line-height: 15px;
+    	margin-left: 12px;
+    	text-align: left;
+	}
+
+	.field__input {
+    	background-color: transparent;
+    	border: 1px solid #404040;
+    	border-radius: 7px;
+    	color: $fg-1;
+    	font-family: $font-2;
+    	font-size: 15px;
+    	height: 38px;
+    	line-height: 18px;
+    	margin: 4px 0 8px;
+	}
+
+	.flex {
+    	align-items: center;
+    	display: flex;
+    	column-gap: 14px;
+    	justify-content: center;
+	}
+
+	.button {
+    	border-radius: 7px;
+    	font-size: 20px;
+    	line-height: 22px;
+    	height: 53px;
+    	max-width: 200px;
+    	width: 100%;
+		&.button--secondary {
+    		background-color: #313131;
+    		border: 1px solid #414141;
+    		color: rgba(255, 255, 255, 0.7);
+		}
+		&.button--primary {
+    		background-color: #306ee3;
+   			border: 1px solid #437deb;
+    		color: $fg-1;
+		}
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+    /* Dark Mode styles go here. */
+}

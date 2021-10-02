@@ -121,7 +121,7 @@
 		0A0E1EC9270687AE00061EA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A0E1ECA270687AE00061EA6 /* Wallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wallet.entitlements; sourceTree = "<group>"; };
 		0AE54717270694EB00C4A81F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		0AE5471A2706A86100C4A81F /* Graphik.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Graphik.otf; sourceTree = "<group>"; };
+		0AE5471D27091C5800C4A81F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +194,7 @@
 		0A0E1E8D270687AE00061EA6 /* Shared (Extension) */ = {
 			isa = PBXGroup;
 			children = (
+				0AE5471C2708FA1B00C4A81F /* Popup */,
 				0A0E1E8E270687AE00061EA6 /* SafariWebExtensionHandler.swift */,
 				0A0E1E8F270687AE00061EA6 /* Resources */,
 			);
@@ -208,10 +209,10 @@
 				0A0E1E92270687AE00061EA6 /* manifest.json */,
 				0A0E1E93270687AE00061EA6 /* background.js */,
 				0A0E1E94270687AE00061EA6 /* content.js */,
-				0AE5471A2706A86100C4A81F /* Graphik.otf */,
 				0A0E1E95270687AE00061EA6 /* popup.html */,
 				0A0E1E96270687AE00061EA6 /* popup.css */,
 				0A0E1E97270687AE00061EA6 /* popup.js */,
+				0AE5471D27091C5800C4A81F /* README.md */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -264,6 +265,13 @@
 				0A0E1ECA270687AE00061EA6 /* Wallet.entitlements */,
 			);
 			path = "macOS (Extension)";
+			sourceTree = "<group>";
+		};
+		0AE5471C2708FA1B00C4A81F /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Popup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

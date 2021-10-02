@@ -1,14 +1,32 @@
-#  Safari Wallet
+# Safari Wallet
 
-## Pop-up
+This is an experiment to see whether we can build a viable browser extension Ethereum wallet for Safari on macOS and especially iOS.
 
-### Setting up the pop-up
+## Overview
+
+A diagram might be useful, but basically the current plan/rundown is:
+
+- The `window.ethereum` object (EIP-1193 JavaScript API) will be injected into each page. This way, the wallet will automatically work with all apps/dApps that support MetaMask.
+
+- For the interface, a custom web popover will be used instead of the native Safari extension popover.
+
+The bulk of the development is currently going on in the `Shared (Extension)` folder.
+
+It is important to read these files:
+
+- `Shared Extension (Popover)` > `Popover` > `README.md`
+
+- `Shared Extension (Popover)` > `Resources` > `README.md`
+
+## Popover
+
+### Setting up the popover
 
 1. Open this repo as a project in Xcode
 
 2. In the leftmost top bar breadcrumb, which should be on "macOS" by default, switch it to "iOS"
 
-3. Set the following breadcrumb to a mobile device, perhaps "iPhone 13 Pro"s?
+3. Set the following breadcrumb to a mobile device, perhaps "iPhone 13 Pro"?
 
 4. Click the play button to start the emulator
 
@@ -18,26 +36,10 @@
 
 7. Switch to on
 
-### Developing the pop-up
+Then, to test the popover, navigate to https://safari-wallet-test-dapp.pages.dev in Safari (or http://localhost:3000/test-dapp/, if you're running the local dev server)
 
-Restarting the phone each time we make a change to a file is inefficient. Here is a better way:
+### Developing the popover
 
-1. Open Safari (on your computer, not the emulator)
+To work on the popover, there are instructions for setting up a local development server with Gulp in `Shared (Extension)` > `Popover` > `README.md`.
 
-2. Open preferences
-
-3. Go to "Advanced" tab
-
-4. Enable develop tab at the bottom
-
-5. In the emulator, open safari and open the wallet extension popup
-
-6. Focus a Safari window on your computer while leaving the emulator and popup open
-
-7. Open the "Develop" tab at the top of your main screen and select the "Simulator - ..." option
-
-8. Then select the "popup.html" option
-
-9. Make changes in the debug window that pops up to see them update on the emulator automatically
-
-I feel like there is still a better way of doing this though.
+Once the popover is built, it can be tested using the emulator (or by connecting a physical device with iOS 15). Instructions for running the build process are in the aforementioned README file.
