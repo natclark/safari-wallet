@@ -19,9 +19,3 @@ npx gulp
 ```
 
 2. Navigate to http://localhost:3000/ in your browser.
-
-## Build to `../Resources/content.js`
-
-```sh
-npx gulp build
-```
