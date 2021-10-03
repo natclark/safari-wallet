@@ -38,6 +38,8 @@ It is important to read these files:
 
 Then, to test the popover, navigate to https://safari-wallet-test-dapp.pages.dev in Safari (or http://localhost:3000/test-dapp/, if you're running the local dev server)
 
+You can set up the local dev server here: https://github.com/natclark/safari-wallet-test-dapp
+
 ### Developing the popover
 
 To work on the popover, there are instructions for setting up a local development server with Gulp in `Shared (Extension)` > `Popover` > `README.md`.
