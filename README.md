@@ -36,9 +36,9 @@ It is important to read these files:
 
 7. Switch to on
 
-Then, to test the popover, navigate to https://safari-wallet-test-dapp.pages.dev in Safari (or http://localhost:3000/test-dapp/, if you're running the local dev server)
+Then, to test the popover, navigate to https://safari-wallet-test-dapp.vercel.app in Safari (or http://localhost:3000/test-dapp/, if you're running the local dev server)
 
-You can set up the local dev server here: https://github.com/natclark/safari-wallet-test-dapp
+You can also set up the local dev server here (WIP): https://github.com/natclark/safari-wallet-test-dapp
 
 ### Developing the popover
 

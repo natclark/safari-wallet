@@ -8,7 +8,7 @@ Gulp is used to compile the files in `src` into one minified `content.js` file, 
 
 There is also a `src/test-dapp` folder. The files in this folder are not compiled but are instead used for testing the popover on a local development server.
 
-You can also test the popover at https://safari-wallet-test-dapp.pages.dev, but that repo is not yet synced with `src/test-dapp`. It is instead synced with [this repo](https://github.com/natclark/safari-wallet-test-dapp).
+You can also test the popover at https://safari-wallet-test-dapp.vercel.app. That dev server is synced with the `src/test-dapp` folder.
 
 ## Install
 
