@@ -8,15 +8,15 @@ A diagram might be useful, but basically the current plan/rundown is:
 
 - The `window.ethereum` object (EIP-1193 JavaScript API) will be injected into each page. This way, the wallet will automatically work with all apps/dApps that support MetaMask.
 
-- For the interface, a custom web popover will be used instead of the native Safari extension popover.
+- For the interface, the native Safari extension popover is used, in tandem with the [WebExtensions API](https://developer.mozilla.org/en-US/Add-ons/WebExtensions).
 
 The bulk of the development is currently going on in the `Shared (Extension)` folder.
 
 It is important to read these files:
 
-- `Shared Extension (Popover)` > `Popover` > `README.md`
-
 - `Shared Extension (Popover)` > `Resources` > `README.md`
+
+- `test-dapp` > `README.md`
 
 ## Popover
 
@@ -36,12 +36,6 @@ It is important to read these files:
 
 7. Switch to on
 
-Then, to test the popover, navigate to https://safari-wallet-test-dapp.vercel.app in Safari (or http://localhost:3000/test-dapp/, if you're running the local dev server)
+Then, to test the popover, navigate to https://safari-wallet-test-dapp.vercel.app in Safari (or http://localhost:3000/, if you're running the local dev server)
 
 You can also set up the local dev server here (WIP): https://github.com/natclark/safari-wallet-test-dapp
-
-### Developing the popover
-
-To work on the popover, there are instructions for setting up a local development server with Gulp in `Shared (Extension)` > `Popover` > `README.md`.
-
-Once the popover is built, it can be tested using the emulator (or by connecting a physical device with iOS 15). Instructions for running the build process are in the aforementioned README file.

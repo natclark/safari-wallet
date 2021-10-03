@@ -194,7 +194,6 @@
 		0A0E1E8D270687AE00061EA6 /* Shared (Extension) */ = {
 			isa = PBXGroup;
 			children = (
-				0AE5471C2708FA1B00C4A81F /* Popup */,
 				0A0E1E8E270687AE00061EA6 /* SafariWebExtensionHandler.swift */,
 				0A0E1E8F270687AE00061EA6 /* Resources */,
 			);
@@ -265,13 +264,6 @@
 				0A0E1ECA270687AE00061EA6 /* Wallet.entitlements */,
 			);
 			path = "macOS (Extension)";
-			sourceTree = "<group>";
-		};
-		0AE5471C2708FA1B00C4A81F /* Popup */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Popup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

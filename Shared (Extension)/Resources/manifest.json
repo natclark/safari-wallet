@@ -36,5 +36,5 @@
     },
 
     "optional_permissions": [ "*://www.example.com/" ],
-    "permissions": [ "nativeMessaging" ]
+    "permissions": [ "nativeMessaging", "tabs" ]
 }

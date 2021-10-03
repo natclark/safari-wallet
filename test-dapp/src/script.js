@@ -15,7 +15,7 @@ window.addEventListener(`load`, () => {
                 alert(`Something went wrong with window.safariWallet.open().`);
             }
 		} else {
-            alert(`window.safariWallet is undefined.`);
+            alert(`window.safariWallet is undefined. Is the browser extension installed and active?`);
         }
 	});
 

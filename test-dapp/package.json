@@ -1,0 +1,16 @@
+{
+  "name": "safari-wallet-test-dapp",
+  "version": "0.0.0",
+  "description": "Popup UI for Safari wallet",
+  "main": "gulpfile.babel.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nathan Clark",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "browser-sync": "^2.27.5",
+    "gulp": "^4.0.2",
+    "gulp-cache": "^1.1.3"
+  }
+}
