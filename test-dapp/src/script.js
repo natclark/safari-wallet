@@ -7,18 +7,6 @@ window.addEventListener(`load`, () => {
 
     const $ = (id) => document.getElementById(id);
 
-	$(`open`).addEventListener(`click`, () => {
-		if (typeof window.safariWallet !== `undefined`) {
-			try {
-                window.safariWallet.open();
-            } catch (e) {
-                alert(`Something went wrong with window.safariWallet.open().`);
-            }
-		} else {
-            alert(`window.safariWallet is undefined. Is the browser extension installed and active?`);
-        }
-	});
-
     $(`connect`).addEventListener(`click`, async () => {
         if (typeof window.ethereum !== `undefined`) {
             try {
@@ -29,7 +17,7 @@ window.addEventListener(`load`, () => {
                 $(`wallet`).innerText = `Not Connected.`;
             }
         } else {
-            alert(`window.ethereum is undefined.`);
+            alert(`window.ethereum is undefined. Is the wallet extension installed and active?`);
             $(`wallet`).innerText = `Not Connected.`;
         }
     });
