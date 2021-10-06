@@ -21,7 +21,7 @@
     },
 
     "content_scripts": [{
-        "js": [ "content.js" ],
+        "js": [ "content.js", "content-connect.js" ],
         "matches": [ "<all_urls>" ]
     }],
 

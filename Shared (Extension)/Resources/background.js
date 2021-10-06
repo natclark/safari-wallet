@@ -5,4 +5,8 @@ browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
     if (request.greeting === `hello`)
         sendResponse({ farewell: `goodbye`, });
+    if (request.message == "Connect wallet") {
+        browser.runtime.sendNativeMessage({ message: "Connect wallet" })
+    }
+        
 });

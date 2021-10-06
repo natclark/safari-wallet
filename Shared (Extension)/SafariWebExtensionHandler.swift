@@ -15,7 +15,11 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     func beginRequest(with context: NSExtensionContext) {
         let item = context.inputItems[0] as! NSExtensionItem
         let message = item.userInfo?[SFExtensionMessageKey]
-        os_log(.default, "Received message from browser.runtime.sendNativeMessage: %@", message as! CVarArg)
+        os_log(.default, "Safari-wallet SafariWebExtensionHandler: Received message from browser.runtime.sendNativeMessage: %@", message as! CVarArg)
+        
+        if let messageDictionary = message as? [String: String], messageDictionary["message"] == "Connect wallet" {
+            os_log(.default, "Safari-wallet SafariWebExtensionHandler: received Connect wallet message")
+        }
 
         let response = NSExtensionItem()
         response.userInfo = [ SFExtensionMessageKey: [ "Response to": message ] ]
