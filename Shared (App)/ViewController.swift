@@ -18,6 +18,14 @@ typealias PlatformViewController = NSViewController
 
 let extensionBundleIdentifier = "safari.Wallet.Extension"
 
+
+// Keychain Configuration
+struct KeychainConfiguration {
+    static let serviceName = "Wallet"
+    static let accessGroup: String? = nil //"safari.Wallet"
+}
+
+
 class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMessageHandler {
 
     @IBOutlet var webView: WKWebView!
@@ -34,6 +42,25 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
         self.webView.configuration.userContentController.add(self, name: "controller")
 
         self.webView.loadFileURL(Bundle.main.url(forResource: "Main", withExtension: "html")!, allowingReadAccessTo: Bundle.main.resourceURL!)
+        
+        // Test to save a password to the keychain, which the extension should be able to read.
+        do {
+            let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName,
+                                                    account: "wallet1",
+                                                    accessGroup: KeychainConfiguration.accessGroup)
+            
+            // Save the password for the new item.
+            try passwordItem.savePassword("password123")
+            // Just making sure we can read it
+            let passwordRead = try passwordItem.readPassword()
+            guard passwordRead == "password123" else {
+                print("cannot read password")
+                return
+            }
+            print("password is \(passwordRead)")
+        } catch {
+            fatalError("Error updating keychain - \(error.localizedDescription) code: \((error as NSError).code)")
+        }
     }
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
