@@ -29,6 +29,8 @@ struct KeychainConfiguration {
 class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMessageHandler {
 
     @IBOutlet var webView: WKWebView!
+    
+    let biometricIDAuth = BiometricIDAuth()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +44,23 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
         self.webView.configuration.userContentController.add(self, name: "controller")
 
         self.webView.loadFileURL(Bundle.main.url(forResource: "Main", withExtension: "html")!, allowingReadAccessTo: Bundle.main.resourceURL!)
+        
+        Task {
+            guard biometricIDAuth.canEvaluatePolicy() else {
+                print("no FaceID/TouchID available")
+                return
+            }
+            
+            do {
+                if try await biometricIDAuth.authenticateUser() == true {
+                    print("user authenticated")
+                } else {
+                    print("user not authenticated")
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }        
         
         // Test to save a password to the keychain, which the extension should be able to read.
         do {
