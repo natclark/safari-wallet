@@ -45,31 +45,17 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
 
         self.webView.loadFileURL(Bundle.main.url(forResource: "Main", withExtension: "html")!, allowingReadAccessTo: Bundle.main.resourceURL!)
         
-        Task {
-            guard biometricIDAuth.canEvaluatePolicy() else {
-                print("no FaceID/TouchID available")
-                return
-            }
-            
-            do {
-                if try await biometricIDAuth.authenticateUser() == true {
-                    print("user authenticated")
-                } else {
-                    print("user not authenticated")
-                }
-            } catch {
-                print(error.localizedDescription)
-            }
-        }        
+
         
         // Test to save a password to the keychain, which the extension should be able to read.
         do {
             let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName,
-                                                    account: "wallet1",
+                                                    account: "wallet2",
                                                     accessGroup: KeychainConfiguration.accessGroup)
+            try passwordItem.deleteItem()
             
             // Save the password for the new item.
-            try passwordItem.savePassword("password123")
+            try passwordItem.savePassword("password123", userPresence: true)
             // Just making sure we can read it
             let passwordRead = try passwordItem.readPassword()
             guard passwordRead == "password123" else {

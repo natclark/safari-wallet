@@ -7,6 +7,9 @@
 */
 
 import Foundation
+import Security
+import LocalAuthentication
+import OSLog
 
 struct KeychainPasswordItem {
     // MARK: Types
@@ -16,6 +19,7 @@ struct KeychainPasswordItem {
         case unexpectedPasswordData
         case unexpectedItemData
         case unhandledError(status: OSStatus)
+        case authenticationError
     }
     
     // MARK: Properties
@@ -67,7 +71,14 @@ struct KeychainPasswordItem {
         return password
     }
     
-    func savePassword(_ password: String) throws {
+    
+    /// Stores password in the keychain
+    /// - Parameters:
+    ///   - password: the password to be stored in the keychain
+    ///   - userPresence: if true, the password can only be accessed using biometrics (FaceID and TouchID) with the phone's PIN code as fallback.
+    ///   - reuableDuration: Time in seconds how long the password can be accessed until a biometric authentication is required again.
+    ///   This is  crucial for extensions that can't access the UI to present a FaceID challenge, such as the Safari web extension. The default value is 300 seconds (5 minutes)
+    func savePassword(_ password: String, userPresence: Bool = true, reuableDuration: TimeInterval = 300) throws {
         // Encode the password into an Data object.
         let encodedPassword = password.data(using: String.Encoding.utf8)!
         
@@ -93,9 +104,28 @@ struct KeychainPasswordItem {
             var newItem = KeychainPasswordItem.keychainQuery(withService: service, account: account, accessGroup: accessGroup)
             newItem[kSecValueData as String] = encodedPassword as AnyObject?
             
+            if userPresence == true {
+                #if targetEnvironment(simulator)
+                // There is a bug in the Simulator that prevents this working, see https://developer.apple.com/forums/thread/685773
+                os_log(.default, "Skipping FaceID on the Simulator due to a bug in Simulator")
+                #else
+                var error: Unmanaged<CFError>? = nil
+                defer { error?.release() }
+                guard let accessControl = SecAccessControlCreateWithFlags(nil, kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly, .userPresence, &error) else {
+                    throw KeychainError.authenticationError
+                }
+                if let error = error as? Error { throw error }
+                newItem[kSecAttrAccessControl as String] = accessControl
+                
+                let context = LAContext()
+                context.touchIDAuthenticationAllowableReuseDuration = reuableDuration
+                newItem[kSecUseAuthenticationContext as String] = context
+                #endif
+            }
+            
             // Add a the new item to the keychain.
             let status = SecItemAdd(newItem as CFDictionary, nil)
-//            print("status: \(status) expected: \(noErr)")
+
             // Throw an error if an unexpected status was returned.
             guard status == noErr else { throw KeychainError.unhandledError(status: status) }
         }
@@ -166,7 +196,7 @@ struct KeychainPasswordItem {
         query[kSecAttrService as String] = service as AnyObject?
 
         if let account = account {
-            query[kSecAttrAccount as String] = account as AnyObject?
+            query[kSecAttrAccount as String] = account as AnyObject? // replace by kSecAttrLabel?
         }
 
         if let accessGroup = accessGroup {

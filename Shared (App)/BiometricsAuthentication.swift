@@ -22,6 +22,7 @@ enum BiometricType {
     }
 }
 
+// This class can be used to shield certain parts of the app, but shouldn't be used for the private key. Instead, for private keys, use the KeychainPasswordItem class.
 class BiometricIDAuth {
     
     let context = LAContext()
