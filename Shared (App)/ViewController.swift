@@ -22,7 +22,7 @@ let extensionBundleIdentifier = "safari.Wallet.Extension"
 // Keychain Configuration
 struct KeychainConfiguration {
     static let serviceName = "Wallet"
-    static let accessGroup: String? = nil //"safari.Wallet"
+    static let accessGroup: String? = nil
 }
 
 

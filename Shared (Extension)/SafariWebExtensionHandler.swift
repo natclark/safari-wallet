@@ -13,7 +13,7 @@ let SFExtensionMessageKey = "message"
 // Keychain Configuration
 struct KeychainConfiguration {
     static let serviceName = "Wallet"
-    static let accessGroup: String? = nil //"safari.Wallet"
+    static let accessGroup: String? = nil
 }
 
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
@@ -27,26 +27,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         
         if let messageDictionary = message as? [String: String], messageDictionary["message"] == "Connect wallet" {
             os_log(.default, "Safari-wallet SafariWebExtensionHandler: received Connect wallet message")            
-            
-//            Task {
-//                guard biometricIDAuth.canEvaluatePolicy() else {
-//                    os_log(.default, "Safari-wallet SafariWebExtensionHandler: no FaceID/TouchID available")
-//                    return
-//                }
-//                
-//                do {
-//                    if try await biometricIDAuth.authenticateUser() == true {
-//                        os_log(.default, "Safari-wallet SafariWebExtensionHandler: user authenticated")
-//                    } else {
-//                        os_log(.default, "Safari-wallet SafariWebExtensionHandler: user not authenticated")
-//                    }
-//                } catch {
-//                    os_log("Safari-wallet SafariWebExtensionHandler error: %s", type: .info, error.localizedDescription)
-//                    // we get:error "User interaction required."
-//                    // Can we transfer the user back to the app and then use touchIDAuthenticationAllowableReuseDuration?
-//                    // Seealso: https://medium.com/swlh/get-the-most-out-of-sign-in-with-apple-e7e2ae072882
-//                }
-//            }
+        
             
             // Read password set by containing app
             do {
