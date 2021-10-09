@@ -22,7 +22,7 @@ struct SharedDocument {
     
     func write(_ data: Data) async throws {
         let url = try await  NSFileCoordinator().coordinate(writingItemAt: self.url)
-        return try data.write(to: url)
+        return try data.write(to: url, options: .atomic)
     }
 }
 
