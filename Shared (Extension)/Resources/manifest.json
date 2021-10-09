@@ -21,7 +21,11 @@
     },
 
     "content_scripts": [{
-        "js": [ "content.js", "content-connect.js" ],
+        "js": [
+            "content.js",
+            "injections/ethereum.js",
+            "injections/safari_wallet.js"
+        ],
         "matches": [ "<all_urls>" ]
     }],
 
@@ -34,6 +38,11 @@
             "38": "images/toolbar-icon-38.png"
         }
     },
+
+    "web_accessible_resources": [
+        "ethereum.js",
+        "safari_wallet.js"
+    ],
 
     "optional_permissions": [ "*://www.example.com/" ],
     "permissions": [ "nativeMessaging", "tabs" ]

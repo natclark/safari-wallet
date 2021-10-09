@@ -45,6 +45,8 @@
 		0A0E1EE6270687AE00061EA6 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = 0A0E1E96270687AE00061EA6 /* popup.css */; };
 		0A0E1EE7270687AE00061EA6 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 0A0E1E97270687AE00061EA6 /* popup.js */; };
 		0A0E1EE8270687AE00061EA6 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 0A0E1E97270687AE00061EA6 /* popup.js */; };
+		275C299427117F7D00DA2773 /* injections in Resources */ = {isa = PBXBuildFile; fileRef = 275C299327117F7D00DA2773 /* injections */; };
+		275C299527117F7D00DA2773 /* injections in Resources */ = {isa = PBXBuildFile; fileRef = 275C299327117F7D00DA2773 /* injections */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +124,7 @@
 		0A0E1ECA270687AE00061EA6 /* Wallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wallet.entitlements; sourceTree = "<group>"; };
 		0AE54717270694EB00C4A81F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0AE5471D27091C5800C4A81F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		275C299327117F7D00DA2773 /* injections */ = {isa = PBXFileReference; lastKnownFileType = folder; path = injections; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +208,7 @@
 			children = (
 				0A0E1E90270687AE00061EA6 /* _locales */,
 				0A0E1E91270687AE00061EA6 /* images */,
+				275C299327117F7D00DA2773 /* injections */,
 				0A0E1E92270687AE00061EA6 /* manifest.json */,
 				0A0E1E93270687AE00061EA6 /* background.js */,
 				0A0E1E94270687AE00061EA6 /* content.js */,
@@ -421,6 +425,7 @@
 				0A0E1EDF270687AE00061EA6 /* background.js in Resources */,
 				0A0E1EE5270687AE00061EA6 /* popup.css in Resources */,
 				0A0E1EE3270687AE00061EA6 /* popup.html in Resources */,
+				275C299427117F7D00DA2773 /* injections in Resources */,
 				0A0E1EDB270687AE00061EA6 /* images in Resources */,
 				0A0E1EDD270687AE00061EA6 /* manifest.json in Resources */,
 				0A0E1ED9270687AE00061EA6 /* _locales in Resources */,
@@ -436,6 +441,7 @@
 				0A0E1EE0270687AE00061EA6 /* background.js in Resources */,
 				0A0E1EE6270687AE00061EA6 /* popup.css in Resources */,
 				0A0E1EE4270687AE00061EA6 /* popup.html in Resources */,
+				275C299527117F7D00DA2773 /* injections in Resources */,
 				0A0E1EDC270687AE00061EA6 /* images in Resources */,
 				0A0E1EDE270687AE00061EA6 /* manifest.json in Resources */,
 				0A0E1EDA270687AE00061EA6 /* _locales in Resources */,
