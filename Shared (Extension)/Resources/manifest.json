@@ -23,8 +23,8 @@
     "content_scripts": [{
         "js": [
             "content.js",
-            "ethereum.js",
-            "safari_wallet.js"
+            "injections/ethereum.js",
+            "injections/safari_wallet.js"
         ],
         "matches": [ "<all_urls>" ]
     }],
