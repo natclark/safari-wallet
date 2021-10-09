@@ -45,8 +45,25 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
 
         self.webView.loadFileURL(Bundle.main.url(forResource: "Main", withExtension: "html")!, allowingReadAccessTo: Bundle.main.resourceURL!)
         
-
+        saveFile()
+//        saveAndReadPassword()
+    }
+    
+    func saveFile() {
         
+        Task {
+            do {
+                
+                let document = try SharedDocument(filename: "testfile.txt")
+                try await document.write("this is a test file".data(using: .utf8)!)
+                                
+            } catch {
+                fatalError("File error: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func saveAndReadPassword() {
         // Test to save a password to the keychain, which the extension should be able to read.
         do {
             let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName,
