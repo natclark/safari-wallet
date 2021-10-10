@@ -12,12 +12,18 @@ import HDWalletKit
 import SafariServices
 #endif
 
+struct KeychainConfiguration {
+    static let serviceName = "Wallet"
+    static let accessGroup: String? = nil
+}
+
 struct ContentView: View {
     var body: some View {
         Text("Hello, world!")
             .padding()
             .task {
                 print("Hello")
+                createNewHDWallet()
             }
     }
 }

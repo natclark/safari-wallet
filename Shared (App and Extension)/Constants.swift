@@ -9,4 +9,4 @@ import Foundation
 
 let KEYCHAIN_GROUP = "com.safari.Wallet"
 let APP_GROUP = "group.com.safari.Wallet"
-let EXTENSION_NAME = "com.safari.Wallet.Extension"
+let EXTENSION_BUNDLE_IDENTIFIER = "com.safari.Wallet.Extension"

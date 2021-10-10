@@ -17,8 +17,6 @@ struct KeychainConfiguration {
 }
 
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
-    
-    let biometricIDAuth = BiometricIDAuth()
 
     func beginRequest(with context: NSExtensionContext) {
         let item = context.inputItems[0] as! NSExtensionItem

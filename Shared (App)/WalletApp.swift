@@ -11,6 +11,9 @@ import SwiftUI
 
 @main
 struct WalletApp: App {
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

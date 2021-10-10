@@ -17,8 +17,6 @@
 		0A0E1ED0270687AE00061EA6 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 0A0E1E89270687AA00061EA6 /* Style.css */; };
 		0A0E1ED1270687AE00061EA6 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 0A0E1E8A270687AA00061EA6 /* Script.js */; };
 		0A0E1ED2270687AE00061EA6 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 0A0E1E8A270687AA00061EA6 /* Script.js */; };
-		0A0E1ED3270687AE00061EA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E1E8B270687AA00061EA6 /* ViewController.swift */; };
-		0A0E1ED4270687AE00061EA6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E1E8B270687AA00061EA6 /* ViewController.swift */; };
 		0A0E1ED5270687AE00061EA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A0E1E8C270687AE00061EA6 /* Assets.xcassets */; };
 		0A0E1ED6270687AE00061EA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A0E1E8C270687AE00061EA6 /* Assets.xcassets */; };
 		0A0E1ED7270687AE00061EA6 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E1E8E270687AE00061EA6 /* SafariWebExtensionHandler.swift */; };
@@ -47,8 +45,6 @@
 		F8ABEECC27124A8C007F7D11 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC327124A8C007F7D11 /* Constants.swift */; };
 		F8ABEECD27124A8C007F7D11 /* BiometricsAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC427124A8C007F7D11 /* BiometricsAuthentication.swift */; };
 		F8ABEECE27124A8C007F7D11 /* BiometricsAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC427124A8C007F7D11 /* BiometricsAuthentication.swift */; };
-		F8ABEECF27124A8C007F7D11 /* BiometricsAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC427124A8C007F7D11 /* BiometricsAuthentication.swift */; };
-		F8ABEED027124A8C007F7D11 /* BiometricsAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC427124A8C007F7D11 /* BiometricsAuthentication.swift */; };
 		F8ABEED127124A8C007F7D11 /* FileObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC527124A8C007F7D11 /* FileObserver.swift */; };
 		F8ABEED227124A8C007F7D11 /* FileObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC527124A8C007F7D11 /* FileObserver.swift */; };
 		F8ABEED327124A8C007F7D11 /* FileObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC527124A8C007F7D11 /* FileObserver.swift */; };
@@ -73,6 +69,12 @@
 		F8ABEF3327125EFA007F7D11 /* WalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF3127125EFA007F7D11 /* WalletApp.swift */; };
 		F8ABEF3527125F16007F7D11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF3427125F16007F7D11 /* ContentView.swift */; };
 		F8ABEF3627125F16007F7D11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF3427125F16007F7D11 /* ContentView.swift */; };
+		F8ABEF3827129797007F7D11 /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF3727129797007F7D11 /* WalletManager.swift */; };
+		F8ABEF3927129797007F7D11 /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF3727129797007F7D11 /* WalletManager.swift */; };
+		F8ABEF3B271297B3007F7D11 /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF3727129797007F7D11 /* WalletManager.swift */; };
+		F8ABEF3C271297B3007F7D11 /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF3727129797007F7D11 /* WalletManager.swift */; };
+		F8ABEF3E27129DEB007F7D11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF3D27129DEB007F7D11 /* AppDelegate.swift */; };
+		F8ABEF3F27129DEB007F7D11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF3D27129DEB007F7D11 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,7 +124,6 @@
 		0A0E1E88270687AA00061EA6 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		0A0E1E89270687AA00061EA6 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
 		0A0E1E8A270687AA00061EA6 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
-		0A0E1E8B270687AA00061EA6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0A0E1E8C270687AE00061EA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A0E1E8E270687AE00061EA6 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
 		0A0E1E90270687AE00061EA6 /* _locales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = _locales; sourceTree = "<group>"; };
@@ -134,10 +135,6 @@
 		0A0E1E96270687AE00061EA6 /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
 		0A0E1E97270687AE00061EA6 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
 		0A0E1E9C270687AE00061EA6 /* Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A0E1E9F270687AE00061EA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0A0E1EA1270687AE00061EA6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0A0E1EA4270687AE00061EA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		0A0E1EA7270687AE00061EA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0A0E1EA9270687AE00061EA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A0E1EAE270687AE00061EA6 /* Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A0E1EB0270687AE00061EA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +158,8 @@
 		F8ABEEE227124C5D007F7D11 /* Wallet Extension (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Wallet Extension (iOS).entitlements"; sourceTree = "<group>"; };
 		F8ABEF3127125EFA007F7D11 /* WalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletApp.swift; sourceTree = "<group>"; };
 		F8ABEF3427125F16007F7D11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F8ABEF3727129797007F7D11 /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
+		F8ABEF3D27129DEB007F7D11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,8 +203,8 @@
 			children = (
 				F8ABEEE227124C5D007F7D11 /* Wallet Extension (iOS).entitlements */,
 				F8ABEEE127124C30007F7D11 /* Wallet (iOS).entitlements */,
+				F8ABEF3A271297A3007F7D11 /* Shared (App and Extension) */,
 				0A0E1E84270687AA00061EA6 /* Shared (App) */,
-				0A0E1E8D270687AE00061EA6 /* Shared (Extension) */,
 				0A0E1E9E270687AE00061EA6 /* iOS (App) */,
 				0A0E1EAF270687AE00061EA6 /* macOS (App) */,
 				0A0E1EBE270687AE00061EA6 /* iOS (Extension) */,
@@ -219,17 +218,13 @@
 		0A0E1E84270687AA00061EA6 /* Shared (App) */ = {
 			isa = PBXGroup;
 			children = (
-				0A0E1E8B270687AA00061EA6 /* ViewController.swift */,
-				F8ABEEC427124A8C007F7D11 /* BiometricsAuthentication.swift */,
-				F8ABEEC327124A8C007F7D11 /* Constants.swift */,
-				F8ABEEC527124A8C007F7D11 /* FileObserver.swift */,
-				F8ABEEC827124A8C007F7D11 /* KeychainPasswordItem.swift */,
-				F8ABEEC627124A8C007F7D11 /* SharedDocument.swift */,
-				F8ABEEC727124A8C007F7D11 /* WalletError.swift */,
-				0A0E1E8C270687AE00061EA6 /* Assets.xcassets */,
-				0A0E1E85270687AA00061EA6 /* Resources */,
 				F8ABEF3127125EFA007F7D11 /* WalletApp.swift */,
 				F8ABEF3427125F16007F7D11 /* ContentView.swift */,
+				F8ABEEC427124A8C007F7D11 /* BiometricsAuthentication.swift */,
+				F8ABEF3D27129DEB007F7D11 /* AppDelegate.swift */,
+				0A0E1E8D270687AE00061EA6 /* Shared (Extension) */,
+				0A0E1E8C270687AE00061EA6 /* Assets.xcassets */,
+				0A0E1E85270687AA00061EA6 /* Resources */,
 			);
 			path = "Shared (App)";
 			sourceTree = "<group>";
@@ -285,10 +280,6 @@
 		0A0E1E9E270687AE00061EA6 /* iOS (App) */ = {
 			isa = PBXGroup;
 			children = (
-				0A0E1E9F270687AE00061EA6 /* AppDelegate.swift */,
-				0A0E1EA1270687AE00061EA6 /* SceneDelegate.swift */,
-				0A0E1EA3270687AE00061EA6 /* LaunchScreen.storyboard */,
-				0A0E1EA6270687AE00061EA6 /* Main.storyboard */,
 				0A0E1EA9270687AE00061EA6 /* Info.plist */,
 			);
 			path = "iOS (App)";
@@ -326,6 +317,19 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F8ABEF3A271297A3007F7D11 /* Shared (App and Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				F8ABEF3727129797007F7D11 /* WalletManager.swift */,
+				F8ABEEC327124A8C007F7D11 /* Constants.swift */,
+				F8ABEEC627124A8C007F7D11 /* SharedDocument.swift */,
+				F8ABEEC727124A8C007F7D11 /* WalletError.swift */,
+				F8ABEEC527124A8C007F7D11 /* FileObserver.swift */,
+				F8ABEEC827124A8C007F7D11 /* KeychainPasswordItem.swift */,
+			);
+			path = "Shared (App and Extension)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -527,14 +531,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A0E1ED3270687AE00061EA6 /* ViewController.swift in Sources */,
 				F8ABEF3527125F16007F7D11 /* ContentView.swift in Sources */,
 				F8ABEECD27124A8C007F7D11 /* BiometricsAuthentication.swift in Sources */,
 				F8ABEF3227125EFA007F7D11 /* WalletApp.swift in Sources */,
 				F8ABEED527124A8C007F7D11 /* SharedDocument.swift in Sources */,
 				F8ABEEDD27124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
 				F8ABEEC927124A8C007F7D11 /* Constants.swift in Sources */,
+				F8ABEF3827129797007F7D11 /* WalletManager.swift in Sources */,
 				F8ABEED127124A8C007F7D11 /* FileObserver.swift in Sources */,
+				F8ABEF3E27129DEB007F7D11 /* AppDelegate.swift in Sources */,
 				F8ABEED927124A8C007F7D11 /* WalletError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,12 +550,13 @@
 			files = (
 				F8ABEF3327125EFA007F7D11 /* WalletApp.swift in Sources */,
 				F8ABEED227124A8C007F7D11 /* FileObserver.swift in Sources */,
-				0A0E1ED4270687AE00061EA6 /* ViewController.swift in Sources */,
 				F8ABEEDE27124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
 				F8ABEED627124A8C007F7D11 /* SharedDocument.swift in Sources */,
 				F8ABEF3627125F16007F7D11 /* ContentView.swift in Sources */,
 				F8ABEECE27124A8C007F7D11 /* BiometricsAuthentication.swift in Sources */,
+				F8ABEF3927129797007F7D11 /* WalletManager.swift in Sources */,
 				F8ABEECA27124A8C007F7D11 /* Constants.swift in Sources */,
+				F8ABEF3F27129DEB007F7D11 /* AppDelegate.swift in Sources */,
 				F8ABEEDA27124A8C007F7D11 /* WalletError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -561,10 +567,10 @@
 			files = (
 				0A0E1ED7270687AE00061EA6 /* SafariWebExtensionHandler.swift in Sources */,
 				F8ABEED327124A8C007F7D11 /* FileObserver.swift in Sources */,
+				F8ABEF3B271297B3007F7D11 /* WalletManager.swift in Sources */,
 				F8ABEECB27124A8C007F7D11 /* Constants.swift in Sources */,
 				F8ABEEDF27124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
 				F8ABEEDB27124A8C007F7D11 /* WalletError.swift in Sources */,
-				F8ABEECF27124A8C007F7D11 /* BiometricsAuthentication.swift in Sources */,
 				F8ABEED727124A8C007F7D11 /* SharedDocument.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,10 +581,10 @@
 			files = (
 				0A0E1ED8270687AE00061EA6 /* SafariWebExtensionHandler.swift in Sources */,
 				F8ABEED427124A8C007F7D11 /* FileObserver.swift in Sources */,
+				F8ABEF3C271297B3007F7D11 /* WalletManager.swift in Sources */,
 				F8ABEECC27124A8C007F7D11 /* Constants.swift in Sources */,
 				F8ABEEE027124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
 				F8ABEEDC27124A8C007F7D11 /* WalletError.swift in Sources */,
-				F8ABEED027124A8C007F7D11 /* BiometricsAuthentication.swift in Sources */,
 				F8ABEED827124A8C007F7D11 /* SharedDocument.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -605,22 +611,6 @@
 				0A0E1E87270687AA00061EA6 /* Base */,
 			);
 			name = Main.html;
-			sourceTree = "<group>";
-		};
-		0A0E1EA3270687AE00061EA6 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0A0E1EA4270687AE00061EA6 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		0A0E1EA6270687AE00061EA6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0A0E1EA7270687AE00061EA6 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		0A0E1EB2270687AE00061EA6 /* Main.storyboard */ = {
@@ -970,7 +960,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -1003,7 +993,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
