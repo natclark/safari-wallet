@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A0E1EA0270687AE00061EA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E1E9F270687AE00061EA6 /* AppDelegate.swift */; };
-		0A0E1EA2270687AE00061EA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E1EA1270687AE00061EA6 /* SceneDelegate.swift */; };
-		0A0E1EA5270687AE00061EA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A0E1EA3270687AE00061EA6 /* LaunchScreen.storyboard */; };
-		0A0E1EA8270687AE00061EA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A0E1EA6270687AE00061EA6 /* Main.storyboard */; };
-		0A0E1EB1270687AE00061EA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E1EB0270687AE00061EA6 /* AppDelegate.swift */; };
-		0A0E1EB4270687AE00061EA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A0E1EB2270687AE00061EA6 /* Main.storyboard */; };
 		0A0E1EBB270687AE00061EA6 /* Wallet Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0A0E1EBA270687AE00061EA6 /* Wallet Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0A0E1EC5270687AE00061EA6 /* Wallet Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0A0E1EC4270687AE00061EA6 /* Wallet Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0A0E1ECB270687AE00061EA6 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 0A0E1E86270687AA00061EA6 /* Main.html */; };
@@ -75,6 +69,10 @@
 		F8ABEEEA27125105007F7D11 /* HDWalletKit in Frameworks */ = {isa = PBXBuildFile; productRef = F8ABEEE927125105007F7D11 /* HDWalletKit */; };
 		F8ABEEEC2712510B007F7D11 /* HDWalletKit in Frameworks */ = {isa = PBXBuildFile; productRef = F8ABEEEB2712510B007F7D11 /* HDWalletKit */; };
 		F8ABEEEE2712510F007F7D11 /* HDWalletKit in Frameworks */ = {isa = PBXBuildFile; productRef = F8ABEEED2712510F007F7D11 /* HDWalletKit */; };
+		F8ABEF3227125EFA007F7D11 /* WalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF3127125EFA007F7D11 /* WalletApp.swift */; };
+		F8ABEF3327125EFA007F7D11 /* WalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF3127125EFA007F7D11 /* WalletApp.swift */; };
+		F8ABEF3527125F16007F7D11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF3427125F16007F7D11 /* ContentView.swift */; };
+		F8ABEF3627125F16007F7D11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF3427125F16007F7D11 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +159,8 @@
 		F8ABEEC827124A8C007F7D11 /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		F8ABEEE127124C30007F7D11 /* Wallet (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Wallet (iOS).entitlements"; sourceTree = "<group>"; };
 		F8ABEEE227124C5D007F7D11 /* Wallet Extension (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Wallet Extension (iOS).entitlements"; sourceTree = "<group>"; };
+		F8ABEF3127125EFA007F7D11 /* WalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletApp.swift; sourceTree = "<group>"; };
+		F8ABEF3427125F16007F7D11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +228,8 @@
 				F8ABEEC727124A8C007F7D11 /* WalletError.swift */,
 				0A0E1E8C270687AE00061EA6 /* Assets.xcassets */,
 				0A0E1E85270687AA00061EA6 /* Resources */,
+				F8ABEF3127125EFA007F7D11 /* WalletApp.swift */,
+				F8ABEF3427125F16007F7D11 /* ContentView.swift */,
 			);
 			path = "Shared (App)";
 			sourceTree = "<group>";
@@ -467,11 +469,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A0E1ECD270687AE00061EA6 /* Icon.png in Resources */,
-				0A0E1EA5270687AE00061EA6 /* LaunchScreen.storyboard in Resources */,
 				0A0E1ECB270687AE00061EA6 /* Main.html in Resources */,
 				0A0E1ED1270687AE00061EA6 /* Script.js in Resources */,
 				0A0E1ED5270687AE00061EA6 /* Assets.xcassets in Resources */,
-				0A0E1EA8270687AE00061EA6 /* Main.storyboard in Resources */,
 				0A0E1ECF270687AE00061EA6 /* Style.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,7 +482,6 @@
 			files = (
 				0A0E1ECE270687AE00061EA6 /* Icon.png in Resources */,
 				0A0E1ED0270687AE00061EA6 /* Style.css in Resources */,
-				0A0E1EB4270687AE00061EA6 /* Main.storyboard in Resources */,
 				0A0E1ED2270687AE00061EA6 /* Script.js in Resources */,
 				0A0E1ED6270687AE00061EA6 /* Assets.xcassets in Resources */,
 				0A0E1ECC270687AE00061EA6 /* Main.html in Resources */,
@@ -529,9 +528,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A0E1ED3270687AE00061EA6 /* ViewController.swift in Sources */,
-				0A0E1EA0270687AE00061EA6 /* AppDelegate.swift in Sources */,
-				0A0E1EA2270687AE00061EA6 /* SceneDelegate.swift in Sources */,
+				F8ABEF3527125F16007F7D11 /* ContentView.swift in Sources */,
 				F8ABEECD27124A8C007F7D11 /* BiometricsAuthentication.swift in Sources */,
+				F8ABEF3227125EFA007F7D11 /* WalletApp.swift in Sources */,
 				F8ABEED527124A8C007F7D11 /* SharedDocument.swift in Sources */,
 				F8ABEEDD27124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
 				F8ABEEC927124A8C007F7D11 /* Constants.swift in Sources */,
@@ -544,11 +543,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8ABEF3327125EFA007F7D11 /* WalletApp.swift in Sources */,
 				F8ABEED227124A8C007F7D11 /* FileObserver.swift in Sources */,
 				0A0E1ED4270687AE00061EA6 /* ViewController.swift in Sources */,
-				0A0E1EB1270687AE00061EA6 /* AppDelegate.swift in Sources */,
 				F8ABEEDE27124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
 				F8ABEED627124A8C007F7D11 /* SharedDocument.swift in Sources */,
+				F8ABEF3627125F16007F7D11 /* ContentView.swift in Sources */,
 				F8ABEECE27124A8C007F7D11 /* BiometricsAuthentication.swift in Sources */,
 				F8ABEECA27124A8C007F7D11 /* Constants.swift in Sources */,
 				F8ABEEDA27124A8C007F7D11 /* WalletError.swift in Sources */,
@@ -823,10 +823,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Wallet;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -862,10 +862,10 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Wallet;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -966,8 +966,6 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Wallet;
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1001,8 +999,6 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Wallet;
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

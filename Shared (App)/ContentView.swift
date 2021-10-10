@@ -1,55 +1,39 @@
 //
-//  ViewController.swift
-//  Shared (App)
+//  ContentView.swift
+//  Wallet
 //
-//  Created by Nathan Clark on 9/30/21.
+//  Created by Ronald Mannak on 10/9/21.
 //
 
+import SwiftUI
 import WebKit
 import HDWalletKit
-
-#if os(iOS)
-import UIKit
-typealias PlatformViewController = UIViewController
-#elseif os(macOS)
-import Cocoa
+#if os(macOS)
 import SafariServices
-typealias PlatformViewController = NSViewController
 #endif
 
-let extensionBundleIdentifier = "safari.Wallet.Extension"
+struct ContentView: View {
+    var body: some View {
+        Text("Hello, world!")
+            .padding()
+            .task {
+                print("Hello")
+            }
+    }
+}
 
-
-// Keychain Configuration
-struct KeychainConfiguration {
-    static let serviceName = "Wallet"
-    static let accessGroup: String? = nil
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
 
 
-class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMessageHandler {
+// MARK: -- Test methods
 
-    @IBOutlet var webView: WKWebView!
+
+extension ContentView {
     
-    let biometricIDAuth = BiometricIDAuth()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        self.webView.navigationDelegate = self
-
-#if os(iOS)
-        self.webView.scrollView.isScrollEnabled = false
-#endif
-
-        self.webView.configuration.userContentController.add(self, name: "controller")
-
-        self.webView.loadFileURL(Bundle.main.url(forResource: "Main", withExtension: "html")!, allowingReadAccessTo: Bundle.main.resourceURL!)
-        
-        createNewHDWallet()
-        saveFile()
-//        saveAndReadPassword()
-    }
     
     func createNewHDWallet() {
         let mnemonic = HDWalletKit.Mnemonic.create()
@@ -98,6 +82,20 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
             fatalError("Error updating keychain - \(error.localizedDescription) code: \((error as NSError).code)")
         }
     }
+    
+    /*
+     From ViewDidLoad:
+     self.webView.navigationDelegate = self
+
+#if os(iOS)
+     self.webView.scrollView.isScrollEnabled = false
+#endif
+
+     self.webView.configuration.userContentController.add(self, name: "controller")
+
+     self.webView.loadFileURL(Bundle.main.url(forResource: "Main", withExtension: "html")!, allowingReadAccessTo: Bundle.main.resourceURL!)
+     
+     */
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 #if os(iOS)
@@ -136,5 +134,4 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
         }
 #endif
     }
-
 }
