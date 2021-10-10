@@ -19,9 +19,9 @@ class WalletManager {
     func createNewHDWallet() async  -> Wallet {
         let mnemonic = HDWalletKit.Mnemonic.create()
         let masterSeed = HDWalletKit.Mnemonic.createSeed(mnemonic: mnemonic)
-        let wallet = HDWalletKit.Wallet(seed: masterSeed, coin: .ethereum)
-        let address0 = wallet.generateAddress(at: UInt32(0))
-        let address1 = wallet.generateAddress(at: UInt32(1))
+        let wallet = await HDWalletKit.Wallet(seed: masterSeed, coin: .ethereum)
+        let address0 = await wallet.generateAddress(at: UInt32(0))
+        let address1 = await wallet.generateAddress(at: UInt32(1))
         print("addresses created:")
         print(address0)
         print(address1)
