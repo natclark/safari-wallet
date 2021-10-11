@@ -26,7 +26,7 @@ struct ContentView: View {
             .task {
                 do {
                     print("Hello")
-                    try await writeAndReadAccounts()
+//                    try await writeAndReadAccounts()
                 } catch {
                     print("error: \(error)")
                 }
@@ -45,7 +45,7 @@ struct ContentView_Previews: PreviewProvider {
 
 
 extension ContentView {
-    
+    /*
     func writeAndReadAccounts() async throws {
         let mnemonic = Mnemonic.create()
         let manager = WalletManager()
@@ -159,7 +159,7 @@ extension ContentView {
         } catch {
             fatalError("Error updating keychain - \(error.localizedDescription) code: \((error as NSError).code)")
         }
-    }
+    } */
     
     /*
      From ViewDidLoad:
