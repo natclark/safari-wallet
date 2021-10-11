@@ -17,20 +17,23 @@ class WalletManager {
         return await HDWalletKit.Wallet(seed: masterSeed, coin: .ethereum)
     }
     
+    // MARK: - Save and load wallets
+    
     func saveHDWallet(mnemonic: String, password: String, accountsCount: Int = 5, name: String = UUID().uuidString) async throws -> String {
         
         // TODO: check if mnemonic is valid?
         
         // 1. Store HDWallet recovery phrase
-        Task { try await saveKeystore(mnemonic: mnemonic, password: password, name: name) }
+        try await saveKeystore(mnemonic: mnemonic, password: password, name: name)
         
         // 2. Create Ethereum addresses and store in separate file
-        Task { try await saveAccounts(mnemonic: mnemonic, accountsCount: accountsCount, name: name) }
+//        try await saveAccounts(mnemonic: mnemonic, accountsCount: accountsCount, name: name)
         
         return name
     }
     
-    private func saveKeystore(mnemonic: String, password: String, name: String) async throws {
+    func saveKeystore(mnemonic: String, password: String, name: String) async throws -> Data {
+        print("saving mnemonic: \(mnemonic)")
         guard let phraseData = mnemonic.data(using: .utf8),
                 let passwordData = password.data(using: .utf8)?.sha256(),
                 let keystore = try await KeystoreV3(privateKey: phraseData, passwordData: passwordData)?.encodedData()
@@ -39,6 +42,22 @@ class WalletManager {
         }
         let hdWalletFile = try SharedDocument(filename: name.deletingPathExtension().appendPathExtension(HDWALLET_FILE_EXTENSION))
         try await hdWalletFile.write(keystore)
+        return keystore
+    }
+    
+    func loadHDWallet(name: String, password: String) async throws -> Wallet {
+        let keystoreData = try await SharedDocument(filename: name.deletingPathExtension().appendPathExtension(HDWALLET_FILE_EXTENSION)).read()
+        guard let passwordData = password.data(using: .utf8)?.sha256() else { throw WalletError.invalidPassword }
+        guard let keystore = try KeystoreV3(keystore: keystoreData),
+                let mnemonicData = try await keystore.getDecryptedKeystore(passwordData: passwordData) else {
+                    throw WalletError.keystoreError
+                    
+                }
+
+        let mnemonic = String(decoding: mnemonicData, as: UTF8.self)
+        print("recovered mnemonic: \(mnemonic)")
+        let masterSeed = HDWalletKit.Mnemonic.createSeed(mnemonic: mnemonic)
+        return await HDWalletKit.Wallet(seed: masterSeed, coin: .ethereum)
     }
     
     private func saveAccounts(mnemonic: String, accountsCount: Int, name: String) async throws {
@@ -50,30 +69,8 @@ class WalletManager {
         try await accountsFile.write(accountsJSON)
     }
     
-    func loadHDWallet(name: String, password: String) async throws -> Wallet {
-        let keystoreData = try await SharedDocument(filename: name.deletingPathExtension().appendPathExtension(HDWALLET_FILE_EXTENSION)).read()
-        guard let passwordData = password.data(using: .utf8)?.sha256(),
-                let keystore = try KeystoreV3(keystore: keystoreData),
-                let mnemonicData = try await keystore.getDecryptedKeystore(passwordData: passwordData)
-        else {
-            throw WalletError.invalidInput
-        }
-        
-        let mnemonic = String(decoding: mnemonicData, as: UTF8.self)
-        let masterSeed = HDWalletKit.Mnemonic.createSeed(mnemonic: mnemonic)
-        return await HDWalletKit.Wallet(seed: masterSeed, coin: .ethereum)
-        
-        
-//        let data = Data("abandon amount liar amount expire adjust cage candy arch gather drum buyer".utf8)
-//        let passwordData =  Data("qwertyui".utf8)
-//        let keystore = try! KeystoreV3(data: data, passwordData: passwordData)
-//        guard let decoded = try? keystore?.getDecryptedKeyStore(passwordData: passwordData) else {
-//            fatalError()
-//        }
-//        XCTAssertEqual(decoded, data)
-    }
-    
     func loadAccounts(name: String) async throws -> [String] {
+        fatalError()
         return []
     }
     

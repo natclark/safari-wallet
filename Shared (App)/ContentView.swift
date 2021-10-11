@@ -8,6 +8,7 @@
 import SwiftUI
 import WebKit
 import HDWalletKit
+import CryptoSwift
 #if os(macOS)
 import SafariServices
 #endif
@@ -25,8 +26,8 @@ struct ContentView: View {
             .task {
                 do {
                     print("Hello")
-//                    try await saveAndReadWallet()
-                    try await encryptAndDecryptWallet()
+//                    try await encryptAndDecryptWalletEncoded()
+                    try await saveAndReadWallet()
                 } catch {
                     print("error: \(error)")
                 }
@@ -60,20 +61,37 @@ extension ContentView {
         }
     }
     
+    func encryptAndDecryptWalletEncoded() async throws {
+                
+        let data = Data("abandon amount liar amount expire adjust cage candy arch gather drum buyer".utf8)
+        let passwordData =  Data("qwertyui".utf8).sha256()
+        guard let keystore = try await KeystoreV3(privateKey: data, passwordData: passwordData) else {
+            print("error creating keystore")
+            return
+        }
+        let fileData = try keystore.encodedData()
+        guard let recoveredKeystore = try KeystoreV3(keystore: fileData), let decoded = try await recoveredKeystore.getDecryptedKeystore(passwordData: passwordData) else {
+            print ("error recovering keystore")
+            return
+        }
+        
+        if decoded == data {
+            print("mnemonic restored correctly")
+        } else {
+            print("mnemonic invalid")
+        }
+    }
+    
     func saveAndReadWallet() async throws {
         print("start creating wallet")
         let manager = WalletManager()
         try manager.deleteAllWallets()
-        await Task.sleep(1_000_000_000) // 1 seconds
         print("all files deleted")
         
         let mnemonic = HDWalletKit.Mnemonic.create()
         let wallet = await manager.createNewHDWallet(mnemonic: mnemonic)
         let name = try await manager.saveHDWallet(mnemonic: mnemonic, password: "password123")
-                    
-        await Task.sleep(2_000_000_000) // 2 seconds
-        print("awoke")
-        
+
         let walletFiles = try manager.listWalletFiles()
         print("wallets:\n \(walletFiles)\n")
         
@@ -82,7 +100,7 @@ extension ContentView {
             print("restored wallet is not the same")
             return
         }
-        print("restored wallet: \(restoredWallet)")
+        print("successfully restored wallet: \(restoredWallet)")
     }
     
     
