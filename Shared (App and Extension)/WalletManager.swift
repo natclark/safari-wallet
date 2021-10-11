@@ -12,7 +12,7 @@ import CryptoSwift
 //@MainActor
 class WalletManager {
     
-    func createNewHDWallet(mnemonic: String) async  -> Wallet {        
+    func createNewHDWallet(mnemonic: String) async -> Wallet {        
         let masterSeed = HDWalletKit.Mnemonic.createSeed(mnemonic: mnemonic)
         return await HDWalletKit.Wallet(seed: masterSeed, coin: .ethereum)
     }
@@ -65,8 +65,9 @@ class WalletManager {
     }
     
     func loadAccounts(name: String) async throws -> [String] {
-        fatalError()
-        return []
+        let accountsFile = try SharedDocument(filename: name.deletingPathExtension().appendPathExtension(ACCOUNTS_FILE_EXTENSION))
+        let data = try await accountsFile.read()
+        return try JSONDecoder().decode([String].self, from: data)
     }
     
     func listWalletFiles() throws -> [String] {
@@ -77,7 +78,7 @@ class WalletManager {
         return try listFiles(filter: ACCOUNTS_FILE_EXTENSION)
     }
     
-    func listFiles(filter fileExtension: String? = nil) throws -> [String] {
+    private func listFiles(filter fileExtension: String? = nil) throws -> [String] {
         let directory = try URL.sharedContainer()
         let files = try FileManager.default.contentsOfDirectory(atPath: directory.path)
         

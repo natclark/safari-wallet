@@ -26,8 +26,7 @@ struct ContentView: View {
             .task {
                 do {
                     print("Hello")
-//                    try await encryptAndDecryptWalletEncoded()
-                    try await saveAndReadWallet()
+                    try await writeAndReadAccounts()
                 } catch {
                     print("error: \(error)")
                 }
@@ -46,6 +45,20 @@ struct ContentView_Previews: PreviewProvider {
 
 
 extension ContentView {
+    
+    func writeAndReadAccounts() async throws {
+        let mnemonic = Mnemonic.create()
+        let manager = WalletManager()
+        let wallet = await manager.createNewHDWallet(mnemonic: mnemonic)
+        let generatedAccounts = await wallet.generateAccounts(count: 5).map { $0.address }
+        let filename = try await manager.saveHDWallet(mnemonic: mnemonic, password: "password123")
+        let recoveredAccounts = try await manager.loadAccounts(name: filename)
+        if generatedAccounts == recoveredAccounts {
+            print("items loaded correctly")
+        } else {
+            print("error accounts")
+        }
+    }
     
     func encryptAndDecryptWallet() async throws {
         let data = Data("abandon amount liar amount expire adjust cage candy arch gather drum buyer".utf8)
