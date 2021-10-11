@@ -12,4 +12,4 @@ let APP_GROUP = "group.com.safari.Wallet"
 let EXTENSION_BUNDLE_IDENTIFIER = "com.safari.Wallet.Extension"
 
 let HDWALLET_FILE_EXTENSION = "wallet"
-let ACCOUNTS_FILE_EXTENSION = "accounts"
+let ADDRESS_FILE_EXTENSION = "address"

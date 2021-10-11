@@ -19,7 +19,7 @@ class WalletTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         self.manager = WalletManager()
         try manager.deleteAllWallets()
-        try manager.deleteAllAccounts()
+        try manager.deleteAllAddresses()
     }
 
     override func tearDownWithError() throws {
@@ -39,12 +39,12 @@ class WalletTests: XCTestCase {
         }
     }
     
-    func testSaveAccounts() async throws {
+    func testSaveAddresses() async throws {
         let wallet = await manager.createNewHDWallet(mnemonic: mnemonic)
-        let generatedAccounts = await wallet.generateAccounts(count: 5).map { $0.address }
+        let generatedAddresses = await wallet.generateAdresses(count: 5).map { $0.address }
         let filename = try await manager.saveHDWallet(mnemonic: mnemonic, password: password)
-        let recoveredAccounts = try await manager.loadAccounts(name: filename)
-        XCTAssertEqual(generatedAccounts, recoveredAccounts)
+        let recoveredAddresses = try await manager.loadAddresses(name: filename)
+        XCTAssertEqual(generatedAddresses, recoveredAddresses)
     }
     
     func testWalletEncryptionRoundtrip() async throws {

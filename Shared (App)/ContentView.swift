@@ -51,7 +51,7 @@ extension ContentView {
         let mnemonic = Mnemonic.create()
         let manager = WalletManager()
         try manager.deleteAllWallets()
-        try manager.deleteAllAccounts()
+        try manager.deleteAllAddresses()
         _ = try await manager.saveHDWallet(mnemonic: mnemonic, password: "password123")
         
         let wallet = await manager.createNewHDWallet(mnemonic: mnemonic)

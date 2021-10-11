@@ -19,7 +19,7 @@ class WalletManager {
     
     // MARK: - Save and load wallets
     
-    func saveHDWallet(mnemonic: String, password: String, accountsCount: Int = 5, name: String = UUID().uuidString) async throws -> String {
+    func saveHDWallet(mnemonic: String, password: String, addressCount: Int = 5, name: String = UUID().uuidString) async throws -> String {
         
         // TODO: we could save the two files concurrently
         
@@ -27,7 +27,7 @@ class WalletManager {
         try await saveKeystore(mnemonic: mnemonic, password: password, name: name)
         
         // 2. Create Ethereum addresses and store in separate file
-        try await saveAccounts(mnemonic: mnemonic, accountsCount: accountsCount, name: name)
+        try await saveAddresses(mnemonic: mnemonic, addressCount: addressCount, name: name)
         
         return name
     }
@@ -55,18 +55,18 @@ class WalletManager {
         return await HDWalletKit.Wallet(seed: masterSeed, coin: .ethereum)
     }
     
-    private func saveAccounts(mnemonic: String, accountsCount: Int, name: String) async throws {
+    private func saveAddresses(mnemonic: String, addressCount: Int, name: String) async throws {
         let wallet = await Wallet(seed: Mnemonic.createSeed(mnemonic: mnemonic), coin: .ethereum)
         
-        let accounts = await wallet.generateAddresses(count: accountsCount)
-        let accountsJSON = try JSONEncoder().encode(accounts)
-        let accountsFile = try SharedDocument(filename: name.deletingPathExtension().appendPathExtension(ACCOUNTS_FILE_EXTENSION))
-        try await accountsFile.write(accountsJSON)
+        let addresses = await wallet.generateAddresses(count: addressCount)
+        let addressesJSON = try JSONEncoder().encode(addresses)
+        let addressesFile = try SharedDocument(filename: name.deletingPathExtension().appendPathExtension(ADDRESS_FILE_EXTENSION))
+        try await addressesFile.write(addressesJSON)
     }
     
-    func loadAccounts(name: String) async throws -> [String] {
-        let accountsFile = try SharedDocument(filename: name.deletingPathExtension().appendPathExtension(ACCOUNTS_FILE_EXTENSION))
-        let data = try await accountsFile.read()
+    func loadAddresses(name: String) async throws -> [String] {
+        let addressesFile = try SharedDocument(filename: name.deletingPathExtension().appendPathExtension(ADDRESS_FILE_EXTENSION))
+        let data = try await addressesFile.read()
         return try JSONDecoder().decode([String].self, from: data)
     }
     
@@ -74,8 +74,8 @@ class WalletManager {
         return try listFiles(filter: HDWALLET_FILE_EXTENSION)
     }
     
-    func listAccountFiles() throws -> [String] {
-        return try listFiles(filter: ACCOUNTS_FILE_EXTENSION)
+    func listAddressFiles() throws -> [String] {
+        return try listFiles(filter: ADDRESS_FILE_EXTENSION)
     }
     
     private func listFiles(filter fileExtension: String? = nil) throws -> [String] {
@@ -102,12 +102,12 @@ extension WalletManager {
         }
     }
     
-    func deleteAllAccounts() throws {
+    func deleteAllAddresses() throws {
         let directory = try URL.sharedContainer()
-        let accounts = try listAccountFiles()
+        let addresses = try listAddressFiles()
         
-        for account in accounts {
-            try FileManager.default.removeItem(at: directory.appendingPathComponent(account))
+        for address in addresses {
+            try FileManager.default.removeItem(at: directory.appendingPathComponent(address))
         }
     }
 }

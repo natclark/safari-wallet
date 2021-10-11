@@ -35,9 +35,9 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         
         if message == "Connect Wallet" {
             
-        else if message == "current account" {
+        else if message == "current addresses" {
             
-        } else if message == "List accounts" {
+        } else if message == "List addresses" {
             
         } */
         
@@ -46,7 +46,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         
             Task {
                 do {
-                    try await self.readAccounts()
+                    try await self.readAddresses()
                     try await self.readWallets()
                 } catch {
                     os_log(.default, "Safari-wallet SafariWebExtensionHandler: error %@", error.localizedDescription)
@@ -107,13 +107,13 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         }
     }
     
-    func readAccounts() async throws {
+    func readAddresses() async throws {
         
-        guard let accountFile = try walletManager.listAccountFiles().first else {
-            os_log(.default, "Safari-wallet SafariWebExtensionHandler: no account files")
+        guard let addressFile = try walletManager.listAddressFiles().first else {
+            os_log(.default, "Safari-wallet SafariWebExtensionHandler: no address files")
             return
         }
-        let accounts = try await walletManager.loadAccounts(name: accountFile)
-        os_log(.default, "Safari-wallet SafariWebExtensionHandler: %@", accounts)
+        let addresses = try await walletManager.loadAddresses(name: addressFile)
+        os_log(.default, "Safari-wallet SafariWebExtensionHandler: %@", addresses)
     }
 }
