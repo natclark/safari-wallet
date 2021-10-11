@@ -11,7 +11,7 @@ extension String {
 
     func appendPathExtension(_ fileExt: String) throws -> String {
         
-        guard let name = (self as NSString).appendingPathExtension(HDWALLET_FILE_EXTENSION) else {
+        guard let name = (self as NSString).appendingPathExtension(fileExt) else {
             throw WalletError.invalidInput
         }
         return name

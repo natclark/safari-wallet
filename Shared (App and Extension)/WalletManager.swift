@@ -27,7 +27,7 @@ class WalletManager {
         try await saveKeystore(mnemonic: mnemonic, password: password, name: name)
         
         // 2. Create Ethereum addresses and store in separate file
-//        try await saveAccounts(mnemonic: mnemonic, accountsCount: accountsCount, name: name)
+        try await saveAccounts(mnemonic: mnemonic, accountsCount: accountsCount, name: name)
         
         return name
     }
