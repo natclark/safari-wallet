@@ -7,33 +7,115 @@
 
 import Foundation
 import HDWalletKit
+import CryptoSwift
 
-@MainActor
+//@MainActor
 class WalletManager {
     
-    func walletsAvailable() -> Bool {
-        
-        return false
-    }
-    
-    func createNewHDWallet() async  -> Wallet {
-        let mnemonic = HDWalletKit.Mnemonic.create()
+    func createNewHDWallet(mnemonic: String) async  -> Wallet {        
         let masterSeed = HDWalletKit.Mnemonic.createSeed(mnemonic: mnemonic)
-        let wallet = await HDWalletKit.Wallet(seed: masterSeed, coin: .ethereum)
-        let address0 = await wallet.generateAddress(at: UInt32(0))
-        let address1 = await wallet.generateAddress(at: UInt32(1))
-        print("addresses created:")
-        print(address0)
-        print(address1)
-        return wallet
+        return await HDWalletKit.Wallet(seed: masterSeed, coin: .ethereum)
     }
     
-    func loadHDWallet(name: String) { //-> Wallet {
-    
-    }
-    
-    func saveWallet(wallet: Wallet, name: String = UUID().uuidString) async throws {
+    func saveHDWallet(mnemonic: String, password: String, accountsCount: Int = 5, name: String = UUID().uuidString) async throws -> String {
         
+        // TODO: check if mnemonic is valid?
+        
+        // 1. Store HDWallet recovery phrase
+        Task { try await saveKeystore(mnemonic: mnemonic, password: password, name: name) }
+        
+        // 2. Create Ethereum addresses and store in separate file
+        Task { try await saveAccounts(mnemonic: mnemonic, accountsCount: accountsCount, name: name) }
+        
+        return name
     }
     
+    private func saveKeystore(mnemonic: String, password: String, name: String) async throws {
+        guard let phraseData = mnemonic.data(using: .utf8),
+                let passwordData = password.data(using: .utf8)?.sha256(),
+                let keystore = try await KeystoreV3(privateKey: phraseData, passwordData: passwordData)?.encodedData()
+        else {
+            throw WalletError.invalidInput
+        }
+        let hdWalletFile = try SharedDocument(filename: name.deletingPathExtension().appendPathExtension(HDWALLET_FILE_EXTENSION))
+        try await hdWalletFile.write(keystore)
+    }
+    
+    private func saveAccounts(mnemonic: String, accountsCount: Int, name: String) async throws {
+        let wallet = await Wallet(seed: Mnemonic.createSeed(mnemonic: mnemonic), coin: .ethereum)
+        
+        let accounts = await wallet.generateAddresses(count: accountsCount)
+        let accountsJSON = try JSONEncoder().encode(accounts)
+        let accountsFile = try SharedDocument(filename: name.deletingPathExtension().appendPathExtension(ACCOUNTS_FILE_EXTENSION))
+        try await accountsFile.write(accountsJSON)
+    }
+    
+    func loadHDWallet(name: String, password: String) async throws -> Wallet {
+        let keystoreData = try await SharedDocument(filename: name.deletingPathExtension().appendPathExtension(HDWALLET_FILE_EXTENSION)).read()
+        guard let passwordData = password.data(using: .utf8)?.sha256(),
+                let keystore = try KeystoreV3(keystore: keystoreData),
+                let mnemonicData = try await keystore.getDecryptedKeystore(passwordData: passwordData)
+        else {
+            throw WalletError.invalidInput
+        }
+        
+        let mnemonic = String(decoding: mnemonicData, as: UTF8.self)
+        let masterSeed = HDWalletKit.Mnemonic.createSeed(mnemonic: mnemonic)
+        return await HDWalletKit.Wallet(seed: masterSeed, coin: .ethereum)
+        
+        
+//        let data = Data("abandon amount liar amount expire adjust cage candy arch gather drum buyer".utf8)
+//        let passwordData =  Data("qwertyui".utf8)
+//        let keystore = try! KeystoreV3(data: data, passwordData: passwordData)
+//        guard let decoded = try? keystore?.getDecryptedKeyStore(passwordData: passwordData) else {
+//            fatalError()
+//        }
+//        XCTAssertEqual(decoded, data)
+    }
+    
+    func loadAccounts(name: String) async throws -> [String] {
+        return []
+    }
+    
+    func listWalletFiles() throws -> [String] {
+        return try listFiles(filter: HDWALLET_FILE_EXTENSION)
+    }
+    
+    func listAccountFiles() throws -> [String] {
+        return try listFiles(filter: ACCOUNTS_FILE_EXTENSION)
+    }
+    
+    func listFiles(filter fileExtension: String? = nil) throws -> [String] {
+        let directory = try URL.sharedContainer()
+        let files = try FileManager.default.contentsOfDirectory(atPath: directory.path)
+        
+        guard let fileExtension = fileExtension else {
+            return files
+        }
+        return files.filter { $0.pathExtension == fileExtension }
+    }
 }
+
+// MARK: - Debugging methods
+#if DEBUG
+extension WalletManager {
+    
+    func deleteAllWallets() throws {
+        let directory = try URL.sharedContainer()
+        let wallets = try listWalletFiles()
+        
+        for wallet in wallets {
+            try FileManager.default.removeItem(at: directory.appendingPathComponent(wallet))
+        }
+    }
+    
+    func deleteAllAccounts() throws {
+        let directory = try URL.sharedContainer()
+        let accounts = try listAccountFiles()
+        
+        for account in accounts {
+            try FileManager.default.removeItem(at: directory.appendingPathComponent(account))
+        }
+    }
+}
+#endif

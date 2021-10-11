@@ -75,6 +75,18 @@
 		F8ABEF3C271297B3007F7D11 /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF3727129797007F7D11 /* WalletManager.swift */; };
 		F8ABEF3E27129DEB007F7D11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF3D27129DEB007F7D11 /* AppDelegate.swift */; };
 		F8ABEF3F27129DEB007F7D11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF3D27129DEB007F7D11 /* AppDelegate.swift */; };
+		F8ABEF42271389D9007F7D11 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF41271389D9007F7D11 /* URL.swift */; };
+		F8ABEF43271389D9007F7D11 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF41271389D9007F7D11 /* URL.swift */; };
+		F8ABEF44271389D9007F7D11 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF41271389D9007F7D11 /* URL.swift */; };
+		F8ABEF45271389D9007F7D11 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF41271389D9007F7D11 /* URL.swift */; };
+		F8ABEF47271389F5007F7D11 /* NSFileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF46271389F5007F7D11 /* NSFileCoordinator.swift */; };
+		F8ABEF48271389F5007F7D11 /* NSFileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF46271389F5007F7D11 /* NSFileCoordinator.swift */; };
+		F8ABEF49271389F5007F7D11 /* NSFileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF46271389F5007F7D11 /* NSFileCoordinator.swift */; };
+		F8ABEF4A271389F5007F7D11 /* NSFileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF46271389F5007F7D11 /* NSFileCoordinator.swift */; };
+		F8ABEF4C27138E1D007F7D11 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF4B27138E1D007F7D11 /* String.swift */; };
+		F8ABEF4D27138E1D007F7D11 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF4B27138E1D007F7D11 /* String.swift */; };
+		F8ABEF4E27138E1D007F7D11 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF4B27138E1D007F7D11 /* String.swift */; };
+		F8ABEF4F27138E1D007F7D11 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF4B27138E1D007F7D11 /* String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +172,9 @@
 		F8ABEF3427125F16007F7D11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F8ABEF3727129797007F7D11 /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
 		F8ABEF3D27129DEB007F7D11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F8ABEF41271389D9007F7D11 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		F8ABEF46271389F5007F7D11 /* NSFileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFileCoordinator.swift; sourceTree = "<group>"; };
+		F8ABEF4B27138E1D007F7D11 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +337,7 @@
 		F8ABEF3A271297A3007F7D11 /* Shared (App and Extension) */ = {
 			isa = PBXGroup;
 			children = (
+				F8ABEF40271389CD007F7D11 /* Extensions */,
 				F8ABEF3727129797007F7D11 /* WalletManager.swift */,
 				F8ABEEC327124A8C007F7D11 /* Constants.swift */,
 				F8ABEEC627124A8C007F7D11 /* SharedDocument.swift */,
@@ -330,6 +346,16 @@
 				F8ABEEC827124A8C007F7D11 /* KeychainPasswordItem.swift */,
 			);
 			path = "Shared (App and Extension)";
+			sourceTree = "<group>";
+		};
+		F8ABEF40271389CD007F7D11 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F8ABEF41271389D9007F7D11 /* URL.swift */,
+				F8ABEF46271389F5007F7D11 /* NSFileCoordinator.swift */,
+				F8ABEF4B27138E1D007F7D11 /* String.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -532,8 +558,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8ABEF3527125F16007F7D11 /* ContentView.swift in Sources */,
+				F8ABEF4C27138E1D007F7D11 /* String.swift in Sources */,
+				F8ABEF47271389F5007F7D11 /* NSFileCoordinator.swift in Sources */,
 				F8ABEECD27124A8C007F7D11 /* BiometricsAuthentication.swift in Sources */,
 				F8ABEF3227125EFA007F7D11 /* WalletApp.swift in Sources */,
+				F8ABEF42271389D9007F7D11 /* URL.swift in Sources */,
 				F8ABEED527124A8C007F7D11 /* SharedDocument.swift in Sources */,
 				F8ABEEDD27124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
 				F8ABEEC927124A8C007F7D11 /* Constants.swift in Sources */,
@@ -549,8 +578,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8ABEF3327125EFA007F7D11 /* WalletApp.swift in Sources */,
+				F8ABEF4D27138E1D007F7D11 /* String.swift in Sources */,
+				F8ABEF48271389F5007F7D11 /* NSFileCoordinator.swift in Sources */,
 				F8ABEED227124A8C007F7D11 /* FileObserver.swift in Sources */,
 				F8ABEEDE27124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
+				F8ABEF43271389D9007F7D11 /* URL.swift in Sources */,
 				F8ABEED627124A8C007F7D11 /* SharedDocument.swift in Sources */,
 				F8ABEF3627125F16007F7D11 /* ContentView.swift in Sources */,
 				F8ABEECE27124A8C007F7D11 /* BiometricsAuthentication.swift in Sources */,
@@ -567,11 +599,14 @@
 			files = (
 				0A0E1ED7270687AE00061EA6 /* SafariWebExtensionHandler.swift in Sources */,
 				F8ABEED327124A8C007F7D11 /* FileObserver.swift in Sources */,
+				F8ABEF4E27138E1D007F7D11 /* String.swift in Sources */,
 				F8ABEF3B271297B3007F7D11 /* WalletManager.swift in Sources */,
 				F8ABEECB27124A8C007F7D11 /* Constants.swift in Sources */,
 				F8ABEEDF27124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
 				F8ABEEDB27124A8C007F7D11 /* WalletError.swift in Sources */,
 				F8ABEED727124A8C007F7D11 /* SharedDocument.swift in Sources */,
+				F8ABEF49271389F5007F7D11 /* NSFileCoordinator.swift in Sources */,
+				F8ABEF44271389D9007F7D11 /* URL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,11 +616,14 @@
 			files = (
 				0A0E1ED8270687AE00061EA6 /* SafariWebExtensionHandler.swift in Sources */,
 				F8ABEED427124A8C007F7D11 /* FileObserver.swift in Sources */,
+				F8ABEF4F27138E1D007F7D11 /* String.swift in Sources */,
 				F8ABEF3C271297B3007F7D11 /* WalletManager.swift in Sources */,
 				F8ABEECC27124A8C007F7D11 /* Constants.swift in Sources */,
 				F8ABEEE027124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
 				F8ABEEDC27124A8C007F7D11 /* WalletError.swift in Sources */,
 				F8ABEED827124A8C007F7D11 /* SharedDocument.swift in Sources */,
+				F8ABEF4A271389F5007F7D11 /* NSFileCoordinator.swift in Sources */,
+				F8ABEF45271389D9007F7D11 /* URL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

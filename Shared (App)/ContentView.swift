@@ -18,12 +18,18 @@ struct KeychainConfiguration {
 }
 
 struct ContentView: View {
+    
     var body: some View {
         Text("Hello, world!")
             .padding()
             .task {
-                print("Hello")
-                await createNewHDWallet()
+                do {
+                    print("Hello")
+//                    try await saveAndReadWallet()
+                    try await encryptAndDecryptWallet()
+                } catch {
+                    print("error: \(error)")
+                }
             }
     }
 }
@@ -40,18 +46,52 @@ struct ContentView_Previews: PreviewProvider {
 
 extension ContentView {
     
-    
-    func createNewHDWallet() async {
-        let mnemonic = HDWalletKit.Mnemonic.create()
-        let masterSeed = HDWalletKit.Mnemonic.createSeed(mnemonic: mnemonic)
-        let wallet = await HDWalletKit.Wallet(seed: masterSeed, coin: .ethereum)
-        let address0 = await wallet.generateAddress(at: UInt32(0))
-        let address1 = await wallet.generateAddress(at: UInt32(1))
-        print("addresses created:")
-        print(address0)
-        print(address1)
-//        return Account(coin: coin, index: index, address: address, displayName: "")
+    func encryptAndDecryptWallet() async throws {
+        let data = Data("abandon amount liar amount expire adjust cage candy arch gather drum buyer".utf8)
+        let passwordData =  Data("password123".utf8)
+        let keystore = try await KeystoreV3(privateKey: data, passwordData: passwordData)
+        guard let decoded = try await keystore?.getDecryptedKeystore(passwordData: passwordData) else {
+            throw WalletError.invalidInput
+        }
+        if decoded == data {
+            print("data is equal")
+        } else {
+            print("data is not equal")
+        }
     }
+    
+    func saveAndReadWallet() async throws {
+        print("start creating wallet")
+        let manager = WalletManager()
+        try manager.deleteAllWallets()
+        await Task.sleep(1_000_000_000) // 1 seconds
+        print("all files deleted")
+        
+        let mnemonic = HDWalletKit.Mnemonic.create()
+        let wallet = await manager.createNewHDWallet(mnemonic: mnemonic)
+        let name = try await manager.saveHDWallet(mnemonic: mnemonic, password: "password123")
+                    
+        await Task.sleep(2_000_000_000) // 2 seconds
+        print("awoke")
+        
+        let walletFiles = try manager.listWalletFiles()
+        print("wallets:\n \(walletFiles)\n")
+        
+        let restoredWallet = try await manager.loadHDWallet(name: name, password: "password123")
+        guard wallet == restoredWallet else {
+            print("restored wallet is not the same")
+            return
+        }
+        print("restored wallet: \(restoredWallet)")
+    }
+    
+    
+//    func createNewHDWallet() async {
+//        let mnemonic = HDWalletKit.Mnemonic.create()
+//        let masterSeed = HDWalletKit.Mnemonic.createSeed(mnemonic: mnemonic)
+//        let wallet = await HDWalletKit.Wallet(seed: masterSeed, coin: .ethereum)
+//        wall
+//    }
     
     func saveFile() {
         
