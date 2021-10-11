@@ -26,7 +26,7 @@ struct ContentView: View {
             .task {
                 do {
                     print("Hello")
-//                    try await writeAndReadAccounts()
+                    try await createTestWallet()
                 } catch {
                     print("error: \(error)")
                 }
@@ -45,6 +45,20 @@ struct ContentView_Previews: PreviewProvider {
 
 
 extension ContentView {
+    
+    
+    func createTestWallet() async throws {
+        let mnemonic = Mnemonic.create()
+        let manager = WalletManager()
+        try manager.deleteAllWallets()
+        try manager.deleteAllAccounts()
+        _ = try await manager.saveHDWallet(mnemonic: mnemonic, password: "password123")
+        
+        let wallet = await manager.createNewHDWallet(mnemonic: mnemonic)
+        let addresses = await wallet.generateAddresses()
+        print(addresses)
+    }
+    
     /*
     func writeAndReadAccounts() async throws {
         let mnemonic = Mnemonic.create()

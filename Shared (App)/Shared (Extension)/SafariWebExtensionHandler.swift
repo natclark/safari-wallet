@@ -47,6 +47,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             Task {
                 do {
                     try await self.readAccounts()
+                    try await self.readWallets()
                 } catch {
                     os_log(.default, "Safari-wallet SafariWebExtensionHandler: error %@", error.localizedDescription)
                 }
@@ -60,6 +61,17 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         response.userInfo = [ SFExtensionMessageKey: [ "Response to": message ] ]
 
         context.completeRequest(returningItems: [response], completionHandler: nil)
+    }
+    
+    func readWallets() async throws {
+        let manager = WalletManager()
+        guard let walletFile = try walletManager.listWalletFiles().first else {
+            os_log(.default, "Safari-wallet SafariWebExtensionHandler: no wallet files")
+            return
+        }
+        let wallet = try await manager.loadHDWallet(name: walletFile, password: "password123")
+        let addresses =  await wallet.generateAddresses()
+        os_log(.default, "Safari-wallet SafariWebExtensionHandler: %@", addresses)
     }
     
     func readFile() {
