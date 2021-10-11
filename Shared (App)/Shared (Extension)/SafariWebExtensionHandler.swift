@@ -17,16 +17,42 @@ struct KeychainConfiguration {
 }
 
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
+    
+    let walletManager = WalletManager()
 
     func beginRequest(with context: NSExtensionContext) {
         let item = context.inputItems[0] as! NSExtensionItem
         let message = item.userInfo?[SFExtensionMessageKey]
         os_log(.default, "Safari-wallet SafariWebExtensionHandler: Received message from browser.runtime.sendNativeMessage: %@", message as! CVarArg)
         
+        /*
+        let response = NSExtensionItem()
+//        defer { context.completeRequest(returningItems: [response], completionHandler: nil) } // does response update or gets captured
+        guard let messageDictionary = message as? [String: String], let message = messageDictionary["message"] else {
+            context.completeRequest(returningItems: [response], completionHandler: nil)
+            return
+        }
+        
+        if message == "Connect Wallet" {
+            
+        else if message == "current account" {
+            
+        } else if message == "List accounts" {
+            
+        } */
+        
         if let messageDictionary = message as? [String: String], messageDictionary["message"] == "Connect wallet" {
             os_log(.default, "Safari-wallet SafariWebExtensionHandler: received Connect wallet message")            
         
-            readFile()
+            Task {
+                do {
+                    try await self.readAccounts()
+                } catch {
+                    os_log(.default, "Safari-wallet SafariWebExtensionHandler: error %@", error.localizedDescription)
+                }
+            }
+            
+//            readFile()
 //           readPassword()
         }
 
@@ -67,5 +93,15 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         } catch {
             os_log(.default, "Safari-wallet SafariWebExtensionHandler: no password")
         }
+    }
+    
+    func readAccounts() async throws {
+        
+        guard let accountFile = try walletManager.listAccountFiles().first else {
+            os_log(.default, "Safari-wallet SafariWebExtensionHandler: no account files")
+            return
+        }
+        let accounts = try await walletManager.loadAccounts(name: accountFile)
+        os_log(.default, "Safari-wallet SafariWebExtensionHandler: %@", accounts)
     }
 }
