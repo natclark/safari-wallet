@@ -21,7 +21,7 @@ class WalletManager {
     
     func saveHDWallet(mnemonic: String, password: String, accountsCount: Int = 5, name: String = UUID().uuidString) async throws -> String {
         
-        // TODO: check if mnemonic is valid?
+        // TODO: we could save the two files concurrently
         
         // 1. Store HDWallet recovery phrase
         try await saveKeystore(mnemonic: mnemonic, password: password, name: name)
@@ -32,8 +32,7 @@ class WalletManager {
         return name
     }
     
-    func saveKeystore(mnemonic: String, password: String, name: String) async throws -> Data {
-        print("saving mnemonic: \(mnemonic)")
+    private func saveKeystore(mnemonic: String, password: String, name: String) async throws {
         guard let phraseData = mnemonic.data(using: .utf8),
                 let passwordData = password.data(using: .utf8)?.sha256(),
                 let keystore = try await KeystoreV3(privateKey: phraseData, passwordData: passwordData)?.encodedData()
@@ -42,7 +41,6 @@ class WalletManager {
         }
         let hdWalletFile = try SharedDocument(filename: name.deletingPathExtension().appendPathExtension(HDWALLET_FILE_EXTENSION))
         try await hdWalletFile.write(keystore)
-        return keystore
     }
     
     func loadHDWallet(name: String, password: String) async throws -> Wallet {
@@ -51,11 +49,8 @@ class WalletManager {
         guard let keystore = try KeystoreV3(keystore: keystoreData),
                 let mnemonicData = try await keystore.getDecryptedKeystore(passwordData: passwordData) else {
                     throw WalletError.keystoreError
-                    
                 }
-
         let mnemonic = String(decoding: mnemonicData, as: UTF8.self)
-        print("recovered mnemonic: \(mnemonic)")
         let masterSeed = HDWalletKit.Mnemonic.createSeed(mnemonic: mnemonic)
         return await HDWalletKit.Wallet(seed: masterSeed, coin: .ethereum)
     }

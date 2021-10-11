@@ -86,6 +86,7 @@ extension ContentView {
         print("start creating wallet")
         let manager = WalletManager()
         try manager.deleteAllWallets()
+        try manager.deleteAllAccounts()
         print("all files deleted")
         
         let mnemonic = HDWalletKit.Mnemonic.create()
