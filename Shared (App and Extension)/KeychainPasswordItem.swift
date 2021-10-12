@@ -11,6 +11,11 @@ import Security
 import LocalAuthentication
 import OSLog
 
+struct KeychainConfiguration {
+    static let serviceName = "com.safari.Wallet"
+    static let accessGroup: String? = nil
+}
+
 struct KeychainPasswordItem {
     // MARK: Types
     
@@ -76,10 +81,10 @@ struct KeychainPasswordItem {
     /// - Parameters:
     ///   - password: the password to be stored in the keychain
     ///   - userPresence: if true, the password can only be accessed using biometrics (FaceID and TouchID) with the phone's PIN code as fallback.
-    ///   - reuableDuration: Time in seconds how long the password can be accessed until a biometric authentication is required again.
+    ///   - reusableDuration: Time in seconds how long the password can be accessed until a biometric authentication is required again.
     ///   This is  crucial for extensions that can't access the UI to present a FaceID challenge, such as the Safari web extension. The default value is 300 seconds (5 minutes)
-    func savePassword(_ password: String, userPresence: Bool = true, reuableDuration: TimeInterval = 300) throws {
-        // Encode the password into an Data object.
+    func savePassword(_ password: String, userPresence: Bool = true, reusableDuration: TimeInterval = 300) throws {
+        // Encode the password into a Data object.
         let encodedPassword = password.data(using: String.Encoding.utf8)!
         
         do {
@@ -118,7 +123,7 @@ struct KeychainPasswordItem {
                 newItem[kSecAttrAccessControl as String] = accessControl
                 
                 let context = LAContext()
-                context.touchIDAuthenticationAllowableReuseDuration = reuableDuration
+                context.touchIDAuthenticationAllowableReuseDuration = reusableDuration
                 newItem[kSecUseAuthenticationContext as String] = context
                 #endif
             }

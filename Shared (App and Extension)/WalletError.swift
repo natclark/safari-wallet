@@ -9,4 +9,8 @@ import Foundation
 
 enum WalletError: Error {
     case invalidAppGroupIdentifier
+    case invalidInput
+    case invalidPassword
+    case wrongPassword
+    case keystoreError
 }
