@@ -44,7 +44,6 @@ struct ContentView_Previews: PreviewProvider {
 
 // MARK: -- Test methods
 
-
 extension ContentView {
     
     
@@ -54,18 +53,12 @@ extension ContentView {
         try manager.deleteAllWallets()
         try manager.deleteAllAddresses()
         let name = try await manager.saveHDWallet(mnemonic: mnemonic, password: "password123")
-        
-        // access keychain to unlock keychain for the extension
-//        let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName,
-//                                                account: name,
-//                                                accessGroup: KeychainConfiguration.accessGroup)
-//        let readpw = try passwordItem.readPassword()
-//        print("read pw: \(readpw)")
-        os_log(.default, "Safari-wallet SafariWebExtensionHandler: app is logging")
-        
+                
         let wallet = await manager.createNewHDWallet(mnemonic: mnemonic)
         let addresses = await wallet.generateAddresses()
         print(addresses)
+        manager.setDefaultAddress(addresses.first!)
+        manager.setDefaultHDWallet(name)
     }
     
     /*

@@ -115,6 +115,32 @@ class WalletManager {
     }
 }
 
+// MARK: - NSUserDefaults
+extension WalletManager {
+    
+    func setDefaultAddress(_ address: String) {
+        guard let sharedContainer = UserDefaults(suiteName: APP_GROUP) else { return }
+        sharedContainer.set(address, forKey: "DefaultAddress")
+        sharedContainer.synchronize()
+    }
+    
+    func defaultAddress() -> String? {
+        guard let sharedContainer = UserDefaults(suiteName: APP_GROUP), let address = sharedContainer.string(forKey: "DefaultAddress") else { return nil }
+        return address
+    }
+    
+    func setDefaultHDWallet(_ wallet: String) {
+        guard let sharedContainer = UserDefaults(suiteName: APP_GROUP) else { return }
+        sharedContainer.set(wallet, forKey: "DefaultWallet")
+        sharedContainer.synchronize()
+    }
+    
+    func defaultHDWallet() -> String? {
+        guard let sharedContainer = UserDefaults(suiteName: APP_GROUP), let wallet = sharedContainer.string(forKey: "DefaultWallet") else { return nil }
+        return wallet
+    }
+}
+
 // MARK: - Debugging methods
 #if DEBUG
 extension WalletManager {
