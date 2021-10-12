@@ -8,68 +8,109 @@
 import SafariServices
 import os.log
 
-let SFExtensionMessageKey = "message"
+let SFExtensionMessageKey = "message" // rename to command or call?
+let SFExtensionMessageParameters = "parameters"
+let SFSFExtensionResponseErrorKey = "error"
+let SFSFExtensionReturnValue = "return-value"
 
 // Keychain Configuration
-struct KeychainConfiguration {
-    static let serviceName = "Wallet"
-    static let accessGroup: String? = nil
-}
+//struct KeychainConfiguration {
+//    static let serviceName = "Wallet"
+//    static let accessGroup: String? = nil
+//}
 
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     
     let walletManager = WalletManager()
 
     func beginRequest(with context: NSExtensionContext) {
+
+        let response = NSExtensionItem()
+        defer { context.completeRequest(returningItems: [response], completionHandler: nil) }
+
+        // Grab message
         let item = context.inputItems[0] as! NSExtensionItem
         let message = item.userInfo?[SFExtensionMessageKey]
-        os_log(.default, "Safari-wallet SafariWebExtensionHandler: Received message from browser.runtime.sendNativeMessage: %@", message as! CVarArg)
-        
-        /*
-        let response = NSExtensionItem()
-//        defer { context.completeRequest(returningItems: [response], completionHandler: nil) } // does response update or gets captured
         guard let messageDictionary = message as? [String: String], let message = messageDictionary["message"] else {
-            context.completeRequest(returningItems: [response], completionHandler: nil)
+            response.userInfo = [SFExtensionMessageKey: ["Error": "Received empty message."]]
+            os_log(.default, "Safari-wallet SafariWebExtensionHandler: received empty message")
             return
         }
         
-        if message == "Connect Wallet" {
-            
-        else if message == "current addresses" {
-            
-        } else if message == "List addresses" {
-            
-        } */
+        os_log(.default, "Safari-wallet SafariWebExtensionHandler: Received message from browser.runtime.sendNativeMessage: %@", message as CVarArg)
+        response.userInfo = [ SFExtensionMessageKey: [ "Response to": message ] ] // default response
         
-        if let messageDictionary = message as? [String: String], messageDictionary["message"] == "Connect wallet" {
-            os_log(.default, "Safari-wallet SafariWebExtensionHandler: received Connect wallet message")            
-        
-            Task {
-                do {
-                    try await self.readAddresses()
-                    try await self.readWallets()
-                } catch {
-                    os_log(.default, "Safari-wallet SafariWebExtensionHandler: error %@", error.localizedDescription)
-                }
+        do {
+            let returnValue = try handle(message: message)
+            if let returnValue = returnValue {
+                response.userInfo = returnValue
             }
-            
-//            readFile()
-//           readPassword()
+        } catch {
+            // TODO: error does not always return useful message. Should we return error codes instead?
+            response.userInfo = [SFSFExtensionResponseErrorKey: error.localizedDescription]
+            os_log(.error, "Safari-wallet SafariWebExtensionHandler: %@", error.localizedDescription as CVarArg)
         }
+    }
+}
 
-        let response = NSExtensionItem()
-        response.userInfo = [ SFExtensionMessageKey: [ "Response to": message ] ]
+// MARK: - Message handling
 
-        context.completeRequest(returningItems: [response], completionHandler: nil)
+extension SafariWebExtensionHandler {
+    
+    func handle(message: String, parameters: [String: Any]? = nil) throws -> [String: Any]? {
+        switch message {
+        case "CONNECT_WALLET":
+            print("connect wallet")
+            return nil
+            
+        case "GET_CURRENT_ADDRESS":
+            // Returns the address currently selected in the containing app and stored in NSUserDefaults
+            return [SFSFExtensionReturnValue: self.currentAddress()]
+            
+        case "GET_CURRENT_HDWALLET":
+            // Returns the name of the HD wallet currently selected in the containing app and stored in NSUserDefaults
+            // The name is a random UUID by default
+            return [SFSFExtensionReturnValue: self.currentHDWallet()]
+            /*
+        case "LIST_ADDRESSES":
+            // Returns the list of addresses generated for current wallet
+            return [SFSFExtensionReturnValue: self.listAddresses()]
+            
+        case "OPEN_WALLET":
+            return openWallet(wallet: parameters)
+            
+        case "SWITCH_TO_ADDRESS":
+            return switchAddress(address: parameters)
+            
+        case "SIGN":
+            return sign(rawTx: parameters)*/
+            
+        default:
+            os_log(.default, "Safari-wallet SafariWebExtensionHandler: received unknown command '%@'", message as CVarArg)
+            return [SFSFExtensionResponseErrorKey: "Unknown command in message"]
+        }
     }
     
+}
+
+extension SafariWebExtensionHandler {
+    
+    func currentAddress() -> String {
+        return "TODO: address to return"
+    }
+    
+    func currentHDWallet() -> String {
+        return "TODO: wallet to return"
+    }
+}
+    /*
     func readWallets() async throws {
         let manager = WalletManager()
         guard let walletFile = try walletManager.listWalletFiles().first else {
             os_log(.default, "Safari-wallet SafariWebExtensionHandler: no wallet files")
             return
         }
-        let wallet = try await manager.loadHDWallet(name: walletFile, password: "password123")
+        let wallet = try await manager.loadHDWallet(name: walletFile) //, password: "password123")
         let addresses =  await wallet.generateAddresses()
         os_log(.default, "Safari-wallet SafariWebExtensionHandler: %@", addresses)
     }
@@ -116,4 +157,6 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         let addresses = try await walletManager.loadAddresses(name: addressFile)
         os_log(.default, "Safari-wallet SafariWebExtensionHandler: %@", addresses)
     }
+
 }
+*/

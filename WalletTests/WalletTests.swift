@@ -41,7 +41,7 @@ class WalletTests: XCTestCase {
     
     func testSaveAddresses() async throws {
         let wallet = await manager.createNewHDWallet(mnemonic: mnemonic)
-        let generatedAddresses = await wallet.generateAdresses(count: 5).map { $0.address }
+        let generatedAddresses = await wallet.generateAddresses(count: 5)
         let filename = try await manager.saveHDWallet(mnemonic: mnemonic, password: password)
         let recoveredAddresses = try await manager.loadAddresses(name: filename)
         XCTAssertEqual(generatedAddresses, recoveredAddresses)

@@ -88,7 +88,7 @@
 		F8ABEF4E27138E1D007F7D11 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF4B27138E1D007F7D11 /* String.swift */; };
 		F8ABEF4F27138E1D007F7D11 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF4B27138E1D007F7D11 /* String.swift */; };
 		F8ABEFD427141581007F7D11 /* KeychainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEFD327141581007F7D11 /* KeychainTests.swift */; };
-		F8ABEFDB2714198C007F7D11 /* WalletTests copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEFDA2714198C007F7D11 /* WalletTests copy.swift */; };
+		F8ABEFDB2714198C007F7D11 /* WalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEFDA2714198C007F7D11 /* WalletTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,7 +186,7 @@
 		F8ABEF4B27138E1D007F7D11 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F8ABEFD127141581007F7D11 /* WalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WalletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8ABEFD327141581007F7D11 /* KeychainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTests.swift; sourceTree = "<group>"; };
-		F8ABEFDA2714198C007F7D11 /* WalletTests copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WalletTests copy.swift"; sourceTree = "<group>"; };
+		F8ABEFDA2714198C007F7D11 /* WalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -382,7 +382,7 @@
 		F8ABEFD227141581007F7D11 /* WalletTests */ = {
 			isa = PBXGroup;
 			children = (
-				F8ABEFDA2714198C007F7D11 /* WalletTests copy.swift */,
+				F8ABEFDA2714198C007F7D11 /* WalletTests.swift */,
 				F8ABEFD327141581007F7D11 /* KeychainTests.swift */,
 			);
 			path = WalletTests;
@@ -691,7 +691,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8ABEFDB2714198C007F7D11 /* WalletTests copy.swift in Sources */,
+				F8ABEFDB2714198C007F7D11 /* WalletTests.swift in Sources */,
 				F8ABEFD427141581007F7D11 /* KeychainTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -857,6 +857,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Wallet Extension";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Access to your password is protected by FaceID";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -889,6 +890,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Wallet Extension";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Access to your password is protected by FaceID";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -925,6 +927,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Wallet;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Access to your password is protected by FaceID";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -964,6 +967,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Wallet;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Access to your password is protected by FaceID";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

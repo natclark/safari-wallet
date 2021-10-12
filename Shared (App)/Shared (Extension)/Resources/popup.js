@@ -19,9 +19,30 @@ function connectWallet()
     window.close();
 }
 
+function getCurrentAddress()
+{
+    browser.runtime.sendMessage({message: "GET_CURRENT_ADDRESS"})
+}
+
+function getCurrentHDWallet()
+{
+    browser.runtime.sendMessage({message: "GET_CURRENT_HDWALLET"})
+}
 
 document.addEventListener("DOMContentLoaded", function() {
 	document.getElementById("cancel").addEventListener("click", closeWindow)
-    document.getElementById("connect").addEventListener("click", connectWallet) // temp to test messaging
+    document.getElementById("connect").addEventListener("click", connectWallet)
+    document.getElementById("getCurrentAddress").addEventListener("click", getCurrentAddress)
+    document.getElementById("getCurrentHDWallet").addEventListener("click", getCurrentHDWallet)
 	browser.tabs.query({ currentWindow: true }, updatePopup)
 })
+
+browser.runtime.onMessage.addListener((request) => {
+    console.log("safari-wallet.popup request received: ${request}");
+    if (request.type == "Word count response") {
+        let countDiv = document.getElementById("messageResponse");
+
+        if (!countDiv.hasChildNodes())
+            countDiv.appendChild(document.createTextNode(`Response: ${request.return-value}`));
+    }
+});

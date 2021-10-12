@@ -19,14 +19,22 @@ class WalletManager {
     
     // MARK: - Save and load wallets
     
-    func saveHDWallet(mnemonic: String, password: String, addressCount: Int = 5, name: String = UUID().uuidString) async throws -> String {
+    func saveHDWallet(mnemonic: String, password: String, storePasswordInKeychain: Bool = true, addressCount: Int = 5, name: String = UUID().uuidString) async throws -> String {
         
         // TODO: we could save the two files concurrently
         
         // 1. Store HDWallet recovery phrase
         try await saveKeystore(mnemonic: mnemonic, password: password, name: name)
         
-        // 2. Create Ethereum addresses and store in separate file
+        // 2. Store password in keychain
+        if storePasswordInKeychain == true {
+            let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName,
+                                                    account: name,
+                                                    accessGroup: KeychainConfiguration.accessGroup)
+            try passwordItem.savePassword(password, userPresence: true, reusableDuration: 0)
+        }
+        
+        // 3. Create Ethereum addresses and store in separate file
         try await saveAddresses(mnemonic: mnemonic, addressCount: addressCount, name: name)
         
         return name
@@ -43,13 +51,31 @@ class WalletManager {
         try await hdWalletFile.write(keystore)
     }
     
-    func loadHDWallet(name: String, password: String) async throws -> Wallet {
+    
+    /// If this method throws an .invalidPassword error when password is nil, the password stored in the keychain is incorrect
+    /// - Parameters:
+    ///   - name: <#name description#>
+    ///   - password: <#password description#>
+    /// - Returns: <#description#>
+    func loadHDWallet(name: String, password: String? = nil) async throws -> Wallet {
+        
+        let passwordData: Data
+        if let password = password, let data = password.data(using: .utf8)?.sha256() {
+            passwordData = data
+        } else {
+            // Search keychain for stored password
+            let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName, account: name, accessGroup: KeychainConfiguration.accessGroup)
+            let password = try passwordItem.readPassword()
+            guard let data = password.data(using: .utf8)?.sha256()  else {
+                throw WalletError.invalidPassword
+            }
+            passwordData = data
+        }
+        
         let keystoreData = try await SharedDocument(filename: name.deletingPathExtension().appendPathExtension(HDWALLET_FILE_EXTENSION)).read()
-        guard let passwordData = password.data(using: .utf8)?.sha256() else { throw WalletError.invalidPassword }
-        guard let keystore = try KeystoreV3(keystore: keystoreData),
-                let mnemonicData = try await keystore.getDecryptedKeystore(passwordData: passwordData) else {
-                    throw WalletError.keystoreError
-                }
+        guard let keystore = try KeystoreV3(keystore: keystoreData), let mnemonicData = try await keystore.getDecryptedKeystore(passwordData: passwordData) else {
+            throw WalletError.wrongPassword
+        }
         let mnemonic = String(decoding: mnemonicData, as: UTF8.self)
         let masterSeed = HDWalletKit.Mnemonic.createSeed(mnemonic: mnemonic)
         return await HDWalletKit.Wallet(seed: masterSeed, coin: .ethereum)
@@ -99,6 +125,10 @@ extension WalletManager {
         
         for wallet in wallets {
             try FileManager.default.removeItem(at: directory.appendingPathComponent(wallet))
+            let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName,
+                                                    account: wallet,
+                                                    accessGroup: KeychainConfiguration.accessGroup)
+            try passwordItem.deleteItem()
         }
     }
     
