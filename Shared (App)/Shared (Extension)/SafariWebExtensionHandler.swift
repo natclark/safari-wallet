@@ -23,6 +23,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     
     let walletManager = WalletManager()
 
+    // This version of beginRequest returns a standard reply, great for testing
     func beginRequest(with context: NSExtensionContext) {
 
         let item = context.inputItems[0] as! NSExtensionItem
@@ -31,8 +32,13 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         let response = NSExtensionItem()
         response.userInfo = [ SFExtensionMessageKey: [ "Response to": message ] ]
         context.completeRequest(returningItems: [response], completionHandler: nil)
-        
-        /*
+    
+    }
+    
+    // This version of beginRequest parses received messages and returns requested info in the reply
+    /*
+    func beginRequest(with context: NSExtensionContext) {
+      
         let response = NSExtensionItem()
         defer { context.completeRequest(returningItems: [response], completionHandler: nil) }
 
@@ -57,8 +63,8 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             // TODO: error does not always return useful message. Should we return error codes instead?
             response.userInfo = [SFSFExtensionResponseErrorKey: error.localizedDescription]
             os_log(.error, "Safari-wallet SafariWebExtensionHandler: %@", error.localizedDescription as CVarArg)
-        }*/
-    }
+        }
+    } */
 }
 
 // MARK: - Message handling
