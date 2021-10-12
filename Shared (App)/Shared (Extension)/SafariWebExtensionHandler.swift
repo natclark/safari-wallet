@@ -25,6 +25,14 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
 
     func beginRequest(with context: NSExtensionContext) {
 
+        let item = context.inputItems[0] as! NSExtensionItem
+        let message = item.userInfo?[SFExtensionMessageKey]
+        os_log(.default, "Safari-wallet SafariWebExtensionHandler: Received message from browser.runtime.sendNativeMessage: %@", message as! CVarArg)
+        let response = NSExtensionItem()
+        response.userInfo = [ SFExtensionMessageKey: [ "Response to": message ] ]
+        context.completeRequest(returningItems: [response], completionHandler: nil)
+        
+        /*
         let response = NSExtensionItem()
         defer { context.completeRequest(returningItems: [response], completionHandler: nil) }
 
@@ -32,7 +40,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         let item = context.inputItems[0] as! NSExtensionItem
         let message = item.userInfo?[SFExtensionMessageKey]
         guard let messageDictionary = message as? [String: String], let message = messageDictionary["message"] else {
-            response.userInfo = [SFExtensionMessageKey: ["Error": "Received empty message."]]
+            response.userInfo = [SFSFExtensionResponseErrorKey: ["Error": "Received empty message."]]
             os_log(.default, "Safari-wallet SafariWebExtensionHandler: received empty message")
             return
         }
@@ -49,7 +57,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             // TODO: error does not always return useful message. Should we return error codes instead?
             response.userInfo = [SFSFExtensionResponseErrorKey: error.localizedDescription]
             os_log(.error, "Safari-wallet SafariWebExtensionHandler: %@", error.localizedDescription as CVarArg)
-        }
+        }*/
     }
 }
 
