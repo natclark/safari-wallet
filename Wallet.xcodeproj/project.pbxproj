@@ -256,9 +256,9 @@
 			isa = PBXGroup;
 			children = (
 				F8321B57271698EB00F12938 /* Onboarding */,
-				F8ABEF3127125EFA007F7D11 /* WalletApp.swift */,
 				F8ABEF3427125F16007F7D11 /* ContentView.swift */,
 				F8ABEEC427124A8C007F7D11 /* BiometricsAuthentication.swift */,
+				F8ABEF3127125EFA007F7D11 /* WalletApp.swift */,
 				F8ABEF3D27129DEB007F7D11 /* AppDelegate.swift */,
 				0A0E1E8D270687AE00061EA6 /* Shared (Extension) */,
 				0A0E1E8C270687AE00061EA6 /* Assets.xcassets */,

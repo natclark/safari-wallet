@@ -16,8 +16,17 @@ class WalletManager {
         let masterSeed = HDWalletKit.Mnemonic.createSeed(mnemonic: mnemonic)
         return await HDWalletKit.Wallet(seed: masterSeed, coin: .ethereum)
     }
+}
+
+// MARK: - Manager state
+extension WalletManager {
+    func hasAccounts() throws -> Bool {
+        return try self.listAddressFiles().count > 0        
+    }
+}
     
-    // MARK: - Save and load wallets
+// MARK: - Save and load wallets
+extension WalletManager {
     
     func saveHDWallet(mnemonic: String, password: String, storePasswordInKeychain: Bool = true, addressCount: Int = 5, name: String = UUID().uuidString) async throws -> String {
         

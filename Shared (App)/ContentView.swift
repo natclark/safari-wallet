@@ -21,7 +21,7 @@ import SafariServices
 
 struct ContentView: View {
     
-    @State private var isOnBoardingPresented = false
+    @Binding var isOnBoardingPresented: Bool
     
     var body: some View {
         VStack {
@@ -50,8 +50,9 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    @State static var onboarding = false
     static var previews: some View {
-        ContentView()
+        ContentView(isOnBoardingPresented: $onboarding)
     }
 }
 
