@@ -21,17 +21,31 @@ import SafariServices
 
 struct ContentView: View {
     
+    @State private var isOnBoardingPresented = false
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-            .task {
-                do {
-                    print("Hello")
-                    try await createTestWallet()
-                } catch {
-                    print("error: \(error)")
-                }
+        VStack {
+            
+            Text("Hello, world!")
+                .padding()
+            
+            Button("Show onboarding") {
+                isOnBoardingPresented.toggle()
             }
+            .sheet(isPresented: $isOnBoardingPresented) { OnboardingView() }
+//            .fullScreenCover(isPresented: $isOnBoardingPresented, content: OnboardingView.init)
+            
+            EmptyView()
+                .padding()
+                .task {
+                    do {
+                        print("Hello")
+                        try await createTestWallet()
+                    } catch {
+                        print("error: \(error)")
+                    }
+                }
+        }
     }
 }
 
