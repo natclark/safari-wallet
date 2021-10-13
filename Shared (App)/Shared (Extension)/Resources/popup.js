@@ -29,11 +29,24 @@ function getCurrentHDWallet()
     browser.runtime.sendMessage({message: "GET_CURRENT_HDWALLET"})
 }
 
+function openContainingApp()
+{
+//    browser.runtime.sendMessage({message: "OPEN_CONTAINING_APP"}) // todo: add path parameter
+//    window.open("https://www.apple.com","_self") ??
+}
+
+function signRawTx()
+{
+    browser.runtime.sendMessage({message: "SIGN_RAW_TX"}) // todo: add tx as parameter
+}
+
 document.addEventListener("DOMContentLoaded", function() {
 	document.getElementById("cancel").addEventListener("click", closeWindow)
     document.getElementById("connect").addEventListener("click", connectWallet)
     document.getElementById("getCurrentAddress").addEventListener("click", getCurrentAddress)
     document.getElementById("getCurrentHDWallet").addEventListener("click", getCurrentHDWallet)
+    document.getElementById("openWallet").addEventListener("click", openContainingApp)
+    document.getElementById("signRawTx").addEventListener("click", signRawTx)
 	browser.tabs.query({ currentWindow: true }, updatePopup)
 })
 
