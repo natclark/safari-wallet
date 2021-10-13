@@ -34,17 +34,13 @@ struct ContentView: View {
             }
             .sheet(isPresented: $isOnBoardingPresented) { OnboardingView() }
 //            .fullScreenCover(isPresented: $isOnBoardingPresented, content: OnboardingView.init)
-            
-            EmptyView()
-                .padding()
-                .task {
-                    do {
-                        print("Hello")
-                        try await createTestWallet()
-                    } catch {
-                        print("error: \(error)")
-                    }
-                }
+        }.task {
+           do {
+              print("Hello")
+              try await createTestWallet()
+           } catch {
+              print("error: \(error)")
+           }
         }
     }
 }
