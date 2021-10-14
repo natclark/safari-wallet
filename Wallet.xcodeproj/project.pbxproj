@@ -47,6 +47,8 @@
 		F8321B6027176EE700F12938 /* ConfirmMnemonicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B5E27176EE700F12938 /* ConfirmMnemonicView.swift */; };
 		F8321B622717768400F12938 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B612717768400F12938 /* SummaryView.swift */; };
 		F8321B632717768400F12938 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B612717768400F12938 /* SummaryView.swift */; };
+		F8812B482717E18600D1B231 /* RecoveryPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B472717E18600D1B231 /* RecoveryPhrase.swift */; };
+		F8812B4A2717E2F700D1B231 /* RecoveryPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B472717E18600D1B231 /* RecoveryPhrase.swift */; };
 		F8ABEEC927124A8C007F7D11 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC327124A8C007F7D11 /* Constants.swift */; };
 		F8ABEECA27124A8C007F7D11 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC327124A8C007F7D11 /* Constants.swift */; };
 		F8ABEECB27124A8C007F7D11 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC327124A8C007F7D11 /* Constants.swift */; };
@@ -187,6 +189,7 @@
 		F8321B5B27176ED600F12938 /* ShowMnemonicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMnemonicView.swift; sourceTree = "<group>"; };
 		F8321B5E27176EE700F12938 /* ConfirmMnemonicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmMnemonicView.swift; sourceTree = "<group>"; };
 		F8321B612717768400F12938 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
+		F8812B472717E18600D1B231 /* RecoveryPhrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryPhrase.swift; sourceTree = "<group>"; };
 		F8ABEEC327124A8C007F7D11 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F8ABEEC427124A8C007F7D11 /* BiometricsAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricsAuthentication.swift; sourceTree = "<group>"; };
 		F8ABEEC527124A8C007F7D11 /* FileObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileObserver.swift; sourceTree = "<group>"; };
@@ -274,6 +277,7 @@
 		0A0E1E84270687AA00061EA6 /* Shared (App) */ = {
 			isa = PBXGroup;
 			children = (
+				F8812B462717E07000D1B231 /* Models */,
 				F8321B57271698EB00F12938 /* Onboarding */,
 				F8ABEF3427125F16007F7D11 /* ContentView.swift */,
 				F8ABEEC427124A8C007F7D11 /* BiometricsAuthentication.swift */,
@@ -380,6 +384,14 @@
 				F8AD21E5271796CC0059D754 /* RestoreOrCreateWalletView.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		F8812B462717E07000D1B231 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F8812B472717E18600D1B231 /* RecoveryPhrase.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		F8ABEEE827125105007F7D11 /* Frameworks */ = {
@@ -693,6 +705,7 @@
 				F8ABEEC927124A8C007F7D11 /* Constants.swift in Sources */,
 				F8321B622717768400F12938 /* SummaryView.swift in Sources */,
 				F8ABEF3827129797007F7D11 /* WalletManager.swift in Sources */,
+				F8812B482717E18600D1B231 /* RecoveryPhrase.swift in Sources */,
 				F8ABEED127124A8C007F7D11 /* FileObserver.swift in Sources */,
 				F8ABEF3E27129DEB007F7D11 /* AppDelegate.swift in Sources */,
 				F8ABEED927124A8C007F7D11 /* WalletError.swift in Sources */,
@@ -722,6 +735,7 @@
 				F8ABEF3927129797007F7D11 /* WalletManager.swift in Sources */,
 				F8ABEECA27124A8C007F7D11 /* Constants.swift in Sources */,
 				F8ABEF3F27129DEB007F7D11 /* AppDelegate.swift in Sources */,
+				F8812B4A2717E2F700D1B231 /* RecoveryPhrase.swift in Sources */,
 				F8ABEEDA27124A8C007F7D11 /* WalletError.swift in Sources */,
 				F8321B5A27176EBE00F12938 /* OnboardingView.swift in Sources */,
 			);

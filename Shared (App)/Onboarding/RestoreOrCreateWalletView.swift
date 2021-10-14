@@ -13,6 +13,20 @@ struct RestoreOrCreateWalletView: View {
     
     var body: some View {
         Text("Restore or create wallet")
+        
+        VStack(spacing: 8) {
+            
+            Button("Create a new wallet") {
+                state = .createWallet
+            }
+    
+            Button("Restore existing wallet") {
+                state = .restoreWallet
+            }
+            
+            Text("Needed: 12 or 24 word recovery phrase")
+        }
+        
     }
 }
 

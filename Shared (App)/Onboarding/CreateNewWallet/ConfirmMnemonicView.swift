@@ -11,9 +11,19 @@ struct ConfirmMnemonicView: View {
     
     @Binding var state: OnboardingState
     var mnemonic: String
+    @State var shuffledMnemonic: [String] = []
     
     var body: some View {
-        Text("Confirm mnemonic")
+        
+        VStack {
+            
+            Text("Confirm mnemonic")
+                .onAppear {
+                    shuffledMnemonic = RecoveryPhrase(mnemonic: mnemonic).shufflePhrase()
+                }
+            
+            
+        }
     }
 }
 

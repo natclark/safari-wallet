@@ -56,6 +56,8 @@ struct OnboardingView: View {
                     ConfirmMnemonicView(state: $state, mnemonic: mnemonic)
                     CreatePasswordView(state: $state, mnemonic: mnemonic)
                 }
+                .tabViewStyle(.page)
+                .indexViewStyle(.page(backgroundDisplayMode: .always))
 
             } else if state == .restoreWallet {
 
@@ -64,6 +66,9 @@ struct OnboardingView: View {
                     RestoreWalletView(state: $state, restoredMnemonic: $restoredMnemonic)
                     CreatePasswordView(state: $state, mnemonic: restoredMnemonic)
                 }
+                .tabViewStyle(.page)
+                .indexViewStyle(.page(backgroundDisplayMode: .always))
+                
             } else if state == .appIntro {
 
                 // Show app intro
