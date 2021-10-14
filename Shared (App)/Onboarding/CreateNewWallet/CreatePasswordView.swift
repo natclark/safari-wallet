@@ -10,11 +10,26 @@ import SwiftUI
 struct CreatePasswordView: View {
     
     @Binding var state: OnboardingState
+    @Binding var tabIndex: Int
     var mnemonic: String
     @State var password = ""
     
     var body: some View {
-        Text("Create password")
+        
+        VStack {
+            Text("Create password")
+            
+            HStack(spacing: 8) {
+                Button("Cancel") {
+                    state = .initial
+                }
+        
+                Button("Continue") {
+                    // Save wallet
+                    state = .summary
+                }.disabled(false)
+            }
+        }
     }
 }
 
@@ -33,8 +48,9 @@ extension CreatePasswordView {
 
 struct CreatePasswordView_Previews: PreviewProvider {
     @State static var state: OnboardingState = .createWallet
+    @State static var tabIndex: Int = 0
     static var previews: some View {
-        CreatePasswordView(state:$state, mnemonic: "abandon amount liar amount expire adjust cage candy arch gather drum buyer")
+        CreatePasswordView(state:$state, tabIndex: $tabIndex, mnemonic: "abandon amount liar amount expire adjust cage candy arch gather drum buyer")
     }
 }
 

@@ -26,15 +26,10 @@ struct ContentView: View {
     var body: some View {
         VStack {
             
-            Text("Hello, world!")
+            Text("(transaction history)")
                 .padding()
-            
-            Button("Show onboarding") {
-                isOnBoardingPresented.toggle()
-            }
-            .sheet(isPresented: $isOnBoardingPresented) { OnboardingView() }
-//            .fullScreenCover(isPresented: $isOnBoardingPresented, content: OnboardingView.init)
-            
+                .sheet(isPresented: $isOnBoardingPresented) { OnboardingView() }
+                        
             EmptyView()
                 .padding()
                 .task {

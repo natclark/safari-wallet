@@ -14,6 +14,10 @@ struct RestoreWalletView: View {
     
     var body: some View {
         Text("Restore existing wallet")
+        Button("Continue") {
+            // Save wallet            
+            state = .summary
+        }.disabled(false)
     }
 }
 
