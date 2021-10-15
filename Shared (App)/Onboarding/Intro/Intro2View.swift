@@ -14,7 +14,7 @@ struct Intro2View: View {
     
     var body: some View {
         VStack {
-            Text("how to use the Safari extension part 2")
+            Text("Safari extension installation tutorial part 2")
                 .font(.title)
             
             Spacer()
