@@ -39,6 +39,7 @@
 		0A0E1EE8270687AE00061EA6 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 0A0E1E97270687AE00061EA6 /* popup.js */; };
 		275C299427117F7D00DA2773 /* injections in Resources */ = {isa = PBXBuildFile; fileRef = 275C299327117F7D00DA2773 /* injections */; };
 		275C299527117F7D00DA2773 /* injections in Resources */ = {isa = PBXBuildFile; fileRef = 275C299327117F7D00DA2773 /* injections */; };
+		4A23A620271A0D1E0076BBD3 /* web3.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 4A23A61F271A0D1E0076BBD3 /* web3.swift */; };
 		F8321B5927169A1D00F12938 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B5827169A1D00F12938 /* OnboardingView.swift */; };
 		F8321B5A27176EBE00F12938 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B5827169A1D00F12938 /* OnboardingView.swift */; };
 		F8321B5C27176ED600F12938 /* ShowMnemonicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B5B27176ED600F12938 /* ShowMnemonicView.swift */; };
@@ -239,6 +240,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A23A620271A0D1E0076BBD3 /* web3.swift in Frameworks */,
 				F8ABEEE727125002007F7D11 /* HDWalletKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,6 +542,7 @@
 			name = "Wallet (iOS)";
 			packageProductDependencies = (
 				F8ABEEE627125002007F7D11 /* HDWalletKit */,
+				4A23A61F271A0D1E0076BBD3 /* web3.swift */,
 			);
 			productName = "Wallet (iOS)";
 			productReference = 0A0E1E9C270687AE00061EA6 /* Wallet.app */;
@@ -664,6 +667,7 @@
 			mainGroup = 0A0E1E7F270687AA00061EA6;
 			packageReferences = (
 				F8ABEEE527125002007F7D11 /* XCRemoteSwiftPackageReference "HDWallet" */,
+				4A23A61E271A0D1E0076BBD3 /* XCRemoteSwiftPackageReference "web3" */,
 			);
 			productRefGroup = 0A0E1E9D270687AE00061EA6 /* Products */;
 			projectDirPath = "";
@@ -1402,6 +1406,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4A23A61E271A0D1E0076BBD3 /* XCRemoteSwiftPackageReference "web3" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tvongerlach/web3.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.1;
+			};
+		};
 		F8ABEEE527125002007F7D11 /* XCRemoteSwiftPackageReference "HDWallet" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ronaldmannak/HDWallet";
@@ -1413,6 +1425,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4A23A61F271A0D1E0076BBD3 /* web3.swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A23A61E271A0D1E0076BBD3 /* XCRemoteSwiftPackageReference "web3" */;
+			productName = web3.swift;
+		};
 		F8ABEEE627125002007F7D11 /* HDWalletKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = F8ABEEE527125002007F7D11 /* XCRemoteSwiftPackageReference "HDWallet" */;
