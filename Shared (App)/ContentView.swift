@@ -29,6 +29,9 @@ struct ContentView: View {
             Text("")
     //        EmptyView()
             .sheet(isPresented: $isOnBoardingPresented) { OnboardingView() }
+            .task {
+//                try? await createTestWallet()
+            }
 
             TabView {
                 ShortcutView()
@@ -52,12 +55,12 @@ struct ContentView_Previews: PreviewProvider {
 
 extension ContentView {
     
-    /*
+    
     func createTestWallet() async throws {
         let mnemonic = Mnemonic.create()
         let manager = WalletManager()
-        try manager.deleteAllWallets()
-        try manager.deleteAllAddresses()
+//        try manager.deleteAllWallets()
+//        try manager.deleteAllAddresses()
         let name = try await manager.saveHDWallet(mnemonic: mnemonic, password: "password123")
                 
         let wallet = await manager.createNewHDWallet(mnemonic: mnemonic)
@@ -66,7 +69,7 @@ extension ContentView {
         manager.setDefaultAddress(addresses.first!)
         manager.setDefaultHDWallet(name)
     }
-    
+    /*
     func writeAndReadAccounts() async throws {
         let mnemonic = Mnemonic.create()
         let manager = WalletManager()
