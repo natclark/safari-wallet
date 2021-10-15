@@ -37,7 +37,9 @@ struct ContentView: View {
                 ShortcutView()
                     .tabItem { Label("Shortcuts", systemImage: "square.grid.3x2") }
                 TransactionsView()
-                    .tabItem { Label("Transactions", image: "repeat") }
+                    .tabItem { Label("Transactions", systemImage: "repeat") }
+                DeveloperView()
+                    .tabItem { Label("Developer", systemImage: "exclamationmark.triangle.fill") }
             }
         }
     }
@@ -55,7 +57,7 @@ struct ContentView_Previews: PreviewProvider {
 
 extension ContentView {
     
-    
+    /*
     func createTestWallet() async throws {
         let mnemonic = Mnemonic.create()
         let manager = WalletManager()
@@ -69,7 +71,7 @@ extension ContentView {
         manager.setDefaultAddress(addresses.first!)
         manager.setDefaultHDWallet(name)
     }
-    /*
+    
     func writeAndReadAccounts() async throws {
         let mnemonic = Mnemonic.create()
         let manager = WalletManager()

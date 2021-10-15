@@ -61,6 +61,8 @@
 		F8812B5C271923A300D1B231 /* ShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B5A271923A300D1B231 /* ShortcutView.swift */; };
 		F8812B5E27192AA600D1B231 /* ShortcutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B5D27192AA600D1B231 /* ShortcutItem.swift */; };
 		F8812B5F27192AA600D1B231 /* ShortcutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B5D27192AA600D1B231 /* ShortcutItem.swift */; };
+		F8812B6227193E8B00D1B231 /* DeveloperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B6127193E8B00D1B231 /* DeveloperView.swift */; };
+		F8812B6327193E8B00D1B231 /* DeveloperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B6127193E8B00D1B231 /* DeveloperView.swift */; };
 		F8ABEEC927124A8C007F7D11 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC327124A8C007F7D11 /* Constants.swift */; };
 		F8ABEECA27124A8C007F7D11 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC327124A8C007F7D11 /* Constants.swift */; };
 		F8ABEECB27124A8C007F7D11 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC327124A8C007F7D11 /* Constants.swift */; };
@@ -208,6 +210,7 @@
 		F8812B572719239700D1B231 /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
 		F8812B5A271923A300D1B231 /* ShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutView.swift; sourceTree = "<group>"; };
 		F8812B5D27192AA600D1B231 /* ShortcutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutItem.swift; sourceTree = "<group>"; };
+		F8812B6127193E8B00D1B231 /* DeveloperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperView.swift; sourceTree = "<group>"; };
 		F8ABEEC327124A8C007F7D11 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F8ABEEC427124A8C007F7D11 /* BiometricsAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricsAuthentication.swift; sourceTree = "<group>"; };
 		F8ABEEC527124A8C007F7D11 /* FileObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileObserver.swift; sourceTree = "<group>"; };
@@ -299,6 +302,7 @@
 				F8321B57271698EB00F12938 /* Onboarding */,
 				F8812B562719235B00D1B231 /* TransactionsTab */,
 				F8812B552719234A00D1B231 /* ShortcutTab */,
+				F8812B6027193E7E00D1B231 /* DeveloperTab */,
 				F8ABEF3427125F16007F7D11 /* ContentView.swift */,
 				F8ABEEC427124A8C007F7D11 /* BiometricsAuthentication.swift */,
 				F8ABEF3127125EFA007F7D11 /* WalletApp.swift */,
@@ -438,6 +442,14 @@
 				F8812B572719239700D1B231 /* TransactionsView.swift */,
 			);
 			path = TransactionsTab;
+			sourceTree = "<group>";
+		};
+		F8812B6027193E7E00D1B231 /* DeveloperTab */ = {
+			isa = PBXGroup;
+			children = (
+				F8812B6127193E8B00D1B231 /* DeveloperView.swift */,
+			);
+			path = DeveloperTab;
 			sourceTree = "<group>";
 		};
 		F8ABEEE827125105007F7D11 /* Frameworks */ = {
@@ -756,6 +768,7 @@
 				F8ABEED527124A8C007F7D11 /* SharedDocument.swift in Sources */,
 				F8ABEEDD27124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
 				F8ABEEC927124A8C007F7D11 /* Constants.swift in Sources */,
+				F8812B6227193E8B00D1B231 /* DeveloperView.swift in Sources */,
 				F8812B5E27192AA600D1B231 /* ShortcutItem.swift in Sources */,
 				F8321B622717768400F12938 /* SummaryView.swift in Sources */,
 				F8ABEF3827129797007F7D11 /* WalletManager.swift in Sources */,
@@ -790,6 +803,7 @@
 				F8ABEED627124A8C007F7D11 /* SharedDocument.swift in Sources */,
 				F8ABEF3627125F16007F7D11 /* ContentView.swift in Sources */,
 				F8ABEECE27124A8C007F7D11 /* BiometricsAuthentication.swift in Sources */,
+				F8812B6327193E8B00D1B231 /* DeveloperView.swift in Sources */,
 				F8812B5F27192AA600D1B231 /* ShortcutItem.swift in Sources */,
 				F8321B632717768400F12938 /* SummaryView.swift in Sources */,
 				F8ABEF3927129797007F7D11 /* WalletManager.swift in Sources */,
