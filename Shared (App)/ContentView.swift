@@ -21,37 +21,34 @@ import SafariServices
 
 struct ContentView: View {
     
-    @State private var isOnBoardingPresented = false
+    @Binding var isOnBoardingPresented: Bool
     
     var body: some View {
-        VStack {
-            
-            Text("Hello, world!")
-                .padding()
-            
-            Button("Show onboarding") {
-                isOnBoardingPresented.toggle()
-            }
+
+        ZStack {
+            Text("")
+    //        EmptyView()
             .sheet(isPresented: $isOnBoardingPresented) { OnboardingView() }
-//            .fullScreenCover(isPresented: $isOnBoardingPresented, content: OnboardingView.init)
-            
-            EmptyView()
-                .padding()
-                .task {
-                    do {
-                        print("Hello")
-                        try await createTestWallet()
-                    } catch {
-                        print("error: \(error)")
-                    }
-                }
+            .task {
+//                try? await createTestWallet()
+            }
+
+            TabView {
+                ShortcutView()
+                    .tabItem { Label("Shortcuts", systemImage: "square.grid.3x2") }
+                TransactionsView()
+                    .tabItem { Label("Transactions", systemImage: "repeat") }
+                DeveloperView()
+                    .tabItem { Label("Developer", systemImage: "exclamationmark.triangle.fill") }
+            }
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
+    @State static var onboarding = false
     static var previews: some View {
-        ContentView()
+        ContentView(isOnBoardingPresented: $onboarding)
     }
 }
 
@@ -60,12 +57,12 @@ struct ContentView_Previews: PreviewProvider {
 
 extension ContentView {
     
-    
+    /*
     func createTestWallet() async throws {
         let mnemonic = Mnemonic.create()
         let manager = WalletManager()
-        try manager.deleteAllWallets()
-        try manager.deleteAllAddresses()
+//        try manager.deleteAllWallets()
+//        try manager.deleteAllAddresses()
         let name = try await manager.saveHDWallet(mnemonic: mnemonic, password: "password123")
                 
         let wallet = await manager.createNewHDWallet(mnemonic: mnemonic)
@@ -75,7 +72,6 @@ extension ContentView {
         manager.setDefaultHDWallet(name)
     }
     
-    /*
     func writeAndReadAccounts() async throws {
         let mnemonic = Mnemonic.create()
         let manager = WalletManager()
