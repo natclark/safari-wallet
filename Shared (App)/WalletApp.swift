@@ -47,10 +47,6 @@ struct WalletApp: App {
 extension WalletApp {
     
     func isOnboardingNeeded() throws -> Bool {
-        #if DEBUG
-//        try WalletManager().deleteAllAddresses()
-//        try WalletManager().deleteAllWallets()
-        #endif
         return try !WalletManager().hasAccounts()
     }
 }

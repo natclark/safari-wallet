@@ -33,7 +33,13 @@ struct CreatePasswordView: View {
                 }
                 Spacer()
                 Button("Save wallet") {
-                    // TODO: save wallet
+                    Task {
+                        do {
+                            try await createTestWallet()
+                        } catch {
+                            print("Error creating test wallet: \(error.localizedDescription)")
+                        }
+                    }
                     state = .summary
                 }.disabled(password != confirmPassword)
             }
@@ -50,6 +56,17 @@ extension CreatePasswordView {
         let name = try await manager.saveHDWallet(mnemonic: mnemonic, password: self.password)
         let wallet = await manager.createNewHDWallet(mnemonic: mnemonic)
         let addresses = await wallet.generateAddresses()
+        print(addresses)
+        manager.setDefaultAddress(addresses.first!)
+        manager.setDefaultHDWallet(name)
+    }
+    
+    func createTestWallet() async throws {
+        let manager = WalletManager()
+        let name = try await manager.saveHDWallet(mnemonic: mnemonic, password: "password123")
+        let wallet = await manager.createNewHDWallet(mnemonic: mnemonic)
+        let addresses = await wallet.generateAddresses()
+        print(addresses)
         manager.setDefaultAddress(addresses.first!)
         manager.setDefaultHDWallet(name)
     }
