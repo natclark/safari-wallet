@@ -72,7 +72,7 @@ struct OnboardingView: View {
 
                 // Restore existing wallet
                 TabView {
-                    RestoreWalletView(state: $state, restoredMnemonic: $restoredMnemonic)
+                    RestoreWalletView(state: $state, tabIndex: $tabIndex, restoredMnemonic: $restoredMnemonic)
                         .tag(0)
                     CreatePasswordView(state: $state, tabIndex: $tabIndex, mnemonic: restoredMnemonic)
                         .tag(1)

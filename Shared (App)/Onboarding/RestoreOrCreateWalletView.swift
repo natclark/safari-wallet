@@ -12,20 +12,27 @@ struct RestoreOrCreateWalletView: View {
     @Binding var state: OnboardingState
     
     var body: some View {
-        Text("Restore or create wallet")
         
         VStack(spacing: 8) {
+                        
+            Text("Restore or create wallet")
+                .font(.title)
+            
+            Spacer()
             
             Button("Create a new wallet") {
                 state = .createWallet
             }
-    
+            .padding()
+                
             Button("Restore existing wallet") {
                 state = .restoreWallet
             }
             
             Text("Needed: 12 or 24 word recovery phrase")
+                .font(.footnote)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         
     }
 }

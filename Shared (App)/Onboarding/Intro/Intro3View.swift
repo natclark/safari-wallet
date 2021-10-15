@@ -13,7 +13,26 @@ struct Intro3View: View {
     @Binding var tabIndex: Int
     
     var body: some View {
-        Text("how to use the Safari extension part 3")
+        VStack {
+            Text("how to use the Safari extension part 3")
+                .font(.title)
+            
+            Spacer()
+            
+            Text("placeholder for image")
+            Spacer()
+            
+            HStack(spacing: 8) {
+                Button("Previous") {
+                    tabIndex -= 1
+                }
+                Spacer()
+                Button("Done") {
+                    state = .dismiss
+                }
+            }
+        }
+        .padding()
     }
 }
 

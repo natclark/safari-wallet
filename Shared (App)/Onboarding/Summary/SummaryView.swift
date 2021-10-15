@@ -13,18 +13,26 @@ struct SummaryView: View {
     @Binding var tabIndex: Int
     
     var body: some View {
-        Text("Summary View")
         
-        HStack(spacing: 8) {
-            Button("Skip") {
-                state = .dismiss
+        VStack {
+            Text("Summary View")
+                .font(.title)
+            
+            Spacer()
+        
+            HStack(spacing: 8) {
+                Button("Skip") {
+                    state = .dismiss
+                }
+                Spacer()
+                Button("Continue") {
+                    // progress to next tab
+                    state = .appIntro
+                }.disabled(false)
             }
-
-            Button("Continue") {
-                // progress to next tab
-                state = .appIntro
-            }.disabled(false)
         }
+        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 

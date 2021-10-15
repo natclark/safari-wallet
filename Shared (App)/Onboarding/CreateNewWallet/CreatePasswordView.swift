@@ -13,23 +13,32 @@ struct CreatePasswordView: View {
     @Binding var tabIndex: Int
     var mnemonic: String
     @State var password = ""
+    @State var confirmPassword = ""
     
     var body: some View {
         
         VStack {
-            Text("Create password")
+            Text("Set password")
+                .font(.title)
+            
+            Spacer()
+            
+//            TextField(
+            Text("textfield placeholder")
+            Spacer()
             
             HStack(spacing: 8) {
-                Button("Cancel") {
-                    state = .initial
+                Button("Previous") {
+                    tabIndex -= 1
                 }
-        
-                Button("Continue") {
-                    // Save wallet
+                Spacer()
+                Button("Save wallet") {
+                    // TODO: save wallet
                     state = .summary
-                }.disabled(false)
+                }.disabled(password != confirmPassword)
             }
         }
+        .padding()     
     }
 }
 

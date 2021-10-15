@@ -14,20 +14,27 @@ struct ShowMnemonicView: View {
     var mnemonic: String
     
     var body: some View {
-        VStack(spacing: 8) {
+        
+        VStack {
+            Text("Your wallet's recovery phrase")
+                .font(.title)
+            
+            Spacer()
+            
             Text(mnemonic)
-            Text("Write down the 12-word recovery phrase and store securely")
-            HStack(spacing: 8) {                
+            Spacer()
+            
+            HStack(spacing: 8) {
                 Button("Cancel") {
                     state = .initial
                 }
-        
-                Button("Continue") {
-                    // progress to next tab
+                Spacer()
+                Button("Next") {
                     tabIndex += 1
                 }
             }
         }
+        .padding()    
     }
 }
 

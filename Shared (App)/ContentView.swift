@@ -26,7 +26,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             
-            Text("(transaction history)")
+            Text("placeholder for DeFi shortcuts")
                 .padding()
                 .sheet(isPresented: $isOnBoardingPresented) { OnboardingView() }
                         

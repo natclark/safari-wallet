@@ -16,24 +16,29 @@ struct ConfirmMnemonicView: View {
     
     var body: some View {
         
+        
         VStack {
+            Text("Reenter the recovery phrase in the correct order")
+                .font(.title)
             
-            Text("Confirm mnemonic")
-                .onAppear {
-                    shuffledMnemonic = RecoveryPhrase(mnemonic: mnemonic).shufflePhrase()
-                }
+            Spacer()
+            
+            Text("placeholder for confirmation")
+            Text("hint: \(mnemonic)")
+                .font(.footnote)
+            Spacer()
             
             HStack(spacing: 8) {
-                Button("Cancel") {
-                    state = .initial
+                Button("Previous") {
+                    tabIndex -= 1
                 }
-        
-                Button("Continue") {
-                    // progress to next tab
+                Spacer()
+                Button("Next") {
                     tabIndex += 1
-                }.disabled(false)
+                }
             }
         }
+        .padding()        
     }
 }
 

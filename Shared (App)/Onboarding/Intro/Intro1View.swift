@@ -13,7 +13,26 @@ struct Intro1View: View {
     @Binding var tabIndex: Int
     
     var body: some View {
-        Text("how to use the Safari extension part 1")
+        VStack {
+            Text("how to use the Safari extension part 1")
+                .font(.title)
+            
+            Spacer()
+            
+            Text("placeholder for image")
+            Spacer()
+            
+            HStack(spacing: 8) {
+                Button("Previous") {
+                    
+                }.disabled(true)
+                Spacer()
+                Button("Next") {
+                    tabIndex += 1
+                }
+            }
+        }
+        .padding()        
     }
 }
 
