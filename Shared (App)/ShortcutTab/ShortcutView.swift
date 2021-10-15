@@ -10,10 +10,8 @@ import SwiftUI
 struct ShortcutView: View {
     
     let tokens = ShortcutItem.tokens()
-
-       let columns = [
-           GridItem(.adaptive(minimum: 80))
-       ]
+    let columns = [GridItem(.adaptive(minimum: 80))]
+    @Environment(\.openURL) var openURL
     
     var body: some View {
         
@@ -40,6 +38,8 @@ struct ShortcutView: View {
                         
                         Text(token.name)
                             .font(.callout)
+                    }.onTapGesture {
+                        openURL(token.url)
                     }
                 }
             }
