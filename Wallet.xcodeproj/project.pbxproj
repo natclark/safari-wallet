@@ -55,6 +55,10 @@
 		F8812B502718B91E00D1B231 /* Intro2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B4E2718B91E00D1B231 /* Intro2View.swift */; };
 		F8812B522718B92500D1B231 /* Intro3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B512718B92500D1B231 /* Intro3View.swift */; };
 		F8812B532718B92500D1B231 /* Intro3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B512718B92500D1B231 /* Intro3View.swift */; };
+		F8812B582719239700D1B231 /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B572719239700D1B231 /* TransactionsView.swift */; };
+		F8812B592719239700D1B231 /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B572719239700D1B231 /* TransactionsView.swift */; };
+		F8812B5B271923A300D1B231 /* ShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B5A271923A300D1B231 /* ShortcutView.swift */; };
+		F8812B5C271923A300D1B231 /* ShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B5A271923A300D1B231 /* ShortcutView.swift */; };
 		F8ABEEC927124A8C007F7D11 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC327124A8C007F7D11 /* Constants.swift */; };
 		F8ABEECA27124A8C007F7D11 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC327124A8C007F7D11 /* Constants.swift */; };
 		F8ABEECB27124A8C007F7D11 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC327124A8C007F7D11 /* Constants.swift */; };
@@ -199,6 +203,8 @@
 		F8812B4B2718B91600D1B231 /* Intro1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro1View.swift; sourceTree = "<group>"; };
 		F8812B4E2718B91E00D1B231 /* Intro2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro2View.swift; sourceTree = "<group>"; };
 		F8812B512718B92500D1B231 /* Intro3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro3View.swift; sourceTree = "<group>"; };
+		F8812B572719239700D1B231 /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
+		F8812B5A271923A300D1B231 /* ShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutView.swift; sourceTree = "<group>"; };
 		F8ABEEC327124A8C007F7D11 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F8ABEEC427124A8C007F7D11 /* BiometricsAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricsAuthentication.swift; sourceTree = "<group>"; };
 		F8ABEEC527124A8C007F7D11 /* FileObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileObserver.swift; sourceTree = "<group>"; };
@@ -288,6 +294,8 @@
 			children = (
 				F8812B462717E07000D1B231 /* Models */,
 				F8321B57271698EB00F12938 /* Onboarding */,
+				F8812B562719235B00D1B231 /* TransactionsTab */,
+				F8812B552719234A00D1B231 /* ShortcutTab */,
 				F8ABEF3427125F16007F7D11 /* ContentView.swift */,
 				F8ABEEC427124A8C007F7D11 /* BiometricsAuthentication.swift */,
 				F8ABEF3127125EFA007F7D11 /* WalletApp.swift */,
@@ -410,6 +418,22 @@
 				F8321B612717768400F12938 /* SummaryView.swift */,
 			);
 			path = Summary;
+			sourceTree = "<group>";
+		};
+		F8812B552719234A00D1B231 /* ShortcutTab */ = {
+			isa = PBXGroup;
+			children = (
+				F8812B5A271923A300D1B231 /* ShortcutView.swift */,
+			);
+			path = ShortcutTab;
+			sourceTree = "<group>";
+		};
+		F8812B562719235B00D1B231 /* TransactionsTab */ = {
+			isa = PBXGroup;
+			children = (
+				F8812B572719239700D1B231 /* TransactionsView.swift */,
+			);
+			path = TransactionsTab;
 			sourceTree = "<group>";
 		};
 		F8ABEEE827125105007F7D11 /* Frameworks */ = {
@@ -709,6 +733,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8812B5B271923A300D1B231 /* ShortcutView.swift in Sources */,
+				F8812B582719239700D1B231 /* TransactionsView.swift in Sources */,
 				F8ABEF3527125F16007F7D11 /* ContentView.swift in Sources */,
 				F8812B4F2718B91E00D1B231 /* Intro2View.swift in Sources */,
 				F8812B4C2718B91600D1B231 /* Intro1View.swift in Sources */,
@@ -740,6 +766,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8812B5C271923A300D1B231 /* ShortcutView.swift in Sources */,
+				F8812B592719239700D1B231 /* TransactionsView.swift in Sources */,
 				F8ABEF3327125EFA007F7D11 /* WalletApp.swift in Sources */,
 				F8812B502718B91E00D1B231 /* Intro2View.swift in Sources */,
 				F8812B4D2718B91600D1B231 /* Intro1View.swift in Sources */,

@@ -24,22 +24,18 @@ struct ContentView: View {
     @Binding var isOnBoardingPresented: Bool
     
     var body: some View {
-        VStack {
-            
-            Text("placeholder for DeFi shortcuts")
-                .padding()
-                .sheet(isPresented: $isOnBoardingPresented) { OnboardingView() }
-                        
-            EmptyView()
-                .padding()
-                .task {
-                    do {
-                        print("Hello")
-                        try await createTestWallet()
-                    } catch {
-                        print("error: \(error)")
-                    }
-                }
+
+        ZStack {
+            Text("")
+    //        EmptyView()
+            .sheet(isPresented: $isOnBoardingPresented) { OnboardingView() }
+
+            TabView {
+                ShortcutView()
+                    .tabItem { Label("Shortcuts", systemImage: "square.grid.3x2") }
+                TransactionsView()
+                    .tabItem { Label("Transactions", image: "repeat") }
+            }
         }
     }
 }
@@ -56,7 +52,7 @@ struct ContentView_Previews: PreviewProvider {
 
 extension ContentView {
     
-    
+    /*
     func createTestWallet() async throws {
         let mnemonic = Mnemonic.create()
         let manager = WalletManager()
@@ -71,7 +67,6 @@ extension ContentView {
         manager.setDefaultHDWallet(name)
     }
     
-    /*
     func writeAndReadAccounts() async throws {
         let mnemonic = Mnemonic.create()
         let manager = WalletManager()
