@@ -32,6 +32,8 @@ struct OnboardingView: View {
     /// State
     @State private var state: OnboardingState = .initial
     
+//    @State private var userHasConfirmedRecoveryPhrase: Bool? = false
+    
     /// visible tab index
     @State var tabIndex = 0
     
@@ -50,9 +52,9 @@ struct OnboardingView: View {
                 TabView(selection: $tabIndex) {
                     ShowMnemonicView(state: $state, tabIndex: $tabIndex, mnemonic: RecoveryPhrase(mnemonic: mnemonic))
                         .tag(0)
-                    ConfirmMnemonicView(state: $state, tabIndex: $tabIndex, mnemonic: RecoveryPhrase(mnemonic: mnemonic))
+                    ConfirmMnemonicView(state: $state, tabIndex: $tabIndex, mnemonic: RecoveryPhrase(mnemonic: mnemonic)) //, userHasConfirmedRecoveryPhrase: $userHasConfirmedRecoveryPhrase)
                         .tag(1)
-                    CreatePasswordView(state: $state, tabIndex: $tabIndex, mnemonic: mnemonic)
+                    CreatePasswordView(state: $state, tabIndex: $tabIndex, mnemonic: mnemonic) //, userHasConfirmedRecoveryPhrase: $userHasConfirmedRecoveryPhrase)
                         .tag(2)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -66,7 +68,7 @@ struct OnboardingView: View {
                 TabView {
                     RestoreWalletView(state: $state, tabIndex: $tabIndex, restoredMnemonic: $restoredMnemonic)
                         .tag(0)
-                    CreatePasswordView(state: $state, tabIndex: $tabIndex, mnemonic: restoredMnemonic)
+                    CreatePasswordView(state: $state, tabIndex: $tabIndex, mnemonic: restoredMnemonic) //, userHasConfirmedRecoveryPhrase: nil)
                         .tag(1)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)

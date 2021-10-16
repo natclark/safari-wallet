@@ -12,6 +12,8 @@ struct CreatePasswordView: View {
     @Binding var state: OnboardingState
     @Binding var tabIndex: Int
     var mnemonic: String
+//    @Binding var userHasConfirmedRecoveryPhrase: Bool
+    
     @State var password = ""
     @State var confirmPassword = ""
     
@@ -24,7 +26,9 @@ struct CreatePasswordView: View {
             Spacer()
             
 //            TextField(
-            Text("textfield placeholder")
+//            if userHasConfirmedRecoveryPhrase == false {
+//                Text("user has not confirmed recovery phrase yet")
+//            }
             Spacer()
             
             HStack(spacing: 8) {
@@ -43,6 +47,7 @@ struct CreatePasswordView: View {
                     state = .summary
                 }.disabled(password != confirmPassword)
             }
+            .padding(.bottom, 32)
         }
         .padding()     
     }
@@ -76,7 +81,7 @@ struct CreatePasswordView_Previews: PreviewProvider {
     @State static var state: OnboardingState = .createWallet
     @State static var tabIndex: Int = 0
     static var previews: some View {
-        CreatePasswordView(state:$state, tabIndex: $tabIndex, mnemonic: "abandon amount liar amount expire adjust cage candy arch gather drum buyer")
+        CreatePasswordView(state:$state, tabIndex: $tabIndex, mnemonic: "abandon amount liar amount expire adjust cage candy arch gather drum buyer") //, userHasConfirmedRecoveryPhrase: nil)
     }
 }
 

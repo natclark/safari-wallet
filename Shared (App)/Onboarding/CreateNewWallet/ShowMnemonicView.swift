@@ -50,6 +50,7 @@ struct ShowMnemonicView: View {
                     tabIndex += 1
                 }
             }
+            .padding(.bottom, 32)
         }
         .padding()    
     }

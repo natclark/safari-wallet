@@ -30,6 +30,7 @@ struct SummaryView: View {
                     state = .appIntro
                 }.disabled(false)
             }
+            .padding(.bottom, 32)
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)

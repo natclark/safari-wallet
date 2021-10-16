@@ -13,6 +13,7 @@ struct ConfirmMnemonicView: View {
     @Binding var state: OnboardingState
     @Binding var tabIndex: Int
     var mnemonic: RecoveryPhrase
+//    @Binding var userHasConfirmedRecoveryPhrase: Bool
     
     @State private var userPhrase = [String]() // ordered by user
     @State private var shuffledPhrase: [String]?
@@ -35,10 +36,17 @@ struct ConfirmMnemonicView: View {
             Spacer()
             
             // MARK: - Grid of randomly shuffled seed
-            if let _ = self.shuffledPhrase {
+            if let _ = self.shuffledPhrase, !mnemonic.components.elementsEqual(userPhrase) {
                 self.randomlyShuffledGrid
+            } else {
+                Image(systemName: "checkmark.circle")
+                    .foregroundColor(.green)
+                    .font(.system(size: 60))
+                Spacer()
             }
+            
                         
+            // MARK: - Retry button if the seed is in the wrong order
             if shuffledPhrase?.count == 0 && !mnemonic.components.elementsEqual(userPhrase) {
                 Group {
                     Text("The recovery seed is not in the right order.")
@@ -51,6 +59,8 @@ struct ConfirmMnemonicView: View {
                     }
                 }
                 .padding()
+            } else if mnemonic.components.elementsEqual(userPhrase) {
+//                self.userHasConfirmedRecoveryPhrase = true
             }
             
             #if DEBUG
@@ -65,8 +75,9 @@ struct ConfirmMnemonicView: View {
                 Button("Next") {
                     tabIndex += 1
                 }
-                .disabled(!mnemonic.components.elementsEqual(userPhrase))
+//                .disabled(userHasConfirmedRecoveryPhrase == false)
             }
+            .padding(.bottom, 32)
         }
         .padding()
         .onAppear {

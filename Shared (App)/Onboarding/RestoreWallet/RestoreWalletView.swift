@@ -35,6 +35,7 @@ struct RestoreWalletView: View {
                     tabIndex += 1
                 }.disabled(false)
             }
+            .padding(.bottom, 32)
         }
         .padding()
     }
