@@ -31,6 +31,7 @@ struct Intro2View: View {
                     tabIndex += 1
                 }
             }
+            .padding(.bottom, 32)
         }
         .padding()
     }

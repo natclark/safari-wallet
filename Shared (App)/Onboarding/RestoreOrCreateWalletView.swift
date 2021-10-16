@@ -33,6 +33,7 @@ struct RestoreOrCreateWalletView: View {
                 .font(.footnote)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding()
         
     }
 }

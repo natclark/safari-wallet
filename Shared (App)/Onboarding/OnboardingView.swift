@@ -27,7 +27,7 @@ struct OnboardingView: View {
     @State private var mnemonic: String = ""
     
     /// User provided mnemonic to
-    @State private var restoredMnemonic: String = ""
+//    @State private var restoredMnemonic: String = ""
     
     /// State
     @State private var state: OnboardingState = .initial
@@ -39,14 +39,6 @@ struct OnboardingView: View {
         
         VStack {
             
-            Text(title)
-                .padding()
-                .tabViewStyle(PageTabViewStyle())
-                .interactiveDismissDisabled(true)
-                .onAppear {
-                    self.mnemonic = Mnemonic.create()
-                }
-            
             if state == .initial {
 
                 // Show Restore or Create Wallet view
@@ -56,12 +48,12 @@ struct OnboardingView: View {
 
                 // Show and confirm new mnemonic
                 TabView(selection: $tabIndex) {
-                    ShowMnemonicView(state: $state, tabIndex: $tabIndex, mnemonic: mnemonic)
+                    ShowMnemonicView(state: $state, tabIndex: $tabIndex, mnemonic: RecoveryPhrase(mnemonic: mnemonic))
                         .tag(0)
-                    ConfirmMnemonicView(state: $state, tabIndex: $tabIndex, mnemonic: mnemonic)
+                    ConfirmMnemonicView(state: $state, tabIndex: $tabIndex, mnemonic: RecoveryPhrase(mnemonic: mnemonic))
                         .tag(1)
-                    CreatePasswordView(state: $state, tabIndex: $tabIndex, mnemonic: mnemonic)
-                        .tag(2)
+//                    CreatePasswordView(state: $state, tabIndex: $tabIndex, mnemonic: mnemonic)
+//                    .tag(2)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .tabViewStyle(.page)
@@ -71,12 +63,12 @@ struct OnboardingView: View {
             } else if state == .restoreWallet {
 
                 // Restore existing wallet
-                TabView {
-                    RestoreWalletView(state: $state, tabIndex: $tabIndex, restoredMnemonic: $restoredMnemonic)
-                        .tag(0)
-                    CreatePasswordView(state: $state, tabIndex: $tabIndex, mnemonic: restoredMnemonic)
-                        .tag(1)
-                }
+//                TabView {
+                    RestoreWalletView(state: $state)
+//                        .tag(0)
+//                    CreatePasswordView(state: $state, tabIndex: $tabIndex, mnemonic: restoredMnemonic)
+//                        .tag(1)
+//                }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .tabViewStyle(.page)
                 .indexViewStyle(.page(backgroundDisplayMode: .always))
@@ -110,7 +102,11 @@ struct OnboardingView: View {
                     presentationMode.wrappedValue.dismiss()
                 }                
             }            
-        }       
+        }
+        .interactiveDismissDisabled(true)
+        .onAppear {
+            self.mnemonic = Mnemonic.create()
+        }
     }    
 }
 
