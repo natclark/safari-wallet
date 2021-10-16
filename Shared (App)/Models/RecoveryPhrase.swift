@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import HDWalletKit
 
 struct RecoveryPhrase {
     
@@ -25,5 +26,15 @@ struct RecoveryPhrase {
     func isEqual(to array: [String]) -> Bool {
         let reconstructedMnemonic = array.joined(separator: " ")
         return reconstructedMnemonic == mnemonic
+    }
+    
+    func isValid(language: WordList = .english) -> Bool {
+        
+        let wordCount = mnemonic.components(separatedBy: " ").count
+        guard wordCount == 12 || wordCount == 24 else { return false }
+
+        guard components.allSatisfy({ language.words.contains($0) }) == true else { return false }
+        
+        return true
     }
 }

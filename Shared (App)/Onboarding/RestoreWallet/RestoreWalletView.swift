@@ -10,8 +10,7 @@ import SwiftUI
 struct RestoreWalletView: View {
     
     @Binding var state: OnboardingState
-    @Binding var tabIndex: Int
-    @Binding var restoredMnemonic: String
+    @State var restoredMnemonic = ""
         
     var body: some View {
         
@@ -21,8 +20,8 @@ struct RestoreWalletView: View {
             
             Spacer()
             
-//            TextField(
-            Text("textfield placeholder")
+            Text("Type in your 12 or 24 word recovery phrase")
+            TextField("Recovery phrase", text: $restoredMnemonic)
             Spacer()
             
             HStack(spacing: 8) {
@@ -32,8 +31,9 @@ struct RestoreWalletView: View {
                 Spacer()
                 Button("Next") {
                     // TODO: check validity of mnemonic
-                    tabIndex += 1
-                }.disabled(false)
+//                    tabIndex += 1
+                    print("done")
+                }.disabled(RecoveryPhrase(mnemonic: restoredMnemonic).isValid() == false)
             }
             .padding(.bottom, 32)
         }
@@ -43,9 +43,7 @@ struct RestoreWalletView: View {
 
 struct RestoreWalletView_Previews: PreviewProvider {
     @State static var state: OnboardingState = .restoreWallet
-    @State static var tabIndex: Int = 1
-    @State static var restoredMnemonic = "abandon amount liar amount expire adjust cage candy arch gather drum buyer"
     static var previews: some View {
-        RestoreWalletView(state:$state, tabIndex: $tabIndex, restoredMnemonic: $restoredMnemonic)
+        RestoreWalletView(state:$state)
     }
 }

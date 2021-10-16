@@ -27,7 +27,7 @@ struct OnboardingView: View {
     @State private var mnemonic: String = ""
     
     /// User provided mnemonic to
-    @State private var restoredMnemonic: String = ""
+//    @State private var restoredMnemonic: String = ""
     
     /// State
     @State private var state: OnboardingState = .initial
@@ -63,12 +63,12 @@ struct OnboardingView: View {
             } else if state == .restoreWallet {
 
                 // Restore existing wallet
-                TabView {
-                    RestoreWalletView(state: $state, tabIndex: $tabIndex, restoredMnemonic: $restoredMnemonic)
-                        .tag(0)
+//                TabView {
+                    RestoreWalletView(state: $state)
+//                        .tag(0)
 //                    CreatePasswordView(state: $state, tabIndex: $tabIndex, mnemonic: restoredMnemonic)
 //                        .tag(1)
-                }
+//                }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .tabViewStyle(.page)
                 .indexViewStyle(.page(backgroundDisplayMode: .always))
