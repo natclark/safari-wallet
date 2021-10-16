@@ -28,8 +28,7 @@ struct ConfirmMnemonicView: View {
             
             Text(mnemonic.shuffledString)
             Text("placeholder for confirmation")
-            
-            
+                        
             Spacer()
             
             #if DEBUG

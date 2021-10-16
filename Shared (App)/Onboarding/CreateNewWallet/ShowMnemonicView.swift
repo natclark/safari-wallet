@@ -11,7 +11,8 @@ struct ShowMnemonicView: View {
     
     @Binding var state: OnboardingState
     @Binding var tabIndex: Int
-    var mnemonic: String
+    var mnemonic: RecoveryPhrase
+    private let gridItemLayout = [GridItem(.adaptive(minimum: 150), alignment: .leading)]
     
     var body: some View {
         
@@ -24,7 +25,21 @@ struct ShowMnemonicView: View {
             
             Spacer()
             
-            Text(mnemonic)
+            LazyVGrid(columns: gridItemLayout, spacing: 20) {
+
+                ForEach(mnemonic.components.indices) { i in
+
+                    Label(mnemonic.components[i], systemImage: "\(i+1).square.fill")
+                        .frame(alignment: .leading)
+                        .foregroundColor(Color.black)
+                }
+            }
+            .padding()
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.black, lineWidth: 1)
+            )
+            
             Spacer()
             
             HStack(spacing: 8) {
@@ -45,6 +60,6 @@ struct ShowMnemonicView_Previews: PreviewProvider {
     @State static var state: OnboardingState = .createWallet
     @State static var tabIndex: Int = 0
     static var previews: some View {
-        ShowMnemonicView(state: $state, tabIndex: $tabIndex, mnemonic: "abandon amount liar amount expire adjust cage candy arch gather drum buyer")
+        ShowMnemonicView(state: $state, tabIndex: $tabIndex, mnemonic: RecoveryPhrase(mnemonic: "abandon amount liar amount expire adjust cage candy arch gather drum buyer"))
     }
 }

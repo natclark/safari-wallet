@@ -11,12 +11,14 @@ struct RecoveryPhrase {
     
     /// 12 or 24 word mnemonic with one space between each word
     let mnemonic: String
+    let components: [String]
     let shuffled: [String]
     let shuffledString: String
     
     init(mnemonic: String) {
         self.mnemonic = mnemonic
-        self.shuffled = mnemonic.components(separatedBy: " ").shuffled()
+        self.components = mnemonic.components(separatedBy: " ")
+        self.shuffled = components.shuffled()
         self.shuffledString = shuffled.joined(separator: " ")
     }
 

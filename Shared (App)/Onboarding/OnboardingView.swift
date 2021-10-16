@@ -38,14 +38,6 @@ struct OnboardingView: View {
     var body: some View {
         
         VStack {
-//
-//            Text(title)
-//                .padding()
-//                .tabViewStyle(PageTabViewStyle())
-//                .interactiveDismissDisabled(true)
-//                .onAppear {
-//                    self.mnemonic = Mnemonic.create()
-//                }
             
             if state == .initial {
 
@@ -56,7 +48,7 @@ struct OnboardingView: View {
 
                 // Show and confirm new mnemonic
                 TabView(selection: $tabIndex) {
-                    ShowMnemonicView(state: $state, tabIndex: $tabIndex, mnemonic: mnemonic)
+                    ShowMnemonicView(state: $state, tabIndex: $tabIndex, mnemonic: RecoveryPhrase(mnemonic: mnemonic))
                         .tag(0)
                     ConfirmMnemonicView(state: $state, tabIndex: $tabIndex, mnemonic: RecoveryPhrase(mnemonic: mnemonic))
                         .tag(1)
