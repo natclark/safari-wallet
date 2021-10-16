@@ -19,6 +19,9 @@ struct ShowMnemonicView: View {
             Text("Your wallet's recovery phrase")
                 .font(.title)
             
+            Text("Write down the displayed recovery phrase in the order shown, and store the paper in a secure place. The only way to regain access to your wallet is by reentering the recovery phrase.")
+                .padding()
+            
             Spacer()
             
             Text(mnemonic)

@@ -17,7 +17,7 @@ struct RestoreWalletView: View {
         
         VStack {
             Text("Restore existing password")
-                .font(.title)
+                .font(.title)                
             
             Spacer()
             

@@ -38,14 +38,14 @@ struct OnboardingView: View {
     var body: some View {
         
         VStack {
-            
-            Text(title)
-                .padding()
-                .tabViewStyle(PageTabViewStyle())
-                .interactiveDismissDisabled(true)
-                .onAppear {
-                    self.mnemonic = Mnemonic.create()
-                }
+//
+//            Text(title)
+//                .padding()
+//                .tabViewStyle(PageTabViewStyle())
+//                .interactiveDismissDisabled(true)
+//                .onAppear {
+//                    self.mnemonic = Mnemonic.create()
+//                }
             
             if state == .initial {
 
@@ -58,7 +58,7 @@ struct OnboardingView: View {
                 TabView(selection: $tabIndex) {
                     ShowMnemonicView(state: $state, tabIndex: $tabIndex, mnemonic: mnemonic)
                         .tag(0)
-                    ConfirmMnemonicView(state: $state, tabIndex: $tabIndex, mnemonic: mnemonic)
+                    ConfirmMnemonicView(state: $state, tabIndex: $tabIndex, mnemonic: RecoveryPhrase(mnemonic: mnemonic))
                         .tag(1)
                     CreatePasswordView(state: $state, tabIndex: $tabIndex, mnemonic: mnemonic)
                         .tag(2)
@@ -110,7 +110,11 @@ struct OnboardingView: View {
                     presentationMode.wrappedValue.dismiss()
                 }                
             }            
-        }       
+        }
+        .interactiveDismissDisabled(true)
+        .onAppear {
+            self.mnemonic = Mnemonic.create()
+        }
     }    
 }
 
