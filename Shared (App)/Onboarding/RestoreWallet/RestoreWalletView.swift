@@ -11,7 +11,9 @@ struct RestoreWalletView: View {
     
     @Binding var state: OnboardingState
     @State var restoredMnemonic = ""
-        
+    @State private var showingPasswordSheet = false
+    @State private var walletWasSaved = false
+    
     var body: some View {
         
         VStack {
@@ -22,6 +24,7 @@ struct RestoreWalletView: View {
             
             Text("Type in your 12 or 24 word recovery phrase")
             TextField("Recovery phrase", text: $restoredMnemonic)
+                .autocapitalization(.none)
             Spacer()
             
             HStack(spacing: 8) {
@@ -30,10 +33,17 @@ struct RestoreWalletView: View {
                 }
                 Spacer()
                 Button("Next") {
-                    // TODO: check validity of mnemonic
-//                    tabIndex += 1
-                    print("done")
-                }.disabled(RecoveryPhrase(mnemonic: restoredMnemonic).isValid() == false)
+                    showingPasswordSheet = true
+                }
+                .disabled(RecoveryPhrase(mnemonic: restoredMnemonic.lowercased()).isValid() == false)
+                .sheet(isPresented: $showingPasswordSheet) {
+                    CreatePasswordView(mnemonic: restoredMnemonic, walletWasSaved: $walletWasSaved)
+                        .onDisappear {
+                            if walletWasSaved == true {
+                                state = .summary
+                            }
+                        }
+                }
             }
             .padding(.bottom, 32)
         }

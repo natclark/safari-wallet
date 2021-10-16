@@ -33,7 +33,8 @@ struct RecoveryPhrase {
         let wordCount = mnemonic.components(separatedBy: " ").count
         guard wordCount == 12 || wordCount == 24 else { return false }
 
-        guard components.allSatisfy({ language.words.contains($0) }) == true else { return false }
+        // FIXME: 
+//        guard components.allSatisfy({ language.words.contains($0.lowercased()) }) == true else { return false }
         
         return true
     }

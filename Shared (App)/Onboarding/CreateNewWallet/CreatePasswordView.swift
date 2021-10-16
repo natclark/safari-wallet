@@ -11,11 +11,12 @@ struct CreatePasswordView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    var mnemonic: String
+    
     @State private var showingError = false
     @State private var errorMessage = ""
     @State private var creatingWallet = false
-    
-    var mnemonic: String
+    @Binding var walletWasSaved: Bool
     
     #if DEBUG
     let minimumPasswordLength = 3
@@ -44,7 +45,10 @@ struct CreatePasswordView: View {
             HStack(spacing: 8) {
                 
                 Button("Cancel") {
-                    dismiss()
+                    // FIXME: disabled property is ignored 
+                    if creatingWallet == false {
+                        dismiss()
+                    }
                 }.disabled(creatingWallet == true)
                 
                 Spacer()
@@ -54,6 +58,7 @@ struct CreatePasswordView: View {
                         do {
                             creatingWallet = true
                             try await createWallet()
+                            walletWasSaved = true
                             dismiss()
                             creatingWallet = false
                         } catch {
@@ -105,8 +110,9 @@ extension CreatePasswordView {
 
 struct CreatePasswordView_Previews: PreviewProvider {
     @State static var state: OnboardingState = .createWallet
+    @State static var walletWasSaved = false
     static var previews: some View {
-        CreatePasswordView(mnemonic: "abandon amount liar amount expire adjust cage candy arch gather drum buyer")
+        CreatePasswordView(mnemonic: "abandon amount liar amount expire adjust cage candy arch gather drum buyer", walletWasSaved: $walletWasSaved)
     }
 }
 

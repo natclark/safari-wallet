@@ -14,6 +14,7 @@ struct ConfirmMnemonicView: View {
     @Binding var tabIndex: Int
     var mnemonic: RecoveryPhrase
     @State private var showingPasswordSheet = false
+    @State private var walletWasSaved = false
     
     @State private var userPhrase = [String]() // ordered by user
     @State private var shuffledPhrase: [String]?
@@ -80,9 +81,11 @@ struct ConfirmMnemonicView: View {
                 }
                 .disabled(!mnemonic.components.elementsEqual(userPhrase))
                 .sheet(isPresented: $showingPasswordSheet) {
-                    CreatePasswordView(mnemonic: mnemonic.mnemonic)
+                    CreatePasswordView(mnemonic: mnemonic.mnemonic, walletWasSaved: $walletWasSaved)
                         .onDisappear {
-                            state = .summary
+                            if walletWasSaved == true {
+                                state = .summary
+                            }
                         }
                 }
             }
