@@ -19,6 +19,10 @@ struct SummaryView: View {
                 .font(.title)
             
             Spacer()
+            
+            Text("Your wallet was created and stored successfully. Explore how to use Wallet and the Safari extension by clicking continue.")
+            
+            Spacer()
         
             HStack(spacing: 8) {
                 Button("Skip") {

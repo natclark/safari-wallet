@@ -77,12 +77,14 @@ struct ConfirmMnemonicView: View {
                 Spacer()
                 Button("Next") {
                     showingPasswordSheet = true
-//                    state = .summary//
                 }
+                .disabled(!mnemonic.components.elementsEqual(userPhrase))
                 .sheet(isPresented: $showingPasswordSheet) {
                     CreatePasswordView(mnemonic: mnemonic.mnemonic)
-                       }
-                .disabled(!mnemonic.components.elementsEqual(userPhrase))
+                        .onDisappear {
+                            state = .summary
+                        }
+                }
             }
             .padding(.bottom, 32)
         }
