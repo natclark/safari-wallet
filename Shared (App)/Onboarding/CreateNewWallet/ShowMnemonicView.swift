@@ -31,13 +31,12 @@ struct ShowMnemonicView: View {
 
                     Label(mnemonic.components[i], systemImage: "\(i+1).square.fill")
                         .frame(alignment: .leading)
-                        .foregroundColor(Color.black)
                 }
             }
             .padding()
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.black, lineWidth: 1)
+                    .stroke(lineWidth: 1)
             )
             
             Spacer()
