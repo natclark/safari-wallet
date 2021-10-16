@@ -25,8 +25,13 @@ struct ConfirmMnemonicView: View {
                 
         VStack {
             
-            Text("Reenter the recovery phrase in the correct order")
-                .font(.title)
+            if mnemonic.components.elementsEqual(userPhrase) {
+                Text("Recovery phrase reentered correctly")
+                    .font(.title)
+            } else {
+                Text("Reenter the recovery phrase in the correct order")
+                    .font(.title)
+            }
             
             // MARK: - Grid of user's selected words
             if let _ = self.shuffledPhrase {
