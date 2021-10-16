@@ -9,13 +9,21 @@ import SwiftUI
 
 struct CreatePasswordView: View {
     
-    @Binding var state: OnboardingState
-    @Binding var tabIndex: Int
-    var mnemonic: String
-//    @Binding var userHasConfirmedRecoveryPhrase: Bool
+    @Environment(\.dismiss) var dismiss
     
-    @State var password = ""
-    @State var confirmPassword = ""
+    @State private var showingError = false
+    @State private var errorMessage = ""
+    @State private var creatingWallet = false
+    
+    var mnemonic: String
+    
+    #if DEBUG
+    let minimumPasswordLength = 3
+    #else
+    let minimumPasswordLength = 8
+    #endif
+    @State private var password = ""
+    @State private var confirmPassword = ""
     
     var body: some View {
         
@@ -25,27 +33,43 @@ struct CreatePasswordView: View {
             
             Spacer()
             
-//            TextField(
-//            if userHasConfirmedRecoveryPhrase == false {
-//                Text("user has not confirmed recovery phrase yet")
-//            }
+            Text("password must be at least \(minimumPasswordLength) characters long")
+            
+            SecureField("Enter a password", text: $password)
+            
+            SecureField("Confirm password", text: $confirmPassword)
+            
             Spacer()
             
             HStack(spacing: 8) {
-                Button("Previous") {
-                    tabIndex -= 1
-                }
+                
+                Button("Cancel") {
+                    dismiss()
+                }.disabled(creatingWallet == true)
+                
                 Spacer()
+                
                 Button("Save wallet") {
                     Task {
                         do {
-                            try await createTestWallet()
+                            creatingWallet = true
+                            try await createWallet()
+                            dismiss()
+                            creatingWallet = false
                         } catch {
-                            print("Error creating test wallet: \(error.localizedDescription)")
+                            errorMessage = error.localizedDescription
+                            showingError = true
+                            creatingWallet = false
                         }
                     }
-                    state = .summary
-                }.disabled(password != confirmPassword)
+                }
+                .disabled(password != confirmPassword || password.count < minimumPasswordLength || creatingWallet == true)
+                .alert(isPresented: $showingError) {
+                    Alert(
+                        title: Text("Error: Unable to save wallet"),
+                        message: Text(self.errorMessage)
+                    )
+                }
             }
             .padding(.bottom, 32)
         }
@@ -66,6 +90,7 @@ extension CreatePasswordView {
         manager.setDefaultHDWallet(name)
     }
     
+    #if DEBUG
     func createTestWallet() async throws {
         let manager = WalletManager()
         let name = try await manager.saveHDWallet(mnemonic: mnemonic, password: "password123")
@@ -75,13 +100,13 @@ extension CreatePasswordView {
         manager.setDefaultAddress(addresses.first!)
         manager.setDefaultHDWallet(name)
     }
+    #endif
 }
 
 struct CreatePasswordView_Previews: PreviewProvider {
     @State static var state: OnboardingState = .createWallet
-    @State static var tabIndex: Int = 0
     static var previews: some View {
-        CreatePasswordView(state:$state, tabIndex: $tabIndex, mnemonic: "abandon amount liar amount expire adjust cage candy arch gather drum buyer") //, userHasConfirmedRecoveryPhrase: nil)
+        CreatePasswordView(mnemonic: "abandon amount liar amount expire adjust cage candy arch gather drum buyer")
     }
 }
 

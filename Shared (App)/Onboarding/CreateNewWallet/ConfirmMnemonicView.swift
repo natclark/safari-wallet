@@ -13,7 +13,7 @@ struct ConfirmMnemonicView: View {
     @Binding var state: OnboardingState
     @Binding var tabIndex: Int
     var mnemonic: RecoveryPhrase
-//    @Binding var userHasConfirmedRecoveryPhrase: Bool
+    @State private var showingPasswordSheet = false
     
     @State private var userPhrase = [String]() // ordered by user
     @State private var shuffledPhrase: [String]?
@@ -64,8 +64,6 @@ struct ConfirmMnemonicView: View {
                     }
                 }
                 .padding()
-            } else if mnemonic.components.elementsEqual(userPhrase) {
-//                self.userHasConfirmedRecoveryPhrase = true
             }
             
             #if DEBUG
@@ -78,9 +76,13 @@ struct ConfirmMnemonicView: View {
                 }
                 Spacer()
                 Button("Next") {
-                    tabIndex += 1
+                    showingPasswordSheet = true
+//                    state = .summary//
                 }
-//                .disabled(userHasConfirmedRecoveryPhrase == false)
+                .sheet(isPresented: $showingPasswordSheet) {
+                    CreatePasswordView(mnemonic: mnemonic.mnemonic)
+                       }
+                .disabled(!mnemonic.components.elementsEqual(userPhrase))
             }
             .padding(.bottom, 32)
         }
@@ -137,8 +139,9 @@ struct ConfirmMnemonicView: View {
 struct ConfirmMnemonicView_Previews: PreviewProvider {
     @State static var state: OnboardingState = .createWallet
     @State static var tabIndex: Int = 0
+    @State static var userHasConfirmedRecoveryPhrase = false
     static let mnemonic = RecoveryPhrase(mnemonic: "abandon amount liar amount expire adjust cage candy arch gather drum buyer")
     static var previews: some View {
-        ConfirmMnemonicView(state:$state, tabIndex: $tabIndex, mnemonic: mnemonic)
+        ConfirmMnemonicView(state:$state, tabIndex: $tabIndex, mnemonic: mnemonic) //, userHasConfirmedRecoveryPhrase: $userHasConfirmedRecoveryPhrase)
     }
 }
