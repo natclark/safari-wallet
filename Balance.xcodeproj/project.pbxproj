@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A0E1EBB270687AE00061EA6 /* Wallet Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0A0E1EBA270687AE00061EA6 /* Wallet Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		0A0E1EC5270687AE00061EA6 /* Wallet Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0A0E1EC4270687AE00061EA6 /* Wallet Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0A0E1EBB270687AE00061EA6 /* Balance Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0A0E1EBA270687AE00061EA6 /* Balance Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0A0E1EC5270687AE00061EA6 /* Balance Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0A0E1EC4270687AE00061EA6 /* Balance Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0A0E1ECB270687AE00061EA6 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 0A0E1E86270687AA00061EA6 /* Main.html */; };
 		0A0E1ECC270687AE00061EA6 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 0A0E1E86270687AA00061EA6 /* Main.html */; };
 		0A0E1ECD270687AE00061EA6 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A0E1E88270687AA00061EA6 /* Icon.png */; };
@@ -59,8 +59,6 @@
 		F8321B6027176EE700F12938 /* ConfirmMnemonicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B5E27176EE700F12938 /* ConfirmMnemonicView.swift */; };
 		F8321B622717768400F12938 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B612717768400F12938 /* SummaryView.swift */; };
 		F8321B632717768400F12938 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B612717768400F12938 /* SummaryView.swift */; };
-		F834E0AB2727B867006E064C /* ProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834E0AA2727B867006E064C /* ProviderError.swift */; };
-		F834E0AC2727B867006E064C /* ProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834E0AA2727B867006E064C /* ProviderError.swift */; };
 		F84E695D272627DA002EE72F /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E695C272627DA002EE72F /* Provider.swift */; };
 		F84E695E272627DA002EE72F /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E695C272627DA002EE72F /* Provider.swift */; };
 		F84E695F272627DA002EE72F /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E695C272627DA002EE72F /* Provider.swift */; };
@@ -218,7 +216,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				0A0E1EBB270687AE00061EA6 /* Wallet Extension.appex in Embed App Extensions */,
+				0A0E1EBB270687AE00061EA6 /* Balance Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,7 +227,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				0A0E1EC5270687AE00061EA6 /* Wallet Extension.appex in Embed App Extensions */,
+				0A0E1EC5270687AE00061EA6 /* Balance Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,17 +249,17 @@
 		0A0E1E95270687AE00061EA6 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
 		0A0E1E96270687AE00061EA6 /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
 		0A0E1E97270687AE00061EA6 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
-		0A0E1E9C270687AE00061EA6 /* Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A0E1E9C270687AE00061EA6 /* Balance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Balance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A0E1EA9270687AE00061EA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A0E1EAE270687AE00061EA6 /* Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A0E1EAE270687AE00061EA6 /* Balance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Balance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A0E1EB0270687AE00061EA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A0E1EB3270687AE00061EA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0A0E1EB5270687AE00061EA6 /* Wallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wallet.entitlements; sourceTree = "<group>"; };
-		0A0E1EBA270687AE00061EA6 /* Wallet Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Wallet Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A0E1EB5270687AE00061EA6 /* Balance.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Balance.entitlements; sourceTree = "<group>"; };
+		0A0E1EBA270687AE00061EA6 /* Balance Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Balance Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A0E1EBF270687AE00061EA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A0E1EC4270687AE00061EA6 /* Wallet Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Wallet Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A0E1EC4270687AE00061EA6 /* Balance Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Balance Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A0E1EC9270687AE00061EA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A0E1ECA270687AE00061EA6 /* Wallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wallet.entitlements; sourceTree = "<group>"; };
+		0A0E1ECA270687AE00061EA6 /* Balance.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Balance.entitlements; sourceTree = "<group>"; };
 		0AE54717270694EB00C4A81F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0AE5471D27091C5800C4A81F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		275C299327117F7D00DA2773 /* ethereum */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ethereum; sourceTree = "<group>"; };
@@ -276,7 +274,6 @@
 		F8321B5B27176ED600F12938 /* ShowMnemonicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMnemonicView.swift; sourceTree = "<group>"; };
 		F8321B5E27176EE700F12938 /* ConfirmMnemonicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmMnemonicView.swift; sourceTree = "<group>"; };
 		F8321B612717768400F12938 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
-		F834E0AA2727B867006E064C /* ProviderError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderError.swift; sourceTree = "<group>"; };
 		F84E695C272627DA002EE72F /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		F84E696227262806002EE72F /* AlchemyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlchemyProvider.swift; sourceTree = "<group>"; };
 		F84E696C27266B76002EE72F /* ProviderBaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderBaseURL.swift; sourceTree = "<group>"; };
@@ -302,8 +299,8 @@
 		F8ABEEC627124A8C007F7D11 /* SharedDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedDocument.swift; sourceTree = "<group>"; };
 		F8ABEEC727124A8C007F7D11 /* WalletError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletError.swift; sourceTree = "<group>"; };
 		F8ABEEC827124A8C007F7D11 /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
-		F8ABEEE127124C30007F7D11 /* Wallet (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Wallet (iOS).entitlements"; sourceTree = "<group>"; };
-		F8ABEEE227124C5D007F7D11 /* Wallet Extension (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Wallet Extension (iOS).entitlements"; sourceTree = "<group>"; };
+		F8ABEEE127124C30007F7D11 /* Balance (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Balance (iOS).entitlements"; sourceTree = "<group>"; };
+		F8ABEEE227124C5D007F7D11 /* Balance Extension (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Balance Extension (iOS).entitlements"; sourceTree = "<group>"; };
 		F8ABEF3127125EFA007F7D11 /* WalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletApp.swift; sourceTree = "<group>"; };
 		F8ABEF3427125F16007F7D11 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F8ABEF3727129797007F7D11 /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
@@ -311,7 +308,7 @@
 		F8ABEF41271389D9007F7D11 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		F8ABEF46271389F5007F7D11 /* NSFileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFileCoordinator.swift; sourceTree = "<group>"; };
 		F8ABEF4B27138E1D007F7D11 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		F8ABEFD127141581007F7D11 /* WalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WalletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8ABEFD127141581007F7D11 /* BalanceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BalanceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8ABEFD327141581007F7D11 /* KeychainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainTests.swift; sourceTree = "<group>"; };
 		F8ABEFDA2714198C007F7D11 /* WalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTests.swift; sourceTree = "<group>"; };
 		F8AD21E5271796CC0059D754 /* RestoreOrCreateWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreOrCreateWalletView.swift; sourceTree = "<group>"; };
@@ -366,8 +363,8 @@
 		0A0E1E7F270687AA00061EA6 = {
 			isa = PBXGroup;
 			children = (
-				F8ABEEE227124C5D007F7D11 /* Wallet Extension (iOS).entitlements */,
-				F8ABEEE127124C30007F7D11 /* Wallet (iOS).entitlements */,
+				F8ABEEE227124C5D007F7D11 /* Balance Extension (iOS).entitlements */,
+				F8ABEEE127124C30007F7D11 /* Balance (iOS).entitlements */,
 				F8ABEF3A271297A3007F7D11 /* Shared (App and Extension) */,
 				0A0E1E84270687AA00061EA6 /* Shared (App) */,
 				0A0E1E9E270687AE00061EA6 /* iOS (App) */,
@@ -375,7 +372,7 @@
 				0A0E1EBE270687AE00061EA6 /* iOS (Extension) */,
 				0A0E1EC8270687AE00061EA6 /* macOS (Extension) */,
 				0AE54717270694EB00C4A81F /* README.md */,
-				F8ABEFD227141581007F7D11 /* WalletTests */,
+				F8ABEFD227141581007F7D11 /* BalanceTests */,
 				0A0E1E9D270687AE00061EA6 /* Products */,
 				F8ABEEE827125105007F7D11 /* Frameworks */,
 			);
@@ -416,7 +413,6 @@
 			isa = PBXGroup;
 			children = (
 				0A0E1E8E270687AE00061EA6 /* SafariWebExtensionHandler.swift */,
-				F834E0AA2727B867006E064C /* ProviderError.swift */,
 				0A0E1E8F270687AE00061EA6 /* Resources */,
 			);
 			path = "Shared (Extension)";
@@ -442,11 +438,11 @@
 		0A0E1E9D270687AE00061EA6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A0E1E9C270687AE00061EA6 /* Wallet.app */,
-				0A0E1EAE270687AE00061EA6 /* Wallet.app */,
-				0A0E1EBA270687AE00061EA6 /* Wallet Extension.appex */,
-				0A0E1EC4270687AE00061EA6 /* Wallet Extension.appex */,
-				F8ABEFD127141581007F7D11 /* WalletTests.xctest */,
+				0A0E1E9C270687AE00061EA6 /* Balance.app */,
+				0A0E1EAE270687AE00061EA6 /* Balance.app */,
+				0A0E1EBA270687AE00061EA6 /* Balance Extension.appex */,
+				0A0E1EC4270687AE00061EA6 /* Balance Extension.appex */,
+				F8ABEFD127141581007F7D11 /* BalanceTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -464,7 +460,7 @@
 			children = (
 				0A0E1EB0270687AE00061EA6 /* AppDelegate.swift */,
 				0A0E1EB2270687AE00061EA6 /* Main.storyboard */,
-				0A0E1EB5270687AE00061EA6 /* Wallet.entitlements */,
+				0A0E1EB5270687AE00061EA6 /* Balance.entitlements */,
 			);
 			path = "macOS (App)";
 			sourceTree = "<group>";
@@ -481,7 +477,7 @@
 			isa = PBXGroup;
 			children = (
 				0A0E1EC9270687AE00061EA6 /* Info.plist */,
-				0A0E1ECA270687AE00061EA6 /* Wallet.entitlements */,
+				0A0E1ECA270687AE00061EA6 /* Balance.entitlements */,
 			);
 			path = "macOS (Extension)";
 			sourceTree = "<group>";
@@ -629,7 +625,7 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		F8ABEFD227141581007F7D11 /* WalletTests */ = {
+		F8ABEFD227141581007F7D11 /* BalanceTests */ = {
 			isa = PBXGroup;
 			children = (
 				F8ABEFDA2714198C007F7D11 /* WalletTests.swift */,
@@ -637,7 +633,7 @@
 				4A19E6DF271E673C0096027F /* JsonRpcClientTest.swift */,
 				F8124BB7271E03DF00F06D5D /* SigningTests.swift */,
 			);
-			path = WalletTests;
+			path = BalanceTests;
 			sourceTree = "<group>";
 		};
 		F8AD21EB2717B47B0059D754 /* CreateNewWallet */ = {
@@ -671,9 +667,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0A0E1E9B270687AE00061EA6 /* Wallet (iOS) */ = {
+		0A0E1E9B270687AE00061EA6 /* Balance (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A0E1EEF270687AF00061EA6 /* Build configuration list for PBXNativeTarget "Wallet (iOS)" */;
+			buildConfigurationList = 0A0E1EEF270687AF00061EA6 /* Build configuration list for PBXNativeTarget "Balance (iOS)" */;
 			buildPhases = (
 				0A0E1E98270687AE00061EA6 /* Sources */,
 				0A0E1E99270687AE00061EA6 /* Frameworks */,
@@ -686,17 +682,17 @@
 			dependencies = (
 				0A0E1EBD270687AE00061EA6 /* PBXTargetDependency */,
 			);
-			name = "Wallet (iOS)";
+			name = "Balance (iOS)";
 			packageProductDependencies = (
 				F8C5B0262724A85E00B54FBD /* MEWwalletKit */,
 			);
 			productName = "Wallet (iOS)";
-			productReference = 0A0E1E9C270687AE00061EA6 /* Wallet.app */;
+			productReference = 0A0E1E9C270687AE00061EA6 /* Balance.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0A0E1EAD270687AE00061EA6 /* Wallet (macOS) */ = {
+		0A0E1EAD270687AE00061EA6 /* Balance (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A0E1EF6270687AF00061EA6 /* Build configuration list for PBXNativeTarget "Wallet (macOS)" */;
+			buildConfigurationList = 0A0E1EF6270687AF00061EA6 /* Build configuration list for PBXNativeTarget "Balance (macOS)" */;
 			buildPhases = (
 				0A0E1EAA270687AE00061EA6 /* Sources */,
 				0A0E1EAB270687AE00061EA6 /* Frameworks */,
@@ -708,16 +704,16 @@
 			dependencies = (
 				0A0E1EC7270687AE00061EA6 /* PBXTargetDependency */,
 			);
-			name = "Wallet (macOS)";
+			name = "Balance (macOS)";
 			packageProductDependencies = (
 			);
 			productName = "Wallet (macOS)";
-			productReference = 0A0E1EAE270687AE00061EA6 /* Wallet.app */;
+			productReference = 0A0E1EAE270687AE00061EA6 /* Balance.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0A0E1EB9270687AE00061EA6 /* Wallet Extension (iOS) */ = {
+		0A0E1EB9270687AE00061EA6 /* Balance Extension (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A0E1EEB270687AF00061EA6 /* Build configuration list for PBXNativeTarget "Wallet Extension (iOS)" */;
+			buildConfigurationList = 0A0E1EEB270687AF00061EA6 /* Build configuration list for PBXNativeTarget "Balance Extension (iOS)" */;
 			buildPhases = (
 				0A0E1EB6270687AE00061EA6 /* Sources */,
 				0A0E1EB7270687AE00061EA6 /* Frameworks */,
@@ -727,17 +723,17 @@
 			);
 			dependencies = (
 			);
-			name = "Wallet Extension (iOS)";
+			name = "Balance Extension (iOS)";
 			packageProductDependencies = (
 				F8C5B0282724A87C00B54FBD /* MEWwalletKit */,
 			);
 			productName = "Wallet Extension (iOS)";
-			productReference = 0A0E1EBA270687AE00061EA6 /* Wallet Extension.appex */;
+			productReference = 0A0E1EBA270687AE00061EA6 /* Balance Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		0A0E1EC3270687AE00061EA6 /* Wallet Extension (macOS) */ = {
+		0A0E1EC3270687AE00061EA6 /* Balance Extension (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0A0E1EF2270687AF00061EA6 /* Build configuration list for PBXNativeTarget "Wallet Extension (macOS)" */;
+			buildConfigurationList = 0A0E1EF2270687AF00061EA6 /* Build configuration list for PBXNativeTarget "Balance Extension (macOS)" */;
 			buildPhases = (
 				0A0E1EC0270687AE00061EA6 /* Sources */,
 				0A0E1EC1270687AE00061EA6 /* Frameworks */,
@@ -747,16 +743,16 @@
 			);
 			dependencies = (
 			);
-			name = "Wallet Extension (macOS)";
+			name = "Balance Extension (macOS)";
 			packageProductDependencies = (
 			);
 			productName = "Wallet Extension (macOS)";
-			productReference = 0A0E1EC4270687AE00061EA6 /* Wallet Extension.appex */;
+			productReference = 0A0E1EC4270687AE00061EA6 /* Balance Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		F8ABEFD027141581007F7D11 /* WalletTests */ = {
+		F8ABEFD027141581007F7D11 /* BalanceTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F8ABEFD727141581007F7D11 /* Build configuration list for PBXNativeTarget "WalletTests" */;
+			buildConfigurationList = F8ABEFD727141581007F7D11 /* Build configuration list for PBXNativeTarget "BalanceTests" */;
 			buildPhases = (
 				F8ABEFCD27141581007F7D11 /* Sources */,
 				F8ABEFCE27141581007F7D11 /* Frameworks */,
@@ -767,9 +763,9 @@
 			dependencies = (
 				F8ABEFD627141581007F7D11 /* PBXTargetDependency */,
 			);
-			name = WalletTests;
+			name = BalanceTests;
 			productName = WalletTests;
-			productReference = F8ABEFD127141581007F7D11 /* WalletTests.xctest */;
+			productReference = F8ABEFD127141581007F7D11 /* BalanceTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -800,7 +796,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0A0E1E83270687AA00061EA6 /* Build configuration list for PBXProject "Wallet" */;
+			buildConfigurationList = 0A0E1E83270687AA00061EA6 /* Build configuration list for PBXProject "Balance" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -816,11 +812,11 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0A0E1E9B270687AE00061EA6 /* Wallet (iOS) */,
-				0A0E1EAD270687AE00061EA6 /* Wallet (macOS) */,
-				0A0E1EB9270687AE00061EA6 /* Wallet Extension (iOS) */,
-				0A0E1EC3270687AE00061EA6 /* Wallet Extension (macOS) */,
-				F8ABEFD027141581007F7D11 /* WalletTests */,
+				0A0E1E9B270687AE00061EA6 /* Balance (iOS) */,
+				0A0E1EAD270687AE00061EA6 /* Balance (macOS) */,
+				0A0E1EB9270687AE00061EA6 /* Balance Extension (iOS) */,
+				0A0E1EC3270687AE00061EA6 /* Balance Extension (macOS) */,
+				F8ABEFD027141581007F7D11 /* BalanceTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1031,7 +1027,6 @@
 				F8ABEF3B271297B3007F7D11 /* WalletManager.swift in Sources */,
 				F8C5B00D2723BD7D00B54FBD /* JsonRpcError.swift in Sources */,
 				F8ABEECB27124A8C007F7D11 /* Constants.swift in Sources */,
-				F834E0AB2727B867006E064C /* ProviderError.swift in Sources */,
 				F84E695F272627DA002EE72F /* Provider.swift in Sources */,
 				F8C5B00A2723BD7800B54FBD /* JsonRpcRequest.swift in Sources */,
 				F84E69742726750E002EE72F /* EthereumBlock.swift in Sources */,
@@ -1065,7 +1060,6 @@
 				F8ABEF3C271297B3007F7D11 /* WalletManager.swift in Sources */,
 				F8C5B00C2723BD7D00B54FBD /* JsonRpcError.swift in Sources */,
 				F8ABEECC27124A8C007F7D11 /* Constants.swift in Sources */,
-				F834E0AC2727B867006E064C /* ProviderError.swift in Sources */,
 				F84E6960272627DA002EE72F /* Provider.swift in Sources */,
 				F8C5B00B2723BD7900B54FBD /* JsonRpcRequest.swift in Sources */,
 				F84E69752726750E002EE72F /* EthereumBlock.swift in Sources */,
@@ -1099,17 +1093,17 @@
 /* Begin PBXTargetDependency section */
 		0A0E1EBD270687AE00061EA6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0A0E1EB9270687AE00061EA6 /* Wallet Extension (iOS) */;
+			target = 0A0E1EB9270687AE00061EA6 /* Balance Extension (iOS) */;
 			targetProxy = 0A0E1EBC270687AE00061EA6 /* PBXContainerItemProxy */;
 		};
 		0A0E1EC7270687AE00061EA6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0A0E1EC3270687AE00061EA6 /* Wallet Extension (macOS) */;
+			target = 0A0E1EC3270687AE00061EA6 /* Balance Extension (macOS) */;
 			targetProxy = 0A0E1EC6270687AE00061EA6 /* PBXContainerItemProxy */;
 		};
 		F8ABEFD627141581007F7D11 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0A0E1E9B270687AE00061EA6 /* Wallet (iOS) */;
+			target = 0A0E1E9B270687AE00061EA6 /* Balance (iOS) */;
 			targetProxy = F8ABEFD527141581007F7D11 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1248,13 +1242,13 @@
 		0A0E1EEC270687AF00061EA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "Wallet Extension (iOS).entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Balance Extension (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TPKP4XK352;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = HHJXTX62XS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Wallet Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = "Balance Extension";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Access to your password is protected by FaceID";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -1263,13 +1257,13 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.balance.web3wallet.Extension;
-				PRODUCT_NAME = "Wallet Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dimitarnestorov.Balance.Extension;
+				PRODUCT_NAME = "Balance Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1281,13 +1275,13 @@
 		0A0E1EED270687AF00061EA6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "Wallet Extension (iOS).entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Balance Extension (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TPKP4XK352;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = HHJXTX62XS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Wallet Extension";
+				INFOPLIST_KEY_CFBundleDisplayName = "Balance Extension";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Access to your password is protected by FaceID";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -1296,13 +1290,13 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.balance.web3wallet.Extension;
-				PRODUCT_NAME = "Wallet Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dimitarnestorov.Balance.Extension;
+				PRODUCT_NAME = "Balance Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1318,10 +1312,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Wallet (iOS).entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Balance (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TPKP4XK352;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = HHJXTX62XS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Balance;
@@ -1337,15 +1331,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.balance.web3wallet;
-				PRODUCT_NAME = Wallet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dimitarnestorov.Balance;
+				PRODUCT_NAME = Balance;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1359,10 +1353,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Wallet (iOS).entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Balance (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TPKP4XK352;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = HHJXTX62XS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Balance;
@@ -1378,15 +1372,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.balance.web3wallet;
-				PRODUCT_NAME = Wallet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dimitarnestorov.Balance;
+				PRODUCT_NAME = Balance;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1398,11 +1392,11 @@
 		0A0E1EF3270687AF00061EA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/Wallet.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/Balance.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TPKP4XK352;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = HHJXTX62XS;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
@@ -1414,13 +1408,13 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.balance.web3wallet.Extension;
-				PRODUCT_NAME = "Wallet Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dimitarnestorov.Balance.Extension;
+				PRODUCT_NAME = "Balance Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1431,11 +1425,11 @@
 		0A0E1EF4270687AF00061EA6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/Wallet.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/Balance.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TPKP4XK352;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = HHJXTX62XS;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
@@ -1447,13 +1441,13 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.balance.web3wallet.Extension;
-				PRODUCT_NAME = "Wallet Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dimitarnestorov.Balance.Extension;
+				PRODUCT_NAME = "Balance Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1467,11 +1461,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Wallet.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Balance.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TPKP4XK352;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = HHJXTX62XS;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Wallet;
@@ -1480,15 +1474,15 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.balance.web3wallet;
-				PRODUCT_NAME = Wallet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dimitarnestorov.Balance;
+				PRODUCT_NAME = Balance;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1501,11 +1495,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Wallet.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Balance.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TPKP4XK352;
+				CURRENT_PROJECT_VERSION = 3;
+				DEVELOPMENT_TEAM = HHJXTX62XS;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Wallet;
@@ -1514,15 +1508,15 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SafariServices,
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.balance.web3wallet;
-				PRODUCT_NAME = Wallet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dimitarnestorov.Balance;
+				PRODUCT_NAME = Balance;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1535,7 +1529,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TPKP4XK352;
+				DEVELOPMENT_TEAM = HHJXTX62XS;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1550,7 +1544,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wallet.app/Wallet";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Balance.app/Balance";
 			};
 			name = Debug;
 		};
@@ -1560,7 +1554,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TPKP4XK352;
+				DEVELOPMENT_TEAM = HHJXTX62XS;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1575,7 +1569,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wallet.app/Wallet";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Balance.app/Balance";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1583,7 +1577,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0A0E1E83270687AA00061EA6 /* Build configuration list for PBXProject "Wallet" */ = {
+		0A0E1E83270687AA00061EA6 /* Build configuration list for PBXProject "Balance" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A0E1EE9270687AE00061EA6 /* Debug */,
@@ -1592,7 +1586,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A0E1EEB270687AF00061EA6 /* Build configuration list for PBXNativeTarget "Wallet Extension (iOS)" */ = {
+		0A0E1EEB270687AF00061EA6 /* Build configuration list for PBXNativeTarget "Balance Extension (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A0E1EEC270687AF00061EA6 /* Debug */,
@@ -1601,7 +1595,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A0E1EEF270687AF00061EA6 /* Build configuration list for PBXNativeTarget "Wallet (iOS)" */ = {
+		0A0E1EEF270687AF00061EA6 /* Build configuration list for PBXNativeTarget "Balance (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A0E1EF0270687AF00061EA6 /* Debug */,
@@ -1610,7 +1604,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A0E1EF2270687AF00061EA6 /* Build configuration list for PBXNativeTarget "Wallet Extension (macOS)" */ = {
+		0A0E1EF2270687AF00061EA6 /* Build configuration list for PBXNativeTarget "Balance Extension (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A0E1EF3270687AF00061EA6 /* Debug */,
@@ -1619,7 +1613,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0A0E1EF6270687AF00061EA6 /* Build configuration list for PBXNativeTarget "Wallet (macOS)" */ = {
+		0A0E1EF6270687AF00061EA6 /* Build configuration list for PBXNativeTarget "Balance (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0A0E1EF7270687AF00061EA6 /* Debug */,
@@ -1628,7 +1622,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F8ABEFD727141581007F7D11 /* Build configuration list for PBXNativeTarget "WalletTests" */ = {
+		F8ABEFD727141581007F7D11 /* Build configuration list for PBXNativeTarget "BalanceTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F8ABEFD827141581007F7D11 /* Debug */,

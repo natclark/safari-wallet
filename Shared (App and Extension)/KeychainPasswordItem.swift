@@ -12,7 +12,7 @@ import LocalAuthentication
 import OSLog
 
 struct KeychainConfiguration {
-    static let serviceName = "com.safari.Wallet"
+    static let serviceName = "com.dimitarnestorov.Balance"
     static let accessGroup: String? = nil
 }
 

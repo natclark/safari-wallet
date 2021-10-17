@@ -8,10 +8,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.safari.wallet</string>
+			<string>com.dimitarnestorov.Balance</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>safari-wallet</string>
+				<string>balance</string>
 			</array>
 		</dict>
 	</array>
