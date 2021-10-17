@@ -31,6 +31,11 @@ struct RestoreOrCreateWalletView: View {
             
             Text("Needed: 12 or 24 word recovery phrase")
                 .font(.footnote)
+
+            Button("Cancel") {
+                state = .dismiss
+            }
+            .padding()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding()
