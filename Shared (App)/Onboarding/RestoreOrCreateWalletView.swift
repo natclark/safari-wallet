@@ -10,6 +10,7 @@ import SwiftUI
 struct RestoreOrCreateWalletView: View {
     
     @Binding var state: OnboardingState
+    @State var isCancelable: Bool
     
     var body: some View {
         
@@ -32,10 +33,12 @@ struct RestoreOrCreateWalletView: View {
             Text("Needed: 12 or 24 word recovery phrase")
                 .font(.footnote)
 
-            Button("Cancel") {
-                state = .dismiss
+            if isCancelable {
+                Button("Cancel") {
+                    state = .dismiss
+                }
+                .padding()
             }
-            .padding()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding()
@@ -46,6 +49,6 @@ struct RestoreOrCreateWalletView: View {
 struct RestoreOrCreateWalletView_Previews: PreviewProvider {
     @State static var state: OnboardingState = .initial
     static var previews: some View {
-        RestoreOrCreateWalletView(state: $state)
+        RestoreOrCreateWalletView(state: $state, isCancelable: true)
     }
 }

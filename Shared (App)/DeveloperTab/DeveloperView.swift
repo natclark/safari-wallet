@@ -69,7 +69,7 @@ struct DeveloperView: View {
         .onAppear {
             countWallets()
         }
-        .sheet(isPresented: $isOnBoardingPresented) { OnboardingView() }
+        .sheet(isPresented: $isOnBoardingPresented) { OnboardingView(isCancelable: true) }
     }
 }
 

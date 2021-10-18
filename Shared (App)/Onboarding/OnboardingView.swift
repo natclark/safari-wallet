@@ -26,8 +26,8 @@ struct OnboardingView: View {
     /// New mnemonic generated in the onAppear of the title
     @State private var mnemonic: String = ""
     
-    /// User provided mnemonic to
-//    @State private var restoredMnemonic: String = ""
+    /// If true, RestoreOrCreateWalletView will show a cancel button
+    @State var isCancelable: Bool = false
     
     /// State
     @State private var state: OnboardingState = .initial
@@ -42,7 +42,7 @@ struct OnboardingView: View {
             if state == .initial {
 
                 // Show Restore or Create Wallet view
-                RestoreOrCreateWalletView(state: $state)
+                RestoreOrCreateWalletView(state: $state, isCancelable: self.isCancelable)
 
             } else if state == .createWallet {
 
@@ -52,8 +52,6 @@ struct OnboardingView: View {
                         .tag(0)
                     ConfirmMnemonicView(state: $state, tabIndex: $tabIndex, mnemonic: RecoveryPhrase(mnemonic: mnemonic))
                         .tag(1)
-//                    CreatePasswordView(state: $state, tabIndex: $tabIndex, mnemonic: mnemonic)
-//                    .tag(2)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .tabViewStyle(.page)
@@ -63,12 +61,7 @@ struct OnboardingView: View {
             } else if state == .restoreWallet {
 
                 // Restore existing wallet
-//                TabView {
-                    RestoreWalletView(state: $state)
-//                        .tag(0)
-//                    CreatePasswordView(state: $state, tabIndex: $tabIndex, mnemonic: restoredMnemonic)
-//                        .tag(1)
-//                }
+                RestoreWalletView(state: $state)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .tabViewStyle(.page)
                 .indexViewStyle(.page(backgroundDisplayMode: .always))
