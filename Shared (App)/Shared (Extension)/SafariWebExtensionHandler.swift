@@ -39,7 +39,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     
     func beginRequest(with context: NSExtensionContext) {
       
-//        Task {
+        Task {
             // Q: since this is a task, how can we be sure the task is completed before the handler is booted out of memory?
             let response = NSExtensionItem()
             defer { context.completeRequest(returningItems: [response], completionHandler: nil) }
@@ -57,16 +57,16 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             response.userInfo = [ SFExtensionMessageKey: [ "Response to": message ] ] // default response
             
             do {
-//                let returnValue = try await handle(message: message)
-//                if let returnValue = returnValue {
-//                    response.userInfo = returnValue
-//                }
+                let returnValue = try await handle(message: message)
+                if let returnValue = returnValue {
+                    response.userInfo = returnValue
+                }
             } catch {
                 // TODO: error does not always return useful message. Should we return error codes instead?
                 response.userInfo = [SFSFExtensionResponseErrorKey: error.localizedDescription]
                 os_log(.error, "Safari-wallet SafariWebExtensionHandler: %@", error.localizedDescription as CVarArg)
             }
-//        }
+        }
     } 
 }
 
@@ -76,16 +76,16 @@ extension SafariWebExtensionHandler {
     
     func handle(message: String, parameters: [String: Any]? = nil) async throws -> [String: Any]? {
         switch message {
-        case "CONNECT_WALLET":
-            fallthrough
+//        case "CONNECT_WALLET":
+//            fallthrough
             
         case "GET_CURRENT_ADDRESS":
             // Returns the address currently selected in the containing app and stored in NSUserDefaults
             guard let address = walletManager.defaultAddress() else {
                 return [SFSFExtensionResponseErrorKey: "No default account"]
             }
-            return [SFSFExtensionReturnValue: address]
-                        
+            return [SFSFExtensionReturnValue: [address]]
+                        /*
         case "GET_CURRENT_HDWALLET":
             // Returns the name of the HD wallet currently selected in the containing app and stored in NSUserDefaults
             // The name is a random UUID by default
@@ -126,7 +126,7 @@ extension SafariWebExtensionHandler {
 //
 //        case "SIGN":
 //            return sign(rawTx: parameters)
-            
+            */
         default:
             os_log(.default, "Safari-wallet SafariWebExtensionHandler: received unknown command '%@'", message as CVarArg)
             return [SFSFExtensionResponseErrorKey: "Unknown command in message"]
