@@ -9,33 +9,11 @@ import SafariServices
 import os.log
 
 let SFExtensionMessageKey = "message"
-let SFExtensionMessageParameters = "parameters"
 let SFSFExtensionResponseErrorKey = "error"
-let SFSFExtensionReturnValue = "return-value"
-
-// Keychain Configuration
-//struct KeychainConfiguration {
-//    static let serviceName = "Wallet"
-//    static let accessGroup: String? = nil
-//}
 
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     
     let walletManager = WalletManager()
-    
-    // This version of beginRequest returns a standard reply, great for testing
-//    func beginRequest(with context: NSExtensionContext) {
-//
-//        let item = context.inputItems[0] as! NSExtensionItem
-//        let message = item.userInfo?[SFExtensionMessageKey]
-//        os_log(.default, "Safari-wallet SafariWebExtensionHandler: Received message from browser.runtime.sendNativeMessage: %@", message as! CVarArg)
-//        let response = NSExtensionItem()
-//        response.userInfo = [ SFExtensionMessageKey: [ "Response to": message ] ]
-//        context.completeRequest(returningItems: [response], completionHandler: nil)
-//
-//    }
-    
-    // This version of beginRequest parses received messages and returns requested info in the reply
     
     func beginRequest(with context: NSExtensionContext) {
       
@@ -48,22 +26,18 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             let item = context.inputItems[0] as! NSExtensionItem
             let message = item.userInfo?[SFExtensionMessageKey]
             guard let messageDictionary = message as? [String: String], let message = messageDictionary["message"] else {
-                response.userInfo = [SFSFExtensionResponseErrorKey: ["Error": "Received empty message."]]
+                response.userInfo = [SFExtensionMessageKey: [SFSFExtensionResponseErrorKey: "Received empty message."]]
                 os_log(.default, "Safari-wallet SafariWebExtensionHandler: received empty message")
                 return
             }
             
             os_log(.default, "Safari-wallet SafariWebExtensionHandler: Received message from browser.runtime.sendNativeMessage: %@", message as CVarArg)
-//            response.userInfo = [ SFExtensionMessageKey: [ "Response to": message ] ] // default response
             
             do {
                 let returnValue = try await handle(message: message)
-                if let returnValue = returnValue {
-                    response.userInfo = returnValue
-                }
+                response.userInfo = [SFExtensionMessageKey: returnValue]
             } catch {
-                // TODO: error does not always return useful message. Should we return error codes instead?
-                response.userInfo = [SFSFExtensionResponseErrorKey: error.localizedDescription]
+                response.userInfo = [SFExtensionMessageKey: [SFSFExtensionResponseErrorKey: error.localizedDescription]]
                 os_log(.error, "Safari-wallet SafariWebExtensionHandler: %@", error.localizedDescription as CVarArg)
             }
         }
@@ -74,7 +48,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
 
 extension SafariWebExtensionHandler {
     
-    func handle(message: String, parameters: [String: Any]? = nil) async throws -> [String: Any]? {
+    func handle(message: String, parameters: [String: Any]? = nil) async throws -> Any {
         switch message {
 //        case "CONNECT_WALLET":
 //            fallthrough
@@ -196,47 +170,3 @@ extension SafariWebExtensionHandler {
 
 }
 */
-
-/// Conforming to this protocol allows for URL handling
-protocol URLHandler {
-    /// Handle a URL
-    ///
-    /// - Parameter url: The propagated url
-    /// - Returns: The handled status
-    func handleURL(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any], completionHandler completion: ((Bool) -> Void)?)
-}
-
-// MARK: - Error Propagation
-extension UIResponder {
-    /// Propagates a URL through the responder chain.
-    ///
-    /// - Parameters:
-    ///   - url: The URL to propagate
-    ///   - options: A dictionary of options to use when opening the URL. For a list of possible keys to include in this dictionary, see URL Options.
-    ///   - completion: The block to execute with the results. Provide a value for this parameter if you want to be informed of the success or failure of opening the URL.
-    func propagateURL(_ url: URL,
-                      options: [UIApplication.OpenExternalURLOptionsKey : Any] = [:],
-                      completionHandler completion: ((Bool) -> Void)? = nil) {
-        // Check if we have a next, otherwise return `false` to indicate that the operation failed
-        guard next != nil else {
-            completion?(false)
-            return
-        }
-        // Check if the next responder can handle URLs
-        guard let urlHandler = next as? URLHandler else {
-            // If not then carry on the propagation of the URL
-            next?.propagateURL(url, options: options, completionHandler: completion)
-            return
-        }
-        
-        // Ask the Next to handle the URL
-        urlHandler.handleURL(url, options: options) { [weak self] (status) in
-            if status == false {
-                // If the next failed to handle the URL, continue the propagation of the URL
-                self?.next?.propagateURL(url, options: options, completionHandler: completion)
-            }
-        }
-    }
-}
-
-
