@@ -13,4 +13,6 @@ enum WalletError: Error {
     case invalidPassword
     case wrongPassword
     case keystoreError
+    case addressNotFound
+    case fileInconsistency
 }

@@ -60,6 +60,20 @@ extension WalletManager {
         try await hdWalletFile.write(keystore)
     }
     
+    func loadMnemonic(name: String, password: String? = nil) async throws -> String {
+        let passwordData = try fetchPassword(account: name, password: password)
+        let keystoreData = try await SharedDocument(filename: name.deletingPathExtension().appendPathExtension(HDWALLET_FILE_EXTENSION)).read()
+        guard let keystore = try KeystoreV3(keystore: keystoreData), let mnemonicData = try await keystore.getDecryptedKeystore(passwordData: passwordData) else {
+            throw WalletError.wrongPassword
+        }
+        return String(decoding: mnemonicData, as: UTF8.self)
+    }
+    
+    func loadMasterPrivateKey(name: String, password: String? = nil, coin: Coin) async throws -> PrivateKey {
+        let mnemonic = try await loadMnemonic(name: name, password: password)
+        let seed = Mnemonic.createSeed(mnemonic: mnemonic)
+        return await PrivateKey(seed: seed, coin: coin)
+    }
     
     /// If this method throws an .invalidPassword error when password is nil, the password stored in the keychain is incorrect
     /// - Parameters:
@@ -67,27 +81,27 @@ extension WalletManager {
     ///   - password: <#password description#>
     /// - Returns: <#description#>
     func loadHDWallet(name: String, password: String? = nil) async throws -> Wallet {
-        
-        let passwordData: Data
-        if let password = password, let data = password.data(using: .utf8)?.sha256() {
-            passwordData = data
-        } else {
-            // Search keychain for stored password
-            let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName, account: name, accessGroup: KeychainConfiguration.accessGroup)
-            let password = try passwordItem.readPassword()
-            guard let data = password.data(using: .utf8)?.sha256()  else {
-                throw WalletError.invalidPassword
-            }
-            passwordData = data
-        }
-        
-        let keystoreData = try await SharedDocument(filename: name.deletingPathExtension().appendPathExtension(HDWALLET_FILE_EXTENSION)).read()
-        guard let keystore = try KeystoreV3(keystore: keystoreData), let mnemonicData = try await keystore.getDecryptedKeystore(passwordData: passwordData) else {
-            throw WalletError.wrongPassword
-        }
-        let mnemonic = String(decoding: mnemonicData, as: UTF8.self)
+        let mnemonic = try await loadMnemonic(name: name, password: password)
         let masterSeed = HDWalletKit.Mnemonic.createSeed(mnemonic: mnemonic)
         return await HDWalletKit.Wallet(seed: masterSeed, coin: .ethereum)
+    }
+
+    private func fetchPassword(account: String, password: String?) throws -> Data {
+        if let password = password, let data = password.data(using: .utf8)?.sha256() {
+            return data
+        } else {
+            return try fetchPasswordFromKeychain(account: account)
+        }
+    }
+    
+    // Search keychain for stored password
+    private func fetchPasswordFromKeychain(account: String) throws -> Data {
+        let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName, account: account, accessGroup: KeychainConfiguration.accessGroup)
+        let password = try passwordItem.readPassword()
+        guard let data = password.data(using: .utf8)?.sha256()  else {
+            throw WalletError.invalidPassword
+        }
+        return data
     }
     
     private func saveAddresses(mnemonic: String, addressCount: Int, name: String) async throws {
@@ -121,6 +135,19 @@ extension WalletManager {
             return files
         }
         return files.filter { $0.pathExtension == fileExtension }
+    }
+    
+    func fetchPrivateKeyFor(address: String, walletName: String, password: String? = nil, coin: Coin = .ethereum) async throws -> PrivateKey {
+        let addresses = try await loadAddresses(name: walletName)
+        guard let index = addresses.firstIndex(of: address) else {
+            throw WalletError.addressNotFound
+        }
+        let masterKey = try await loadMasterPrivateKey(name: walletName, password: password, coin: coin)
+        let privateKey = try await masterKey.privateKey(index: index)
+        guard address == privateKey.publicKey.address else {
+            throw WalletError.fileInconsistency
+        }
+        return privateKey
     }
 }
 
