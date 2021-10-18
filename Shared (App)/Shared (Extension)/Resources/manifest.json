@@ -5,7 +5,7 @@
     "name": "__MSG_extension_name__",
     "description": "__MSG_extension_description__",
     "version": "1.0",
-    "homepage_url": "https://example.com",
+    "homepage_url": "https://safari-wallet-test-dapp.vercel.app",
 
     "icons": {
         "48": "images/icon-48.png",
@@ -16,15 +16,16 @@
     },
 
     "background": {
-        "scripts": [ "background.js" ],
+        "scripts": [
+            "background.js"
+        ],
         "persistent": false
     },
 
     "content_scripts": [{
         "js": [
             "content.js",
-            "injections/ethereum.js",
-            "injections/safari_wallet.js"
+            "injections/ethereum.js"
         ],
         "matches": [ "<all_urls>" ]
     }],
@@ -40,10 +41,11 @@
     },
 
     "web_accessible_resources": [
-        "ethereum.js",
-        "safari_wallet.js"
+        "injections/ethereum.js"
     ],
 
-    "optional_permissions": [ "*://www.example.com/" ],
-    "permissions": [ "nativeMessaging", "tabs" ]
+    "permissions": [
+        "nativeMessaging",
+        "tabs"
+    ]
 }

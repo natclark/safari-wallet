@@ -57,10 +57,10 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             response.userInfo = [ SFExtensionMessageKey: [ "Response to": message ] ] // default response
             
             do {
-//                let returnValue = try await handle(message: message)
-//                if let returnValue = returnValue {
-//                    response.userInfo = returnValue
-//                }
+                let returnValue = try await handle(message: message)
+                if let returnValue = returnValue {
+                    response.userInfo = returnValue
+                }
             } catch {
                 // TODO: error does not always return useful message. Should we return error codes instead?
                 response.userInfo = [SFSFExtensionResponseErrorKey: error.localizedDescription]
