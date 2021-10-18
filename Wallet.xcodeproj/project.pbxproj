@@ -47,6 +47,10 @@
 		F8321B6027176EE700F12938 /* ConfirmMnemonicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B5E27176EE700F12938 /* ConfirmMnemonicView.swift */; };
 		F8321B622717768400F12938 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B612717768400F12938 /* SummaryView.swift */; };
 		F8321B632717768400F12938 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B612717768400F12938 /* SummaryView.swift */; };
+		F879234F271CCDD700A09228 /* EthereumAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879234E271CCDD700A09228 /* EthereumAddress.swift */; };
+		F8792350271CCDD700A09228 /* EthereumAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879234E271CCDD700A09228 /* EthereumAddress.swift */; };
+		F8792351271CCDD700A09228 /* EthereumAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879234E271CCDD700A09228 /* EthereumAddress.swift */; };
+		F8792352271CCDD700A09228 /* EthereumAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879234E271CCDD700A09228 /* EthereumAddress.swift */; };
 		F8812B482717E18600D1B231 /* RecoveryPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B472717E18600D1B231 /* RecoveryPhrase.swift */; };
 		F8812B4A2717E2F700D1B231 /* RecoveryPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B472717E18600D1B231 /* RecoveryPhrase.swift */; };
 		F8812B4C2718B91600D1B231 /* Intro1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B4B2718B91600D1B231 /* Intro1View.swift */; };
@@ -203,6 +207,7 @@
 		F8321B5B27176ED600F12938 /* ShowMnemonicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMnemonicView.swift; sourceTree = "<group>"; };
 		F8321B5E27176EE700F12938 /* ConfirmMnemonicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmMnemonicView.swift; sourceTree = "<group>"; };
 		F8321B612717768400F12938 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
+		F879234E271CCDD700A09228 /* EthereumAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthereumAddress.swift; sourceTree = "<group>"; };
 		F8812B472717E18600D1B231 /* RecoveryPhrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryPhrase.swift; sourceTree = "<group>"; };
 		F8812B4B2718B91600D1B231 /* Intro1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro1View.swift; sourceTree = "<group>"; };
 		F8812B4E2718B91E00D1B231 /* Intro2View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intro2View.swift; sourceTree = "<group>"; };
@@ -464,6 +469,7 @@
 			children = (
 				F8ABEF40271389CD007F7D11 /* Extensions */,
 				F8ABEF3727129797007F7D11 /* WalletManager.swift */,
+				F879234E271CCDD700A09228 /* EthereumAddress.swift */,
 				F8ABEEC327124A8C007F7D11 /* Constants.swift */,
 				F8ABEEC627124A8C007F7D11 /* SharedDocument.swift */,
 				F8ABEEC727124A8C007F7D11 /* WalletError.swift */,
@@ -758,6 +764,7 @@
 				F8ABEF47271389F5007F7D11 /* NSFileCoordinator.swift in Sources */,
 				F8812B522718B92500D1B231 /* Intro3View.swift in Sources */,
 				F8AD21E6271796CC0059D754 /* RestoreOrCreateWalletView.swift in Sources */,
+				F879234F271CCDD700A09228 /* EthereumAddress.swift in Sources */,
 				F8321B5C27176ED600F12938 /* ShowMnemonicView.swift in Sources */,
 				F8321B5F27176EE700F12938 /* ConfirmMnemonicView.swift in Sources */,
 				F8AD21EF2717B4B40059D754 /* RestoreWalletView.swift in Sources */,
@@ -793,6 +800,7 @@
 				F8ABEF48271389F5007F7D11 /* NSFileCoordinator.swift in Sources */,
 				F8812B532718B92500D1B231 /* Intro3View.swift in Sources */,
 				F8AD21E7271796CC0059D754 /* RestoreOrCreateWalletView.swift in Sources */,
+				F8792350271CCDD700A09228 /* EthereumAddress.swift in Sources */,
 				F8321B5D27176ED600F12938 /* ShowMnemonicView.swift in Sources */,
 				F8321B6027176EE700F12938 /* ConfirmMnemonicView.swift in Sources */,
 				F8AD21F02717B4B40059D754 /* RestoreWalletView.swift in Sources */,
@@ -828,6 +836,7 @@
 				F8ABEEDB27124A8C007F7D11 /* WalletError.swift in Sources */,
 				F8ABEED727124A8C007F7D11 /* SharedDocument.swift in Sources */,
 				F8ABEF49271389F5007F7D11 /* NSFileCoordinator.swift in Sources */,
+				F8792351271CCDD700A09228 /* EthereumAddress.swift in Sources */,
 				F8ABEF44271389D9007F7D11 /* URL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -845,6 +854,7 @@
 				F8ABEEDC27124A8C007F7D11 /* WalletError.swift in Sources */,
 				F8ABEED827124A8C007F7D11 /* SharedDocument.swift in Sources */,
 				F8ABEF4A271389F5007F7D11 /* NSFileCoordinator.swift in Sources */,
+				F8792352271CCDD700A09228 /* EthereumAddress.swift in Sources */,
 				F8ABEF45271389D9007F7D11 /* URL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
