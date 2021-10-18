@@ -19,7 +19,7 @@ function connectWallet() {
     browser.runtime.sendMessage({
         message: `eth_requestAccounts`,
     });
-    window.close();
+//    window.close();
 }
 
 /*

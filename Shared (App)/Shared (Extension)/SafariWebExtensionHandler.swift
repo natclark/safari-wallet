@@ -8,7 +8,7 @@
 import SafariServices
 import os.log
 
-let SFExtensionMessageKey = "message" // rename to command or call?
+let SFExtensionMessageKey = "message"
 let SFExtensionMessageParameters = "parameters"
 let SFSFExtensionResponseErrorKey = "error"
 let SFSFExtensionReturnValue = "return-value"
@@ -54,7 +54,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             }
             
             os_log(.default, "Safari-wallet SafariWebExtensionHandler: Received message from browser.runtime.sendNativeMessage: %@", message as CVarArg)
-            response.userInfo = [ SFExtensionMessageKey: [ "Response to": message ] ] // default response
+//            response.userInfo = [ SFExtensionMessageKey: [ "Response to": message ] ] // default response
             
             do {
                 let returnValue = try await handle(message: message)
@@ -84,7 +84,7 @@ extension SafariWebExtensionHandler {
             guard let address = walletManager.defaultAddress() else {
                 return [SFSFExtensionResponseErrorKey: "No default account"]
             }
-            return [SFSFExtensionReturnValue: [address]]
+            return [SFExtensionMessageKey: [address]]
                         /*
         case "GET_CURRENT_HDWALLET":
             // Returns the name of the HD wallet currently selected in the containing app and stored in NSUserDefaults
