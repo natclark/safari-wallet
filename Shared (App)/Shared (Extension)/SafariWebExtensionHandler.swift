@@ -26,7 +26,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             let item = context.inputItems[0] as! NSExtensionItem
             let message = item.userInfo?[SFExtensionMessageKey]
             guard let messageDictionary = message as? [String: String], let message = messageDictionary["message"] else {
-                response.userInfo = [SFExtensionMessageKey: [SFSFExtensionResponseErrorKey: "Received empty message."]]
+                response.userInfo = errorResponse(error: "Received empty message.")
                 os_log(.default, "Safari-wallet SafariWebExtensionHandler: received empty message")
                 return
             }
@@ -37,16 +37,20 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                 let returnValue = try await handle(message: message)
                 response.userInfo = [SFExtensionMessageKey: returnValue]
             } catch {
-                response.userInfo = [SFExtensionMessageKey: [SFSFExtensionResponseErrorKey: error.localizedDescription]]
+                response.userInfo = errorResponse(error: error.localizedDescription)
                 os_log(.error, "Safari-wallet SafariWebExtensionHandler: %@", error.localizedDescription as CVarArg)
             }
         }
-    } 
+    }
 }
 
 // MARK: - Message handling
 
 extension SafariWebExtensionHandler {
+    
+    func errorResponse(error: String) -> [String: Any] {
+        return [SFExtensionMessageKey: [SFSFExtensionResponseErrorKey: error]]
+    }
     
     func handle(message: String, parameters: [String: Any]? = nil) async throws -> Any {
         switch message {
