@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr" data-theme="dark">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Ethereum Wallet</title>
         <link rel="stylesheet" type="text/css" href="popup.css">
         <script type="module" src="popup.js"></script>
@@ -12,18 +13,11 @@
         <p>When you connect your wallet, this dapp will be able to view the contents:</p>
         <div class="field">
             <label class="field__label" for="address">Address</label>
-            <input id="address" class="field__input" type="text" value="0x255E9B54F41F44F42150b6aAA730Da5f2d23Faf2" disabled>
+            <input id="address" class="field__input" type="text" value="0x" disabled>
         </div>
         <div class="field">
             <label class="field__label" for="balance">ETH Balance</label>
-            <input id="balance" class="field__input" type="text" value="12.142 ETH" disabled>
-        </div>
-        <div class="field">
-            <label class="field__label" for="ens">ENS records</label>
-            <input id="ens" class="field__input" type="text" value="ric.eth" disabled>
-        </div>
-        <div class="field">
-            <div id="messageResponse"></div>
+            <input id="balance" class="field__input" type="text" value="0 ETH" disabled>
         </div>
         <div class="flex">
             <button id="cancel" class="button button--secondary">Cancel</button>
@@ -31,4 +25,3 @@
         </div>
     </body>
 </html>
-
