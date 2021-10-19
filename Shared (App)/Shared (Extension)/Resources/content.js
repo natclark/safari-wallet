@@ -10,6 +10,7 @@ const inject = (path) => {
 
 inject('injections/ethereum.js');
 
-window.addEventListener(`message`, (event) => {
-    //browser.runtime.sendMessage({ message: event.data, });
+// * This forwards messages from popup.js to injections/ethereum.js
+browser.runtime.onMessage.addListener((request) => {
+    window.postMessage(request.message);
 });

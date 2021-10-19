@@ -96,10 +96,13 @@ Ethereum.prototype.request = (payload) => {
             case `eth_requestAccounts`:
                 window.postMessage(`eth_requestAccounts`);
                 window.addEventListener(`message`, (event) => {
-                    console.log(event.data);
+                    if (typeof event.data === `cancel`) {
+                        resolve([]);
+                    } else if (typeof event.data !== `string`) {
+                        resolve(event.data);
+                    }
                 });
                 showPrompt();
-                resolve([`example`]);
                 break;
             case `eth_signTypedData_v3`:
                 window.postMessage(`eth_signedTypedData_v3`);

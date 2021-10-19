@@ -8,8 +8,11 @@ browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
             const address = await browser.runtime.sendNativeMessage({
                 message: `GET_CURRENT_ADDRESS`,
             });
-            console.table(address);
+            browser.runtime.sendMessage({ message: address, });
             break;
+        case `cancel`:
+            browser.runtime.sendMessage({ message: `cancel`, });
         default:
+            console.log(`unimplemented`, request.message);
     }
 });
