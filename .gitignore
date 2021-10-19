@@ -19,6 +19,7 @@ xcuserdata
 *.moved-aside
 *.xcuserstate
 .DS_Store
+.parcel-cache
 Pods/
 node_modules
 src/build

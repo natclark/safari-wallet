@@ -1,3 +1,6 @@
+import accountsChanged from './events/accountsChanged.js';
+import eth_requestAccounts from './methods/eth_requestAccounts.js';
+
 function Ethereum() {
 
     this.opened = false;

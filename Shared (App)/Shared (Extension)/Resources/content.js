@@ -8,7 +8,7 @@ const inject = (path) => {
     document.body.insertBefore(injection, document.body.firstChild);
 };
 
-inject('injections/ethereum.js');
+inject(`injections/dist.js`);
 
 // * This forwards messages from popup.js to injections/ethereum.js
 browser.runtime.onMessage.addListener((request) => {
