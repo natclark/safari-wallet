@@ -8,5 +8,8 @@
     },
     "devDependencies": {
         "parcel": "latest"
+    },
+    "dependencies": {
+        "typescript": "^4.4.4"
     }
 }
