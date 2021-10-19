@@ -39,6 +39,9 @@
 		0A0E1EE8270687AE00061EA6 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = 0A0E1E97270687AE00061EA6 /* popup.js */; };
 		275C299427117F7D00DA2773 /* injections in Resources */ = {isa = PBXBuildFile; fileRef = 275C299327117F7D00DA2773 /* injections */; };
 		275C299527117F7D00DA2773 /* injections in Resources */ = {isa = PBXBuildFile; fileRef = 275C299327117F7D00DA2773 /* injections */; };
+		4A19E6DD271DC8450096027F /* JsonRpcClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A19E6DC271DC8450096027F /* JsonRpcClient.swift */; };
+		4A19E6DE271DC8500096027F /* JsonRpcClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A19E6DC271DC8450096027F /* JsonRpcClient.swift */; };
+		4A19E6E0271E673C0096027F /* JsonRpcClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A19E6DF271E673C0096027F /* JsonRpcClientTest.swift */; };
 		F8321B5927169A1D00F12938 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B5827169A1D00F12938 /* OnboardingView.swift */; };
 		F8321B5A27176EBE00F12938 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B5827169A1D00F12938 /* OnboardingView.swift */; };
 		F8321B5C27176ED600F12938 /* ShowMnemonicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B5B27176ED600F12938 /* ShowMnemonicView.swift */; };
@@ -199,6 +202,8 @@
 		0AE54717270694EB00C4A81F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0AE5471D27091C5800C4A81F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		275C299327117F7D00DA2773 /* injections */ = {isa = PBXFileReference; lastKnownFileType = folder; path = injections; sourceTree = "<group>"; };
+		4A19E6DC271DC8450096027F /* JsonRpcClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonRpcClient.swift; sourceTree = "<group>"; };
+		4A19E6DF271E673C0096027F /* JsonRpcClientTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonRpcClientTest.swift; sourceTree = "<group>"; };
 		F8321B5827169A1D00F12938 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		F8321B5B27176ED600F12938 /* ShowMnemonicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMnemonicView.swift; sourceTree = "<group>"; };
 		F8321B5E27176EE700F12938 /* ConfirmMnemonicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmMnemonicView.swift; sourceTree = "<group>"; };
@@ -298,6 +303,7 @@
 		0A0E1E84270687AA00061EA6 /* Shared (App) */ = {
 			isa = PBXGroup;
 			children = (
+				4A19E6DB271DC6070096027F /* Networking */,
 				F8812B462717E07000D1B231 /* Models */,
 				F8321B57271698EB00F12938 /* Onboarding */,
 				F8812B562719235B00D1B231 /* TransactionsTab */,
@@ -398,6 +404,14 @@
 			path = "macOS (Extension)";
 			sourceTree = "<group>";
 		};
+		4A19E6DB271DC6070096027F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				4A19E6DC271DC8450096027F /* JsonRpcClient.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		F8321B57271698EB00F12938 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -488,6 +502,7 @@
 			children = (
 				F8ABEFDA2714198C007F7D11 /* WalletTests.swift */,
 				F8ABEFD327141581007F7D11 /* KeychainTests.swift */,
+				4A19E6DF271E673C0096027F /* JsonRpcClientTest.swift */,
 			);
 			path = WalletTests;
 			sourceTree = "<group>";
@@ -756,6 +771,7 @@
 				F8812B4C2718B91600D1B231 /* Intro1View.swift in Sources */,
 				F8ABEF4C27138E1D007F7D11 /* String.swift in Sources */,
 				F8ABEF47271389F5007F7D11 /* NSFileCoordinator.swift in Sources */,
+				4A19E6DD271DC8450096027F /* JsonRpcClient.swift in Sources */,
 				F8812B522718B92500D1B231 /* Intro3View.swift in Sources */,
 				F8AD21E6271796CC0059D754 /* RestoreOrCreateWalletView.swift in Sources */,
 				F8321B5C27176ED600F12938 /* ShowMnemonicView.swift in Sources */,
@@ -791,6 +807,7 @@
 				F8812B4D2718B91600D1B231 /* Intro1View.swift in Sources */,
 				F8ABEF4D27138E1D007F7D11 /* String.swift in Sources */,
 				F8ABEF48271389F5007F7D11 /* NSFileCoordinator.swift in Sources */,
+				4A19E6DE271DC8500096027F /* JsonRpcClient.swift in Sources */,
 				F8812B532718B92500D1B231 /* Intro3View.swift in Sources */,
 				F8AD21E7271796CC0059D754 /* RestoreOrCreateWalletView.swift in Sources */,
 				F8321B5D27176ED600F12938 /* ShowMnemonicView.swift in Sources */,
@@ -855,6 +872,7 @@
 			files = (
 				F8ABEFDB2714198C007F7D11 /* WalletTests.swift in Sources */,
 				F8ABEFD427141581007F7D11 /* KeychainTests.swift in Sources */,
+				4A19E6E0271E673C0096027F /* JsonRpcClientTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
