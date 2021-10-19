@@ -41,7 +41,8 @@
     },
 
     "web_accessible_resources": [
-        "injections/ethereum.js"
+        "fonts/*",
+        "injections/*"
     ],
 
     "permissions": [
