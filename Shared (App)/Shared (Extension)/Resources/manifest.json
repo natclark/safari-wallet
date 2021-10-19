@@ -25,7 +25,7 @@
     "content_scripts": [{
         "js": [
             "content.js",
-            "injections/ethereum.js"
+            "ethereum/dist.js"
         ],
         "matches": [ "<all_urls>" ]
     }],
@@ -42,7 +42,7 @@
 
     "web_accessible_resources": [
         "fonts/*",
-        "injections/*"
+        "ethereum/*"
     ],
 
     "permissions": [
