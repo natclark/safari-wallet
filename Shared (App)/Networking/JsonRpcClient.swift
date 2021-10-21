@@ -7,49 +7,17 @@
 
 import Foundation
 
-struct JsonRpcRequest<P: Encodable>: Encodable {
-   
-   let jsonrpc: String
-   let method: String
-   let params: P?
-   let id: String
-   
-   init(method: String, params: P? = nil, id: String = "1") {
-      self.jsonrpc = "2.0"
-      self.method = method
-      self.params = params
-      self.id = id
-   }
-   
-}
-
-struct JsonRpcError: Codable, Error {
-   
-   let code: Int
-   let message: String
-   
-}
-
-struct JsonRpcResponse<Result: Decodable>: Decodable {
-   
-   let jsonrpc: String
-   let result: Result?
-   let error: JsonRpcError?
-   let id: String
-   
-}
-
-enum NetworkError: Error {
-   case invalidUrl
-   case jsonRpcError(JsonRpcError)
-   case requestError(Error)
-   case missingData
-   case decodingError
-   case encodingError
-   case unknown
-}
-
 class JsonRpcClient {
+   
+   enum NetworkError: Error {
+      case invalidUrl
+      case jsonRpcError(JsonRpcError)
+      case requestError(Error)
+      case missingData
+      case decodingError
+      case encodingError
+      case unknown
+   }
    
    static func makeRequest<P: Encodable, R: Decodable>(url: String,
                                                        method: String,
