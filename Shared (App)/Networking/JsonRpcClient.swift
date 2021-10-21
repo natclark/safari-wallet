@@ -12,8 +12,6 @@ class JsonRpcClient {
    enum NetworkError: Error {
       case invalidUrl
       case jsonRpcError(JsonRpcError)
-      case requestError(Error)
-      case missingData
       case decodingError
       case encodingError
       case unknown
@@ -23,11 +21,9 @@ class JsonRpcClient {
                                                        method: String,
                                                        params: P,
                                                        resultType: R.Type,
-                                                       urlSession: URLSession = URLSession.shared,
-                                                       completion: @escaping (Result<R, NetworkError>) -> Void) {
+                                                       urlSession: URLSession = URLSession.shared)  async throws -> R {
       guard let url = URL(string: url) else {
-         completion(.failure(.invalidUrl))
-         return
+         throw NetworkError.invalidUrl
       }
       
       var urlRequest = URLRequest(url: url,
@@ -39,36 +35,23 @@ class JsonRpcClient {
       
       let rpcRequest = JsonRpcRequest<P>(method: method, params: params)
       guard let body = try? JSONEncoder().encode(rpcRequest) else {
-         completion(.failure(.encodingError))
-         return
+         throw NetworkError.encodingError
       }
       urlRequest.httpBody = body
       
-      let task = urlSession.dataTask(with: urlRequest) { data, respose, error in
-         if let error = error {
-            completion(.failure(.requestError(error)))
-            return
-         }
-         
-         guard let data = data else {
-            completion(.failure(.missingData))
-            return
-         }
-         
-         guard let jsonRpcResponse = try? JSONDecoder().decode(JsonRpcResponse<R>.self, from: data) else {
-            completion(.failure(.decodingError))
-            return
-         }
-   
-         if let result = jsonRpcResponse.result {
-            completion(.success(result))
-         } else if let rpcError = jsonRpcResponse.error {
-            completion(.failure(.jsonRpcError(rpcError)))
-         } else {
-            completion(.failure(.unknown))
-         }
+      let (data, _) = try await urlSession.data(for: urlRequest)
+      
+      guard let jsonRpcResponse = try? JSONDecoder().decode(JsonRpcResponse<R>.self, from: data) else {
+         throw NetworkError.decodingError
       }
-      task.resume()
+
+      if let result = jsonRpcResponse.result {
+         return result
+      } else if let rpcError = jsonRpcResponse.error {
+         throw NetworkError.jsonRpcError(rpcError)
+      } else {
+         throw NetworkError.unknown
+      }
    }
    
 }

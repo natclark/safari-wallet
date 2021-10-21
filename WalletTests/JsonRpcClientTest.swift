@@ -12,27 +12,13 @@ import XCTest
 
 class JsonRpcClientTest: XCTestCase {
    
-   func testGetBalance() {
+   func testGetBalance() async {
       let url: String = "Your_Alchemy_Url"
       let method: String = "eth_getBalance"
-      let params = ["Address_you_want_to_get_balance_for",
+      let params = ["0xaed557b8cAac9C457d28E70F1F5B0782FCfEF9C7",
                     "latest"]
-      
-      let expextation = self.expectation(description: "Get Balance Expectation")
-      
-      JsonRpcClient.makeRequest(url: url,
-                                method: method,
-                                params: params,
-                                resultType: String.self) { result in
-         switch result {
-            case .success(let balance):
-               print("Your Account has a balance of \(balance)")
-               expextation.fulfill()
-            case .failure(let error):
-               fatalError("Make sure to set the right url, method, and params \(error)")
-         }
-      }
-      waitForExpectations(timeout: 10, handler: nil)
+      let balance = try! await JsonRpcClient.makeRequest(url: url, method: method, params: params, resultType: String.self)
+      print("Your Account has a balance of \(balance)")
    }
 
 }
