@@ -15,6 +15,19 @@ browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
                     message: address,
                 });
                 break;
+            case `eth_signTypedData_v3`: // * Return requested data from native app to popup.js
+                /*
+                TODO
+                const signature = await browser.runtime.sendNativeMessage({
+                    from: request.message.from,
+                    message: `SIGN_MESSAGE`,
+                    params: request.message.params,
+                });
+                browser.runtime.sendMessage({
+                    message: signature,
+                });
+                */
+                break;
             case `cancel`: // * Cancel current method and notify popup.js of cancellation
                 browser.runtime.sendMessage({
                     message: {
@@ -22,35 +35,20 @@ browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
                     },
                 });
                 break;
-            case `get_address`: // * Send current method to popup.js
-                /*
-                TODO
-                const address = await browser.runtime.sendNativeMessage({
+            case `get_state`: // * Send current method, address, balance, and network (?) to popup.js
+                const currentAddress = await browser.runtime.sendNativeMessage({
                     message: `GET_CURRENT_ADDRESS`,
                 });
-                browser.runtime.sendMessage({
-                    message: {
-                        address: address.message,
-                    },
-                });
-                */
-                break;
-            case `get_balance`:
                 /*
                 TODO
                 const balance = await browser.runtime.sendNativeMessage({
                     message: `GET_CURRENT_BALANCE`,
                 });
-                browser.runtime.sendMessage({
-                    message: {
-                        message: balance.message,
-                    },
-                });
                 */
-                break;
-            case `get_method`:
                 browser.runtime.sendMessage({
                     message: {
+                        address: currentAddress.message[0],
+                        //balance,
                         method,
                     },
                 });

@@ -97,8 +97,8 @@ $4fa0c73a46e81912$var$Ethereum.prototype.request = (payload)=>{
                 showPrompt(`Open the wallet extension to connect`);
                 break;
             case `eth_signTypedData_v3`:
-                // TODO
                 /*
+                TODO
                 window.postMessage(`eth_signedTypedData_v3`);
                 window.addEventListener(`message`, (event) => {
                     if (typeof event.data === `cancel`) {
@@ -107,8 +107,8 @@ $4fa0c73a46e81912$var$Ethereum.prototype.request = (payload)=>{
                         resolve(event.data);
                     }
                 });
-                showPrompt(`Open the wallet extension to sign`);
-                */ resolve(true);
+                */ showPrompt(`Open the wallet extension to sign`);
+                resolve(true);
                 break;
             default:
                 // * Invalid or unimplemented method
