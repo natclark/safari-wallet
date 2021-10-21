@@ -97,17 +97,12 @@ $4fa0c73a46e81912$var$Ethereum.prototype.request = (payload)=>{
                 showPrompt(`Open the wallet extension to connect`);
                 break;
             case `eth_signTypedData_v3`:
-                /*
-                TODO
-                window.postMessage(`eth_signedTypedData_v3`);
-                window.addEventListener(`message`, (event) => {
-                    if (typeof event.data === `cancel`) {
-                        resolve([]);
-                    } else if (typeof event.data !== `string`) {
-                        resolve(event.data);
-                    }
+                window.postMessage(`eth_signTypedData_v3`);
+                window.addEventListener(`message`, (event)=>{
+                    if (typeof event.data === `cancel`) resolve([]);
+                    else if (typeof event.data !== `string`) resolve(event.data);
                 });
-                */ showPrompt(`Open the wallet extension to sign`);
+                showPrompt(`Open the wallet extension to sign`);
                 resolve(true);
                 break;
             default:

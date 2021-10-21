@@ -8,6 +8,10 @@ try {
 
     let method = ``;
 
+    // For message signing:
+    let from = ``;
+    let params = {};
+
     const chains = {
         1: {
             gasToken: `ETH`,
@@ -65,9 +69,9 @@ try {
         /*
         browser.runtime.sendMessage({
             message: {
-                from: ``,
+                from,
                 message: `eth_signTypedData_v3`,
-                params: {},
+                params,
             },
         });
         */
@@ -116,6 +120,10 @@ try {
                 // * This updates the view based on the current method
                 if (typeof request.message.method !== `undefined`) {
                     method = request.message.method;
+                    if (method === `eth_signTypedData_v3`) {
+                        from = request.message.from;
+                        params = request.message.params;
+                    }
                     refreshView();
                 }
                 // * This forwards messages from background.js to content.js

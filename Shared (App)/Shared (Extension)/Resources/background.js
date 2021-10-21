@@ -2,6 +2,10 @@
 
 let method = ``;
 
+// For message signing:
+let from = ``;
+let params = {};
+
 browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
     if (typeof request.message === `undefined`) return;
 
@@ -24,7 +28,7 @@ browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
                     params: request.message.params,
                 });
                 browser.runtime.sendMessage({
-                    message: signature,
+                    message: signature.message,
                 });
                 */
                 break;
@@ -49,7 +53,9 @@ browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
                     message: {
                         address: currentAddress.message[0],
                         //balance,
+                        from,
                         method,
+                        params,
                     },
                 });
                 break;
@@ -57,6 +63,12 @@ browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
                 method = request.message.method === `cancel`
                     ? ``
                     : request.message.method;
+                break;
+            case `update_from`: // * Update "from" for message signing from content.js
+                from = request.message.from;
+                break;
+            case `update_params`: // * Update "params" for message signing from content.js
+                params = request.message.params;
                 break;
             default: // * Unimplemented or invalid method
                 console.log(`background [unimplemented]:`, request.message.message);
