@@ -7,21 +7,5 @@
         <link rel="stylesheet" type="text/css" href="popup.css">
         <script type="module" src="popup.js"></script>
     </head>
-    <body>
-        <h1>Connect to <span id="title"></span></h1>
-        <p class="subtitle"><span id="host"></span></p>
-        <p>When you connect your wallet, this dapp will be able to view the contents:</p>
-        <div class="field">
-            <label class="field__label" for="address">Address</label>
-            <input id="address" class="field__input" type="text" value="0x" disabled>
-        </div>
-        <div class="field">
-            <label class="field__label" for="balance">ETH Balance</label>
-            <input id="balance" class="field__input" type="text" value="0 ETH" disabled>
-        </div>
-        <div class="flex">
-            <button id="cancel" class="button button--secondary">Cancel</button>
-            <button id="connect" class="button button--primary">Connect</button>
-        </div>
-    </body>
+    <body id="body"></body>
 </html>
