@@ -14,7 +14,7 @@ class JsonRpcClientTest: XCTestCase {
    
    func testGetBalance() {
       let url: String = "Your_Alchemy_Url"
-      let method: String = "eth_getaBalance"
+      let method: String = "eth_getBalance"
       let params = ["Address_you_want_to_get_balance_for",
                     "latest"]
       
