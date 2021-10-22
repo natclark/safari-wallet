@@ -88,7 +88,7 @@ extension CreatePasswordView {
     func createWallet() async throws {
         let manager = WalletManager()
         let name = try await manager.saveWallet(mnemonic: mnemonic, password: self.password)
-        let addresses = try await manager.saveAddresses(mnemonic: mnemonic, addressCount: 5, filename: name)     
+        let addresses = try await manager.saveAddresses(mnemonic: mnemonic, addressCount: 5, name: name)     
         #if DEBUG
         print(addresses)
         #endif

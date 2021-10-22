@@ -22,6 +22,10 @@ extension Wallet {
         return try Wallet(seed: seed, network: network)
     }
     
+    func fetchPrivateKeyFor(index: Int) async throws -> PK {
+        return try self.derive(self.privateKey.network, index: UInt32(index)).privateKey
+    }
+    
     /// Convenience method to generate addresses
     /// - Parameters:
     ///   - count: Number of addresses to be generated

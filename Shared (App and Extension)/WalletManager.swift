@@ -13,10 +13,19 @@ class WalletManager {
     
     // MARK: - Restore wallet
     
+    /// Recreates wallet from mnemonic
+    /// - Parameters:
+    ///   - mnemonic: 12 or 24 word mnemonic as string with single space between words
+    /// - Returns: Wallet
     func restoreWallet<P>(mnemonic: String) throws -> Wallet<P> {
         return try restoreWallet(mnemonic: mnemonic.components(separatedBy: " "))
     }
     
+    
+    /// Recreates wallet from mnemonic
+    /// - Parameters:
+    ///   - mnemonic: 12 or 24 word mnemonic as an array of strings
+    /// - Returns: Wallet
     func restoreWallet<P>(mnemonic: [String]) throws -> Wallet<P> {
         guard let seed = try BIP39(mnemonic: mnemonic).seed() else { throw WalletError.seedError }
         return try Wallet(seed: seed) // Defaults to Ethereum for now
@@ -25,9 +34,10 @@ class WalletManager {
     // MARK: - Save wallet to disk
     
     /// Saves the mnemonic to disk in a KeystoreV3 file format and encrypted by the provided password.
+    /// Call SaveAddresses() after saveWallet to store addresses to disk. Save default wallet by calling SetDefaultHDWallet()
     /// - Parameters:
-    ///   - mnemonic: <#mnemonic description#>
-    ///   - password: <#password description#>
+    ///   - mnemonic: 12 or 24 word mnemonic as string with single space between words
+    ///   - password: User chosen password
     ///   - storePasswordInKeychain: If true, the password will be stored in the Apple Keychain
     ///   - filename: filename. If nil, a random UUID will be used.
     /// - Returns: the filename
@@ -47,6 +57,11 @@ class WalletManager {
         return filename
     }
     
+    /// Internal method to store mnemonic in a standard Keystore V3 file
+    /// - Parameters:
+    ///   - mnemonic: 12 or 24 word mnemonic as string with single space between words
+    ///   - password: User chosen password
+    ///   - name: filename
     private func saveKeystore(mnemonic: String, password: String, name: String) async throws {
         guard let phraseData = mnemonic.data(using: .utf8),
                 let passwordData = password.data(using: .utf8)?.sha256(),
@@ -60,11 +75,23 @@ class WalletManager {
     
     // MARK: - Load wallet from disk
 
+    
+    /// Loads wallet from disk. Use to sign a transaction
+    /// - Parameters:
+    ///   - name: filename
+    ///   - password: password used to save the file
+    ///   - network: defaults to .ethereum
+    /// - Returns: Wallet
     func loadWallet(name: String, password: String? = nil, network: Network) async throws -> Wallet<PrivateKeyEth1> {
         let mnemonic = try await loadMnemonic(name: name, password: password)
         return try restoreWallet(mnemonic: mnemonic)
     }
     
+    /// Loads mnemonic from disk.
+    /// - Parameters:
+    ///   - name: filename
+    ///   - password: password used to save the file
+    /// - Returns: mnemonic as string
     func loadMnemonic(name: String, password: String? = nil) async throws -> String {
         let passwordData = try fetchPassword(account: name, password: password)
         let keystoreData = try await SharedDocument(filename: name.deletingPathExtension().appendPathExtension(HDWALLET_FILE_EXTENSION)).read()
@@ -76,16 +103,29 @@ class WalletManager {
     
     // MARK: - Load and save addresses from and to disk
     
-    func saveAddresses(mnemonic: String, addressCount: Int, filename: String) async throws -> [String] {
+    /// Saves addresses as an array of strings to disk. Set default address in NSUserDefaults by using setDefaultAddress()
+    /// - Parameters:
+    ///   - mnemonic: Mnemonic of the wallet's addresses to save
+    ///   - addressCount: Number of address to generate and save. Always starts with index 0
+    ///   - name: filename
+    /// - Returns: Array of generated addresses
+    func saveAddresses(mnemonic: String, addressCount: Int, name: String) async throws -> [String] {
         let wallet: Wallet<PrivateKeyEth1> = try restoreWallet(mnemonic: mnemonic)
-        return try await saveAddresses(wallet: wallet, addressCount: addressCount, filename: filename)
+        return try await saveAddresses(wallet: wallet, addressCount: addressCount, name: name)
     }
     
-    func saveAddresses(wallet: Wallet<PrivateKeyEth1>, addressCount: Int, filename: String) async throws -> [String] {
+    
+    /// Saves addresses as an array of strings to disk. Set default address in NSUserDefaults by using setDefaultAddress()
+    /// - Parameters:
+    ///   - wallet: wallet
+    ///   - addressCount: Number of address to generate and save. Always starts with index 0
+    ///   - name: filename
+    /// - Returns: Array of generated addresses
+    func saveAddresses(wallet: Wallet<PrivateKeyEth1>, addressCount: Int, name: String) async throws -> [String] {
         let addresses = try wallet.generateAddresses(count: addressCount).map { $0.address }
         let addressesJSON = try JSONEncoder().encode(addresses)
         let networkExtension = wallet.privateKey.network.symbol
-        let filePath = try filename.deletingPathExtension().appendPathExtension(networkExtension).appendPathExtension(ADDRESS_FILE_EXTENSION)
+        let filePath = try name.deletingPathExtension().appendPathExtension(networkExtension).appendPathExtension(ADDRESS_FILE_EXTENSION)
         let addressesFile = try SharedDocument(filename: filePath)
         try await addressesFile.write(addressesJSON)
         return addresses
@@ -142,19 +182,27 @@ class WalletManager {
         }
         return data
     }
+        
+    /// Fetches the derived private key belonging to an address
+    /// - Parameters:
+    ///   - address: address
+    ///   - walletName: wallet that address is derived from
+    ///   - password: password of the wallet file
+    ///   - network: default is .ethereum
+    /// - Returns: the private key belonging to address
+    func fetchPrivateKeyFor(address: String, walletName: String, password: String? = nil, network: Network = .ethereum) async throws -> PrivateKeyEth1 {
+        let wallet = try await loadWallet(name: walletName, password: password, network: network)
+        // FIXME: We're only scanning the first 50
+        for i in 0 ..< 50 {
+            let privateKey = try wallet.derive(network, index: UInt32(i)).privateKey
+            guard let generatedAddress = privateKey.address()?.address else { continue }
+            if generatedAddress == address {
+                return privateKey
+            }
+        }
+        throw WalletError.addressNotFound
+    }    
     
-//    func fetchPrivateKeyFor(address: String, walletName: String, password: String? = nil, coin: Coin = .ethereum) async throws -> PrivateKey {
-//        let addresses = try await loadAddresses(name: walletName)
-//        guard let index = addresses.firstIndex(of: address) else {
-//            throw WalletError.addressNotFound
-//        }
-//        let masterKey = try await loadMasterPrivateKey(name: walletName, password: password, coin: coin)
-//        let privateKey = try await masterKey.privateKey(index: index)
-//        guard address == privateKey.publicKey.address else {
-//            throw WalletError.fileInconsistency
-//        }
-//        return privateKey
-//    }
 }
 
 // MARK: - NSUserDefaults

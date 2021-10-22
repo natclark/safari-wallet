@@ -89,11 +89,15 @@ extension DeveloperView {
         let mnemonic = root.mnemonic!.joined(separator: " ")
         let manager = WalletManager()
         let name = try await manager.saveWallet(mnemonic: mnemonic, password: "password123")
-        let addresses = try await manager.saveAddresses(mnemonic: mnemonic, addressCount: 5, filename: name)        
+        let addresses = try await manager.saveAddresses(mnemonic: mnemonic, addressCount: 5, name: name)        
         print(addresses)
         manager.setDefaultAddress(addresses.first!)
         manager.setDefaultHDWallet(name)
         countWallets()
+    }
+    
+    func signRandomTransaction() {
+        
     }
 }
 
