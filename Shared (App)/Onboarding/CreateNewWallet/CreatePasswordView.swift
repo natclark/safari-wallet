@@ -87,25 +87,14 @@ extension CreatePasswordView {
     
     func createWallet() async throws {
         let manager = WalletManager()
-        let name = try await manager.saveHDWallet(mnemonic: mnemonic, password: self.password)
-        let wallet = await manager.createNewHDWallet(mnemonic: mnemonic)
-        let addresses = await wallet.generateAddresses()
+        let name = try await manager.saveWallet(mnemonic: mnemonic, password: self.password)
+        let addresses = try await manager.saveAddresses(mnemonic: mnemonic, addressCount: 5, filename: name)     
+        #if DEBUG
         print(addresses)
+        #endif
         manager.setDefaultAddress(addresses.first!)
         manager.setDefaultHDWallet(name)
     }
-    
-    #if DEBUG
-    func createTestWallet() async throws {
-        let manager = WalletManager()
-        let name = try await manager.saveHDWallet(mnemonic: mnemonic, password: "password123")
-        let wallet = await manager.createNewHDWallet(mnemonic: mnemonic)
-        let addresses = await wallet.generateAddresses()
-        print(addresses)
-        manager.setDefaultAddress(addresses.first!)
-        manager.setDefaultHDWallet(name)
-    }
-    #endif
 }
 
 struct CreatePasswordView_Previews: PreviewProvider {

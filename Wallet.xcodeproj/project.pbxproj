@@ -48,10 +48,6 @@
 		F8321B6027176EE700F12938 /* ConfirmMnemonicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B5E27176EE700F12938 /* ConfirmMnemonicView.swift */; };
 		F8321B622717768400F12938 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B612717768400F12938 /* SummaryView.swift */; };
 		F8321B632717768400F12938 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B612717768400F12938 /* SummaryView.swift */; };
-		F879234F271CCDD700A09228 /* EthereumAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879234E271CCDD700A09228 /* EthereumAddress.swift */; };
-		F8792350271CCDD700A09228 /* EthereumAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879234E271CCDD700A09228 /* EthereumAddress.swift */; };
-		F8792351271CCDD700A09228 /* EthereumAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879234E271CCDD700A09228 /* EthereumAddress.swift */; };
-		F8792352271CCDD700A09228 /* EthereumAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879234E271CCDD700A09228 /* EthereumAddress.swift */; };
 		F8812B482717E18600D1B231 /* RecoveryPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B472717E18600D1B231 /* RecoveryPhrase.swift */; };
 		F8812B4A2717E2F700D1B231 /* RecoveryPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B472717E18600D1B231 /* RecoveryPhrase.swift */; };
 		F8812B4C2718B91600D1B231 /* Intro1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B4B2718B91600D1B231 /* Intro1View.swift */; };
@@ -68,6 +64,22 @@
 		F8812B5F27192AA600D1B231 /* ShortcutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B5D27192AA600D1B231 /* ShortcutItem.swift */; };
 		F8812B6227193E8B00D1B231 /* DeveloperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B6127193E8B00D1B231 /* DeveloperView.swift */; };
 		F8812B6327193E8B00D1B231 /* DeveloperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8812B6127193E8B00D1B231 /* DeveloperView.swift */; };
+		F884A4112720FF7F0002665D /* MEWwalletKit in Frameworks */ = {isa = PBXBuildFile; productRef = F884A4102720FF7F0002665D /* MEWwalletKit */; };
+		F884A4132720FF930002665D /* MEWwalletKit in Frameworks */ = {isa = PBXBuildFile; productRef = F884A4122720FF930002665D /* MEWwalletKit */; };
+		F884A4152720FF990002665D /* MEWwalletKit in Frameworks */ = {isa = PBXBuildFile; productRef = F884A4142720FF990002665D /* MEWwalletKit */; };
+		F884A4172720FF9D0002665D /* MEWwalletKit in Frameworks */ = {isa = PBXBuildFile; productRef = F884A4162720FF9D0002665D /* MEWwalletKit */; };
+		F884A4192720FFF60002665D /* KeystoreV3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F884A4182720FFF60002665D /* KeystoreV3.swift */; };
+		F884A41A2720FFF60002665D /* KeystoreV3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F884A4182720FFF60002665D /* KeystoreV3.swift */; };
+		F884A41B2720FFF60002665D /* KeystoreV3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F884A4182720FFF60002665D /* KeystoreV3.swift */; };
+		F884A41C2720FFF60002665D /* KeystoreV3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F884A4182720FFF60002665D /* KeystoreV3.swift */; };
+		F884A41E2721001C0002665D /* KeystoreV3Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = F884A41D2721001C0002665D /* KeystoreV3Json.swift */; };
+		F884A41F2721001C0002665D /* KeystoreV3Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = F884A41D2721001C0002665D /* KeystoreV3Json.swift */; };
+		F884A4202721001C0002665D /* KeystoreV3Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = F884A41D2721001C0002665D /* KeystoreV3Json.swift */; };
+		F884A4212721001C0002665D /* KeystoreV3Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = F884A41D2721001C0002665D /* KeystoreV3Json.swift */; };
+		F884A424272110580002665D /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F884A423272110580002665D /* Wallet.swift */; };
+		F884A425272110580002665D /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F884A423272110580002665D /* Wallet.swift */; };
+		F884A426272110580002665D /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F884A423272110580002665D /* Wallet.swift */; };
+		F884A427272110580002665D /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F884A423272110580002665D /* Wallet.swift */; };
 		F8ABEEC927124A8C007F7D11 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC327124A8C007F7D11 /* Constants.swift */; };
 		F8ABEECA27124A8C007F7D11 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC327124A8C007F7D11 /* Constants.swift */; };
 		F8ABEECB27124A8C007F7D11 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC327124A8C007F7D11 /* Constants.swift */; };
@@ -90,10 +102,6 @@
 		F8ABEEDE27124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC827124A8C007F7D11 /* KeychainPasswordItem.swift */; };
 		F8ABEEDF27124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC827124A8C007F7D11 /* KeychainPasswordItem.swift */; };
 		F8ABEEE027124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEEC827124A8C007F7D11 /* KeychainPasswordItem.swift */; };
-		F8ABEEE727125002007F7D11 /* HDWalletKit in Frameworks */ = {isa = PBXBuildFile; productRef = F8ABEEE627125002007F7D11 /* HDWalletKit */; };
-		F8ABEEEA27125105007F7D11 /* HDWalletKit in Frameworks */ = {isa = PBXBuildFile; productRef = F8ABEEE927125105007F7D11 /* HDWalletKit */; };
-		F8ABEEEC2712510B007F7D11 /* HDWalletKit in Frameworks */ = {isa = PBXBuildFile; productRef = F8ABEEEB2712510B007F7D11 /* HDWalletKit */; };
-		F8ABEEEE2712510F007F7D11 /* HDWalletKit in Frameworks */ = {isa = PBXBuildFile; productRef = F8ABEEED2712510F007F7D11 /* HDWalletKit */; };
 		F8ABEF3227125EFA007F7D11 /* WalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF3127125EFA007F7D11 /* WalletApp.swift */; };
 		F8ABEF3327125EFA007F7D11 /* WalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF3127125EFA007F7D11 /* WalletApp.swift */; };
 		F8ABEF3527125F16007F7D11 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ABEF3427125F16007F7D11 /* ContentView.swift */; };
@@ -218,6 +226,9 @@
 		F8812B5A271923A300D1B231 /* ShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutView.swift; sourceTree = "<group>"; };
 		F8812B5D27192AA600D1B231 /* ShortcutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutItem.swift; sourceTree = "<group>"; };
 		F8812B6127193E8B00D1B231 /* DeveloperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperView.swift; sourceTree = "<group>"; };
+		F884A4182720FFF60002665D /* KeystoreV3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeystoreV3.swift; sourceTree = "<group>"; };
+		F884A41D2721001C0002665D /* KeystoreV3Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeystoreV3Json.swift; sourceTree = "<group>"; };
+		F884A423272110580002665D /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		F8ABEEC327124A8C007F7D11 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F8ABEEC427124A8C007F7D11 /* BiometricsAuthentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BiometricsAuthentication.swift; sourceTree = "<group>"; };
 		F8ABEEC527124A8C007F7D11 /* FileObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileObserver.swift; sourceTree = "<group>"; };
@@ -246,7 +257,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8ABEEE727125002007F7D11 /* HDWalletKit in Frameworks */,
+				F884A4112720FF7F0002665D /* MEWwalletKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,7 +265,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8ABEEEA27125105007F7D11 /* HDWalletKit in Frameworks */,
+				F884A4132720FF930002665D /* MEWwalletKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,7 +273,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8ABEEEC2712510B007F7D11 /* HDWalletKit in Frameworks */,
+				F884A4152720FF990002665D /* MEWwalletKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,7 +281,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8ABEEEE2712510F007F7D11 /* HDWalletKit in Frameworks */,
+				F884A4172720FF9D0002665D /* MEWwalletKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +470,15 @@
 			path = DeveloperTab;
 			sourceTree = "<group>";
 		};
+		F884A428272126040002665D /* Keystore */ = {
+			isa = PBXGroup;
+			children = (
+				F884A4182720FFF60002665D /* KeystoreV3.swift */,
+				F884A41D2721001C0002665D /* KeystoreV3Json.swift */,
+			);
+			path = Keystore;
+			sourceTree = "<group>";
+		};
 		F8ABEEE827125105007F7D11 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -469,6 +489,7 @@
 		F8ABEF3A271297A3007F7D11 /* Shared (App and Extension) */ = {
 			isa = PBXGroup;
 			children = (
+				F884A428272126040002665D /* Keystore */,
 				F8ABEF40271389CD007F7D11 /* Extensions */,
 				F8ABEF3727129797007F7D11 /* WalletManager.swift */,
 				F879234E271CCDD700A09228 /* EthereumAddress.swift */,
@@ -487,6 +508,7 @@
 				F8ABEF41271389D9007F7D11 /* URL.swift */,
 				F8ABEF46271389F5007F7D11 /* NSFileCoordinator.swift */,
 				F8ABEF4B27138E1D007F7D11 /* String.swift */,
+				F884A423272110580002665D /* Wallet.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -548,7 +570,7 @@
 			);
 			name = "Wallet (iOS)";
 			packageProductDependencies = (
-				F8ABEEE627125002007F7D11 /* HDWalletKit */,
+				F884A4102720FF7F0002665D /* MEWwalletKit */,
 			);
 			productName = "Wallet (iOS)";
 			productReference = 0A0E1E9C270687AE00061EA6 /* Wallet.app */;
@@ -570,7 +592,7 @@
 			);
 			name = "Wallet (macOS)";
 			packageProductDependencies = (
-				F8ABEEE927125105007F7D11 /* HDWalletKit */,
+				F884A4122720FF930002665D /* MEWwalletKit */,
 			);
 			productName = "Wallet (macOS)";
 			productReference = 0A0E1EAE270687AE00061EA6 /* Wallet.app */;
@@ -590,7 +612,7 @@
 			);
 			name = "Wallet Extension (iOS)";
 			packageProductDependencies = (
-				F8ABEEEB2712510B007F7D11 /* HDWalletKit */,
+				F884A4142720FF990002665D /* MEWwalletKit */,
 			);
 			productName = "Wallet Extension (iOS)";
 			productReference = 0A0E1EBA270687AE00061EA6 /* Wallet Extension.appex */;
@@ -610,7 +632,7 @@
 			);
 			name = "Wallet Extension (macOS)";
 			packageProductDependencies = (
-				F8ABEEED2712510F007F7D11 /* HDWalletKit */,
+				F884A4162720FF9D0002665D /* MEWwalletKit */,
 			);
 			productName = "Wallet Extension (macOS)";
 			productReference = 0A0E1EC4270687AE00061EA6 /* Wallet Extension.appex */;
@@ -672,7 +694,7 @@
 			);
 			mainGroup = 0A0E1E7F270687AA00061EA6;
 			packageReferences = (
-				F8ABEEE527125002007F7D11 /* XCRemoteSwiftPackageReference "HDWallet" */,
+				F884A40F2720FF7F0002665D /* XCRemoteSwiftPackageReference "mew-wallet-ios-kit" */,
 			);
 			productRefGroup = 0A0E1E9D270687AE00061EA6 /* Products */;
 			projectDirPath = "";
@@ -767,13 +789,13 @@
 				F8ABEF47271389F5007F7D11 /* NSFileCoordinator.swift in Sources */,
 				F8812B522718B92500D1B231 /* Intro3View.swift in Sources */,
 				F8AD21E6271796CC0059D754 /* RestoreOrCreateWalletView.swift in Sources */,
-				F879234F271CCDD700A09228 /* EthereumAddress.swift in Sources */,
 				F8321B5C27176ED600F12938 /* ShowMnemonicView.swift in Sources */,
 				F8321B5F27176EE700F12938 /* ConfirmMnemonicView.swift in Sources */,
 				F8AD21EF2717B4B40059D754 /* RestoreWalletView.swift in Sources */,
 				F8AD21E92717B3420059D754 /* CreatePasswordView.swift in Sources */,
 				F8ABEECD27124A8C007F7D11 /* BiometricsAuthentication.swift in Sources */,
 				F8ABEF3227125EFA007F7D11 /* WalletApp.swift in Sources */,
+				F884A424272110580002665D /* Wallet.swift in Sources */,
 				F8ABEF42271389D9007F7D11 /* URL.swift in Sources */,
 				F8ABEED527124A8C007F7D11 /* SharedDocument.swift in Sources */,
 				F8ABEEDD27124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
@@ -782,8 +804,10 @@
 				F8812B5E27192AA600D1B231 /* ShortcutItem.swift in Sources */,
 				F8321B622717768400F12938 /* SummaryView.swift in Sources */,
 				F8ABEF3827129797007F7D11 /* WalletManager.swift in Sources */,
+				F884A4192720FFF60002665D /* KeystoreV3.swift in Sources */,
 				F8812B482717E18600D1B231 /* RecoveryPhrase.swift in Sources */,
 				F8ABEED127124A8C007F7D11 /* FileObserver.swift in Sources */,
+				F884A41E2721001C0002665D /* KeystoreV3Json.swift in Sources */,
 				F8ABEF3E27129DEB007F7D11 /* AppDelegate.swift in Sources */,
 				F8ABEED927124A8C007F7D11 /* WalletError.swift in Sources */,
 				F8321B5927169A1D00F12938 /* OnboardingView.swift in Sources */,
@@ -803,13 +827,13 @@
 				F8ABEF48271389F5007F7D11 /* NSFileCoordinator.swift in Sources */,
 				F8812B532718B92500D1B231 /* Intro3View.swift in Sources */,
 				F8AD21E7271796CC0059D754 /* RestoreOrCreateWalletView.swift in Sources */,
-				F8792350271CCDD700A09228 /* EthereumAddress.swift in Sources */,
 				F8321B5D27176ED600F12938 /* ShowMnemonicView.swift in Sources */,
 				F8321B6027176EE700F12938 /* ConfirmMnemonicView.swift in Sources */,
 				F8AD21F02717B4B40059D754 /* RestoreWalletView.swift in Sources */,
 				F8AD21EA2717B3420059D754 /* CreatePasswordView.swift in Sources */,
 				F8ABEED227124A8C007F7D11 /* FileObserver.swift in Sources */,
 				F8ABEEDE27124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
+				F884A425272110580002665D /* Wallet.swift in Sources */,
 				F8ABEF43271389D9007F7D11 /* URL.swift in Sources */,
 				F8ABEED627124A8C007F7D11 /* SharedDocument.swift in Sources */,
 				F8ABEF3627125F16007F7D11 /* ContentView.swift in Sources */,
@@ -818,8 +842,10 @@
 				F8812B5F27192AA600D1B231 /* ShortcutItem.swift in Sources */,
 				F8321B632717768400F12938 /* SummaryView.swift in Sources */,
 				F8ABEF3927129797007F7D11 /* WalletManager.swift in Sources */,
+				F884A41A2720FFF60002665D /* KeystoreV3.swift in Sources */,
 				F8ABEECA27124A8C007F7D11 /* Constants.swift in Sources */,
 				F8ABEF3F27129DEB007F7D11 /* AppDelegate.swift in Sources */,
+				F884A41F2721001C0002665D /* KeystoreV3Json.swift in Sources */,
 				F8812B4A2717E2F700D1B231 /* RecoveryPhrase.swift in Sources */,
 				F8ABEEDA27124A8C007F7D11 /* WalletError.swift in Sources */,
 				F8321B5A27176EBE00F12938 /* OnboardingView.swift in Sources */,
@@ -832,14 +858,16 @@
 			files = (
 				0A0E1ED7270687AE00061EA6 /* SafariWebExtensionHandler.swift in Sources */,
 				F8ABEED327124A8C007F7D11 /* FileObserver.swift in Sources */,
+				F884A4202721001C0002665D /* KeystoreV3Json.swift in Sources */,
 				F8ABEF4E27138E1D007F7D11 /* String.swift in Sources */,
 				F8ABEF3B271297B3007F7D11 /* WalletManager.swift in Sources */,
 				F8ABEECB27124A8C007F7D11 /* Constants.swift in Sources */,
 				F8ABEEDF27124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
+				F884A41B2720FFF60002665D /* KeystoreV3.swift in Sources */,
+				F884A426272110580002665D /* Wallet.swift in Sources */,
 				F8ABEEDB27124A8C007F7D11 /* WalletError.swift in Sources */,
 				F8ABEED727124A8C007F7D11 /* SharedDocument.swift in Sources */,
 				F8ABEF49271389F5007F7D11 /* NSFileCoordinator.swift in Sources */,
-				F8792351271CCDD700A09228 /* EthereumAddress.swift in Sources */,
 				F8ABEF44271389D9007F7D11 /* URL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -850,14 +878,16 @@
 			files = (
 				0A0E1ED8270687AE00061EA6 /* SafariWebExtensionHandler.swift in Sources */,
 				F8ABEED427124A8C007F7D11 /* FileObserver.swift in Sources */,
+				F884A4212721001C0002665D /* KeystoreV3Json.swift in Sources */,
 				F8ABEF4F27138E1D007F7D11 /* String.swift in Sources */,
 				F8ABEF3C271297B3007F7D11 /* WalletManager.swift in Sources */,
 				F8ABEECC27124A8C007F7D11 /* Constants.swift in Sources */,
 				F8ABEEE027124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
+				F884A41C2720FFF60002665D /* KeystoreV3.swift in Sources */,
+				F884A427272110580002665D /* Wallet.swift in Sources */,
 				F8ABEEDC27124A8C007F7D11 /* WalletError.swift in Sources */,
 				F8ABEED827124A8C007F7D11 /* SharedDocument.swift in Sources */,
 				F8ABEF4A271389F5007F7D11 /* NSFileCoordinator.swift in Sources */,
-				F8792352271CCDD700A09228 /* EthereumAddress.swift in Sources */,
 				F8ABEF45271389D9007F7D11 /* URL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1416,36 +1446,36 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F8ABEEE527125002007F7D11 /* XCRemoteSwiftPackageReference "HDWallet" */ = {
+		F884A40F2720FF7F0002665D /* XCRemoteSwiftPackageReference "mew-wallet-ios-kit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ronaldmannak/HDWallet";
+			repositoryURL = "https://github.com/MyEtherWallet/mew-wallet-ios-kit";
 			requirement = {
-				branch = develop;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.13;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F8ABEEE627125002007F7D11 /* HDWalletKit */ = {
+		F884A4102720FF7F0002665D /* MEWwalletKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F8ABEEE527125002007F7D11 /* XCRemoteSwiftPackageReference "HDWallet" */;
-			productName = HDWalletKit;
+			package = F884A40F2720FF7F0002665D /* XCRemoteSwiftPackageReference "mew-wallet-ios-kit" */;
+			productName = MEWwalletKit;
 		};
-		F8ABEEE927125105007F7D11 /* HDWalletKit */ = {
+		F884A4122720FF930002665D /* MEWwalletKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F8ABEEE527125002007F7D11 /* XCRemoteSwiftPackageReference "HDWallet" */;
-			productName = HDWalletKit;
+			package = F884A40F2720FF7F0002665D /* XCRemoteSwiftPackageReference "mew-wallet-ios-kit" */;
+			productName = MEWwalletKit;
 		};
-		F8ABEEEB2712510B007F7D11 /* HDWalletKit */ = {
+		F884A4142720FF990002665D /* MEWwalletKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F8ABEEE527125002007F7D11 /* XCRemoteSwiftPackageReference "HDWallet" */;
-			productName = HDWalletKit;
+			package = F884A40F2720FF7F0002665D /* XCRemoteSwiftPackageReference "mew-wallet-ios-kit" */;
+			productName = MEWwalletKit;
 		};
-		F8ABEEED2712510F007F7D11 /* HDWalletKit */ = {
+		F884A4162720FF9D0002665D /* MEWwalletKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F8ABEEE527125002007F7D11 /* XCRemoteSwiftPackageReference "HDWallet" */;
-			productName = HDWalletKit;
+			package = F884A40F2720FF7F0002665D /* XCRemoteSwiftPackageReference "mew-wallet-ios-kit" */;
+			productName = MEWwalletKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

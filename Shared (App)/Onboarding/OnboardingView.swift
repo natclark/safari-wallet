@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import HDWalletKit
+import MEWwalletKit
 
 enum OnboardingState {
     case initial            // Show choice to create new or restore existing wallet
@@ -98,7 +98,12 @@ struct OnboardingView: View {
         }
         .interactiveDismissDisabled(true)
         .onAppear {
-            self.mnemonic = Mnemonic.create()
+            do {
+                let root = try BIP39(bitsOfEntropy: 128)            
+                self.mnemonic = root.mnemonic!.joined(separator: " ")
+            } catch {
+                print("Error: \(error)")
+            }
         }
     }    
 }

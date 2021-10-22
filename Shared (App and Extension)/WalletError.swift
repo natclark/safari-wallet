@@ -15,4 +15,6 @@ enum WalletError: Error {
     case keystoreError
     case addressNotFound
     case fileInconsistency
+    case addressGenerationError
+    case seedError
 }

@@ -22,7 +22,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
             let response = NSExtensionItem()
             defer { context.completeRequest(returningItems: [response], completionHandler: nil) }
 
-            // Grab message
+            // Parse message
             let item = context.inputItems[0] as! NSExtensionItem
             let message = item.userInfo?[SFExtensionMessageKey]
             guard let messageDictionary = message as? [String: String], let message = messageDictionary["message"] else {

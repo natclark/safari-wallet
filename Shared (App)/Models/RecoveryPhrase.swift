@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import HDWalletKit
+import MEWwalletKit
 
 struct RecoveryPhrase {
     
@@ -28,7 +28,7 @@ struct RecoveryPhrase {
         return reconstructedMnemonic == mnemonic
     }
     
-    func isValid(language: WordList = .english) -> Bool {
+    func isValid(language: BIP39Wordlist = .english) -> Bool {
         
         let wordCount = mnemonic.components(separatedBy: " ").count
         guard wordCount == 12 || wordCount == 24 else { return false }
