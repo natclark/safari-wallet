@@ -48,6 +48,8 @@
 		4A19E6E72721D7F00096027F /* JsonRpcError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A19E6E52721D7F00096027F /* JsonRpcError.swift */; };
 		4A19E6E92721D7F90096027F /* JsonRpcResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A19E6E82721D7F90096027F /* JsonRpcResponse.swift */; };
 		4A19E6EA2721D7F90096027F /* JsonRpcResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A19E6E82721D7F90096027F /* JsonRpcResponse.swift */; };
+		4A19E6EC2722546C0096027F /* WalletURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A19E6EB2722546C0096027F /* WalletURLSession.swift */; };
+		4A19E6ED2722546C0096027F /* WalletURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A19E6EB2722546C0096027F /* WalletURLSession.swift */; };
 		F8321B5927169A1D00F12938 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B5827169A1D00F12938 /* OnboardingView.swift */; };
 		F8321B5A27176EBE00F12938 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B5827169A1D00F12938 /* OnboardingView.swift */; };
 		F8321B5C27176ED600F12938 /* ShowMnemonicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B5B27176ED600F12938 /* ShowMnemonicView.swift */; };
@@ -213,6 +215,7 @@
 		4A19E6E22721D7C50096027F /* JsonRpcRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonRpcRequest.swift; sourceTree = "<group>"; };
 		4A19E6E52721D7F00096027F /* JsonRpcError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonRpcError.swift; sourceTree = "<group>"; };
 		4A19E6E82721D7F90096027F /* JsonRpcResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonRpcResponse.swift; sourceTree = "<group>"; };
+		4A19E6EB2722546C0096027F /* WalletURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletURLSession.swift; sourceTree = "<group>"; };
 		F8321B5827169A1D00F12938 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		F8321B5B27176ED600F12938 /* ShowMnemonicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMnemonicView.swift; sourceTree = "<group>"; };
 		F8321B5E27176EE700F12938 /* ConfirmMnemonicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmMnemonicView.swift; sourceTree = "<group>"; };
@@ -416,6 +419,7 @@
 		4A19E6DB271DC6070096027F /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				4A19E6EB2722546C0096027F /* WalletURLSession.swift */,
 				4A19E6DC271DC8450096027F /* JsonRpcClient.swift */,
 				4A19E6E12721D76E0096027F /* Models */,
 			);
@@ -796,6 +800,7 @@
 				F8AD21E6271796CC0059D754 /* RestoreOrCreateWalletView.swift in Sources */,
 				F8321B5C27176ED600F12938 /* ShowMnemonicView.swift in Sources */,
 				F8321B5F27176EE700F12938 /* ConfirmMnemonicView.swift in Sources */,
+				4A19E6EC2722546C0096027F /* WalletURLSession.swift in Sources */,
 				F8AD21EF2717B4B40059D754 /* RestoreWalletView.swift in Sources */,
 				4A19E6E32721D7C50096027F /* JsonRpcRequest.swift in Sources */,
 				F8AD21E92717B3420059D754 /* CreatePasswordView.swift in Sources */,
@@ -835,6 +840,7 @@
 				F8AD21E7271796CC0059D754 /* RestoreOrCreateWalletView.swift in Sources */,
 				F8321B5D27176ED600F12938 /* ShowMnemonicView.swift in Sources */,
 				F8321B6027176EE700F12938 /* ConfirmMnemonicView.swift in Sources */,
+				4A19E6ED2722546C0096027F /* WalletURLSession.swift in Sources */,
 				F8AD21F02717B4B40059D754 /* RestoreWalletView.swift in Sources */,
 				4A19E6E42721D7C50096027F /* JsonRpcRequest.swift in Sources */,
 				F8AD21EA2717B3420059D754 /* CreatePasswordView.swift in Sources */,

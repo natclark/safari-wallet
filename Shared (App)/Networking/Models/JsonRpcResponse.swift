@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct JsonRpcResponse<Result: Decodable>: Decodable {
+struct JsonRpcResponse<Result: Codable>: Codable {
    
    let jsonrpc: String
    let result: Result?
