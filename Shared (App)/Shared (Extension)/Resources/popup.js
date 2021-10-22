@@ -2,7 +2,7 @@
 
 let chain = 1;
 let address = `0x`;
-let balance = 0;
+let balance = 0.00;
 
 let method = ``;
 
@@ -65,6 +65,7 @@ const connectWallet = () => {
 
 const signMessage = () => {
     /*
+    TODO
     browser.runtime.sendMessage({
         message: {
             from,

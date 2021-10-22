@@ -42,16 +42,13 @@ browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
             const currentAddress = await browser.runtime.sendNativeMessage({
                 message: `GET_CURRENT_ADDRESS`,
             });
-            /*
-            TODO
             const balance = await browser.runtime.sendNativeMessage({
                 message: `GET_CURRENT_BALANCE`,
             });
-            */
             browser.runtime.sendMessage({
                 message: {
                     address: currentAddress.message[0],
-                    //balance,
+                    balance: balance.message,
                     from,
                     method,
                     params,

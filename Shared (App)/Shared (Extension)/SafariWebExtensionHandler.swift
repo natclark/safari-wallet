@@ -16,7 +16,8 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     let walletManager = WalletManager()
     
     func beginRequest(with context: NSExtensionContext) {
-      
+
+        // * This is just to allow asynchronous calls:
         Task {
             // Q: since this is a task, how can we be sure the task is completed before the handler is booted out of memory?
             let response = NSExtensionItem()
@@ -41,6 +42,7 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                 os_log(.error, "Safari-wallet SafariWebExtensionHandler: %@", error.localizedDescription as CVarArg)
             }
         }
+
     }
 }
 
@@ -54,123 +56,42 @@ extension SafariWebExtensionHandler {
     
     func handle(message: String, parameters: [String: Any]? = nil) async throws -> Any {
         switch message {
-//        case "CONNECT_WALLET":
-//            fallthrough
-            
+
         case "GET_CURRENT_ADDRESS":
             // Returns the address currently selected in the containing app and stored in NSUserDefaults
             guard let address = walletManager.defaultAddress() else {
                 return [SFSFExtensionResponseErrorKey: "No default account"]
             }
             return [SFExtensionMessageKey: [address]]
-                        /*
-        case "GET_CURRENT_HDWALLET":
-            // Returns the name of the HD wallet currently selected in the containing app and stored in NSUserDefaults
-            // The name is a random UUID by default
-            guard let wallet = walletManager.defaultHDWallet() else {
-                return [SFSFExtensionResponseErrorKey: "No default wallet"]
-            }
-            return [SFSFExtensionReturnValue: wallet]
 
-        case "LIST_WALLETS":
-            // Returns list of HDWallet files
-            let wallets = try walletManager.listWalletFiles()
-            return [SFSFExtensionReturnValue: wallets]
-                        
-        case "LIST_ADDRESSES":
-            // Returns the list of addresses generated for current wallet
-            guard let wallet = walletManager.defaultHDWallet() else {
-                return [SFSFExtensionResponseErrorKey: "No default wallet"]
+        case "GET_CURRENT_BALANCE":
+            // Returns the balance of the currently selected address
+            guard let address = walletManager.defaultAddress() else {
+                return [SFSFExtensionResponseErrorKey: "No default account"]
             }
-            let addresses = try await walletManager.loadAddresses(name: wallet)
-            return [SFSFExtensionReturnValue: addresses]
+            guard let balance = walletManager.balanceOf(address) else {
+                return [SFSFExtensionResponseErrorKey: "Balance unavailable"]
+            }
+            return [SFExtensionMessageKey: balance]
 
+        /*
         case "OPEN_CONTAINING_APP":
             // Opens the containing iOS app
             let x = await UIApplication().canOpenURL(URL(string: "https://macrumors.com")!)
             os_log(.default, "Safari-wallet SafariWebExtensionHandler: Can open URL '%@'", x)
             return [:]
-//            openur
+        */
 
-        case "SIGN_RAW_TX":
-            // Sign transaction
-            return [:]
-        
-//        case "OPEN_WALLET":
-//            return openWallet(wallet: parameters)
-//
-//        case "SWITCH_TO_ADDRESS":
-//            return switchAddress(address: parameters)
-//
-//        case "SIGN":
-//            return sign(rawTx: parameters)
-            */
+        /*
+        case "SIGN_MESSAGE":
+            return sign(rawTx: parameters)
+        */
+
         default:
             os_log(.default, "Safari-wallet SafariWebExtensionHandler: received unknown command '%@'", message as CVarArg)
             return [SFSFExtensionResponseErrorKey: "Unknown command in message"]
         }
+
     }
     
 }
-
-extension SafariWebExtensionHandler {
-    
-    
-}
-    /*
-    func readWallets() async throws {
-        let manager = WalletManager()
-        guard let walletFile = try walletManager.listWalletFiles().first else {
-            os_log(.default, "Safari-wallet SafariWebExtensionHandler: no wallet files")
-            return
-        }
-        let wallet = try await manager.loadHDWallet(name: walletFile) //, password: "password123")
-        let addresses =  await wallet.generateAddresses()
-        os_log(.default, "Safari-wallet SafariWebExtensionHandler: %@", addresses)
-    }
-    
-    func readFile() {
-        Task {
-            do {
-                
-                let document = try SharedDocument(filename: "testfile.txt")
-                let data = try await document.read()
-                os_log(.default, "Safari-wallet SafariWebExtensionHandler: read file %@", String(data: data, encoding: .utf8)!)
-            } catch {
-                fatalError("File error: \(error.localizedDescription)")
-            }
-        }
-    }
-
-    func readPassword() {
-        // Read password set by containing app
-        do {
-            let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName,
-                                                    account: "wallet2",
-                                                    accessGroup: KeychainConfiguration.accessGroup)
-            
-            // Read password
-            let passwordRead = try passwordItem.readPassword()
-            if passwordRead == "password123"  {
-                os_log(.default, "Safari-wallet SafariWebExtensionHandler: found correct password")
-            } else {
-                os_log(.default, "Safari-wallet SafariWebExtensionHandler: read wrong password")
-            }
-            
-        } catch {
-            os_log(.default, "Safari-wallet SafariWebExtensionHandler: no password")
-        }
-    }
-    
-    func readAddresses() async throws {
-        
-        guard let addressFile = try walletManager.listAddressFiles().first else {
-            os_log(.default, "Safari-wallet SafariWebExtensionHandler: no address files")
-            return
-        }
-        let addresses = try await walletManager.loadAddresses(name: addressFile)
-        os_log(.default, "Safari-wallet SafariWebExtensionHandler: %@", addresses)
-    }
-
-}
-*/
