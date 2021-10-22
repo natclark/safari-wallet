@@ -165,7 +165,7 @@ extension WalletManager {
         return address
     }
 
-    func balanceOf(_ address: String) -> Double {
+    func balanceOf(_ address: String) -> Double? {
         // TODO
         let balance = 0.00
         return balance
