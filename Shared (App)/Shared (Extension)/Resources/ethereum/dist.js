@@ -91,24 +91,25 @@ $4fa0c73a46e81912$var$Ethereum.prototype.request = (payload)=>{
             case `eth_requestAccounts`:
                 window.postMessage(`eth_requestAccounts`);
                 window.addEventListener(`message`, (event)=>{
-                    if (typeof event.data === `cancel`) resolve([]);
-                    else if (typeof event.data !== `string`) resolve(event.data);
+                    if (event.data === `cancel`) resolve([]);
+                    else if (typeof event.data !== `string`) {
+                        resolve(event.data);
+                        window.ethereum.close();
+                    }
                 });
                 showPrompt(`Open the wallet extension to connect`);
                 break;
             case `eth_signTypedData_v3`:
-                // TODO
-                /*
-                window.postMessage(`eth_signedTypedData_v3`);
-                window.addEventListener(`message`, (event) => {
-                    if (typeof event.data === `cancel`) {
-                        resolve([]);
-                    } else if (typeof event.data !== `string`) {
+                window.postMessage(`eth_signTypedData_v3`);
+                window.addEventListener(`message`, (event)=>{
+                    if (event.data === `cancel`) resolve([]);
+                    else if (typeof event.data !== `string`) {
                         resolve(event.data);
+                        window.ethereum.close();
                     }
                 });
                 showPrompt(`Open the wallet extension to sign`);
-                */ resolve(true);
+                resolve(true);
                 break;
             default:
                 // * Invalid or unimplemented method

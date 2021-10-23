@@ -1,19 +1,19 @@
 `use strict`;
 
-try {
-
-console.log(-1);
-
 let chain = 1;
 let address = `0x`;
-let balance = 0;
+let balance = 0.00;
 
 let method = ``;
+
+// For message signing:
+let from = ``;
+let params = {};
 
 const chains = {
     1: {
         gasToken: `ETH`,
-    }
+    },
 };
 
 const views = {
@@ -39,6 +39,10 @@ const views = {
     `,
     signMessage: () => `
         <h1>Sign Message</h1>
+        <div class="flex">
+            <button id="cancel" class="button button--secondary">Cancel</button>
+            <button id="sign" class="button button--primary">Sign</button>
+        </div>
     `,
 };
 
@@ -59,6 +63,20 @@ const connectWallet = () => {
     closeWindow();
 };
 
+const signMessage = () => {
+    /*
+    TODO
+    browser.runtime.sendMessage({
+        message: {
+            from,
+            message: `eth_signTypedData_v3`,
+            params,
+        },
+    });
+    */
+    closeWindow();
+};
+
 const refreshView = () => {
     switch (method) {
         case `eth_requestAccounts`:
@@ -76,6 +94,8 @@ const refreshView = () => {
             break;
         case `eth_signTypedData_v3`:
             $(`#body`).innerHTML = views.signMessage();
+            $(`#cancel`).addEventListener(`click`, closeWindow);
+            $(`#sign`).addEventListener(`click`, signMessage);
             break;
         default:
             $(`#body`).innerHTML = views.default();
@@ -83,22 +103,6 @@ const refreshView = () => {
 };
 
 document.addEventListener(`DOMContentLoaded`, () => {
-    /*
-    TODO
-    browser.runtime.sendMessage({
-        message: {
-            message: `get_address`,
-        },
-    });
-    */
-    /*
-    TODO
-    browser.runtime.sendMessage({
-        message: {
-            message: `get_balance`,
-        },
-    });
-    */
     browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
         browser.tabs.query({
             active: true,
@@ -115,21 +119,23 @@ document.addEventListener(`DOMContentLoaded`, () => {
             // * This updates the view based on the current method
             if (typeof request.message.method !== `undefined`) {
                 method = request.message.method;
+                if (method === `eth_signTypedData_v3`) {
+                    from = request.message.from;
+                    params = request.message.params;
+                }
                 refreshView();
             }
             // * This forwards messages from background.js to content.js
             if (typeof request.message.message !== `undefined`) {
-                browser.tabs.sendMessage(tabs[0].id, { message: request.message.message, });
+                browser.tabs.sendMessage(tabs[0].id, {
+                    message: request.message.message,
+                });
             }
         });
     });
     browser.runtime.sendMessage({
         message: {
-            message: `get_method`,
+            message: `get_state`,
         },
     });
 });
-
-} catch (e) {
-    console.log(e.message);
-}

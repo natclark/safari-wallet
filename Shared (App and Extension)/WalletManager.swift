@@ -218,6 +218,12 @@ extension WalletManager {
         guard let sharedContainer = UserDefaults(suiteName: APP_GROUP), let address = sharedContainer.string(forKey: "DefaultAddress") else { return nil }
         return address
     }
+
+    func balanceOf(_ address: String) -> Double? {
+        // TODO
+        let balance = 0.00
+        return balance
+    }
     
     func setDefaultHDWallet(_ wallet: String) {
         guard let sharedContainer = UserDefaults(suiteName: APP_GROUP) else { return }

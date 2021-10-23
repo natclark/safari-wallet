@@ -1,7 +1,5 @@
 `use strict`;
 
-console.log(-2);
-
 const inject = (path) => {
     const injection = document.createElement(`script`);
     injection.setAttribute(`type`, `text/javascript`);
