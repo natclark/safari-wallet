@@ -12,7 +12,7 @@ browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
     switch (request.message.message) {
         case `eth_requestAccounts`: // * Return requested data from native app to popup.js
             const address = await browser.runtime.sendNativeMessage({
-                message: `GET_CURRENT_ADDRESS`,
+                message: `eth_requestAccounts`,
             });
             browser.runtime.sendMessage({
                 message: address,
@@ -23,7 +23,7 @@ browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
             TODO
             const signature = await browser.runtime.sendNativeMessage({
                 from: request.message.from,
-                message: `SIGN_MESSAGE`,
+                message: `eth_signTypedData_v3`,
                 params: request.message.params,
             });
             browser.runtime.sendMessage({
@@ -40,10 +40,10 @@ browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
             break;
         case `get_state`: // * Send current method, address, balance, and network (?) to popup.js
             const currentAddress = await browser.runtime.sendNativeMessage({
-                message: `GET_CURRENT_ADDRESS`,
+                message: `get_current_address`,
             });
             const balance = await browser.runtime.sendNativeMessage({
-                message: `GET_CURRENT_BALANCE`,
+                message: `get_current_balance`,
             });
             browser.runtime.sendMessage({
                 message: {

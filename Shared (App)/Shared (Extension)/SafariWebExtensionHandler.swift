@@ -56,18 +56,26 @@ extension SafariWebExtensionHandler {
     
     func handle(message: String, parameters: [String: Any]? = nil) async throws -> Any {
         switch message {
+            
+        case "eth_requestAccounts":
+            // Returns the available addresses in the default wallet
+            guard let walletName = walletManager.defaultHDWallet() else {
+                return [SFSFExtensionResponseErrorKey: "No default wallet set"]
+            }
+            let addresses = try await walletManager.loadAddresses(name: walletName)
+            return [SFExtensionMessageKey: addresses]
 
-        case "GET_CURRENT_ADDRESS":
+        case "get_current_address":
             // Returns the address currently selected in the containing app and stored in NSUserDefaults
             guard let address = walletManager.defaultAddress() else {
-                return [SFSFExtensionResponseErrorKey: "No default account"]
+                return [SFSFExtensionResponseErrorKey: "No default account set"]
             }
             return [SFExtensionMessageKey: [address]]
 
-        case "GET_CURRENT_BALANCE":
+        case "get_current_balance":
             // Returns the balance of the currently selected address
             guard let address = walletManager.defaultAddress() else {
-                return [SFSFExtensionResponseErrorKey: "No default account"]
+                return [SFSFExtensionResponseErrorKey: "No default account set"]
             }
 //            guard let balance = walletManager.balanceOf(address) else {
 //                return [SFSFExtensionResponseErrorKey: "Balance unavailable"]
@@ -76,15 +84,7 @@ extension SafariWebExtensionHandler {
             return [SFExtensionMessageKey: 0]
 
         /*
-        case "OPEN_CONTAINING_APP":
-            // Opens the containing iOS app
-            let x = await UIApplication().canOpenURL(URL(string: "https://macrumors.com")!)
-            os_log(.default, "Safari-wallet SafariWebExtensionHandler: Can open URL '%@'", x)
-            return [:]
-        */
-
-        /*
-        case "SIGN_MESSAGE":
+        case "eth_signTypedData_v3":
             return sign(rawTx: parameters)
         */
 
