@@ -69,10 +69,11 @@ extension SafariWebExtensionHandler {
             guard let address = walletManager.defaultAddress() else {
                 return [SFSFExtensionResponseErrorKey: "No default account"]
             }
-            guard let balance = walletManager.balanceOf(address) else {
-                return [SFSFExtensionResponseErrorKey: "Balance unavailable"]
-            }
-            return [SFExtensionMessageKey: balance]
+//            guard let balance = walletManager.balanceOf(address) else {
+//                return [SFSFExtensionResponseErrorKey: "Balance unavailable"]
+//            }
+//            return [SFExtensionMessageKey: balance]
+            return [SFExtensionMessageKey: 0]
 
         /*
         case "OPEN_CONTAINING_APP":

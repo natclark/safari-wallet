@@ -43,3 +43,14 @@ It is important to read these files:
 Then, to test the popover, navigate to https://safari-wallet-test-dapp.vercel.app in Safari (or http://localhost:3000/, if you're running the local dev server)
 
 You can also set up the local dev server here (WIP): https://github.com/natclark/safari-wallet-test-dapp
+
+## Keys
+
+Use your own Alchemy or Infura keys by creating a file called `keys.swift` in the `Shared (App and Extension)` directory. The filename is added to .gitignore so won't be committed. 
+
+```swift
+// Shared (App and Extension)/keys.swift
+
+let alchemyURLRopsten = URL(string: "https://eth-ropsten.alchemyapi.io/v2/<YOUR ROPSTEN KEY HERE>")
+let alchemyURLMainnet = URL(string: "https://eth-mainnet.alchemyapi.io/v2/<YOUR MAINNET KEY HERE>")
+```
