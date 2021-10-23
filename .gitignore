@@ -24,3 +24,4 @@ Pods/
 node_modules
 src/build
 package-lock.json
+keys.swift
