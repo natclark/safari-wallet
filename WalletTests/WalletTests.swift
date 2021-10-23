@@ -6,12 +6,13 @@
 //
 
 import XCTest
-import HDWalletKit
+import MEWwalletKit
 @testable import Wallet
 
 class WalletTests: XCTestCase {
     
     let mnemonic = "abandon amount liar amount expire adjust cage candy arch gather drum buyer"
+    let mnemonic2 = "all all all all all all all all all all all all"
     let password = "password123"
     var manager: WalletManager!
 
@@ -40,11 +41,17 @@ class WalletTests: XCTestCase {
     }
     
     func testSaveAddresses() async throws {
-        let wallet = await manager.createNewHDWallet(mnemonic: mnemonic)
-        let generatedAddresses = await wallet.generateAddresses(count: 5)
-        let filename = try await manager.saveHDWallet(mnemonic: mnemonic, password: password)
+        let wallet: Wallet<PrivateKeyEth1> = try manager.restoreWallet(mnemonic: mnemonic)
+        let filename = try await manager.saveWallet(mnemonic: mnemonic, password: password, storePasswordInKeychain: false)
+        let savedAddresses = try await manager.saveAddresses(wallet: wallet, addressCount: 5, name: filename)
         let recoveredAddresses = try await manager.loadAddresses(name: filename)
-        XCTAssertEqual(generatedAddresses, recoveredAddresses)
+        XCTAssertEqual(savedAddresses, recoveredAddresses)
+        
+        let generatedAddresses = try wallet.generateAddresses(count: 5).map{ $0.address }
+        XCTAssertEqual(savedAddresses, generatedAddresses)
+
+        let addressList = try manager.listAddressFiles()
+        XCTAssertTrue(addressList.contains(try filename.appendPathExtension("eth").appendPathExtension("address")))
     }
     
     func testWalletEncryptionRoundtrip() async throws {
@@ -59,11 +66,11 @@ class WalletTests: XCTestCase {
     }
     
     func testWalletFileRoundtrip() async throws {
-        let wallet = await manager.createNewHDWallet(mnemonic: mnemonic)
-        let name = try await manager.saveHDWallet(mnemonic: mnemonic, password: password)
+        let wallet: Wallet<PrivateKeyEth1> = try manager.restoreWallet(mnemonic: mnemonic)
+        let name = try await manager.saveWallet(mnemonic: mnemonic, password: password, storePasswordInKeychain: false)
         
-        let restoredWallet = try await manager.loadHDWallet(name: name, password: password)
-        XCTAssertEqual(wallet, restoredWallet)
+        let restoredWallet = try await manager.loadWallet(name: name, password: password, network: .ethereum)
+        XCTAssertEqual(wallet.privateKey.address()!.address, restoredWallet.privateKey.address()!.address)
     }
 
 }

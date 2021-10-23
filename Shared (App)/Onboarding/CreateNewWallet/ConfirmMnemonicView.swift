@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import HDWalletKit
 
 struct ConfirmMnemonicView: View {
     

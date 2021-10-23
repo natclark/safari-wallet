@@ -2,6 +2,24 @@
   "object": {
     "pins": [
       {
+        "package": "BigInt",
+        "repositoryURL": "https://github.com/attaswift/BigInt.git",
+        "state": {
+          "branch": null,
+          "revision": "0ed110f7555c34ff468e72e1686e59721f2b0da6",
+          "version": "5.3.0"
+        }
+      },
+      {
+        "package": "bls-eth-swift",
+        "repositoryURL": "https://github.com/MyEtherWallet/bls-eth-swift.git",
+        "state": {
+          "branch": null,
+          "revision": "fa35ea01addaa074267ce65a6ed21ad1d79b01fa",
+          "version": "1.0.0"
+        }
+      },
+      {
         "package": "CryptoSwift",
         "repositoryURL": "https://github.com/krzyzanowskim/CryptoSwift.git",
         "state": {
@@ -11,21 +29,30 @@
         }
       },
       {
-        "package": "HDWalletKit",
-        "repositoryURL": "https://github.com/ronaldmannak/HDWallet",
+        "package": "MEWwalletKit",
+        "repositoryURL": "https://github.com/MyEtherWallet/mew-wallet-ios-kit",
         "state": {
-          "branch": "develop",
-          "revision": "9e768952225d107a1fc8e2e1cb2eb4bfbfb632c3",
-          "version": null
+          "branch": null,
+          "revision": "75f26371979964e635f97297198f7a929ce4b5ac",
+          "version": "1.4.13"
         }
       },
       {
-        "package": "secp256k1",
-        "repositoryURL": "https://github.com/Boilertalk/secp256k1.swift.git",
+        "package": "MEW-wallet-iOS-secp256k1-package",
+        "repositoryURL": "https://github.com/MyEtherWallet/MEW-wallet-iOS-secp256k1-package.git",
         "state": {
           "branch": null,
-          "revision": "823281fe9def21b384099b72a9a53ca988317b20",
-          "version": "0.1.4"
+          "revision": "6a73b7682e0220fbb439e082b45da44608a21d77",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "MEWwalletTweetNacl",
+        "repositoryURL": "https://github.com/MyEtherWallet/mew-wallet-ios-tweetnacl.git",
+        "state": {
+          "branch": null,
+          "revision": "fc7d17268f38b363cbf79eed5f03e1297e5a0bb7",
+          "version": "1.0.0"
         }
       }
     ]
