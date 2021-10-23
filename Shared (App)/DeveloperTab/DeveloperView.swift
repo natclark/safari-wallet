@@ -96,9 +96,6 @@ extension DeveloperView {
         countWallets()
     }
     
-    func signRandomTransaction() {
-        
-    }
 }
 
 struct DeveloperView_Previews: PreviewProvider {

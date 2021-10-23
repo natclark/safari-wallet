@@ -24,7 +24,6 @@ public class KeystoreV3 {
         self.keystoreParams = try await encryptDataToStorage(passwordData, data: privateKey)
     }
     
-    
     ///
     public required init? (keystore: Data) throws {
         self.keystoreParams = try JSONDecoder().decode(KeystoreParamsV3.self, from: keystore)
@@ -99,9 +98,6 @@ public class KeystoreV3 {
         return KeystoreParamsV3(crypto: crypto, id: UUID().uuidString.lowercased(), version: 3)
     }
 }
-
-
-
 
 fileprivate var hexPrefix = "0x"
 
