@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import HDWalletKit
+import MEWwalletKit
 @testable import Wallet
 
 class KeychainTests: XCTestCase {

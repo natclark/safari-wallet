@@ -1,0 +1,15 @@
+{
+    "name": "safari-wallet-ethereum",
+    "version": "0.0.0",
+    "source": "index.js",
+    "main": "dist.js",
+    "scripts": {
+        "build": "parcel build"
+    },
+    "devDependencies": {
+        "parcel": "latest"
+    },
+    "dependencies": {
+        "typescript": "^4.4.4"
+    }
+}

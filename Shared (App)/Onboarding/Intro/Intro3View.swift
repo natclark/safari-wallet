@@ -31,6 +31,7 @@ struct Intro3View: View {
                     state = .dismiss
                 }
             }
+            .padding(.bottom, 32)
         }
         .padding()
     }

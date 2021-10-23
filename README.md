@@ -10,11 +10,13 @@ A diagram might be useful, but basically the current plan/rundown is:
 
 - For the interface, the native Safari extension popover is used, in tandem with the [WebExtensions API](https://developer.mozilla.org/en-US/Add-ons/WebExtensions).
 
-The bulk of the development is currently going on in the `Shared (Extension)` folder.
+The bulk of the development is currently going on in the `Shared (App and Extension)` and `Shared (App)` folders.
 
 It is important to read these files:
 
-- `Shared Extension (Popover)` > `Resources` > `README.md`
+- `Shared (App)` > `Shared (Extension)` > `Resources` > `README.md`
+
+- `Shared (App)` > `Shared (Extension)` > `Resources` > `ethereum` > `README.md`
 
 - `test-dapp` > `README.md`
 
@@ -24,17 +26,19 @@ It is important to read these files:
 
 1. Open this repo as a project in Xcode
 
-2. In the leftmost top bar breadcrumb, which should be on "macOS" by default, switch it to "iOS"
+2. From the menu bar: `File` > `Packages` > `Update to Latest Package Versions`
 
-3. Set the following breadcrumb to a mobile device, perhaps "iPhone 13 Pro"?
+3. In the leftmost top bar breadcrumb, which should be on "macOS" by default, switch it to "iOS"
 
-4. Click the play button to start the emulator
+4. Set the following breadcrumb to a mobile device, perhaps "iPhone 13 Pro"?
 
-5. Once the emulator has loaded (it might take a few minutes), open the Settings app
+5. Click the play button to start the emulator
 
-6. Settings > Safari > Extensions > Wallet Extension
+6. Once the emulator has loaded (it might take a few minutes), open the Settings app
 
-7. Switch to on
+7. Settings > Safari > Extensions > Wallet Extension
+
+8. Switch to on
 
 Then, to test the popover, navigate to https://safari-wallet-test-dapp.vercel.app in Safari (or http://localhost:3000/, if you're running the local dev server)
 

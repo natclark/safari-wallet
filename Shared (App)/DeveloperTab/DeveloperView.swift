@@ -6,8 +6,8 @@
 //
 
 import SwiftUI
-import HDWalletKit
-
+import MEWwalletKit
+#if DEBUG
 struct DeveloperView: View {
     
     let manager = WalletManager()
@@ -63,13 +63,13 @@ struct DeveloperView: View {
                 countWallets()
             }
             .padding()
-                     
+            
         }
         .padding()
         .onAppear {
             countWallets()
         }
-        .sheet(isPresented: $isOnBoardingPresented) { OnboardingView() }
+        .sheet(isPresented: $isOnBoardingPresented) { OnboardingView(isCancelable: true) }
     }
 }
 
@@ -83,17 +83,19 @@ extension DeveloperView {
             errorMessage = error.localizedDescription
         }
     }
-    
+
     func createTestWallet() async throws {
-        let mnemonic = Mnemonic.create()
-        let name = try await manager.saveHDWallet(mnemonic: mnemonic, password: "password123")
-        let wallet = await manager.createNewHDWallet(mnemonic: mnemonic)
-        let addresses = await wallet.generateAddresses()
+        let root = try BIP39(bitsOfEntropy: 128)
+        let mnemonic = root.mnemonic!.joined(separator: " ")
+        let manager = WalletManager()
+        let name = try await manager.saveWallet(mnemonic: mnemonic, password: "password123")
+        let addresses = try await manager.saveAddresses(mnemonic: mnemonic, addressCount: 5, name: name)        
         print(addresses)
         manager.setDefaultAddress(addresses.first!)
         manager.setDefaultHDWallet(name)
         countWallets()
     }
+    
 }
 
 struct DeveloperView_Previews: PreviewProvider {
@@ -101,3 +103,5 @@ struct DeveloperView_Previews: PreviewProvider {
         DeveloperView()
     }
 }
+
+#endif

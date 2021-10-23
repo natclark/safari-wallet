@@ -1,61 +1,141 @@
 `use strict`;
 
-console.log(`Hello World!`, browser);
+let chain = 1;
+let address = `0x`;
+let balance = 0.00;
 
-function closeWindow() {
-	window.close()
-}
+let method = ``;
 
-function updatePopup(tabs) {
-	let tab = tabs[0]
-	document.getElementById("title").textContent = tab.title
-	document.getElementById("host").textContent = new URL(tab.url).host
-}
+// For message signing:
+let from = ``;
+let params = {};
 
-function connectWallet()
-{
-    console.log("safari-wallet.popup: connect button clicked");
-    browser.runtime.sendMessage({message: "Connect wallet"})
+const chains = {
+    1: {
+        gasToken: `ETH`,
+    },
+};
+
+const views = {
+    default: () => `
+        <h1>Safari Wallet</h1>
+    `,
+    connectWallet: () => `
+        <h1>Connect to <span id="title"></span></h1>
+        <p class="subtitle"><span id="host"></span></p>
+        <p>When you connect your wallet, this dapp will be able to view the contents:</p>
+        <div class="field">
+            <label class="field__label" for="address">Address</label>
+            <input id="address" class="field__input" type="text" value="${address}" disabled>
+        </div>
+        <div class="field">
+            <label class="field__label" for="balance">ETH Balance</label>
+            <input id="balance" class="field__input" type="text" value="${balance} ${chains[chain].gasToken}" disabled>
+        </div>
+        <div class="flex">
+            <button id="cancel" class="button button--secondary">Cancel</button>
+            <button id="connect" class="button button--primary">Connect</button>
+        </div>
+    `,
+    signMessage: () => `
+        <h1>Sign Message</h1>
+        <div class="flex">
+            <button id="cancel" class="button button--secondary">Cancel</button>
+            <button id="sign" class="button button--primary">Sign</button>
+        </div>
+    `,
+};
+
+const $ = (query) =>
+    query[0] === (`#`)
+    ? document.querySelector(query)
+    : document.querySelectorAll(query);
+
+const closeWindow = () =>
     window.close();
-}
 
-function getCurrentAddress()
-{
-    browser.runtime.sendMessage({message: "GET_CURRENT_ADDRESS"})
-}
+const connectWallet = () => {
+    browser.runtime.sendMessage({
+        message: {
+            message: `eth_requestAccounts`,
+        },
+    });
+    closeWindow();
+};
 
-function getCurrentHDWallet()
-{
-    browser.runtime.sendMessage({message: "GET_CURRENT_HDWALLET"})
-}
+const signMessage = () => {
+    /*
+    TODO
+    browser.runtime.sendMessage({
+        message: {
+            from,
+            message: `eth_signTypedData_v3`,
+            params,
+        },
+    });
+    */
+    closeWindow();
+};
 
-function openContainingApp()
-{
-//    browser.runtime.sendMessage({message: "OPEN_CONTAINING_APP"}) // todo: add path parameter
-//    window.open("https://www.apple.com","_self") ??
-}
-
-function signRawTx()
-{
-    browser.runtime.sendMessage({message: "SIGN_RAW_TX"}) // todo: add tx as parameter
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-	document.getElementById("cancel").addEventListener("click", closeWindow)
-    document.getElementById("connect").addEventListener("click", connectWallet)
-    document.getElementById("getCurrentAddress").addEventListener("click", getCurrentAddress)
-    document.getElementById("getCurrentHDWallet").addEventListener("click", getCurrentHDWallet)
-    document.getElementById("openWallet").addEventListener("click", openContainingApp)
-    document.getElementById("signRawTx").addEventListener("click", signRawTx)
-	browser.tabs.query({ currentWindow: true }, updatePopup)
-})
-
-browser.runtime.onMessage.addListener((request) => {
-    console.log("safari-wallet.popup request received: ${request}");
-    if (request.type == "Word count response") {
-        let countDiv = document.getElementById("messageResponse");
-
-        if (!countDiv.hasChildNodes())
-            countDiv.appendChild(document.createTextNode(`Response: ${request.return-value}`));
+const refreshView = () => {
+    switch (method) {
+        case `eth_requestAccounts`:
+            $(`#body`).innerHTML = views.connectWallet();
+            $(`#cancel`).addEventListener(`click`, closeWindow);
+            $(`#connect`).addEventListener(`click`, connectWallet);
+            browser.tabs.query({
+                active: true,
+                currentWindow: true,
+            }, (tabs) => {
+                const tab = tabs[0];
+                $(`#title`).textContent = tab.title;
+                $(`#host`).textContent = new URL(tab.url).host;
+            });
+            break;
+        case `eth_signTypedData_v3`:
+            $(`#body`).innerHTML = views.signMessage();
+            $(`#cancel`).addEventListener(`click`, closeWindow);
+            $(`#sign`).addEventListener(`click`, signMessage);
+            break;
+        default:
+            $(`#body`).innerHTML = views.default();
     }
+};
+
+document.addEventListener(`DOMContentLoaded`, () => {
+    browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
+        browser.tabs.query({
+            active: true,
+            currentWindow: true,
+        }, (tabs) => {
+            // * This updates the default address
+            if (typeof request.message.address !== `undefined`) {
+                address = request.message.address;
+            }
+            // * This updates the gas token balance of the default address on the selected network
+            if (typeof request.message.balance !== `undefined`) {
+                balance = request.message.balance;
+            }
+            // * This updates the view based on the current method
+            if (typeof request.message.method !== `undefined`) {
+                method = request.message.method;
+                if (method === `eth_signTypedData_v3`) {
+                    from = request.message.from;
+                    params = request.message.params;
+                }
+                refreshView();
+            }
+            // * This forwards messages from background.js to content.js
+            if (typeof request.message.message !== `undefined`) {
+                browser.tabs.sendMessage(tabs[0].id, {
+                    message: request.message.message,
+                });
+            }
+        });
+    });
+    browser.runtime.sendMessage({
+        message: {
+            message: `get_state`,
+        },
+    });
 });

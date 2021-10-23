@@ -8,7 +8,7 @@
 @font-face {
     font-display: swap;
     font-family: Graphik;
-    src: local("Graphik"), url("Graphik.otf") format("opentype");
+    src: local("Graphik"), url("safari-web-extension://__MSG_@@extension_id__/fonts/Graphik.otf") format("opentype");
 }
 
 :root {
