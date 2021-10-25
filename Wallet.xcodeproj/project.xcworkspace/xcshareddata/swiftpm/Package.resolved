@@ -30,11 +30,11 @@
       },
       {
         "package": "MEWwalletKit",
-        "repositoryURL": "https://github.com/MyEtherWallet/mew-wallet-ios-kit",
+        "repositoryURL": "https://github.com/MoonfishDeFi/mew-wallet-ios-kit",
         "state": {
-          "branch": null,
-          "revision": "75f26371979964e635f97297198f7a929ce4b5ac",
-          "version": "1.4.13"
+          "branch": "main",
+          "revision": "8a022536c0ed2fbcc78005256e5bd22da62e5ff3",
+          "version": null
         }
       },
       {

@@ -10,7 +10,31 @@ import MEWwalletKit
 //import CryptoSwift
 
 class WalletManager {
+
+    var defaultAddress: String? {
+        get {
+            guard let sharedContainer = UserDefaults(suiteName: APP_GROUP), let address = sharedContainer.string(forKey: "DefaultAddress") else { return nil }
+            return address
+        }
+        set {
+            guard let address = newValue,  let sharedContainer = UserDefaults(suiteName: APP_GROUP) else { return }
+            sharedContainer.set(address, forKey: "DefaultAddress")
+            sharedContainer.synchronize()            
+        }
+    }
     
+    var defaultWallet: String? {
+        get {
+            guard let sharedContainer = UserDefaults(suiteName: APP_GROUP), let wallet = sharedContainer.string(forKey: "DefaultWallet") else { return nil }
+            return wallet
+        }
+        set {
+            guard let wallet = newValue,  let sharedContainer = UserDefaults(suiteName: APP_GROUP) else { return }
+            sharedContainer.set(wallet, forKey: "DefaultWallet")
+            sharedContainer.synchronize()
+        }
+    }
+      
     // MARK: - Restore wallet
     
     /// Recreates wallet from mnemonic
@@ -206,36 +230,30 @@ class WalletManager {
 }
 
 // MARK: - NSUserDefaults
-extension WalletManager {
-    
-    func setDefaultAddress(_ address: String) {
-        guard let sharedContainer = UserDefaults(suiteName: APP_GROUP) else { return }
-        sharedContainer.set(address, forKey: "DefaultAddress")
-        sharedContainer.synchronize()
-    }
-    
-    func defaultAddress() -> String? {
-        guard let sharedContainer = UserDefaults(suiteName: APP_GROUP), let address = sharedContainer.string(forKey: "DefaultAddress") else { return nil }
-        return address
-    }
-
-    func balanceOf(_ address: String) -> Double? {
-        // TODO
-        let balance = 0.00
-        return balance
-    }
-    
-    func setDefaultHDWallet(_ wallet: String) {
-        guard let sharedContainer = UserDefaults(suiteName: APP_GROUP) else { return }
-        sharedContainer.set(wallet, forKey: "DefaultWallet")
-        sharedContainer.synchronize()
-    }
-    
-    func defaultHDWallet() -> String? {
-        guard let sharedContainer = UserDefaults(suiteName: APP_GROUP), let wallet = sharedContainer.string(forKey: "DefaultWallet") else { return nil }
-        return wallet
-    }
-}
+//extension WalletManager {
+//
+//    func setDefaultAddress(_ address: String) {
+//        guard let sharedContainer = UserDefaults(suiteName: APP_GROUP) else { return }
+//        sharedContainer.set(address, forKey: "DefaultAddress")
+//        sharedContainer.synchronize()
+//    }
+//
+//    func defaultAddress() -> String? {
+//        guard let sharedContainer = UserDefaults(suiteName: APP_GROUP), let address = sharedContainer.string(forKey: "DefaultAddress") else { return nil }
+//        return address
+//    }
+//
+//    func setDefaultHDWallet(_ wallet: String) {
+//        guard let sharedContainer = UserDefaults(suiteName: APP_GROUP) else { return }
+//        sharedContainer.set(wallet, forKey: "DefaultWallet")
+//        sharedContainer.synchronize()
+//    }
+//
+//    func defaultHDWallet() -> String? {
+//        guard let sharedContainer = UserDefaults(suiteName: APP_GROUP), let wallet = sharedContainer.string(forKey: "DefaultWallet") else { return nil }
+//        return wallet
+//    }
+//}
 
 // MARK: - Debugging methods
 #if DEBUG

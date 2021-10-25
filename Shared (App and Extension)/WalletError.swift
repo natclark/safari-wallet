@@ -17,4 +17,7 @@ enum WalletError: Error {
     case fileInconsistency
     case addressGenerationError
     case seedError
+    case noDefaultWalletSet
+    case noDefaultAddressSet
+    case unexpectedResponse(String)
 }

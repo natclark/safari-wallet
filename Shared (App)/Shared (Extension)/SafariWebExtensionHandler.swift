@@ -10,16 +10,16 @@ import os.log
 
 let SFExtensionMessageKey = "message"
 let SFSFExtensionResponseErrorKey = "error"
-
+ 
 class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
     
     let walletManager = WalletManager()
     
     func beginRequest(with context: NSExtensionContext) {
-
-        // * This is just to allow asynchronous calls:
+        
+        // TODO: can we fire a timer here that keeps checks on changes (e.g. account)?
+        
         Task {
-            // Q: since this is a task, how can we be sure the task is completed before the handler is booted out of memory?
             let response = NSExtensionItem()
             defer { context.completeRequest(returningItems: [response], completionHandler: nil) }
 
@@ -50,33 +50,45 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
 
 extension SafariWebExtensionHandler {
     
-    func errorResponse(error: String) -> [String: Any] {
+    fileprivate func errorResponse(error: String) -> [String: Any] {
         return [SFExtensionMessageKey: [SFSFExtensionResponseErrorKey: error]]
     }
     
+//    fileprivate func createResponse(value: Any) -> [String: Any] {
+//        return [SFExtensionMessageKey: value]
+//    }
+    // web3 provider
     func handle(message: String, parameters: [String: Any]? = nil) async throws -> Any {
+        
+        guard let walletName = walletManager.defaultWallet else {
+            throw WalletError.noDefaultWalletSet
+        }
+        guard let address = walletManager.defaultAddress else {
+            throw WalletError.noDefaultAddressSet
+        }
+        
         switch message {
+                        
+        case "init":
+            // Returns initial values for current address and network
+            return [
+                "defaultAddress": address,
+//                "network": walletManager.network.chainID
+            ]
             
         case "eth_requestAccounts":
             // Returns the available addresses in the default wallet
-            guard let walletName = walletManager.defaultHDWallet() else {
-                return [SFSFExtensionResponseErrorKey: "No default wallet set"]
-            }
+            
             let addresses = try await walletManager.loadAddresses(name: walletName)
-            return [SFExtensionMessageKey: addresses]
+            return addresses
 
         case "get_current_address":
             // Returns the address currently selected in the containing app and stored in NSUserDefaults
-            guard let address = walletManager.defaultAddress() else {
-                return [SFSFExtensionResponseErrorKey: "No default account set"]
-            }
-            return [SFExtensionMessageKey: [address]]
+
+            return [address]
 
         case "get_current_balance":
             // Returns the balance of the currently selected address
-            guard let address = walletManager.defaultAddress() else {
-                return [SFSFExtensionResponseErrorKey: "No default account set"]
-            }
 //            guard let balance = walletManager.balanceOf(address) else {
 //                return [SFSFExtensionResponseErrorKey: "Balance unavailable"]
 //            }
@@ -94,5 +106,13 @@ extension SafariWebExtensionHandler {
         }
 
     }
-    
+    // since we can't
 }
+
+/* Supported Metamask calls
+ 
+ ethereum.networkVersion
+ ethereum.selectedAddress
+ eth_requestAccounts
+ eth_sendTransaction
+ */

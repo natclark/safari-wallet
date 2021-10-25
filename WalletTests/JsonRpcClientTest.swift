@@ -13,7 +13,7 @@ import XCTest
 class JsonRpcClientTest: XCTestCase {
    
    func testMakeRequest_success() async {
-      let url: String = "https://this-is-a-fake-url.io/v2/"
+      let url = URL(string: "https://this-is-a-fake-url.io/v2/")!
       let method: String = "eth_getBalance"
       let params = ["0xaed557b8cAac9C457d28E70F1F5B0782FCfEF9C3",
                     "latest"]

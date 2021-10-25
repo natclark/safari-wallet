@@ -19,6 +19,10 @@ const chains = {
 const views = {
     default: () => `
         <h1>Safari Wallet</h1>
+            <div class="flex">
+                <button id="cancel" class="button button--secondary">Cancel</button>
+                <button id="connect" class="button button--primary">Connect</button>
+            </div>
     `,
     connectWallet: () => `
         <h1>Connect to <span id="title"></span></h1>

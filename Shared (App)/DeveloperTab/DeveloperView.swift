@@ -38,6 +38,20 @@ struct DeveloperView: View {
             
             Spacer()
             
+            Button("get balance") {
+                Task {
+                    do {
+                        let provider = Provider()!
+                        let balance = try await provider.ethGetBalance(address: "0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B", blockNumber: .latest)
+                        print(balance.description)
+                        let height = try await provider.ethBlockNumber()
+                        print(height)
+                    } catch {
+                        print(error)
+                    }
+                }
+            }
+            
             Button("Create a new wallet") {
                 isOnBoardingPresented = true
             }
@@ -91,8 +105,8 @@ extension DeveloperView {
         let name = try await manager.saveWallet(mnemonic: mnemonic, password: "password123")
         let addresses = try await manager.saveAddresses(mnemonic: mnemonic, addressCount: 5, name: name)        
         print(addresses)
-        manager.setDefaultAddress(addresses.first!)
-        manager.setDefaultHDWallet(name)
+        manager.defaultAddress = addresses.first!
+        manager.defaultWallet = name
         countWallets()
     }
     

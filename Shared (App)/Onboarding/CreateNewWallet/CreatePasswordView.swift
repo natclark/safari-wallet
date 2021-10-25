@@ -92,8 +92,8 @@ extension CreatePasswordView {
         #if DEBUG
         print(addresses)
         #endif
-        manager.setDefaultAddress(addresses.first!)
-        manager.setDefaultHDWallet(name)
+        manager.defaultAddress = addresses.first!
+        manager.defaultWallet = name
     }
 }
 

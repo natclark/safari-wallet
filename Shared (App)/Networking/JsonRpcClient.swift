@@ -17,21 +17,17 @@ class JsonRpcClient {
       case unknown
    }
    
-   static func makeRequest<P: Encodable, R: Codable>(url: String,
+   static func makeRequest<P: Encodable, R: Codable>(url: URL,
                                                        method: String,
                                                        params: P,
                                                        resultType: R.Type,
                                                        urlSession: WalletURLSession = URLSession.shared)  async throws -> R {
-      guard let url = URL(string: url) else {
-         throw NetworkError.invalidUrl
-      }
       
       var urlRequest = URLRequest(url: url,
                                   cachePolicy: .reloadIgnoringLocalAndRemoteCacheData)
       urlRequest.httpMethod = "POST"
       urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
       urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
-      
       
       let rpcRequest = JsonRpcRequest<P>(method: method, params: params)
       guard let body = try? JSONEncoder().encode(rpcRequest) else {
@@ -40,10 +36,7 @@ class JsonRpcClient {
       urlRequest.httpBody = body
       
       let (data, _) = try await urlSession.data(for: urlRequest, delegate: nil)
-      
-      guard let jsonRpcResponse = try? JSONDecoder().decode(JsonRpcResponse<R>.self, from: data) else {
-         throw NetworkError.decodingError
-      }
+      let jsonRpcResponse = try JSONDecoder().decode(JsonRpcResponse<R>.self, from: data)
 
       if let result = jsonRpcResponse.result {
          return result
