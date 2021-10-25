@@ -50,7 +50,8 @@ Use your own Alchemy or Infura keys by creating a file called `keys.swift` in th
 
 ```swift
 // Shared (App and Extension)/keys.swift
-
-let alchemyURLRopsten = URL(string: "https://eth-ropsten.alchemyapi.io/v2/<YOUR ROPSTEN KEY HERE>")
-let alchemyURLMainnet = URL(string: "https://eth-mainnet.alchemyapi.io/v2/<YOUR MAINNET KEY HERE>")
+let alchemyRopstenKey: String = "<YOUR ALCHEMY ROPSTEN KEY HERE"
+let alchemyMainnetKey: String = "<YOUR ALCHEMY MAINNET KEY HERE>"
+let infuraRopstenKey: String = "<YOUR INFURA ROPSTEN KEY HERE>"
+let infuraMainnetKey: String = "<YOUR INFURA MAINNET KEY HERE>"
 ```
