@@ -72,9 +72,8 @@ extension SafariWebExtensionHandler {
 
         case "eth_getBalance":
             // Returns the balance of the currently selected address
-//            return "0"
-            return try await provider.ethGetBalance(address: address)
-
+            return try await provider.ethGetBalance(address: address).description
+        
         default:
             os_log(.default, "Safari-wallet SafariWebExtensionHandler: received unknown command '%@'", message as CVarArg)
             return [SFSFExtensionResponseErrorKey: "Unknown command in message"]
