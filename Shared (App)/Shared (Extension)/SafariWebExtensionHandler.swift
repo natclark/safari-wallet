@@ -19,6 +19,18 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         
         // TODO: can we fire a timer here that keeps checks on changes (e.g. account)?
         
+        // Sanity check
+        /*
+         
+         The returned Promise SHOULD reject if any of the following conditions are met:
+
+         The Provider is disconnected.
+         If rejecting for this reason, the Promise rejection error code MUST be 4900.
+         The RPC request is directed at a specific chain, and the Provider is not connected to that chain, but is connected to at least one other chain.
+         If rejecting for this reason, the Promise rejection error code MUST be 4901.
+         
+         */
+        
         Task {
             let response = NSExtensionItem()
             defer { context.completeRequest(returningItems: [response], completionHandler: nil) }
@@ -30,6 +42,9 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                 response.userInfo = errorResponse(error: "Received empty message.")
                 os_log(.default, "Safari-wallet SafariWebExtensionHandler: received empty message")
                 return
+                /*
+                 If an RPC method defined in a finalized EIP is not supported, it SHOULD be rejected with a 4200 error per the Provider Errors section below, or an appropriate error per the RPC method’s specification.
+                 */
             }
             
 //            os_log(.default, "Safari-wallet SafariWebExtensionHandler: Received message from browser.runtime.sendNativeMessage: %@", message as CVarArg)
@@ -77,6 +92,9 @@ extension SafariWebExtensionHandler {
         default:
             os_log(.default, "Safari-wallet SafariWebExtensionHandler: received unknown command '%@'", message as CVarArg)
             return [SFSFExtensionResponseErrorKey: "Unknown command in message"]
+            /*
+             If an RPC method defined in a finalized EIP is not supported, it SHOULD be rejected with a 4200 error per the Provider Errors section below, or an appropriate error per the RPC method’s specification.
+             */
         }
 
     }
