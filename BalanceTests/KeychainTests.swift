@@ -7,7 +7,7 @@
 
 import XCTest
 import MEWwalletKit
-@testable import Wallet
+@testable import Balance
 
 class KeychainTests: XCTestCase {
     

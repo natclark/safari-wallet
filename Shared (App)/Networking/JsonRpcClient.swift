@@ -7,7 +7,7 @@
 
 import Foundation
 
-class JsonRpcClient {
+struct JsonRpcClient {
    
    enum NetworkError: Error {
       case invalidUrl
@@ -16,12 +16,13 @@ class JsonRpcClient {
       case encodingError
       case unknown
    }
+    
+   let url: URL
    
-   static func makeRequest<P: Encodable, R: Codable>(url: URL,
-                                                       method: String,
-                                                       params: P,
-                                                       resultType: R.Type,
-                                                       urlSession: WalletURLSession = URLSession.shared)  async throws -> R {
+   func makeRequest<P: Encodable, R: Codable>(method: String,
+                                              params: P,
+                                              resultType: R.Type,
+                                              urlSession: WalletURLSession = URLSession.shared)  async throws -> R {
       
       var urlRequest = URLRequest(url: url,
                                   cachePolicy: .reloadIgnoringLocalAndRemoteCacheData)
@@ -47,12 +48,11 @@ class JsonRpcClient {
       }
    }
    
-   static func makeRequest<R: Codable>(url: URL,
-                                       method: String,
-                                       resultType: R.Type,
-                                       urlSession: WalletURLSession = URLSession.shared)  async throws -> R {
+   func makeRequest<R: Codable>(method: String,
+                                resultType: R.Type,
+                                urlSession: WalletURLSession = URLSession.shared)  async throws -> R {
       let params: [Bool] = []
-      return try await JsonRpcClient.makeRequest(url: url, method: method, params: params, resultType: resultType)
+      return try await makeRequest(method: method, params: params, resultType: resultType)
    }
    
 }

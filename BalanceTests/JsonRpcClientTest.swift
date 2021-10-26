@@ -6,14 +6,13 @@
 //
 
 import XCTest
-@testable import Wallet
-
-@testable import Wallet
+@testable import Balance
 
 class JsonRpcClientTest: XCTestCase {
    
    func testMakeRequest_success() async {
       let url = URL(string: "https://this-is-a-fake-url.io/v2/")!
+      let client = JsonRpcClient(url: url)
       let method: String = "eth_getBalance"
       let params = ["0xaed557b8cAac9C457d28E70F1F5B0782FCfEF9C3",
                     "latest"]
@@ -25,7 +24,7 @@ class JsonRpcClientTest: XCTestCase {
          return (data, HTTPURLResponse())
       }
       
-      let balance = try! await JsonRpcClient.makeRequest(url: url, method: method, params: params, resultType: String.self, urlSession: mockURLSession)
+      let balance = try! await client.makeRequest(method: method, params: params, resultType: String.self, urlSession: mockURLSession)
       XCTAssertEqual(balance, "a-fake-eth-balance")
       XCTAssertTrue(mockURLSession.didCallDataForRequest)
       
