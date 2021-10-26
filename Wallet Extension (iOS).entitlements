@@ -4,11 +4,11 @@
 <dict>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>group.com.safari.Wallet</string>
+		<string>group.com.safari-wallet</string>
 	</array>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)com.safari.Wallet</string>
+		<string>$(AppIdentifierPrefix)com.safari-wallet</string>
 	</array>
 </dict>
 </plist>

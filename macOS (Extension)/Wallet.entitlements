@@ -6,13 +6,13 @@
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>com.group.safari.Wallet</string>
+		<string>com.group.safari-wallet</string>
 	</array>
 	<key>com.apple.security.files.user-selected.read-only</key>
 	<true/>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)com.safari.Wallet</string>
+		<string>$(AppIdentifierPrefix)com.safari-wallet</string>
 	</array>
 </dict>
 </plist>
