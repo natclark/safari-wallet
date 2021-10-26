@@ -42,7 +42,7 @@ extension Provider {
      -d '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":0}'
      */
     func ethBlockNumber() async throws -> String {
-        return try await JsonRpcClient.makeRequest(url: baseURL, method: "eth_blockNumber", params: [""], resultType: String.self) // TODO: jsonRpcError(Wallet.JsonRpcError(code: -32602, message: "Invalid method parameter(s)."))
+        return try await JsonRpcClient.makeRequest(url: baseURL, method: "eth_blockNumber", resultType: String.self) // TODO: jsonRpcError(Wallet.JsonRpcError(code: -32602, message: "Invalid method parameter(s)."))
     }
     
     /*
