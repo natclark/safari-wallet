@@ -47,4 +47,12 @@ class JsonRpcClient {
       }
    }
    
+   static func makeRequest<R: Codable>(url: URL,
+                                       method: String,
+                                       resultType: R.Type,
+                                       urlSession: WalletURLSession = URLSession.shared)  async throws -> R {
+      let params: [Bool] = []
+      return try await JsonRpcClient.makeRequest(url: url, method: method, params: params, resultType: resultType)
+   }
+   
 }
