@@ -32,8 +32,9 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                 return
             }
             
-            os_log(.default, "Safari-wallet SafariWebExtensionHandler: Received message from browser.runtime.sendNativeMessage: %@", message as CVarArg)
-            
+//            os_log(.default, "Safari-wallet SafariWebExtensionHandler: Received message from browser.runtime.sendNativeMessage: %@", message as CVarArg)
+            let logger = Logger() //label: "com.starlingprotocol.wallet")
+            logger.critical("Safari-wallet SafariWebExtensionHandler: Received message from browser.runtime.sendNativeMessage: \(message)")
             do {
                 let returnValue = try await handle(message: message)
                 response.userInfo = [SFExtensionMessageKey: returnValue]
@@ -41,6 +42,8 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
                 response.userInfo = errorResponse(error: error.localizedDescription)
                 os_log(.error, "Safari-wallet SafariWebExtensionHandler: %@", error.localizedDescription as CVarArg)
             }
+//            os_log(.default, "Safari-wallet SafariWebExtensionHandler: Sending response %@", response.userInfo[SFExtensionMessageKey] as Any)
+            logger.critical("Safari-wallet SafariWebExtensionHandler response: \(String(describing: response.userInfo!))")
         }
 
     }
@@ -49,56 +52,28 @@ class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
 // MARK: - Message handling
 
 extension SafariWebExtensionHandler {
-    
+        
     fileprivate func errorResponse(error: String) -> [String: Any] {
         return [SFExtensionMessageKey: [SFSFExtensionResponseErrorKey: error]]
     }
     
-//    fileprivate func createResponse(value: Any) -> [String: Any] {
-//        return [SFExtensionMessageKey: value]
-//    }
-    // web3 provider
+    // web3 handler
     func handle(message: String, parameters: [String: Any]? = nil) async throws -> Any {
         
-        guard let walletName = walletManager.defaultWallet else {
-            throw WalletError.noDefaultWalletSet
-        }
-        guard let address = walletManager.defaultAddress else {
-            throw WalletError.noDefaultAddressSet
-        }
+        guard let provider = AlchemyProvider() else { throw WalletError.gatewayConnectionError }
+        guard let walletName = walletManager.defaultWallet else { throw WalletError.noDefaultWalletSet }
+        guard let address = walletManager.defaultAddress else { throw WalletError.noDefaultAddressSet }
         
         switch message {
                         
-        case "init":
-            // Returns initial values for current address and network
-            return [
-                "defaultAddress": address,
-//                "network": walletManager.network.chainID
-            ]
-            
-        case "eth_requestAccounts":
-            // Returns the available addresses in the default wallet
-            
-            let addresses = try await walletManager.loadAddresses(name: walletName)
-            return addresses
-
-        case "get_current_address":
+        case "eth_getAccounts", "get_current_address":
             // Returns the address currently selected in the containing app and stored in NSUserDefaults
-
             return [address]
 
-        case "get_current_balance":
+        case "eth_getBalance":
             // Returns the balance of the currently selected address
-//            guard let balance = walletManager.balanceOf(address) else {
-//                return [SFSFExtensionResponseErrorKey: "Balance unavailable"]
-//            }
-//            return [SFExtensionMessageKey: balance]
-            return [SFExtensionMessageKey: 0]
-
-        /*
-        case "eth_signTypedData_v3":
-            return sign(rawTx: parameters)
-        */
+//            return "0"
+            return try await provider.ethGetBalance(address: address)
 
         default:
             os_log(.default, "Safari-wallet SafariWebExtensionHandler: received unknown command '%@'", message as CVarArg)
@@ -106,13 +81,5 @@ extension SafariWebExtensionHandler {
         }
 
     }
-    // since we can't
+    
 }
-
-/* Supported Metamask calls
- 
- ethereum.networkVersion
- ethereum.selectedAddress
- eth_requestAccounts
- eth_sendTransaction
- */

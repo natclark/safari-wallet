@@ -40,15 +40,17 @@ browser.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
             break;
         case `get_state`: // * Send current method, address, balance, and network (?) to popup.js
             const currentAddress = await browser.runtime.sendNativeMessage({
-                message: `get_current_address`,
+                message: `eth_getAccounts`,
             });
             const balance = await browser.runtime.sendNativeMessage({
-                message: `get_current_balance`,
+                message: `eth_getBalance`,
             });
+            console.log(`currentAddress response: `, currentAddress)
+            console.log(`currentBalance response: `, balance)
             browser.runtime.sendMessage({
                 message: {
-                    address: currentAddress.message[0],
-                    balance: balance.message,
+                    address: currentAddress[0],
+                    balance: balance,
                     from,
                     method,
                     params,

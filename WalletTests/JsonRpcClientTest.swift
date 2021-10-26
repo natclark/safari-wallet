@@ -20,7 +20,7 @@ class JsonRpcClientTest: XCTestCase {
       
       let mockURLSession = MockURLSession()
       mockURLSession.dataForRequestStub = {
-         let fakeRpcResponse = JsonRpcResponse(jsonrpc: "2.0", result: "a-fake-eth-balance", error: nil, id: "1")
+         let fakeRpcResponse = JsonRpcResponse(jsonrpc: "2.0", result: "a-fake-eth-balance", error: nil, id: 1)
          let data = try! JSONEncoder().encode(fakeRpcResponse)
          return (data, HTTPURLResponse())
       }

@@ -51,7 +51,7 @@ extension Provider {
      -H "Content-Type: application/json" \
      -d '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0xc94770007dda54cF92009BFF0dE90c06F603a09f", "latest"],"id":0}'
      */
-    func ethGetBalance(address: String, blockNumber: EthereumBlock) async throws -> BigUInt {
+    func ethGetBalance(address: String, blockNumber: EthereumBlock = .latest) async throws -> BigUInt {
         let result = try await JsonRpcClient.makeRequest(url: baseURL, method: "eth_getBalance", params: [address, blockNumber.stringValue], resultType: String.self)
         guard let balance = BigUInt(result.stripHexPrefix(), radix: 16) else { throw WalletError.unexpectedResponse(result) }
         return balance

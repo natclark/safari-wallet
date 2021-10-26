@@ -1296,7 +1296,7 @@
 				DEVELOPMENT_TEAM = TPKP4XK352;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Balance Wallet 2";
+				INFOPLIST_KEY_CFBundleDisplayName = "Balance Wallet";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Access to your password is protected by FaceID";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1337,7 +1337,7 @@
 				DEVELOPMENT_TEAM = TPKP4XK352;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Balance Wallet 2";
+				INFOPLIST_KEY_CFBundleDisplayName = "Balance Wallet";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Access to your password is protected by FaceID";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
