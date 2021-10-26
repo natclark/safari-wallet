@@ -8,7 +8,7 @@
 import Foundation
 import MEWwalletKit
 
-enum ProviderBaseURL {
+enum ClientBaseURL {
     case infura
     case alchemy
     case custom(baseURL: URL)

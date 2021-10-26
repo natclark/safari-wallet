@@ -59,18 +59,18 @@
 		F8321B6027176EE700F12938 /* ConfirmMnemonicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B5E27176EE700F12938 /* ConfirmMnemonicView.swift */; };
 		F8321B622717768400F12938 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B612717768400F12938 /* SummaryView.swift */; };
 		F8321B632717768400F12938 /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8321B612717768400F12938 /* SummaryView.swift */; };
-		F84E695D272627DA002EE72F /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E695C272627DA002EE72F /* Provider.swift */; };
-		F84E695E272627DA002EE72F /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E695C272627DA002EE72F /* Provider.swift */; };
-		F84E695F272627DA002EE72F /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E695C272627DA002EE72F /* Provider.swift */; };
-		F84E6960272627DA002EE72F /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E695C272627DA002EE72F /* Provider.swift */; };
-		F84E696327262806002EE72F /* AlchemyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E696227262806002EE72F /* AlchemyProvider.swift */; };
-		F84E696427262806002EE72F /* AlchemyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E696227262806002EE72F /* AlchemyProvider.swift */; };
-		F84E696527262806002EE72F /* AlchemyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E696227262806002EE72F /* AlchemyProvider.swift */; };
-		F84E696627262806002EE72F /* AlchemyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E696227262806002EE72F /* AlchemyProvider.swift */; };
-		F84E696D27266B76002EE72F /* ProviderBaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E696C27266B76002EE72F /* ProviderBaseURL.swift */; };
-		F84E696E27266B76002EE72F /* ProviderBaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E696C27266B76002EE72F /* ProviderBaseURL.swift */; };
-		F84E696F27266B76002EE72F /* ProviderBaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E696C27266B76002EE72F /* ProviderBaseURL.swift */; };
-		F84E697027266B76002EE72F /* ProviderBaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E696C27266B76002EE72F /* ProviderBaseURL.swift */; };
+		F84E695D272627DA002EE72F /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E695C272627DA002EE72F /* Client.swift */; };
+		F84E695E272627DA002EE72F /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E695C272627DA002EE72F /* Client.swift */; };
+		F84E695F272627DA002EE72F /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E695C272627DA002EE72F /* Client.swift */; };
+		F84E6960272627DA002EE72F /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E695C272627DA002EE72F /* Client.swift */; };
+		F84E696327262806002EE72F /* AlchemyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E696227262806002EE72F /* AlchemyClient.swift */; };
+		F84E696427262806002EE72F /* AlchemyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E696227262806002EE72F /* AlchemyClient.swift */; };
+		F84E696527262806002EE72F /* AlchemyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E696227262806002EE72F /* AlchemyClient.swift */; };
+		F84E696627262806002EE72F /* AlchemyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E696227262806002EE72F /* AlchemyClient.swift */; };
+		F84E696D27266B76002EE72F /* ClientBaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E696C27266B76002EE72F /* ClientBaseURL.swift */; };
+		F84E696E27266B76002EE72F /* ClientBaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E696C27266B76002EE72F /* ClientBaseURL.swift */; };
+		F84E696F27266B76002EE72F /* ClientBaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E696C27266B76002EE72F /* ClientBaseURL.swift */; };
+		F84E697027266B76002EE72F /* ClientBaseURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E696C27266B76002EE72F /* ClientBaseURL.swift */; };
 		F84E69722726750E002EE72F /* EthereumBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E69712726750E002EE72F /* EthereumBlock.swift */; };
 		F84E69732726750E002EE72F /* EthereumBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E69712726750E002EE72F /* EthereumBlock.swift */; };
 		F84E69742726750E002EE72F /* EthereumBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E69712726750E002EE72F /* EthereumBlock.swift */; };
@@ -274,9 +274,9 @@
 		F8321B5B27176ED600F12938 /* ShowMnemonicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMnemonicView.swift; sourceTree = "<group>"; };
 		F8321B5E27176EE700F12938 /* ConfirmMnemonicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmMnemonicView.swift; sourceTree = "<group>"; };
 		F8321B612717768400F12938 /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
-		F84E695C272627DA002EE72F /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
-		F84E696227262806002EE72F /* AlchemyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlchemyProvider.swift; sourceTree = "<group>"; };
-		F84E696C27266B76002EE72F /* ProviderBaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderBaseURL.swift; sourceTree = "<group>"; };
+		F84E695C272627DA002EE72F /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		F84E696227262806002EE72F /* AlchemyClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlchemyClient.swift; sourceTree = "<group>"; };
+		F84E696C27266B76002EE72F /* ClientBaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientBaseURL.swift; sourceTree = "<group>"; };
 		F84E69712726750E002EE72F /* EthereumBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthereumBlock.swift; sourceTree = "<group>"; };
 		F84E6977272675BE002EE72F /* Web3Extendable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3Extendable.swift; sourceTree = "<group>"; };
 		F84E697C272675E5002EE72F /* Hextensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hextensions.swift; sourceTree = "<group>"; };
@@ -315,8 +315,6 @@
 		F8AD21E82717B3420059D754 /* CreatePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePasswordView.swift; sourceTree = "<group>"; };
 		F8AD21EE2717B4B40059D754 /* RestoreWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreWalletView.swift; sourceTree = "<group>"; };
 		F8C5B0012723BC5900B54FBD /* keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keys.swift; sourceTree = "<group>"; };
-		F8C5B0102723D76200B54FBD /* AlchemyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlchemyAPI.swift; sourceTree = "<group>"; };
-		F8C5B0152723D81000B54FBD /* AlchemyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlchemyModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -515,17 +513,15 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		F84E6961272627E6002EE72F /* Providers */ = {
+		F84E6961272627E6002EE72F /* Client */ = {
 			isa = PBXGroup;
 			children = (
 				F84E69762726759B002EE72F /* Models */,
-				F84E696C27266B76002EE72F /* ProviderBaseURL.swift */,
-				F84E695C272627DA002EE72F /* Provider.swift */,
-				F84E696227262806002EE72F /* AlchemyProvider.swift */,
-				F8C5B0102723D76200B54FBD /* AlchemyAPI.swift */,
-				F8C5B0152723D81000B54FBD /* AlchemyModel.swift */,
+				F84E696C27266B76002EE72F /* ClientBaseURL.swift */,
+				F84E695C272627DA002EE72F /* Client.swift */,
+				F84E696227262806002EE72F /* AlchemyClient.swift */,
 			);
-			path = Providers;
+			path = Client;
 			sourceTree = "<group>";
 		};
 		F84E69762726759B002EE72F /* Models */ = {
@@ -599,7 +595,7 @@
 			isa = PBXGroup;
 			children = (
 				F884A428272126040002665D /* Keystore */,
-				F84E6961272627E6002EE72F /* Providers */,
+				F84E6961272627E6002EE72F /* Client */,
 				F8ABEF40271389CD007F7D11 /* Extensions */,
 				F8ABEF3727129797007F7D11 /* WalletManager.swift */,
 				F879234E271CCDD700A09228 /* EthereumAddress.swift */,
@@ -917,7 +913,7 @@
 				F8812B582719239700D1B231 /* TransactionsView.swift in Sources */,
 				F8ABEF3527125F16007F7D11 /* ContentView.swift in Sources */,
 				F8812B4F2718B91E00D1B231 /* Intro2View.swift in Sources */,
-				F84E696327262806002EE72F /* AlchemyProvider.swift in Sources */,
+				F84E696327262806002EE72F /* AlchemyClient.swift in Sources */,
 				F8812B4C2718B91600D1B231 /* Intro1View.swift in Sources */,
 				F8ABEF4C27138E1D007F7D11 /* String.swift in Sources */,
 				F84E6982272676DF002EE72F /* Int.swift in Sources */,
@@ -927,7 +923,7 @@
 				F84E6978272675BE002EE72F /* Web3Extendable.swift in Sources */,
 				F84E697D272675E5002EE72F /* Hextensions.swift in Sources */,
 				F8AD21E6271796CC0059D754 /* RestoreOrCreateWalletView.swift in Sources */,
-				F84E695D272627DA002EE72F /* Provider.swift in Sources */,
+				F84E695D272627DA002EE72F /* Client.swift in Sources */,
 				F8321B5C27176ED600F12938 /* ShowMnemonicView.swift in Sources */,
 				F8321B5F27176EE700F12938 /* ConfirmMnemonicView.swift in Sources */,
 				4A19E6EC2722546C0096027F /* WalletURLSession.swift in Sources */,
@@ -941,7 +937,7 @@
 				F8ABEED527124A8C007F7D11 /* SharedDocument.swift in Sources */,
 				F8ABEEDD27124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
 				4A19E6E62721D7F00096027F /* JsonRpcError.swift in Sources */,
-				F84E696D27266B76002EE72F /* ProviderBaseURL.swift in Sources */,
+				F84E696D27266B76002EE72F /* ClientBaseURL.swift in Sources */,
 				F8ABEEC927124A8C007F7D11 /* Constants.swift in Sources */,
 				F8812B6227193E8B00D1B231 /* DeveloperView.swift in Sources */,
 				F84E69722726750E002EE72F /* EthereumBlock.swift in Sources */,
@@ -968,7 +964,7 @@
 				F8812B592719239700D1B231 /* TransactionsView.swift in Sources */,
 				F8ABEF3327125EFA007F7D11 /* WalletApp.swift in Sources */,
 				F8812B502718B91E00D1B231 /* Intro2View.swift in Sources */,
-				F84E696427262806002EE72F /* AlchemyProvider.swift in Sources */,
+				F84E696427262806002EE72F /* AlchemyClient.swift in Sources */,
 				F8812B4D2718B91600D1B231 /* Intro1View.swift in Sources */,
 				F8ABEF4D27138E1D007F7D11 /* String.swift in Sources */,
 				F84E6983272676DF002EE72F /* Int.swift in Sources */,
@@ -978,7 +974,7 @@
 				F84E6979272675BE002EE72F /* Web3Extendable.swift in Sources */,
 				F84E697E272675E5002EE72F /* Hextensions.swift in Sources */,
 				F8AD21E7271796CC0059D754 /* RestoreOrCreateWalletView.swift in Sources */,
-				F84E695E272627DA002EE72F /* Provider.swift in Sources */,
+				F84E695E272627DA002EE72F /* Client.swift in Sources */,
 				F8321B5D27176ED600F12938 /* ShowMnemonicView.swift in Sources */,
 				F8321B6027176EE700F12938 /* ConfirmMnemonicView.swift in Sources */,
 				4A19E6ED2722546C0096027F /* WalletURLSession.swift in Sources */,
@@ -992,7 +988,7 @@
 				F8ABEED627124A8C007F7D11 /* SharedDocument.swift in Sources */,
 				F8ABEF3627125F16007F7D11 /* ContentView.swift in Sources */,
 				4A19E6E72721D7F00096027F /* JsonRpcError.swift in Sources */,
-				F84E696E27266B76002EE72F /* ProviderBaseURL.swift in Sources */,
+				F84E696E27266B76002EE72F /* ClientBaseURL.swift in Sources */,
 				F8ABEECE27124A8C007F7D11 /* BiometricsAuthentication.swift in Sources */,
 				F8812B6327193E8B00D1B231 /* DeveloperView.swift in Sources */,
 				F84E69732726750E002EE72F /* EthereumBlock.swift in Sources */,
@@ -1015,19 +1011,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F84E696F27266B76002EE72F /* ProviderBaseURL.swift in Sources */,
+				F84E696F27266B76002EE72F /* ClientBaseURL.swift in Sources */,
 				F84E6984272676DF002EE72F /* Int.swift in Sources */,
 				0A0E1ED7270687AE00061EA6 /* SafariWebExtensionHandler.swift in Sources */,
 				F8ABEED327124A8C007F7D11 /* FileObserver.swift in Sources */,
 				F884A4202721001C0002665D /* KeystoreV3Json.swift in Sources */,
 				F84E697A272675BE002EE72F /* Web3Extendable.swift in Sources */,
 				F8C5B0062723BD7000B54FBD /* WalletURLSession.swift in Sources */,
-				F84E696527262806002EE72F /* AlchemyProvider.swift in Sources */,
+				F84E696527262806002EE72F /* AlchemyClient.swift in Sources */,
 				F8ABEF4E27138E1D007F7D11 /* String.swift in Sources */,
 				F8ABEF3B271297B3007F7D11 /* WalletManager.swift in Sources */,
 				F8C5B00D2723BD7D00B54FBD /* JsonRpcError.swift in Sources */,
 				F8ABEECB27124A8C007F7D11 /* Constants.swift in Sources */,
-				F84E695F272627DA002EE72F /* Provider.swift in Sources */,
+				F84E695F272627DA002EE72F /* Client.swift in Sources */,
 				F8C5B00A2723BD7800B54FBD /* JsonRpcRequest.swift in Sources */,
 				F84E69742726750E002EE72F /* EthereumBlock.swift in Sources */,
 				F8ABEEDF27124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
@@ -1048,19 +1044,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F84E697027266B76002EE72F /* ProviderBaseURL.swift in Sources */,
+				F84E697027266B76002EE72F /* ClientBaseURL.swift in Sources */,
 				F84E6985272676DF002EE72F /* Int.swift in Sources */,
 				0A0E1ED8270687AE00061EA6 /* SafariWebExtensionHandler.swift in Sources */,
 				F8ABEED427124A8C007F7D11 /* FileObserver.swift in Sources */,
 				F884A4212721001C0002665D /* KeystoreV3Json.swift in Sources */,
 				F84E697B272675BE002EE72F /* Web3Extendable.swift in Sources */,
 				F8C5B0072723BD7000B54FBD /* WalletURLSession.swift in Sources */,
-				F84E696627262806002EE72F /* AlchemyProvider.swift in Sources */,
+				F84E696627262806002EE72F /* AlchemyClient.swift in Sources */,
 				F8ABEF4F27138E1D007F7D11 /* String.swift in Sources */,
 				F8ABEF3C271297B3007F7D11 /* WalletManager.swift in Sources */,
 				F8C5B00C2723BD7D00B54FBD /* JsonRpcError.swift in Sources */,
 				F8ABEECC27124A8C007F7D11 /* Constants.swift in Sources */,
-				F84E6960272627DA002EE72F /* Provider.swift in Sources */,
+				F84E6960272627DA002EE72F /* Client.swift in Sources */,
 				F8C5B00B2723BD7900B54FBD /* JsonRpcRequest.swift in Sources */,
 				F84E69752726750E002EE72F /* EthereumBlock.swift in Sources */,
 				F8ABEEE027124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
