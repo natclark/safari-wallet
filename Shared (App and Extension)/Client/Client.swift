@@ -1,5 +1,5 @@
 //
-//  Provider.swift
+//  Client.swift
 //  Wallet
 //
 //  Created by Ronald Mannak on 10/24/21.
@@ -10,7 +10,7 @@ import MEWwalletKit
 import Network
 import BigInt
 
-class Provider {
+class Client {
     
     private (set) var isConnected: Bool = false
     
@@ -18,7 +18,7 @@ class Provider {
     let network: Network
     let monitor = NWPathMonitor()
     
-    init?(baseURL: ProviderBaseURL = .alchemy, network: Network = .ethereum) {
+    init?(baseURL: ClientBaseURL = .alchemy, network: Network = .ethereum) {
         guard let baseURL = baseURL.baseURL(for: network) else { return nil }
         self.baseURL = baseURL
         self.network = network
@@ -32,7 +32,7 @@ class Provider {
 }
 
 // MARK: - Web3 API
-extension Provider {
+extension Client {
     
     
     /*

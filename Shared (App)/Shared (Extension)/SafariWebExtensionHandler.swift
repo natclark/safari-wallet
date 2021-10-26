@@ -60,7 +60,7 @@ extension SafariWebExtensionHandler {
     // web3 handler
     func handle(message: String, parameters: [String: Any]? = nil) async throws -> Any {
         
-        guard let provider = AlchemyProvider() else { throw WalletError.gatewayConnectionError }
+        guard let client = AlchemyClient() else { throw WalletError.gatewayConnectionError }
         guard let walletName = walletManager.defaultWallet else { throw WalletError.noDefaultWalletSet }
         guard let address = walletManager.defaultAddress else { throw WalletError.noDefaultAddressSet }
         
@@ -72,7 +72,7 @@ extension SafariWebExtensionHandler {
 
         case "eth_getBalance":
             // Returns the balance of the currently selected address
-            return try await provider.ethGetBalance(address: address).description
+            return try await client.ethGetBalance(address: address).description
         
         default:
             os_log(.default, "Safari-wallet SafariWebExtensionHandler: received unknown command '%@'", message as CVarArg)

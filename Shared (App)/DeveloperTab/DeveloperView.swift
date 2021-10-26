@@ -41,10 +41,10 @@ struct DeveloperView: View {
             Button("get balance") {
                 Task {
                     do {
-                        let provider = Provider()!
-                        let balance = try await provider.ethGetBalance(address: "0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B", blockNumber: .latest)
+                        let client = Client()!
+                        let balance = try await client.ethGetBalance(address: "0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B", blockNumber: .latest)
                         print(balance.description)
-                        let height = try await provider.ethBlockNumber()
+                        let height = try await client.ethBlockNumber()
                         print(height)
                     } catch {
                         print(error)
