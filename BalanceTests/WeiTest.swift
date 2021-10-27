@@ -33,7 +33,7 @@ class WeiTest: XCTestCase {
     
     func testWei() {
         let balance = Wei(hex: "0x198414ab04d0ceeaf9")!
-        XCTAssertEqual(balance, BigUInt("470686021792450931449"))
+        XCTAssertEqual(balance, BigInt("470686021792450931449"))
 //        gweiBalance = balance.gweiValue
     }
     

@@ -8,7 +8,7 @@
 import Foundation
 import BigInt
 
-typealias Wei = BigUInt // or BigInt??
+typealias Wei = BigInt
 typealias GWei = Decimal
 typealias Ether = Decimal
 
@@ -42,7 +42,7 @@ extension GWei {
     /// Convert Gwei to Wei (for gas)
     var weiValue: Wei? {
         let stringValue =  (self * 1_000_000_000).description
-        return BigUInt(stringValue, radix: 10) as Wei?
+        return BigInt(stringValue, radix: 10) as Wei?
     }
     
 }
