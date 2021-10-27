@@ -16,104 +16,94 @@ final class AlchemyClient: Client {
         super.init(baseURL: .alchemy, network: network)
     }
     
-    func alchemyTokenAllowance(tokenContract: Address,
-                                       owner: Address,
-                                      spender: Address) async throws -> BigUInt {
-        let params = [
-            "contract": tokenContract.address,
-            "owner": owner.address,
-            "spender": spender.address
-        ]
-        let response = try await jsonRpcClient.makeRequest(method: "alchemy_getTokenAllowance", params: [params], resultType: String.self)
-        guard let allowance = BigUInt(response.stripHexPrefix()) else {
-            throw WalletError.unexpectedResponse(response)
-        }
-        return allowance
-    }
+
     
     /// Returns a quick estimate for maxPriorityFeePerGas in EIP 1559 transactions. Rather than using feeHistory and making a calculation yourself you can just use this method to get a quick estimate. Note: this is a geth-only method, but Alchemy handles that for you behind the scenes.
     /// # Reference
     /// [Alchemy documentation](https://docs.alchemy.com/alchemy/documentation/alchemy-web3/enhanced-web3-api#web-3-eth-getmaxpriorityfeepergas)
     /// - SeeAlso:
     /// [Alchemy documentation](https://docs.alchemy.com/alchemy/documentation/alchemy-web3/enhanced-web3-api#web-3-eth-getmaxpriorityfeepergas)
-    /// - Returns: A BigUInt, which is the maxPriorityFeePerGas suggestion. You can plug this directly into your transaction field.
-    public func maxPriorityFeePerGas() async throws -> BigUInt {
-                
+    /// - Returns: Az BigInt, which is the maxPriorityFeePerGas suggestion. You can plug this directly into your transaction field.
+    public func maxPriorityFeePerGas() async throws -> BigInt {
         let gasHex = try await jsonRpcClient.makeRequest(method: "eth_maxPriorityFeePerGas", resultType: String.self)
-        
-//        makeRequest(method: "eth_maxPriorityFeePerGas", params: nil, resultType: String.self)
-        // EthereumRPC.execute(session: session, url: url, method: "eth_maxPriorityFeePerGas", params: [Bool](), receive: String.self) as? String,
-              
-        guard let gas = BigUInt(gasHex.stripHexPrefix(), radix: 16) else {
+        guard let gas = BigInt(hex: gasHex) else {
             throw WalletError.unexpectedResponse(gasHex)
         }
         return gas
     }
     
+    // MARK: - Alchemy Token API
+    
+    /// <#Description#>
+    /// - Parameters:
+    ///   - tokenContract: <#tokenContract description#>
+    ///   - owner: <#owner description#>
+    ///   - spender: <#spender description#>
+    /// - Returns: <#description#>
+    func alchemyTokenAllowance(tokenContract: Address,
+                                       owner: Address,
+                                     spender: Address) async throws -> Wei {
+        let params = [
+            "contract": tokenContract.address,
+            "owner": owner.address,
+            "spender": spender.address
+        ]
+        let response = try await jsonRpcClient.makeRequest(method: "alchemy_getTokenAllowance", params: [params], resultType: String.self)
+        guard let allowance = Wei(response, radix: 10) else {
+            throw WalletError.unexpectedResponse(response)
+        }
+        return allowance
+    }
+    
+    /// Returns token balances for a specific address given a list of contracts.
+    /// - SeeAlso:
+    /// (TokenBalances documentation on Alchemy)[https://docs.alchemy.com/alchemy/documentation/alchemy-web3/enhanced-web3-api#web-3-alchemy-gettokenbalances-address-contractaddresses]
+    /// - Parameters:
+    ///   - address: The address for which token balances will be checked.
+    ///   - tokenAddresses: An array of contract addresses. if nil, a list of the top 100 DEFAULT_TOKENS will be returned
+    /// - Returns: An array of AlchemyTokenBalances.
+//    public func alchemyTokenBalances(address: Address, tokenAddresses: [Address]? = nil) async throws -> [Wei] {
+//
+//        struct CallParams: Encodable {
+//            let address: Address
+//            let tokenAddresses: [Address]
+//
+//            func encode(to encoder: Encoder) throws {
+//                var container = encoder.unkeyedContainer()
+//                try container.encode(address.address)
+//                try container.encode(tokenAddresses.map{ $0.address })
+//            }
+//        }
+//
+//        public struct AlchemyTokenBalanceResponse {
+//            let contractAddress: Address
+//            let tokenBalance: BigUInt?
+//            let error: String? // Error?
+//        }
+//
+//        let response: Any
+//        if let tokenAddresses = tokenAddresses {
+//            let params = CallParams(address: address, tokenAddresses: tokenAddresses)
+//            response = try await jsonRpcClient.makeRequest(method: "alchemy_getTokenBalances", params: params, resultType: <#T##(Decodable & Encodable).Protocol#>) //EthereumRPC.execute(session: self.session, url: self.url, method: "alchemy_getTokenBalances", params: params, receive: AlchemyTokenBalances.self)
+//        } else {
+//            response = try await jsonRpcClient.makeRequest(method: "alchemy_getTokenBalances", params: [address.address, "DEFAULT_TOKENS"], resultType: <#T##(Decodable & Encodable).Protocol#>)
+//        }
+//
+//        if let response = response as? AlchemyTokenBalances {
+//    //            dump(response)
+//            return response.tokenBalances
+//        } else {
+//            throw Web3Error.unexpectedReturnValue
+//        }
+//    }
 
 }
 
 /*
-/// Returns token balances for a specific address given a list of contracts.
-/// - SeeAlso:
-///  (TokenAllowance documentation on Alchemy)[https://docs.alchemy.com/alchemy/documentation/alchemy-web3/enhanced-web3-api#web-3-alchemy-gettokenallowance-contract-owner-spender]
-/// - Parameters:
-///   - tokenContract: The address of the token contract.
-///   - owner: The address of the token owner.
-///   - spender: The address of the token spender.
-/// - Returns: The allowance amount, as a string representing a base-10 number.
-public func alchemyTokenAllowance(tokenContract: EthereumAddress,
-                                   owner: EthereumAddress,
-                                  spender: EthereumAddress) async throws -> BigUInt {
-    struct CallParams: Encodable {
-        let contract: EthereumAddress
-        let owner: EthereumAddress
-        let spender: EthereumAddress
-    }
-    
-    let params = CallParams(contract: tokenContract, owner: owner, spender: spender)
-    guard let response = try await EthereumRPC.execute(session: self.session, url: self.url, method: "alchemy_getTokenAllowance", params: [params], receive: String.self) as? String, let allowance = BigUInt(response) else {
-        throw Web3Error.unexpectedReturnValue
-    }
-    return allowance
-}
 
 
-/// Returns token balances for a specific address given a list of contracts.
-/// - SeeAlso:
-/// (TokenBalances documentation on Alchemy)[https://docs.alchemy.com/alchemy/documentation/alchemy-web3/enhanced-web3-api#web-3-alchemy-gettokenbalances-address-contractaddresses]
-/// - Parameters:
-///   - address: The address for which token balances will be checked.
-///   - tokenAddresses: An array of contract addresses. if nil, a list of the top 100 DEFAULT_TOKENS will be returned
-/// - Returns: An array of AlchemyTokenBalances.
-public func alchemyTokenBalances(address: EthereumAddress, tokenAddresses: [EthereumAddress]? = nil) async throws -> [AlchemyTokenBalance] {
-    
-    struct CallParams: Encodable {
-        let address: EthereumAddress
-        let tokenAddresses: [EthereumAddress]
-        
-        func encode(to encoder: Encoder) throws {
-            var container = encoder.unkeyedContainer()
-            try container.encode(address.value)
-            try container.encode(tokenAddresses.map{ $0.value })
-        }
-    }
-    
-    let response: Any
-    if let tokenAddresses = tokenAddresses {
-        let params = CallParams(address: address, tokenAddresses: tokenAddresses)
-        response = try await EthereumRPC.execute(session: self.session, url: self.url, method: "alchemy_getTokenBalances", params: params, receive: AlchemyTokenBalances.self)
-    } else {
-        response = try await EthereumRPC.execute(session: self.session, url: self.url, method: "alchemy_getTokenBalances", params:  [address.value, "DEFAULT_TOKENS"], receive: AlchemyTokenBalances.self)
-    }
-    
-    if let response = response as? AlchemyTokenBalances {
-//            dump(response)
-        return response.tokenBalances
-    } else {
-        throw Web3Error.unexpectedReturnValue
-    }
-}
+
+
 
     
 /// Returns metadata (name, symbol, decimals, logo) for a given token contract address.
