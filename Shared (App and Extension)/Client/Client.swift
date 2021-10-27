@@ -43,8 +43,12 @@ extension Client {
      -H "Content-Type: application/json" \
      -d '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":0}'
      */
-    func ethBlockNumber() async throws -> String {
-        return try await jsonRpcClient.makeRequest(method: "eth_blockNumber", resultType: String.self) // TODO: jsonRpcError(Wallet.JsonRpcError(code: -32602, message: "Invalid method parameter(s)."))
+    func ethBlockNumber() async throws -> Int {
+        let response = try await jsonRpcClient.makeRequest(method: "eth_blockNumber", resultType: String.self)
+        guard let blockHeight = Int(response.stripHexPrefix(), radix: 16) else {
+            throw WalletError.unexpectedResponse(response)
+        }
+        return blockHeight
     }
     
     /*
