@@ -62,6 +62,15 @@
 		F834E0B12728C95D006E064C /* AlchemyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834E0B02728C95D006E064C /* AlchemyTests.swift */; };
 		F834E0B32728DB91006E064C /* ClientConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834E0B22728DB91006E064C /* ClientConfig.swift */; };
 		F834E0B52728E1C4006E064C /* InfuraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834E0B42728E1C4006E064C /* InfuraTests.swift */; };
+		F834E0B727291912006E064C /* Wei.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834E0B627291912006E064C /* Wei.swift */; };
+		F834E0B827291912006E064C /* Wei.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834E0B627291912006E064C /* Wei.swift */; };
+		F834E0B927291912006E064C /* Wei.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834E0B627291912006E064C /* Wei.swift */; };
+		F834E0BA27291912006E064C /* Wei.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834E0B627291912006E064C /* Wei.swift */; };
+		F834E0BC27291C18006E064C /* Decimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834E0BB27291C18006E064C /* Decimal.swift */; };
+		F834E0BD27291C18006E064C /* Decimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834E0BB27291C18006E064C /* Decimal.swift */; };
+		F834E0BE27291C18006E064C /* Decimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834E0BB27291C18006E064C /* Decimal.swift */; };
+		F834E0BF27291C18006E064C /* Decimal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834E0BB27291C18006E064C /* Decimal.swift */; };
+		F834E0C12729A92D006E064C /* WeiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F834E0C02729A92D006E064C /* WeiTest.swift */; };
 		F84E695D272627DA002EE72F /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E695C272627DA002EE72F /* Client.swift */; };
 		F84E695E272627DA002EE72F /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E695C272627DA002EE72F /* Client.swift */; };
 		F84E695F272627DA002EE72F /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E695C272627DA002EE72F /* Client.swift */; };
@@ -78,10 +87,6 @@
 		F84E69732726750E002EE72F /* EthereumBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E69712726750E002EE72F /* EthereumBlock.swift */; };
 		F84E69742726750E002EE72F /* EthereumBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E69712726750E002EE72F /* EthereumBlock.swift */; };
 		F84E69752726750E002EE72F /* EthereumBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E69712726750E002EE72F /* EthereumBlock.swift */; };
-		F84E6978272675BE002EE72F /* Web3Extendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E6977272675BE002EE72F /* Web3Extendable.swift */; };
-		F84E6979272675BE002EE72F /* Web3Extendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E6977272675BE002EE72F /* Web3Extendable.swift */; };
-		F84E697A272675BE002EE72F /* Web3Extendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E6977272675BE002EE72F /* Web3Extendable.swift */; };
-		F84E697B272675BE002EE72F /* Web3Extendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E6977272675BE002EE72F /* Web3Extendable.swift */; };
 		F84E697D272675E5002EE72F /* Hextensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E697C272675E5002EE72F /* Hextensions.swift */; };
 		F84E697E272675E5002EE72F /* Hextensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E697C272675E5002EE72F /* Hextensions.swift */; };
 		F84E697F272675E5002EE72F /* Hextensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E697C272675E5002EE72F /* Hextensions.swift */; };
@@ -280,11 +285,13 @@
 		F834E0B02728C95D006E064C /* AlchemyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlchemyTests.swift; sourceTree = "<group>"; };
 		F834E0B22728DB91006E064C /* ClientConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientConfig.swift; sourceTree = "<group>"; };
 		F834E0B42728E1C4006E064C /* InfuraTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfuraTests.swift; sourceTree = "<group>"; };
+		F834E0B627291912006E064C /* Wei.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wei.swift; sourceTree = "<group>"; };
+		F834E0BB27291C18006E064C /* Decimal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decimal.swift; sourceTree = "<group>"; };
+		F834E0C02729A92D006E064C /* WeiTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeiTest.swift; sourceTree = "<group>"; };
 		F84E695C272627DA002EE72F /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		F84E696227262806002EE72F /* AlchemyClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlchemyClient.swift; sourceTree = "<group>"; };
 		F84E696C27266B76002EE72F /* ClientBaseURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientBaseURL.swift; sourceTree = "<group>"; };
 		F84E69712726750E002EE72F /* EthereumBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthereumBlock.swift; sourceTree = "<group>"; };
-		F84E6977272675BE002EE72F /* Web3Extendable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web3Extendable.swift; sourceTree = "<group>"; };
 		F84E697C272675E5002EE72F /* Hextensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hextensions.swift; sourceTree = "<group>"; };
 		F84E6981272676DF002EE72F /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		F879234E271CCDD700A09228 /* EthereumAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EthereumAddress.swift; sourceTree = "<group>"; };
@@ -534,8 +541,8 @@
 			isa = PBXGroup;
 			children = (
 				F84E69712726750E002EE72F /* EthereumBlock.swift */,
-				F84E6977272675BE002EE72F /* Web3Extendable.swift */,
 				F84E697C272675E5002EE72F /* Hextensions.swift */,
+				F834E0B627291912006E064C /* Wei.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -623,6 +630,7 @@
 				F8ABEF4B27138E1D007F7D11 /* String.swift */,
 				F884A423272110580002665D /* Wallet.swift */,
 				F84E6981272676DF002EE72F /* Int.swift */,
+				F834E0BB27291C18006E064C /* Decimal.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -637,6 +645,7 @@
 				F834E0B42728E1C4006E064C /* InfuraTests.swift */,
 				F834E0B02728C95D006E064C /* AlchemyTests.swift */,
 				F834E0B22728DB91006E064C /* ClientConfig.swift */,
+				F834E0C02729A92D006E064C /* WeiTest.swift */,
 			);
 			path = BalanceTests;
 			sourceTree = "<group>";
@@ -929,7 +938,6 @@
 				F8ABEF47271389F5007F7D11 /* NSFileCoordinator.swift in Sources */,
 				4A19E6DD271DC8450096027F /* JsonRpcClient.swift in Sources */,
 				F8812B522718B92500D1B231 /* Intro3View.swift in Sources */,
-				F84E6978272675BE002EE72F /* Web3Extendable.swift in Sources */,
 				F84E697D272675E5002EE72F /* Hextensions.swift in Sources */,
 				F8AD21E6271796CC0059D754 /* RestoreOrCreateWalletView.swift in Sources */,
 				F84E695D272627DA002EE72F /* Client.swift in Sources */,
@@ -943,6 +951,7 @@
 				F8ABEF3227125EFA007F7D11 /* WalletApp.swift in Sources */,
 				F884A424272110580002665D /* Wallet.swift in Sources */,
 				F8ABEF42271389D9007F7D11 /* URL.swift in Sources */,
+				F834E0B727291912006E064C /* Wei.swift in Sources */,
 				F8ABEED527124A8C007F7D11 /* SharedDocument.swift in Sources */,
 				F8ABEEDD27124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
 				4A19E6E62721D7F00096027F /* JsonRpcError.swift in Sources */,
@@ -952,6 +961,7 @@
 				F84E69722726750E002EE72F /* EthereumBlock.swift in Sources */,
 				F8812B5E27192AA600D1B231 /* ShortcutItem.swift in Sources */,
 				F8321B622717768400F12938 /* SummaryView.swift in Sources */,
+				F834E0BC27291C18006E064C /* Decimal.swift in Sources */,
 				F8ABEF3827129797007F7D11 /* WalletManager.swift in Sources */,
 				F884A4192720FFF60002665D /* KeystoreV3.swift in Sources */,
 				F8812B482717E18600D1B231 /* RecoveryPhrase.swift in Sources */,
@@ -980,7 +990,6 @@
 				F8ABEF48271389F5007F7D11 /* NSFileCoordinator.swift in Sources */,
 				4A19E6DE271DC8500096027F /* JsonRpcClient.swift in Sources */,
 				F8812B532718B92500D1B231 /* Intro3View.swift in Sources */,
-				F84E6979272675BE002EE72F /* Web3Extendable.swift in Sources */,
 				F84E697E272675E5002EE72F /* Hextensions.swift in Sources */,
 				F8AD21E7271796CC0059D754 /* RestoreOrCreateWalletView.swift in Sources */,
 				F84E695E272627DA002EE72F /* Client.swift in Sources */,
@@ -994,6 +1003,7 @@
 				F8ABEEDE27124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
 				F884A425272110580002665D /* Wallet.swift in Sources */,
 				F8ABEF43271389D9007F7D11 /* URL.swift in Sources */,
+				F834E0B827291912006E064C /* Wei.swift in Sources */,
 				F8ABEED627124A8C007F7D11 /* SharedDocument.swift in Sources */,
 				F8ABEF3627125F16007F7D11 /* ContentView.swift in Sources */,
 				4A19E6E72721D7F00096027F /* JsonRpcError.swift in Sources */,
@@ -1003,6 +1013,7 @@
 				F84E69732726750E002EE72F /* EthereumBlock.swift in Sources */,
 				F8812B5F27192AA600D1B231 /* ShortcutItem.swift in Sources */,
 				F8321B632717768400F12938 /* SummaryView.swift in Sources */,
+				F834E0BD27291C18006E064C /* Decimal.swift in Sources */,
 				F8ABEF3927129797007F7D11 /* WalletManager.swift in Sources */,
 				F884A41A2720FFF60002665D /* KeystoreV3.swift in Sources */,
 				F8ABEECA27124A8C007F7D11 /* Constants.swift in Sources */,
@@ -1025,7 +1036,6 @@
 				0A0E1ED7270687AE00061EA6 /* SafariWebExtensionHandler.swift in Sources */,
 				F8ABEED327124A8C007F7D11 /* FileObserver.swift in Sources */,
 				F884A4202721001C0002665D /* KeystoreV3Json.swift in Sources */,
-				F84E697A272675BE002EE72F /* Web3Extendable.swift in Sources */,
 				F8C5B0062723BD7000B54FBD /* WalletURLSession.swift in Sources */,
 				F84E696527262806002EE72F /* AlchemyClient.swift in Sources */,
 				F8ABEF4E27138E1D007F7D11 /* String.swift in Sources */,
@@ -1036,6 +1046,7 @@
 				F8C5B00A2723BD7800B54FBD /* JsonRpcRequest.swift in Sources */,
 				F84E69742726750E002EE72F /* EthereumBlock.swift in Sources */,
 				F8ABEEDF27124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
+				F834E0B927291912006E064C /* Wei.swift in Sources */,
 				F8C5B0042723BC5900B54FBD /* keys.swift in Sources */,
 				F884A41B2720FFF60002665D /* KeystoreV3.swift in Sources */,
 				F884A426272110580002665D /* Wallet.swift in Sources */,
@@ -1046,6 +1057,7 @@
 				F8C5B00E2723BD8000B54FBD /* JsonRpcResponse.swift in Sources */,
 				F8ABEF44271389D9007F7D11 /* URL.swift in Sources */,
 				F84E697F272675E5002EE72F /* Hextensions.swift in Sources */,
+				F834E0BE27291C18006E064C /* Decimal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1058,7 +1070,6 @@
 				0A0E1ED8270687AE00061EA6 /* SafariWebExtensionHandler.swift in Sources */,
 				F8ABEED427124A8C007F7D11 /* FileObserver.swift in Sources */,
 				F884A4212721001C0002665D /* KeystoreV3Json.swift in Sources */,
-				F84E697B272675BE002EE72F /* Web3Extendable.swift in Sources */,
 				F8C5B0072723BD7000B54FBD /* WalletURLSession.swift in Sources */,
 				F84E696627262806002EE72F /* AlchemyClient.swift in Sources */,
 				F8ABEF4F27138E1D007F7D11 /* String.swift in Sources */,
@@ -1069,6 +1080,7 @@
 				F8C5B00B2723BD7900B54FBD /* JsonRpcRequest.swift in Sources */,
 				F84E69752726750E002EE72F /* EthereumBlock.swift in Sources */,
 				F8ABEEE027124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
+				F834E0BA27291912006E064C /* Wei.swift in Sources */,
 				F8C5B0052723BC5900B54FBD /* keys.swift in Sources */,
 				F884A41C2720FFF60002665D /* KeystoreV3.swift in Sources */,
 				F884A427272110580002665D /* Wallet.swift in Sources */,
@@ -1079,6 +1091,7 @@
 				F8C5B00F2723BD8000B54FBD /* JsonRpcResponse.swift in Sources */,
 				F8ABEF45271389D9007F7D11 /* URL.swift in Sources */,
 				F84E6980272675E5002EE72F /* Hextensions.swift in Sources */,
+				F834E0BF27291C18006E064C /* Decimal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1091,6 +1104,7 @@
 				F834E0B32728DB91006E064C /* ClientConfig.swift in Sources */,
 				F834E0B52728E1C4006E064C /* InfuraTests.swift in Sources */,
 				4A19E6E0271E673C0096027F /* JsonRpcClientTest.swift in Sources */,
+				F834E0C12729A92D006E064C /* WeiTest.swift in Sources */,
 				F8124BB8271E03DF00F06D5D /* SigningTests.swift in Sources */,
 				F834E0B12728C95D006E064C /* AlchemyTests.swift in Sources */,
 			);
