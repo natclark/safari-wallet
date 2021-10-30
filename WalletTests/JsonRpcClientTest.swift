@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import Wallet
+@testable import Safari_Wallet
 
 class JsonRpcClientTest: XCTestCase {
    

@@ -7,7 +7,7 @@
 
 import XCTest
 import MEWwalletKit
-@testable import Wallet
+@testable import Safari_Wallet
 
 // Based on ShapeShift unit tests: https://github.com/shapeshift/hdwallet/blob/master/packages/hdwallet-native/src/ethereum.test.ts
 class SigningTests: XCTestCase {

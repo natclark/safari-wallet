@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0A0E1E9B270687AE00061EA6"
-               BuildableName = "Wallet.app"
+               BuildableName = "Safari Wallet.app"
                BlueprintName = "Wallet (iOS)"
                ReferencedContainer = "container:Wallet.xcodeproj">
             </BuildableReference>
@@ -55,7 +55,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0A0E1E9B270687AE00061EA6"
-            BuildableName = "Wallet.app"
+            BuildableName = "Safari Wallet.app"
             BlueprintName = "Wallet (iOS)"
             ReferencedContainer = "container:Wallet.xcodeproj">
          </BuildableReference>
@@ -72,7 +72,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0A0E1E9B270687AE00061EA6"
-            BuildableName = "Wallet.app"
+            BuildableName = "Safari Wallet.app"
             BlueprintName = "Wallet (iOS)"
             ReferencedContainer = "container:Wallet.xcodeproj">
          </BuildableReference>
