@@ -7,7 +7,7 @@
 
 import XCTest
 import MEWwalletKit
-@testable import Wallet
+@testable import Safari_Wallet
 
 class KeychainTests: XCTestCase {
     
