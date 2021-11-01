@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A0E1EBB270687AE00061EA6 /* Wallet Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0A0E1EBA270687AE00061EA6 /* Wallet Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		0A0E1EC5270687AE00061EA6 /* Wallet Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0A0E1EC4270687AE00061EA6 /* Wallet Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0A0E1EBB270687AE00061EA6 /* Safari Wallet Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0A0E1EBA270687AE00061EA6 /* Safari Wallet Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0A0E1EC5270687AE00061EA6 /* Safari Wallet Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0A0E1EC4270687AE00061EA6 /* Safari Wallet Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0A0E1ECB270687AE00061EA6 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 0A0E1E86270687AA00061EA6 /* Main.html */; };
 		0A0E1ECC270687AE00061EA6 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 0A0E1E86270687AA00061EA6 /* Main.html */; };
 		0A0E1ECD270687AE00061EA6 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A0E1E88270687AA00061EA6 /* Icon.png */; };
@@ -230,7 +230,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				0A0E1EBB270687AE00061EA6 /* Wallet Extension.appex in Embed App Extensions */,
+				0A0E1EBB270687AE00061EA6 /* Safari Wallet Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,7 +241,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				0A0E1EC5270687AE00061EA6 /* Wallet Extension.appex in Embed App Extensions */,
+				0A0E1EC5270687AE00061EA6 /* Safari Wallet Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,15 +263,15 @@
 		0A0E1E95270687AE00061EA6 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
 		0A0E1E96270687AE00061EA6 /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
 		0A0E1E97270687AE00061EA6 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
-		0A0E1E9C270687AE00061EA6 /* Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A0E1E9C270687AE00061EA6 /* Safari Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Safari Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A0E1EA9270687AE00061EA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A0E1EAE270687AE00061EA6 /* Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A0E1EAE270687AE00061EA6 /* Safari Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Safari Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A0E1EB0270687AE00061EA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A0E1EB3270687AE00061EA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0A0E1EB5270687AE00061EA6 /* Wallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wallet.entitlements; sourceTree = "<group>"; };
-		0A0E1EBA270687AE00061EA6 /* Wallet Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Wallet Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A0E1EBA270687AE00061EA6 /* Safari Wallet Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Safari Wallet Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A0E1EBF270687AE00061EA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0A0E1EC4270687AE00061EA6 /* Wallet Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Wallet Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A0E1EC4270687AE00061EA6 /* Safari Wallet Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Safari Wallet Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A0E1EC9270687AE00061EA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A0E1ECA270687AE00061EA6 /* Wallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wallet.entitlements; sourceTree = "<group>"; };
 		0A8BB793272E719800DFC647 /* TransactionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewModel.swift; sourceTree = "<group>"; };
@@ -455,10 +455,10 @@
 		0A0E1E9D270687AE00061EA6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0A0E1E9C270687AE00061EA6 /* Wallet.app */,
-				0A0E1EAE270687AE00061EA6 /* Wallet.app */,
-				0A0E1EBA270687AE00061EA6 /* Wallet Extension.appex */,
-				0A0E1EC4270687AE00061EA6 /* Wallet Extension.appex */,
+				0A0E1E9C270687AE00061EA6 /* Safari Wallet.app */,
+				0A0E1EAE270687AE00061EA6 /* Safari Wallet.app */,
+				0A0E1EBA270687AE00061EA6 /* Safari Wallet Extension.appex */,
+				0A0E1EC4270687AE00061EA6 /* Safari Wallet Extension.appex */,
 				F8ABEFD127141581007F7D11 /* WalletTests.xctest */,
 			);
 			name = Products;
@@ -706,7 +706,7 @@
 				0A8BB79E272F55F600DFC647 /* Alamofire */,
 			);
 			productName = "Wallet (iOS)";
-			productReference = 0A0E1E9C270687AE00061EA6 /* Wallet.app */;
+			productReference = 0A0E1E9C270687AE00061EA6 /* Safari Wallet.app */;
 			productType = "com.apple.product-type.application";
 		};
 		0A0E1EAD270687AE00061EA6 /* Wallet (macOS) */ = {
@@ -727,7 +727,7 @@
 			packageProductDependencies = (
 			);
 			productName = "Wallet (macOS)";
-			productReference = 0A0E1EAE270687AE00061EA6 /* Wallet.app */;
+			productReference = 0A0E1EAE270687AE00061EA6 /* Safari Wallet.app */;
 			productType = "com.apple.product-type.application";
 		};
 		0A0E1EB9270687AE00061EA6 /* Wallet Extension (iOS) */ = {
@@ -748,7 +748,7 @@
 				0A8BB7A0272F565500DFC647 /* Alamofire */,
 			);
 			productName = "Wallet Extension (iOS)";
-			productReference = 0A0E1EBA270687AE00061EA6 /* Wallet Extension.appex */;
+			productReference = 0A0E1EBA270687AE00061EA6 /* Safari Wallet Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		0A0E1EC3270687AE00061EA6 /* Wallet Extension (macOS) */ = {
@@ -767,7 +767,7 @@
 			packageProductDependencies = (
 			);
 			productName = "Wallet Extension (macOS)";
-			productReference = 0A0E1EC4270687AE00061EA6 /* Wallet Extension.appex */;
+			productReference = 0A0E1EC4270687AE00061EA6 /* Safari Wallet Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		F8ABEFD027141581007F7D11 /* WalletTests */ = {
@@ -1278,7 +1278,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Wallet Extension (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TPKP4XK352;
+				DEVELOPMENT_TEAM = HHJXTX62XS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Safari Wallet Extension";
@@ -1295,8 +1295,8 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.safari.Wallet.Extension;
-				PRODUCT_NAME = "Wallet Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.safari-wallet.Extension";
+				PRODUCT_NAME = "Safari Wallet Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1311,7 +1311,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Wallet Extension (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TPKP4XK352;
+				DEVELOPMENT_TEAM = HHJXTX62XS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Safari Wallet Extension";
@@ -1328,8 +1328,8 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.safari.Wallet.Extension;
-				PRODUCT_NAME = "Wallet Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.safari-wallet.Extension";
+				PRODUCT_NAME = "Safari Wallet Extension";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1348,7 +1348,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Wallet (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TPKP4XK352;
+				DEVELOPMENT_TEAM = HHJXTX62XS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Safari Wallet";
@@ -1371,8 +1371,8 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.safari.Wallet;
-				PRODUCT_NAME = Wallet;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.safari-wallet";
+				PRODUCT_NAME = "Safari Wallet";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1389,7 +1389,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Wallet (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TPKP4XK352;
+				DEVELOPMENT_TEAM = HHJXTX62XS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Safari Wallet";
@@ -1412,8 +1412,8 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.safari.Wallet;
-				PRODUCT_NAME = Wallet;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.safari-wallet";
+				PRODUCT_NAME = "Safari Wallet";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1429,7 +1429,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TPKP4XK352;
+				DEVELOPMENT_TEAM = HHJXTX62XS;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
@@ -1446,8 +1446,8 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.safari.Wallet.Extension;
-				PRODUCT_NAME = "Wallet Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.safari-wallet.Extension";
+				PRODUCT_NAME = "Safari Wallet Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1462,7 +1462,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TPKP4XK352;
+				DEVELOPMENT_TEAM = HHJXTX62XS;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
@@ -1479,8 +1479,8 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.safari.Wallet.Extension;
-				PRODUCT_NAME = "Wallet Extension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.safari-wallet.Extension";
+				PRODUCT_NAME = "Safari Wallet Extension";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1498,7 +1498,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TPKP4XK352;
+				DEVELOPMENT_TEAM = HHJXTX62XS;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Wallet;
@@ -1514,8 +1514,8 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.safari.Wallet;
-				PRODUCT_NAME = Wallet;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.safari-wallet";
+				PRODUCT_NAME = "Safari Wallet";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1532,7 +1532,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TPKP4XK352;
+				DEVELOPMENT_TEAM = HHJXTX62XS;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = Wallet;
@@ -1548,8 +1548,8 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.safari.Wallet;
-				PRODUCT_NAME = Wallet;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.safari-wallet";
+				PRODUCT_NAME = "Safari Wallet";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1562,7 +1562,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TPKP4XK352;
+				DEVELOPMENT_TEAM = HHJXTX62XS;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1577,7 +1577,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wallet.app/Wallet";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Safari Wallet.app/Safari Wallet";
 			};
 			name = Debug;
 		};
@@ -1587,7 +1587,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TPKP4XK352;
+				DEVELOPMENT_TEAM = HHJXTX62XS;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1602,7 +1602,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wallet.app/Wallet";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Safari Wallet.app/Safari Wallet";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

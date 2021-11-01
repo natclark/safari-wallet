@@ -7,9 +7,9 @@
 
 import Foundation
 
-let KEYCHAIN_GROUP = "com.safari.Wallet"
-let APP_GROUP = "group.com.safari.Wallet"
-let EXTENSION_BUNDLE_IDENTIFIER = "com.safari.Wallet.Extension"
+let KEYCHAIN_GROUP = "com.safari-wallet"
+let APP_GROUP = "group.com.safari-wallet"
+let EXTENSION_BUNDLE_IDENTIFIER = "com.safari-wallet.Extension"
 
 let HDWALLET_FILE_EXTENSION = "wallet"
 let ADDRESS_FILE_EXTENSION = "address"
