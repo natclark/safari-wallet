@@ -31,7 +31,7 @@ struct ContentView: View {
             TabView {
                 ShortcutView()
                     .tabItem { Label("Shortcuts", systemImage: "square.grid.3x2") }
-                TransactionsView()
+                TransactionsView(Transactions: TransactionsViewModel(chain: "1", address: "ric.eth", currency: "USD", symbol: "$"))
                     .tabItem { Label("Transactions", systemImage: "repeat") }
                 #if DEBUG
                 DeveloperView()
