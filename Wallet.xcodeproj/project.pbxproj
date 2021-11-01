@@ -50,6 +50,14 @@
 		4A19E6EA2721D7F90096027F /* JsonRpcResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A19E6E82721D7F90096027F /* JsonRpcResponse.swift */; };
 		4A19E6EC2722546C0096027F /* WalletURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A19E6EB2722546C0096027F /* WalletURLSession.swift */; };
 		4A19E6ED2722546C0096027F /* WalletURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A19E6EB2722546C0096027F /* WalletURLSession.swift */; };
+		4A4BF532272F6FA1000A12DD /* EthereumAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879234E271CCDD700A09228 /* EthereumAddress.swift */; };
+		4A4BF533272F6FA1000A12DD /* EthereumAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879234E271CCDD700A09228 /* EthereumAddress.swift */; };
+		4A4BF534272F6FA2000A12DD /* EthereumAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879234E271CCDD700A09228 /* EthereumAddress.swift */; };
+		4A4BF535272F6FA2000A12DD /* EthereumAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879234E271CCDD700A09228 /* EthereumAddress.swift */; };
+		4A4BF538272F7340000A12DD /* AlchemyClient+GetAssetTransfers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4BF537272F7340000A12DD /* AlchemyClient+GetAssetTransfers.swift */; };
+		4A4BF539272F7340000A12DD /* AlchemyClient+GetAssetTransfers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4BF537272F7340000A12DD /* AlchemyClient+GetAssetTransfers.swift */; };
+		4A4BF53A272F7340000A12DD /* AlchemyClient+GetAssetTransfers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4BF537272F7340000A12DD /* AlchemyClient+GetAssetTransfers.swift */; };
+		4A4BF53B272F7340000A12DD /* AlchemyClient+GetAssetTransfers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4BF537272F7340000A12DD /* AlchemyClient+GetAssetTransfers.swift */; };
 		F80B693C272A63250075AEFC /* Wei.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80B693B272A63250075AEFC /* Wei.swift */; };
 		F80B693D272A63250075AEFC /* Wei.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80B693B272A63250075AEFC /* Wei.swift */; };
 		F80B693E272A63250075AEFC /* Wei.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80B693B272A63250075AEFC /* Wei.swift */; };
@@ -273,6 +281,7 @@
 		4A19E6E52721D7F00096027F /* JsonRpcError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonRpcError.swift; sourceTree = "<group>"; };
 		4A19E6E82721D7F90096027F /* JsonRpcResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonRpcResponse.swift; sourceTree = "<group>"; };
 		4A19E6EB2722546C0096027F /* WalletURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletURLSession.swift; sourceTree = "<group>"; };
+		4A4BF537272F7340000A12DD /* AlchemyClient+GetAssetTransfers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlchemyClient+GetAssetTransfers.swift"; sourceTree = "<group>"; };
 		F80B693B272A63250075AEFC /* Wei.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wei.swift; sourceTree = "<group>"; };
 		F8124BB7271E03DF00F06D5D /* SigningTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningTests.swift; sourceTree = "<group>"; };
 		F8321B5827169A1D00F12938 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -505,6 +514,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		4A4BF536272F72E1000A12DD /* AlchemyClient */ = {
+			isa = PBXGroup;
+			children = (
+				F84E696227262806002EE72F /* AlchemyClient.swift */,
+				4A4BF537272F7340000A12DD /* AlchemyClient+GetAssetTransfers.swift */,
+			);
+			path = AlchemyClient;
+			sourceTree = "<group>";
+		};
 		F8321B57271698EB00F12938 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -524,7 +542,7 @@
 				F84E69762726759B002EE72F /* Models */,
 				F84E696C27266B76002EE72F /* ClientBaseURL.swift */,
 				F84E695C272627DA002EE72F /* Client.swift */,
-				F84E696227262806002EE72F /* AlchemyClient.swift */,
+				4A4BF536272F72E1000A12DD /* AlchemyClient */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -926,6 +944,7 @@
 				F8ABEF47271389F5007F7D11 /* NSFileCoordinator.swift in Sources */,
 				4A19E6DD271DC8450096027F /* JsonRpcClient.swift in Sources */,
 				F8812B522718B92500D1B231 /* Intro3View.swift in Sources */,
+				4A4BF532272F6FA1000A12DD /* EthereumAddress.swift in Sources */,
 				F84E6978272675BE002EE72F /* Web3Extendable.swift in Sources */,
 				F84E697D272675E5002EE72F /* Hextensions.swift in Sources */,
 				F8AD21E6271796CC0059D754 /* RestoreOrCreateWalletView.swift in Sources */,
@@ -940,6 +959,7 @@
 				F8ABEECD27124A8C007F7D11 /* BiometricsAuthentication.swift in Sources */,
 				F8ABEF3227125EFA007F7D11 /* WalletApp.swift in Sources */,
 				F884A424272110580002665D /* Wallet.swift in Sources */,
+				4A4BF538272F7340000A12DD /* AlchemyClient+GetAssetTransfers.swift in Sources */,
 				F8ABEF42271389D9007F7D11 /* URL.swift in Sources */,
 				F8ABEED527124A8C007F7D11 /* SharedDocument.swift in Sources */,
 				F8ABEEDD27124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
@@ -978,6 +998,7 @@
 				F8ABEF48271389F5007F7D11 /* NSFileCoordinator.swift in Sources */,
 				4A19E6DE271DC8500096027F /* JsonRpcClient.swift in Sources */,
 				F8812B532718B92500D1B231 /* Intro3View.swift in Sources */,
+				4A4BF533272F6FA1000A12DD /* EthereumAddress.swift in Sources */,
 				F84E6979272675BE002EE72F /* Web3Extendable.swift in Sources */,
 				F84E697E272675E5002EE72F /* Hextensions.swift in Sources */,
 				F8AD21E7271796CC0059D754 /* RestoreOrCreateWalletView.swift in Sources */,
@@ -992,6 +1013,7 @@
 				F8ABEED227124A8C007F7D11 /* FileObserver.swift in Sources */,
 				F8ABEEDE27124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
 				F884A425272110580002665D /* Wallet.swift in Sources */,
+				4A4BF539272F7340000A12DD /* AlchemyClient+GetAssetTransfers.swift in Sources */,
 				F8ABEF43271389D9007F7D11 /* URL.swift in Sources */,
 				F8ABEED627124A8C007F7D11 /* SharedDocument.swift in Sources */,
 				F8ABEF3627125F16007F7D11 /* ContentView.swift in Sources */,
@@ -1032,6 +1054,7 @@
 				F8C5B00D2723BD7D00B54FBD /* JsonRpcError.swift in Sources */,
 				F8ABEECB27124A8C007F7D11 /* Constants.swift in Sources */,
 				F84E695F272627DA002EE72F /* Client.swift in Sources */,
+				4A4BF534272F6FA2000A12DD /* EthereumAddress.swift in Sources */,
 				F8C5B00A2723BD7800B54FBD /* JsonRpcRequest.swift in Sources */,
 				F84E69742726750E002EE72F /* EthereumBlock.swift in Sources */,
 				F8ABEEDF27124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
@@ -1044,6 +1067,7 @@
 				F8ABEED727124A8C007F7D11 /* SharedDocument.swift in Sources */,
 				F8ABEF49271389F5007F7D11 /* NSFileCoordinator.swift in Sources */,
 				F8C5B00E2723BD8000B54FBD /* JsonRpcResponse.swift in Sources */,
+				4A4BF53A272F7340000A12DD /* AlchemyClient+GetAssetTransfers.swift in Sources */,
 				F8ABEF44271389D9007F7D11 /* URL.swift in Sources */,
 				F84E697F272675E5002EE72F /* Hextensions.swift in Sources */,
 			);
@@ -1066,6 +1090,7 @@
 				F8C5B00C2723BD7D00B54FBD /* JsonRpcError.swift in Sources */,
 				F8ABEECC27124A8C007F7D11 /* Constants.swift in Sources */,
 				F84E6960272627DA002EE72F /* Client.swift in Sources */,
+				4A4BF535272F6FA2000A12DD /* EthereumAddress.swift in Sources */,
 				F8C5B00B2723BD7900B54FBD /* JsonRpcRequest.swift in Sources */,
 				F84E69752726750E002EE72F /* EthereumBlock.swift in Sources */,
 				F8ABEEE027124A8C007F7D11 /* KeychainPasswordItem.swift in Sources */,
@@ -1078,6 +1103,7 @@
 				F8ABEED827124A8C007F7D11 /* SharedDocument.swift in Sources */,
 				F8ABEF4A271389F5007F7D11 /* NSFileCoordinator.swift in Sources */,
 				F8C5B00F2723BD8000B54FBD /* JsonRpcResponse.swift in Sources */,
+				4A4BF53B272F7340000A12DD /* AlchemyClient+GetAssetTransfers.swift in Sources */,
 				F8ABEF45271389D9007F7D11 /* URL.swift in Sources */,
 				F84E6980272675E5002EE72F /* Hextensions.swift in Sources */,
 			);
