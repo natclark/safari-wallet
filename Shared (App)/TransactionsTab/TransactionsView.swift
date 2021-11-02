@@ -36,24 +36,41 @@ struct TransactionsView: View {
 struct TransactionRow: View {
     var tx: Transaction
     var body: some View {
-        VStack {
+        let numberFormatter = NumberFormatter()
+        let wei = numberFormatter.number(from: tx.value!)
+        let eth = wei!.floatValue / pow(10, 18)
+        ScrollView(.vertical, showsIndicators: true) {
             HStack {
-                Text(tx.from_address!)
-                    .lineLimit(1)
-                    .truncationMode(.middle)
+                Image(uiImage: UIImage(named: "C5B03133-CA85-405F-A41C-57DE52803FC2.png") ?? .init())
+                    .renderingMode(.original)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 40)
+                    .clipped()
+                    .padding(.leading)
                 if tx.to_address != nil {
-                    Image(systemName: "arrow.right")
-                        .foregroundColor(.blue)
-                    Text(tx.to_address!)
-                        .lineLimit(1)
-                        .truncationMode(.middle)
+                    VStack(alignment: .leading) {
+                        Text("Sent ETH to")
+                            .multilineTextAlignment(.leading)
+                            .font(Font.system(.headline, design: .rounded))
+                        Text(tx.to_address!)
+                            .font(Font.system(.subheadline, design: .monospaced))
+                            .frame()
+                            .clipped()
+                    }
                 }
+                Spacer()
+                VStack(alignment: .trailing) {
+                    Text("\(eth.description) ETH")
+                        .font(Font.system(.headline, design: .monospaced))
+                    Text("$\(tx.value_quote!)")
+                        .font(Font.system(.subheadline, design: .monospaced))
+                }
+                .padding()
             }
-            .padding(.vertical)
-            Text("$\(tx.value_quote!)") // TOOD - interlopate symbol variable
-                .font(.system(size: 24.0, weight: .bold, design: .rounded))
         }
-        .padding(.vertical)
+        .frame()
+        .clipped()
     }
 }
 
