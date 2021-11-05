@@ -51,6 +51,29 @@ struct DeveloperView: View {
                     }
                 }
             }
+           
+           Button("Call alchemy_getAssetTransfers") {
+              Task {
+                 do {
+                    let client = AlchemyClient()!
+                    //Calls the function using the parameters in Alchemy's example
+                    //https://docs.alchemy.com/alchemy/documentation/enhanced-apis/transfers-api
+                    let transfers = try await client.getAlchemyAssetTransfers(fromBlock: EthereumBlock(rawValue: "A97AB8"),
+                                                                              toBlock: EthereumBlock(rawValue: "A97CAC"),
+                                                                              fromAddress: EthereumAddress(address: "3f5CE5FBFe3E9af3971dD833D26bA9b5C936f0bE",
+                                                                                                           walletName: ""),
+                                                                              contractAddresses: [
+                                                                                 EthereumAddress(address: "7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9",
+                                                                                                 walletName: "")
+                                                                              ],
+                                                                              excludeZeroValue: true,
+                                                                              maxCount: 5)
+                    print(transfers)
+                 } catch {
+                    print(error)
+                 }
+              }
+           }
             
             Button("Create a new wallet") {
                 isOnBoardingPresented = true
