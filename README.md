@@ -1,5 +1,10 @@
 # Safari Wallet
 
+**For modularity purposes, this project has been split up into two new repositories:**
+
+- Core: [https://github.com/Safari-Wallet/core](https://github.com/Safari-Wallet/core)
+- UI: [https://github.com/Safari-Wallet/ui](https://github.com/Safari-Wallet/ui)
+
 This is an experiment to see whether we can build a viable browser extension Ethereum wallet for Safari on macOS and especially iOS.
 
 ## Overview
